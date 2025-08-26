@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title id="html-title">学习法语：商店购物 (Apprendre le français : Faire les courses)</title>
+    <!-- 引入Tailwind CSS框架 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Google字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background-color: #f0f4f8; /* 淡雅的背景色 */
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            background-color: #3b82f6; /* 蓝色 */
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .quiz-option:hover {
+            background-color: #eff6ff; /* 浅蓝色 */
+        }
+        .quiz-option.selected {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        .quiz-option.correct {
+            background-color: #22c55e; /* 绿色 */
+            color: white;
+            border-color: #22c55e;
+        }
+        .quiz-option.incorrect {
+            background-color: #ef4444; /* 红色 */
+            color: white;
+            border-color: #ef4444;
+        }
+        .tooltip-trigger {
+            cursor: pointer;
+            color: #dc2626; /* 红色 */
+            font-weight: 600;
+            border-bottom: 2px dotted #fca5a5;
+            transition: color 0.2s;
+        }
+        .tooltip-trigger:hover {
+            color: #b91c1c;
+        }
+        /* 更新：语言切换按钮样式 */
+        .lang-btn {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #374151; /* gray-700 */
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            border: none;
+            cursor: pointer;
+        }
+        .lang-btn:hover {
+            background-color: #d1d5db; /* gray-300 */
+        }
+        .lang-btn.active {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- 页面容器 -->
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <!-- 标题区域 -->
+        <header class="text-center mb-4">
+            <h1 id="main-title" class="text-3xl md:text-4xl font-bold text-blue-600">学习法语：认识各种商店</h1>
+            <p class="text-lg text-gray-600 mt-2">Apprendre le français : Les types de magasins</p>
+        </header>
+
+        <!-- 语言切换 -->
+        <div id="lang-switcher" class="flex justify-center items-center space-x-2 md:space-x-4 mb-8">
+            <button class="lang-btn active" onclick="changeLanguage('zh')">中文</button>
+            <button class="lang-btn" onclick="changeLanguage('en')">English</button>
+            <button class="lang-btn" onclick="changeLanguage('es')">Español</button>
+        </div>
+
+        <!-- 导航选项卡 -->
+        <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 bg-gray-100 p-2 rounded-full">
+            <button id="tab-shops" class="tab-button active px-4 py-2 rounded-full font-semibold" onclick="showTab('shops')">商店类型</button>
+            <button id="tab-quiz" class="tab-button px-4 py-2 rounded-full font-semibold" onclick="showTab('quiz')">词汇测验</button>
+            <button id="tab-templates" class="tab-button px-4 py-2 rounded-full font-semibold" onclick="showTab('dialogues')">实用模板</button>
+        </div>
+
+        <!-- 内容区域 -->
+        <main>
+            <!-- 商店类型板块 -->
+            <div id="shops" class="tab-content active space-y-8"></div>
+            <!-- 词汇测验板块 -->
+            <div id="quiz" class="tab-content">
+                <div class="card p-6 md:p-8">
+                    <h2 id="quiz-title" class="text-2xl font-bold mb-6 text-gray-700">商店词汇测验</h2>
+                    <div id="quiz-container" class="space-y-6"></div>
+                    <div class="mt-8 text-center">
+                        <button id="submit-quiz" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-700 transition-colors">提交答案</button>
+                        <button id="reset-quiz" class="ml-4 bg-gray-500 text-white font-bold py-2 px-6 rounded-full hover:bg-gray-600 transition-colors">再试一次</button>
+                        <button id="change-quiz" class="ml-4 bg-green-600 text-white font-bold py-2 px-6 rounded-full hover:bg-green-700 transition-colors mt-2 md:mt-0">换一套题</button>
+                    </div>
+                    <div id="quiz-results" class="mt-6 text-center text-xl font-semibold"></div>
+                </div>
+            </div>
+            <!-- 实用模板板块 -->
+            <div id="dialogues" class="tab-content"></div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="text-center mt-12 text-gray-500">
+            <p id="footer-text">&copy; 2025 Hugo 版权所有</p>
+        </footer>
+    </div>
+
+    <!-- 提示弹窗HTML结构 -->
+    <div id="note-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-sm w-full relative">
+            <button id="close-modal" class="absolute top-2 right-3 text-2xl text-gray-500 hover:text-gray-800 transition-colors">&times;</button>
+            <p id="modal-text" class="text-gray-700 leading-relaxed"></p>
+        </div>
+    </div>
+
+    <script>
+        // --- 全局变量 ---
+        let currentLanguage = 'zh';
+        let currentQuizSetIndex = 0;
+        let userAnswers = {};
+
+        // --- 元素获取 ---
+        const shopsContainer = document.getElementById('shops');
+        const quizContainer = document.getElementById('quiz-container');
+        const submitButton = document.getElementById('submit-quiz');
+        const resetButton = document.getElementById('reset-quiz');
+        const changeQuizButton = document.getElementById('change-quiz');
+        const resultsContainer = document.getElementById('quiz-results');
+        const modal = document.getElementById('note-modal');
+        const modalText = document.getElementById('modal-text');
+        const closeModalBtn = document.getElementById('close-modal');
+        const templatesContainer = document.getElementById('dialogues');
+
+        // --- 翻译数据 ---
+        const translations = {
+            zh: {
+                htmlTitle: "学习法语：商店购物", mainTitle: "学习法语：认识各种商店", tabShops: "商店类型", tabQuiz: "词汇测验", tabTemplates: "实用模板", quizTitle: "商店词汇测验", submitQuiz: "提交答案", resetQuiz: "再试一次", changeQuiz: "换一套题", footerText: "© 2025 Hugo 版权所有", quizResultText: (score, total) => `你答对了 ${score} / ${total} 题！`, quizCompleteText: "🎉 太棒了！"
+            },
+            en: {
+                htmlTitle: "Learn French: Shopping", mainTitle: "Learn French: Discovering Shops", tabShops: "Shop Types", tabQuiz: "Vocabulary Quiz", tabTemplates: "Useful Templates", quizTitle: "Shop Vocabulary Quiz", submitQuiz: "Submit Answers", resetQuiz: "Try Again", changeQuiz: "New Set", footerText: "© 2025 Hugo. All rights reserved.", quizResultText: (score, total) => `You got ${score} / ${total} correct!`, quizCompleteText: "🎉 Well done!"
+            },
+            es: {
+                htmlTitle: "Aprende Francés: De Compras", mainTitle: "Aprende Francés: Descubriendo Tiendas", tabShops: "Tipos de Tiendas", tabQuiz: "Prueba de Vocabulario", tabTemplates: "Plantillas Útiles", quizTitle: "Prueba de Vocabulario de Tiendas", submitQuiz: "Enviar Respuestas", resetQuiz: "Intentar de Nuevo", changeQuiz: "Nuevo Set", footerText: "© 2025 Hugo. Todos los derechos reservados.", quizResultText: (score, total) => `¡Acertaste ${score} de ${total}!`, quizCompleteText: "🎉 ¡Excelente!"
+            }
+        };
+
+        // --- 动态内容数据 (完整版) ---
+        const shopData = [
+            {
+                category: { zh: "一、 食品与饮品", en: "1. Food & Drinks", es: "1. Alimentos y Bebidas" },
+                items: [
+                    { fr: "à la Boulangerie (f.) / chez le boulanger", translations: { zh: "面包店", en: "Bakery", es: "Panadería" } },
+                    { fr: "à la Pâtisserie (f.) / chez le pâtissier", translations: { zh: "糕点店", en: "Pastry shop", es: "Pastelería" } },
+                    { fr: "à la Boucherie (f.) / chez le boucher", translations: { zh: "生肉店", en: "Butcher's shop", es: "Carnicería" } },
+                    { fr: "à la Charcuterie (f.) / chez le charcutier", translations: { zh: "熟食店", en: "Delicatessen", es: "Charcutería" } },
+                    { fr: "à la Poissonnerie (f.) / chez le poissonnier", translations: { zh: "鱼店", en: "Fishmonger's", es: "Pescadería" } },
+                    { fr: "à la Fromagerie (f.) / chez le fromager", translations: { zh: "奶酪店", en: "Cheese shop", es: "Quesería" } },
+                    { fr: "à l'Épicerie (f.) / chez l'épicier", translations: { zh: "杂货店", en: "Grocery store", es: "Tienda de abarrotes" } },
+                    { fr: "chez le Primeur (m.)", translations: { zh: "蔬果店", en: "Greengrocer's", es: "Frutería/Verdulería" }, note: { zh: "较书面, 日常用 magasin de fruits et légumes 或 au marché", en: "More formal, 'magasin de fruits et légumes' or 'au marché' is common.", es: "Más formal, 'magasin de fruits et légumes' o 'au marché' es común." } },
+                    { fr: "à la Cave à vin (f.) / chez le caviste", translations: { zh: "葡萄酒专卖店", en: "Wine shop", es: "Vinoteca" } },
+                    { fr: "à la Chocolaterie (f.) / chez le chocolatier", translations: { zh: "巧克力店", en: "Chocolate shop", es: "Chocolatería" } },
+                    { fr: "chez le Glacier (m.)", translations: { zh: "冰淇淋店", en: "Ice cream parlor", es: "Heladería" } },
+                    { fr: "chez le Traiteur (m.)", translations: { zh: "熟食外卖店", en: "Caterer/Take-out", es: "Tienda de comida para llevar" } }
+                ]
+            },
+            {
+                category: { zh: "二、 大型及综合商店", en: "2. Department & General Stores", es: "2. Grandes Almacenes y Tiendas Generales" },
+                items: [
+                    { fr: "au Supermarché (m.)", translations: { zh: "超市", en: "Supermarket", es: "Supermercado" } },
+                    { fr: "à l'Hypermarché (m.)", translations: { zh: "大型超市", en: "Hypermarket", es: "Hipermercado" } },
+                    { fr: "au Grand magasin (m.)", translations: { zh: "百货公司", en: "Department store", es: "Gran almacén" } },
+                    { fr: "au Marché (m.)", translations: { zh: "露天市场", en: "Market", es: "Mercado" } }
+                ]
+            },
+            {
+                category: { zh: "三、 服装与时尚", en: "3. Clothing & Fashion", es: "3. Ropa y Moda" },
+                items: [
+                    { fr: "au Magasin de vêtements (m.)", translations: { zh: "服装店", en: "Clothing store", es: "Tienda de ropa" } },
+                    { fr: "à la Boutique (f.)", translations: { zh: "精品店", en: "Boutique", es: "Boutique" } },
+                    { fr: "au Magasin de chaussures (m.)", translations: { zh: "鞋店", en: "Shoe store", es: "Zapatería" } },
+                    { fr: "à la Bijouterie (f.) / chez le bijoutier", translations: { zh: "珠宝店", en: "Jewelry store", es: "Joyería" } },
+                    { fr: "à la Maroquinerie (f.)", translations: { zh: "皮具店", en: "Leather goods store", es: "Marroquinería" } },
+                    { fr: "à la Friperie (f.)", translations: { zh: "二手服装店", en: "Second-hand clothing store", es: "Tienda de segunda mano" }, note: { zh: "偏复古风, 也可说 magasin de vêtements d'occasion", en: "Has a vintage feel, also called 'magasin de vêtements d'occasion'.", es: "Tiene un aire vintage, también llamado 'magasin de vêtements d'occasion'." } }
+                ]
+            },
+            {
+                category: { zh: "四、 健康与美容", en: "4. Health & Beauty", es: "4. Salud y Belleza" },
+                items: [
+                    { fr: "à la Pharmacie (f.) / chez le pharmacien", translations: { zh: "药店", en: "Pharmacy", es: "Farmacia" } },
+                    { fr: "à la Parapharmacie (f.)", translations: { zh: "药妆店", en: "Parapharmacy (non-prescription)", es: "Parafarmacia" } },
+                    { fr: "à la Parfumerie (f.)", translations: { zh: "香水店", en: "Perfumery", es: "Perfumería" } },
+                    { fr: "au Salon de coiffure (m.) / chez le coiffeur", translations: { zh: "理发店", en: "Hair salon", es: "Peluquería" } }
+                ]
+            },
+            {
+                category: { zh: "五、 家居与园艺", en: "5. Home & Garden", es: "5. Hogar y Jardín" },
+                items: [
+                    { fr: "au Magasin de meubles (m.)", translations: { zh: "家具店", en: "Furniture store", es: "Tienda de muebles" } },
+                    { fr: "à la Droguerie (f.)", translations: { zh: "日化用品店", en: "Drugstore (household items)", es: "Droguería" }, note: { zh: "旧式, 较少见, 注意与 drogue '毒品' 区分", en: "Old-fashioned, less common. Not to be confused with 'drogue' (drugs).", es: "Anticuado, menos común. No confundir con 'drogue' (drogas)." } },
+                    { fr: "à la Quincaillerie (f.) / chez le quincaillier", translations: { zh: "五金店", en: "Hardware store", es: "Ferretería" } },
+                    { fr: "chez le Fleuriste (m./f.)", translations: { zh: "花店", en: "Florist's", es: "Floristería" } }
+                ]
+            },
+            {
+                category: { zh: "六、 书籍、文具与媒体", en: "6. Books, Stationery & Media", es: "6. Libros, Papelería y Medios" },
+                items: [
+                    { fr: "à la Librairie (f.) / chez le libraire", translations: { zh: "书店", en: "Bookshop", es: "Librería" } },
+                    { fr: "à la Papeterie (f.)", translations: { zh: "文具店", en: "Stationery shop", es: "Papelería" } },
+                    { fr: "à la Maison de la presse (f.)", translations: { zh: "报刊亭", en: "Newsstand", es: "Quiosco de prensa" } },
+                    { fr: "chez le Disquaire (m.)", translations: { zh: "唱片店", en: "Record store", es: "Tienda de discos" } }
+                ]
+            },
+            {
+                category: { zh: "七、 专业店与服务", en: "7. Specialty Shops & Services", es: "7. Tiendas Especializadas y Servicios" },
+                items: [
+                    { fr: "au Tabac (m.) / chez le buraliste", translations: { zh: "烟草店", en: "Tobacconist's", es: "Estanco" } },
+                    { fr: "au Magasin de jouets (m.)", translations: { zh: "玩具店", en: "Toy store", es: "Juguetería" } },
+                    { fr: "chez l'Opticien (m.)", translations: { zh: "眼镜店", en: "Optician's", es: "Óptica" } },
+                    { fr: "au Pressing (m.)", translations: { zh: "干洗店", en: "Dry cleaner's", es: "Tintorería" } },
+                    { fr: "à la Banque (f.)", translations: { zh: "银行", en: "Bank", es: "Banco" } },
+                    { fr: "au Bureau de poste (m.) / à la Poste", translations: { zh: "邮局", en: "Post office", es: "Oficina de correos" } }
+                ]
+            }
+        ];
+        
+        const allQuizData = [
+            [
+                { question: { zh: "售卖新鲜海鲜、鱼类的商店叫什么？", en: "What is a shop that sells fresh seafood and fish called?", es: "¿Cómo se llama una tienda que vende mariscos y pescado frescos?" }, options: ["Boucherie", "Poissonnerie", "Fromagerie", "Charcuterie"], answer: "Poissonnerie" },
+                { question: { zh: "'Librairie (f.)' 是指什么类型的商店？", en: "What type of shop is a 'Librairie (f.)'?", es: "¿Qué tipo de tienda es una 'Librairie (f.)'?" }, options: { zh: ["图书馆", "文具店", "书店", "报刊亭"], en: ["Library", "Stationery shop", "Bookshop", "Newsstand"], es: ["Biblioteca", "Papelería", "Librería", "Quiosco"] }, answer: "Bookshop", answer_es: "Librería", answer_zh: "书店" },
+                { question: { zh: "在法国买到处方药应该去哪里？", en: "Where should you go in France to buy prescription medicine?", es: "¿A dónde deberías ir en Francia para comprar medicamentos con receta?" }, options: ["Parapharmacie", "Supermarché", "Droguerie", "Pharmacie"], answer: "Pharmacie" },
+                { question: { zh: "去理发店，我们可以说去 'chez le ...'？", en: "To go to the hair salon, we can say we're going to 'chez le ...'?", es: "Para ir a la peluquería, ¿podemos decir que vamos a 'chez le ...'?" }, options: ["boulanger", "coiffeur", "pharmacien", "fleuriste"], answer: "coiffeur" },
+                { question: { zh: "买卖二手衣服的商店叫什么？", en: "What is a shop that sells second-hand clothes called?", es: "¿Cómo se llama una tienda que vende ropa de segunda mano?" }, options: ["Boutique", "Magasin de vêtements", "Friperie", "Lingerie"], answer: "Friperie" }
+            ],
+            [
+                { question: { zh: "售卖火腿、香肠的 'Charcuterie' 是指？", en: "What does 'Charcuterie', which sells ham and sausages, refer to?", es: "¿A qué se refiere 'Charcuterie', que vende jamón y salchichas?" }, options: { zh: ["生肉店", "熟食店", "鱼店", "奶酪店"], en: ["Butcher's", "Delicatessen", "Fishmonger's", "Cheese shop"], es: ["Carnicería", "Charcutería", "Pescadería", "Quesería"] }, answer: "Delicatessen", answer_es: "Charcutería", answer_zh: "熟食店" },
+                { question: { zh: "去 'chez le fleuriste' 是为了买什么？", en: "What do you buy at 'chez le fleuriste'?", es: "¿Qué compras en 'chez le fleuriste'?" }, options: { zh: ["家具", "鲜花", "书籍", "药品"], en: ["Furniture", "Flowers", "Books", "Medicine"], es: ["Muebles", "Flores", "Libros", "Medicinas"] }, answer: "Flowers", answer_es: "Flores", answer_zh: "鲜花" },
+                { question: { zh: "'Hypermarché' 和 'Supermarché' 相比，哪个通常更大？", en: "Compared to a 'Supermarché', which one is usually bigger?", es: "En comparación con un 'Supermarché', ¿cuál es generalmente más grande?" }, options: ["Hypermarché", "Supermarché", "Same size", "Not sure"], answer: "Hypermarché" },
+                { question: { zh: "买报纸杂志，你应该去哪里？", en: "Where should you go to buy newspapers and magazines?", es: "¿A dónde deberías ir para comprar periódicos y revistas?" }, options: ["Librairie", "Papeterie", "Maison de la presse", "Disquaire"], answer: "Maison de la presse" },
+                { question: { zh: "售卖皮包、皮带的商店是？", en: "A shop that sells leather bags and belts is a?", es: "¿Una tienda que vende bolsos y cinturones de cuero es una?" }, options: ["Bijouterie", "Maroquinerie", "Chapellerie", "Lingerie"], answer: "Maroquinerie" }
+            ],
+            [
+                { question: { zh: "去 'chez l'opticien' 是为了？", en: "You go to 'chez l'opticien' to...?", es: "¿Vas a 'chez l'opticien' para...?" }, options: { zh: ["买玩具", "修鞋", "配眼镜", "买药"], en: ["Buy toys", "Repair shoes", "Get glasses", "Buy medicine"], es: ["Comprar juguetes", "Reparar zapatos", "Comprar gafas", "Comprar medicinas"] }, answer: "Get glasses", answer_es: "Comprar gafas", answer_zh: "配眼镜" },
+                { question: { zh: "哪个词通常指小而时尚的店铺？", en: "Which word usually refers to a small, fashionable shop?", es: "¿Qué palabra se refiere generalmente a una tienda pequeña y de moda?" }, options: ["Grand magasin", "Supermarché", "Boutique", "Hypermarché"], answer: "Boutique" },
+                { question: { zh: "售卖邮票和彩票的地方通常是？", en: "A place that sells stamps and lottery tickets is usually a?", es: "¿Un lugar que vende sellos y billetes de lotería es generalmente un?" }, options: ["Banque", "Poste", "Tabac", "Agence de voyages"], answer: "Tabac" },
+                { question: { zh: "送衣服去干洗，应该找？", en: "To get clothes dry-cleaned, you should look for a?", es: "Para llevar la ropa a la tintorería, ¿deberías buscar un?" }, options: ["Cordonnerie", "Serrurerie", "Pressing", "Teinturerie"], answer: "Pressing" },
+                { question: { zh: "'Pâtisserie' 主要售卖什么？", en: "What does a 'Pâtisserie' mainly sell?", es: "¿Qué vende principalmente una 'Pâtisserie'?" }, options: { zh: ["法棍面包", "精致糕点", "海鲜", "奶酪"], en: ["Baguettes", "Fine pastries", "Seafood", "Cheese"], es: ["Baguettes", "Pasteles finos", "Mariscos", "Queso"] }, answer: "Fine pastries", answer_es: "Pasteles finos", answer_zh: "精致糕点" }
+            ]
+        ];
+        
+        const templateData = [
+            {
+                title: { zh: "模板一：问候与表达需求", en: "Template 1: Greeting & Stating Needs", es: "Plantilla 1: Saludar y Expresar Necesidades" },
+                lines: [
+                    { fr: "Bonjour / Bonsoir, Monsieur / Madame.", trans: { zh: "你好 / 晚上好，先生 / 女士。", en: "Hello / Good evening, Sir / Madam.", es: "Buenos días / Buenas tardes, Señor / Señora." } },
+                    { fr: "Je cherche...", trans: { zh: "我在找…… (用于寻找特定物品)", en: "I am looking for... (for a specific item)", es: "Estoy buscando... (para un artículo específico)" } },
+                    { fr: "Je voudrais...", trans: { zh: "我想要…… (用于提出请求)", en: "I would like... (to ask for something)", es: "Quisiera... (para pedir algo)" } },
+                    { fr: "Je regarde juste, merci.", trans: { zh: "我只是随便看看，谢谢。", en: "I'm just looking, thank you.", es: "Solo estoy mirando, gracias." } }
+                ]
+            },
+            {
+                title: { zh: "模板二：询问信息", en: "Template 2: Asking for Information", es: "Plantilla 2: Pedir Información" },
+                lines: [
+                    { fr: "Combien ça coûte ? / C'est combien ?", trans: { zh: "这个多少钱？", en: "How much does this cost?", es: "¿Cuánto cuesta esto?" } },
+                    { fr: "Vous avez la taille au-dessus / en-dessous ?", trans: { zh: "您有大一号/小一号的吗？", en: "Do you have a size up / down?", es: "¿Tiene una talla más grande / más pequeña?" } },
+                    { fr: "Vous avez d'autres couleurs ?", trans: { zh: "您有其他颜色吗？", en: "Do you have other colors?", es: "¿Tiene otros colores?" } },
+                    { fr: "Est-ce que je peux essayer ?", trans: { zh: "我可以试一下吗？", en: "Can I try it on?", es: "¿Puedo probármelo?" } }
+                ]
+            },
+            {
+                title: { zh: "模板三：做出决定", en: "Template 3: Making a Decision", es: "Plantilla 3: Tomar una Decisión" },
+                lines: [
+                    { fr: "Je le / la prends.", trans: { zh: "好的，我要了。", en: "I'll take it.", es: "Me lo/la llevo." } },
+                    { fr: "Je vais réfléchir, merci.", trans: { zh: "我再考虑一下，谢谢。", en: "I'll think about it, thank you.", es: "Lo pensaré, gracias." } },
+                    { fr: "Non, merci, ça n'ira pas.", trans: { zh: "不了，谢谢，这个不合适。", en: "No, thank you, it won't work.", es: "No, gracias, no me sirve." } }
+                ]
+            },
+            {
+                title: { zh: "模板四：支付", en: "Template 4: Payment", es: "Plantilla 4: Pago" },
+                lines: [
+                    { fr: "Je peux payer par carte (bancaire) ?", trans: { zh: "我可以刷卡吗？", en: "Can I pay by card?", es: "¿Puedo pagar con tarjeta?" } },
+                    { fr: "Je vais payer en espèces.", trans: { zh: "我用现金支付。", en: "I'll pay in cash.", es: "Pagaré en efectivo." } },
+                    { fr: "Ce sera tout, merci.", trans: { zh: "就这些，谢谢。", en: "That will be all, thank you.", es: "Eso es todo, gracias." } }
+                ]
+            },
+            {
+                title: { zh: "模板五：告别", en: "Template 5: Saying Goodbye", es: "Plantilla 5: Despedirse" },
+                lines: [
+                    { fr: "Merci, au revoir.", trans: { zh: "谢谢，再见。", en: "Thank you, goodbye.", es: "Gracias, adiós." } },
+                    { fr: "Merci, bonne journée / bonne soirée.", trans: { zh: "谢谢，祝您有愉快的一天/晚上。", en: "Thank you, have a good day / evening.", es: "Gracias, que tenga un buen día / una buena tarde." } }
+                ]
+            }
+        ];
+
+        // --- 核心功能函数 ---
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            document.documentElement.lang = lang;
+            document.getElementById('html-title').textContent = translations[lang].htmlTitle;
+            document.getElementById('main-title').textContent = translations[lang].mainTitle;
+            document.getElementById('tab-shops').textContent = translations[lang].tabShops;
+            document.getElementById('tab-quiz').textContent = translations[lang].tabQuiz;
+            document.getElementById('tab-templates').textContent = translations[lang].tabTemplates;
+            document.getElementById('quiz-title').textContent = translations[lang].quizTitle;
+            document.getElementById('submit-quiz').textContent = translations[lang].submitQuiz;
+            document.getElementById('reset-quiz').textContent = translations[lang].resetQuiz;
+            document.getElementById('change-quiz').textContent = translations[lang].changeQuiz;
+            document.getElementById('footer-text').innerHTML = translations[lang].footerText;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.lang-btn[onclick="changeLanguage('${lang}')"]`).classList.add('active');
+            loadShops();
+            loadQuiz();
+            loadTemplates();
+        }
+
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+
+        function loadShops() {
+            shopsContainer.innerHTML = '';
+            shopData.forEach(categoryData => {
+                const card = document.createElement('div');
+                card.className = 'card p-6 md:p-8';
+                const title = document.createElement('h2');
+                title.className = 'text-xl md:text-2xl font-bold mb-6 text-gray-700';
+                title.textContent = categoryData.category[currentLanguage];
+                card.appendChild(title);
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4';
+                categoryData.items.forEach(item => {
+                    const p = document.createElement('p');
+                    const translationText = item.translations[currentLanguage];
+                    if (item.note && item.note[currentLanguage]) {
+                        p.innerHTML = `<span class="tooltip-trigger" data-note="${item.note[currentLanguage]}">${item.fr}</span> - ${translationText}`;
+                    } else {
+                        p.innerHTML = `<strong class="text-blue-600">${item.fr}</strong> - ${translationText}`;
+                    }
+                    grid.appendChild(p);
+                });
+                card.appendChild(grid);
+                shopsContainer.appendChild(card);
+            });
+        }
+
+        function loadQuiz() {
+            const quizData = allQuizData[currentQuizSetIndex];
+            quizContainer.innerHTML = '';
+            resultsContainer.innerHTML = '';
+            userAnswers = {};
+            submitButton.style.display = 'inline-block';
+            quizData.forEach((quizItem, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.className = 'question-block';
+                const questionText = document.createElement('p');
+                questionText.className = 'font-semibold mb-3';
+                questionText.textContent = `${index + 1}. ${quizItem.question[currentLanguage]}`;
+                questionElement.appendChild(questionText);
+                const optionsContainer = document.createElement('div');
+                optionsContainer.className = 'space-y-2';
+                let options = quizItem.options[currentLanguage] || quizItem.options;
+                options.forEach(option => {
+                    const optionButton = document.createElement('button');
+                    optionButton.className = 'quiz-option block w-full text-left p-3 border rounded-lg transition-colors';
+                    optionButton.textContent = option;
+                    optionButton.onclick = () => selectOption(index, option, optionButton);
+                    optionsContainer.appendChild(optionButton);
+                });
+                questionElement.appendChild(optionsContainer);
+                quizContainer.appendChild(questionElement);
+            });
+        }
+        
+        function loadTemplates() {
+            templatesContainer.innerHTML = '<div class="space-y-8"></div>';
+            const container = templatesContainer.querySelector('.space-y-8');
+            templateData.forEach(template => {
+                const card = document.createElement('div');
+                card.className = 'card p-6 md:p-8';
+                const title = document.createElement('h3');
+                title.className = 'text-xl font-bold mb-4 text-blue-600';
+                title.textContent = template.title[currentLanguage];
+                card.appendChild(title);
+                const content = document.createElement('div');
+                content.className = 'space-y-4';
+                template.lines.forEach(line => {
+                    const p = document.createElement('p');
+                    p.innerHTML = `<strong class="text-gray-800">${line.fr}</strong> - ${line.trans[currentLanguage]}`;
+                    content.appendChild(p);
+                });
+                card.appendChild(content);
+                container.appendChild(card);
+            });
+        }
+
+        function selectOption(questionIndex, option, buttonElement) {
+            userAnswers[questionIndex] = option;
+            const parent = buttonElement.parentElement;
+            parent.querySelectorAll('.quiz-option').forEach(btn => btn.classList.remove('selected'));
+            buttonElement.classList.add('selected');
+        }
+
+        submitButton.addEventListener('click', () => {
+            let score = 0;
+            const quizData = allQuizData[currentQuizSetIndex];
+            const questionBlocks = document.querySelectorAll('.question-block');
+            quizData.forEach((quizItem, index) => {
+                const options = questionBlocks[index].querySelectorAll('.quiz-option');
+                const correctAnswer = quizItem[`answer_${currentLanguage}`] || quizItem.answer;
+                options.forEach(optionButton => {
+                    optionButton.disabled = true;
+                    if (optionButton.textContent === correctAnswer) {
+                        optionButton.classList.add('correct');
+                    }
+                    if (optionButton.classList.contains('selected') && optionButton.textContent !== correctAnswer) {
+                         optionButton.classList.add('incorrect');
+                    }
+                });
+                if (userAnswers[index] === correctAnswer) {
+                    score++;
+                }
+            });
+            resultsContainer.textContent = translations[currentLanguage].quizResultText(score, quizData.length);
+            if (score === quizData.length) {
+                resultsContainer.textContent += " " + translations[currentLanguage].quizCompleteText;
+                resultsContainer.style.color = '#22c55e';
+            } else {
+                 resultsContainer.style.color = '#3b82f6';
+            }
+            submitButton.style.display = 'none';
+        });
+        
+        resetButton.addEventListener('click', loadQuiz);
+
+        changeQuizButton.addEventListener('click', () => {
+            currentQuizSetIndex = (currentQuizSetIndex + 1) % allQuizData.length;
+            loadQuiz();
+        });
+
+        function openModal(note) {
+            modalText.textContent = note;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        shopsContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('tooltip-trigger')) {
+                openModal(e.target.dataset.note);
+            }
+        });
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+        window.onload = () => {
+            changeLanguage(currentLanguage);
+        };
+    </script>
+</body>
+</html>
