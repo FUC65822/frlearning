@@ -15,16 +15,32 @@
         body {
             font-family: 'Inter', 'Noto Sans SC', sans-serif;
         }
+        /* 隐藏/显示下拉菜单的辅助类 */
+        .dropdown-menu.hidden {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- 语言切换按钮容器 -->
+    <!-- 右上角控件容器 -->
     <div class="absolute top-4 right-4">
-        <button id="lang-toggle-btn" class="bg-indigo-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-600 transition-colors duration-300">
-            English
-        </button>
+        <!-- 语言切换下拉菜单容器 -->
+        <div class="relative" id="lang-dropdown-container">
+            <!-- 当前语言显示按钮 -->
+            <button id="lang-dropdown-btn" class="bg-indigo-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-600 transition-colors duration-300 flex items-center">
+                <span id="current-lang-text">中文</span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <!-- 下拉菜单 -->
+            <div id="lang-dropdown-menu" class="dropdown-menu hidden absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-xl z-10">
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50 rounded-t-lg" data-lang="zh">中文</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50" data-lang="en">English</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-indigo-50 rounded-b-lg" data-lang="es">Español</a>
+            </div>
+        </div>
     </div>
+
 
     <!-- 主容器 -->
     <div class="container mx-auto px-4 py-12 md:py-20">
@@ -39,32 +55,45 @@
         <main>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- 卡片 1: 天气表达 -->
+                <!-- 卡片 1: 法国巡礼 (使用SVG国旗) -->
+                <a href="https://learnfr.de/france" class="block p-8 bg-white rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                    <div class="mb-4">
+                        <svg class="w-16 h-12 rounded" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+                            <rect fill="#002654" width="300" height="600"/>
+                            <rect fill="#FFFFFF" x="300" width="300" height="600"/>
+                            <rect fill="#ED2939" x="600" width="300" height="600"/>
+                        </svg>
+                    </div>
+                    <h2 id="card1-title" class="text-2xl font-semibold mb-2 text-gray-900">法国巡礼</h2>
+                    <p id="card1-desc" class="text-gray-600">探索法国的文化、历史和地理。从巴黎的浪漫到普罗旺斯的阳光，带您领略法兰西的独特魅力。</p>
+                </a>
+
+                <!-- 卡片 2: 天气表达 -->
                 <a href="https://learnfr.de/temps" class="block p-8 bg-white rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
                     <div class="text-4xl mb-4">☀️</div>
-                    <h2 id="card1-title" class="text-2xl font-semibold mb-2 text-gray-900">天气表达</h2>
-                    <p id="card1-desc" class="text-gray-600">学习如何用法语谈论天气，从“阳光明媚”到“倾盆大雨”，掌握日常对话的核心词汇。</p>
+                    <h2 id="card2-title" class="text-2xl font-semibold mb-2 text-gray-900">天气表达</h2>
+                    <p id="card2-desc" class="text-gray-600">学习如何用法语谈论天气，从“阳光明媚”到“倾盆大雨”，掌握日常对话的核心词汇。</p>
                 </a>
 
-                <!-- 卡片 2: 关于数字的一切 -->
+                <!-- 卡片 3: 关于数字的一切 -->
                 <a href="https://learnfr.de/number" class="block p-8 bg-white rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
                     <div class="text-4xl mb-4">🔢</div>
-                    <h2 id="card2-title" class="text-2xl font-semibold mb-2 text-gray-900">关于数字的一切</h2>
-                    <p id="card2-desc" class="text-gray-600">全面掌握法语数字的听说读写，无论是购物、报时还是描述年份，都能轻松应对。</p>
+                    <h2 id="card3-title" class="text-2xl font-semibold mb-2 text-gray-900">关于数字的一切</h2>
+                    <p id="card3-desc" class="text-gray-600">全面掌握法语数字的听说读写，无论是购物、报时还是描述年份，都能轻松应对。</p>
                 </a>
 
-                <!-- 卡片 3: 购物主题 (新增) -->
+                <!-- 卡片 4: 购物主题 -->
                 <a href="https://learnfr.de/magasin" class="block p-8 bg-white rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
                     <div class="text-4xl mb-4">🛍️</div>
-                    <h2 id="card3-title" class="text-2xl font-semibold mb-2 text-gray-900">认识各种商店</h2>
-                    <p id="card3-desc" class="text-gray-600">从面包店到书店，学习不同商店的法语名称，让您在法国购物时充满自信。</p>
+                    <h2 id="card4-title" class="text-2xl font-semibold mb-2 text-gray-900">认识各种商店</h2>
+                    <p id="card4-desc" class="text-gray-600">从面包店到书店，学习不同商店的法语名称，让您在法国购物时充满自信。</p>
                 </a>
 
-                <!-- 卡片 4: 更多敬请期待 -->
+                <!-- 卡片 5: 更多敬请期待 -->
                 <div class="p-8 bg-gray-100 border-2 border-dashed border-gray-300 rounded-xl text-center flex flex-col justify-center items-center">
                     <div class="text-4xl mb-4">🚀</div>
-                    <h2 id="card4-title" class="text-2xl font-semibold mb-2 text-gray-500">更多敬请期待</h2>
-                    <p id="card4-desc" class="text-gray-500">新的学习板块正在精心准备中，很快就会与大家见面！</p>
+                    <h2 id="card5-title" class="text-2xl font-semibold mb-2 text-gray-500">更多敬请期待</h2>
+                    <p id="card5-desc" class="text-gray-500">新的学习板块正在精心准备中，很快就会与大家见面！</p>
                 </div>
 
             </div>
@@ -78,64 +107,100 @@
     </div>
 
     <script>
-        // 存储中英文内容的文本对象
-        const translations = {
-            en: {
-                'main-title': 'French Learning Navigator',
-                'main-subtitle': 'Start your journey of French exploration',
-                'card1-title': 'Weather Expressions',
-                'card1-desc': 'Learn how to talk about the weather in French, from "sunny" to "raining cats and dogs", and master core conversational vocabulary.',
-                'card2-title': 'All About Numbers',
-                'card2-desc': 'Master the reading, writing, and speaking of French numbers for shopping, telling time, and describing years with ease.',
-                'card3-title': 'Learn French: Types of Shops',
-                'card3-desc': 'From bakeries to bookstores, learn the French names for different shops to shop with confidence in France.',
-                'card4-title': 'More Coming Soon',
-                'card4-desc': 'New learning modules are being prepared and will be available to you very soon!',
-                'footer-text': '&copy; 2025 Hugo. All Rights Reserved.',
-                'lang-toggle-btn': '中文'
-            },
-            zh: {
-                'main-title': '法语学习导航',
-                'main-subtitle': '开启您的法语探索之旅',
-                'card1-title': '天气表达',
-                'card1-desc': '学习如何用法语谈论天气，从“阳光明媚”到“倾盆大雨”，掌握日常对话的核心词汇。',
-                'card2-title': '关于数字的一切',
-                'card2-desc': '全面掌握法语数字的听说读写，无论是购物、报时还是描述年份，都能轻松应对。',
-                'card3-title': '认识各种商店',
-                'card3-desc': '从面包店到书店，学习不同商店的法语名称，让您在法国购物时充满自信。',
-                'card4-title': '更多敬请期待',
-                'card4-desc': '新的学习板块正在精心准备中，很快就会与大家见面！',
-                'footer-text': '&copy; 2025 Hugo. All Rights Reserved.',
-                'lang-toggle-btn': 'English'
-            }
-        };
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 语言切换逻辑 ---
+            const translations = {
+                zh: {
+                    'main-title': '法语学习导航',
+                    'main-subtitle': '开启您的法语探索之旅',
+                    'card1-title': '法国巡礼',
+                    'card1-desc': '探索法国的文化、历史和地理。从巴黎的浪漫到普罗旺斯的阳光，带您领略法兰西的独特魅力。',
+                    'card2-title': '天气表达',
+                    'card2-desc': '学习如何用法语谈论天气，从“阳光明媚”到“倾盆大雨”，掌握日常对话的核心词汇。',
+                    'card3-title': '关于数字的一切',
+                    'card3-desc': '全面掌握法语数字的听说读写，无论是购物、报时还是描述年份，都能轻松应对。',
+                    'card4-title': '认识各种商店',
+                    'card4-desc': '从面包店到书店，学习不同商店的法语名称，让您在法国购物时充满自信。',
+                    'card5-title': '更多敬请期待',
+                    'card5-desc': '新的学习板块正在精心准备中，很快就会与大家见面！',
+                    'footer-text': '&copy; 2025 Hugo. All Rights Reserved.',
+                    'current-lang-text': '中文'
+                },
+                en: {
+                    'main-title': 'French Learning Navigator',
+                    'main-subtitle': 'Start your journey of French exploration',
+                    'card1-title': 'A Tour of France',
+                    'card1-desc': 'Explore the culture, history, and geography of France. From the romance of Paris to the sunshine of Provence, experience the unique charm of France.',
+                    'card2-title': 'Weather Expressions',
+                    'card2-desc': 'Learn how to talk about the weather in French, from "sunny" to "raining cats and dogs", and master core conversational vocabulary.',
+                    'card3-title': 'All About Numbers',
+                    'card3-desc': 'Master the reading, writing, and speaking of French numbers for shopping, telling time, and describing years with ease.',
+                    'card4-title': 'Learn French: Types of Shops',
+                    'card4-desc': 'From bakeries to bookstores, learn the French names for different shops to shop with confidence in France.',
+                    'card5-title': 'More Coming Soon',
+                    'card5-desc': 'New learning modules are being prepared and will be available to you very soon!',
+                    'footer-text': '&copy; 2025 Hugo. All Rights Reserved.',
+                    'current-lang-text': 'English'
+                },
+                es: {
+                    'main-title': 'Navegador de Aprendizaje de Francés',
+                    'main-subtitle': 'Comienza tu viaje de exploración del francés',
+                    'card1-title': 'Un Tour por Francia',
+                    'card1-desc': 'Explora la cultura, historia y geografía de Francia. Desde el romance de París hasta el sol de la Provenza, experimenta el encanto único de Francia.',
+                    'card2-title': 'Expresiones del Tiempo',
+                    'card2-desc': 'Aprende a hablar sobre el tiempo en francés, desde "soleado" hasta "llover a cántaros", y domina el vocabulario esencial de conversación.',
+                    'card3-title': 'Todo Sobre los Números',
+                    'card3-desc': 'Domina la lectura, escritura y pronunciación de los números en francés para comprar, decir la hora y describir años con facilidad.',
+                    'card4-title': 'Aprende Francés: Tipos de Tiendas',
+                    'card4-desc': 'Desde panaderías hasta librerías, aprende los nombres en francés de diferentes tiendas para comprar con confianza en Francia.',
+                    'card5-title': 'Más Próximamente',
+                    'card5-desc': '¡Nuevos módulos de aprendizaje se están preparando y estarán disponibles muy pronto!',
+                    'footer-text': '&copy; 2025 Hugo. All Rights Reserved.',
+                    'current-lang-text': 'Español'
+                }
+            };
 
-        // 获取切换按钮
-        const langToggleButton = document.getElementById('lang-toggle-btn');
-        // 设置当前语言，默认为中文
-        let currentLanguage = 'zh';
+            const langDropdownContainer = document.getElementById('lang-dropdown-container');
+            const langDropdownBtn = document.getElementById('lang-dropdown-btn');
+            const langDropdownMenu = document.getElementById('lang-dropdown-menu');
+            let currentLanguage = 'zh'; // 默认语言
 
-        // 切换语言的函数
-        function toggleLanguage() {
-            // 在 'zh' 和 'en' 之间切换
-            currentLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
-            
-            // 获取当前语言对应的文本内容
-            const langData = translations[currentLanguage];
-
-            // 遍历所有需要翻译的元素ID
-            for (const id in langData) {
-                // 查找页面上对应的元素
-                const element = document.getElementById(id);
-                if (element) {
-                    // 更新元素的文本内容
-                    element.innerHTML = langData[id];
+            function updateText(lang) {
+                currentLanguage = lang;
+                const langData = translations[lang];
+                for (const id in langData) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.innerHTML = langData[id];
+                    }
                 }
             }
-        }
 
-        // 为按钮添加点击事件监听器
-        langToggleButton.addEventListener('click', toggleLanguage);
+            langDropdownBtn.addEventListener('click', () => {
+                langDropdownMenu.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', (event) => {
+                const isClickInside = langDropdownContainer.contains(event.target);
+                if (!isClickInside && !langDropdownMenu.classList.contains('hidden')) {
+                    langDropdownMenu.classList.add('hidden');
+                }
+            });
+
+            langDropdownMenu.addEventListener('click', (event) => {
+                if (event.target.tagName === 'A') {
+                    event.preventDefault();
+                    const selectedLang = event.target.getAttribute('data-lang');
+                    if (selectedLang) {
+                        updateText(selectedLang);
+                        langDropdownMenu.classList.add('hidden');
+                    }
+                }
+            });
+
+            // 初始化：页面加载时，默认显示中文内容。
+            updateText(currentLanguage);
+        });
     </script>
 
 </body>
