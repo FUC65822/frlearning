@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法语学习导航</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Google Fonts字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 主题变量定义 --- */
+        :root {
+            /* 默认是夜间模式 */
+            --bg-color: #111827;
+            --bg-gradient-start: rgba(12, 74, 110, 0.5);
+            --bg-gradient-end: rgba(107, 33, 168, 0.3);
+            --text-color-primary: #e5e7eb; /* gray-200 */
+            --text-color-secondary: #9ca3af; /* gray-400 */
+            --text-color-muted: #6b7280; /* gray-500 */
+            --header-gradient-from: #60a5fa; /* blue-400 */
+            --header-gradient-to: #c084fc; /* purple-400 */
+            --card-bg: rgba(30, 41, 59, 0.6);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --card-shadow-hover: 0 0 25px rgba(37, 99, 235, 0.3);
+            --placeholder-bg: rgba(30, 41, 59, 0.4);
+            --placeholder-border: #4b5563; /* gray-600 */
+            --modal-bg: rgba(30, 41, 59, 0.8);
+            --modal-border: #4b5563;
+            --btn-active-bg: rgba(59, 130, 246, 0.4);
+            --btn-active-border: rgba(96, 165, 250, 0.5);
+            --btn-active-text: #dbeafe; /* blue-100 */
+            --btn-disabled-bg: rgba(55, 65, 81, 0.5);
+            --btn-disabled-text: #6b7280;
+        }
+
+        .light-mode {
+            /* 日间模式变量 */
+            --bg-color: #f3f4f6; /* gray-100 */
+            --bg-gradient-start: rgba(59, 130, 246, 0.1);
+            --bg-gradient-end: rgba(168, 85, 247, 0.05);
+            --text-color-primary: #1f2937; /* gray-800 */
+            --text-color-secondary: #4b5563; /* gray-600 */
+            --text-color-muted: #9ca3af; /* gray-400 */
+            --header-gradient-from: #2563eb; /* blue-600 */
+            --header-gradient-to: #9333ea; /* purple-600 */
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --card-border: rgba(0, 0, 0, 0.08);
+            --card-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --placeholder-bg: rgba(229, 231, 235, 0.6);
+            --placeholder-border: #d1d5db; /* gray-300 */
+            --modal-bg: rgba(255, 255, 255, 0.8);
+            --modal-border: #e5e7eb;
+            --btn-active-bg: #dbeafe; /* blue-100 */
+            --btn-active-border: #93c5fd; /* blue-300 */
+            --btn-active-text: #1e40af; /* blue-800 */
+            --btn-disabled-bg: #e5e7eb; /* gray-200 */
+            --btn-disabled-text: #9ca3af;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at top left, var(--bg-gradient-start), transparent 40%),
+                              radial-gradient(circle at bottom right, var(--bg-gradient-end), transparent 50%);
+            color: var(--text-color-primary);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .dropdown-menu.hidden, #theme-toggle-btn .hidden {
+            display: none;
+        }
+
+        .modal {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        
+        .premium-card {
+            background-color: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, border-color 0.5s ease;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0) 70%);
+            transform: translate(-50%, -50%);
+            left: var(--x, -100px);
+            top: var(--y, -100px);
+            opacity: 0;
+            transition: left 0.2s ease-out, top 0.2s ease-out, opacity 0.3s ease-in-out;
+            pointer-events: none;
+        }
+
+        .premium-card:hover::before {
+            opacity: 1;
+        }
+        
+        .transitionable {
+            transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+        }
+
+        #main-title {
+            background-image: linear-gradient(to right, var(--header-gradient-from), var(--header-gradient-to));
+        }
+
+        .footer-link {
+            color: var(--text-color-secondary);
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover {
+            color: var(--text-color-primary);
+        }
+        .footer-separator {
+            color: var(--text-color-muted);
+        }
+    </style>
+</head>
+<body class="transitionable">
+
+    <!-- 右上角控件容器 -->
+    <div class="absolute top-4 right-4 z-20 flex items-center space-x-3">
+        <!-- 语言切换下拉菜单容器 -->
+        <div class="relative" id="lang-dropdown-container">
+            <button id="lang-dropdown-btn" class="bg-blue-600/80 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-500 transition-colors duration-300 flex items-center border border-blue-500/50">
+                <span id="current-lang-text">中文</span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="lang-dropdown-menu" class="dropdown-menu hidden absolute right-0 mt-2 w-32 bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-lg shadow-xl z-10">
+                <a href="#" class="block px-4 py-2 text-slate-200 hover:bg-blue-600/50 rounded-t-lg transition-colors" data-lang="zh">中文</a>
+                <a href="#" class="block px-4 py-2 text-slate-200 hover:bg-blue-600/50 transition-colors" data-lang="en">English</a>
+                <a href="#" class="block px-4 py-2 text-slate-200 hover:bg-blue-600/50 rounded-b-lg transition-colors" data-lang="es">Español</a>
+            </div>
+        </div>
+        <!-- 主题切换按钮 -->
+        <button id="theme-toggle-btn" class="p-2 rounded-lg bg-black/20 hover:bg-black/30 backdrop-blur-sm border border-white/10 transition-colors">
+            <svg id="theme-icon-sun" class="w-6 h-6 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <svg id="theme-icon-moon" class="w-6 h-6 text-slate-300 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container mx-auto px-4 py-12 md:py-20">
+
+        <!-- 头部标题 -->
+        <header class="text-center mb-16">
+            <h1 id="main-title" class="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r">法语学习导航</h1>
+            <p id="main-subtitle" class="mt-4 text-lg transitionable" style="color: var(--text-color-secondary);">开启您的法语探索之旅</p>
+        </header>
+
+        <!-- 主要内容区域 - 卡片网格 -->
+        <main>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 卡片 -->
+                <a href="https://learnfr.de/france" class="premium-card block p-8 rounded-2xl"><div class="mb-4"><svg class="w-16 h-12 rounded" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg"><rect fill="#002654" width="300" height="600"/><rect fill="#FFFFFF" x="300" width="300" height="600"/><rect fill="#ED2939" x="600" width="300" height="600"/></svg></div><h2 id="card1-title" class="text-2xl font-semibold mb-2 transitionable" style="color: var(--text-color-primary);">法国巡礼</h2><p id="card1-desc" class="transitionable" style="color: var(--text-color-secondary);">探索法国的文化、历史和地理。从巴黎的浪漫到普罗旺斯的阳光，带您领略法兰西的独特魅力。</p></a>
+                <a href="https://learnfr.de/temps" class="premium-card block p-8 rounded-2xl"><div class="text-4xl mb-4">☀️</div><h2 id="card2-title" class="text-2xl font-semibold mb-2 transitionable" style="color: var(--text-color-primary);">天气表达</h2><p id="card2-desc" class="transitionable" style="color: var(--text-color-secondary);">学习如何用法语谈论天气，从“阳光明媚”到“倾盆大雨”，掌握日常对话的核心词汇。</p></a>
+                <a href="https://learnfr.de/number" class="premium-card block p-8 rounded-2xl"><div class="text-4xl mb-4">🔢</div><h2 id="card3-title" class="text-2xl font-semibold mb-2 transitionable" style="color: var(--text-color-primary);">关于数字的一切</h2><p id="card3-desc" class="transitionable" style="color: var(--text-color-secondary);">全面掌握法语数字的听说读写，无论是购物、报时还是描述年份，都能轻松应对。</p></a>
+                <a href="https://learnfr.de/magasin" class="premium-card block p-8 rounded-2xl"><div class="text-4xl mb-4">🛍️</div><h2 id="card4-title" class="text-2xl font-semibold mb-2 transitionable" style="color: var(--text-color-primary);">认识各种商店</h2><p id="card4-desc" class="transitionable" style="color: var(--text-color-secondary);">从面包店到书店，学习不同商店的法语名称，让您在法国购物时充满自信。</p></a>
+                <div id="civilization-card" class="premium-card cursor-pointer p-8 rounded-2xl"><div class="text-4xl mb-4">🏛️</div><h2 id="card5-title" class="text-2xl font-semibold mb-2 transitionable" style="color: var(--text-color-primary);">法国文化</h2><p id="card5-desc" class="transitionable" style="color: var(--text-color-secondary);">深入了解法国的社会、艺术和生活方式。点击查看不同主题。</p></div>
+                <div class="p-8 border-2 border-dashed rounded-2xl text-center flex flex-col justify-center items-center transitionable" style="background-color: var(--placeholder-bg); border-color: var(--placeholder-border);"><div class="text-4xl mb-4">🚀</div><h2 id="card6-title" class="text-2xl font-semibold mb-2 transitionable" style="color: var(--text-color-secondary);">更多敬请期待</h2><p id="card6-desc" class="transitionable" style="color: var(--text-color-muted);">新的学习板块正在精心准备中，很快就会与大家见面！</p></div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="text-center mt-20">
+            <!-- 新增页脚链接 -->
+            <div class="mb-6 flex justify-center items-center space-x-2 md:space-x-4 text-sm">
+                <a href="https://learnfr.de/about/" target="_blank" rel="noopener noreferrer" id="footer-link-about" class="footer-link">关于</a>
+                <span class="footer-separator">|</span>
+                <a href="#" id="footer-link-support" class="footer-link">技术支持</a>
+                <span class="footer-separator">|</span>
+                <a href="#" id="footer-link-join" class="footer-link">加入我们</a>
+                <span class="footer-separator">|</span>
+                <a href="mailto:help@745520.xyz" id="footer-link-feedback" class="footer-link">反馈与建议</a>
+            </div>
+            <!-- 版权标识 -->
+            <p id="footer-text" class="transitionable" style="color: var(--text-color-muted);">&copy; 2025 Hugo. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Civilization 选项模态框 -->
+    <div id="civilization-modal" class="modal fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50 opacity-0 invisible">
+        <div class="transitionable rounded-xl shadow-2xl p-6 md:p-8 w-11/12 max-w-md mx-auto flex flex-col" style="background-color: var(--modal-bg); border: 1px solid var(--modal-border); backdrop-filter: blur(12px);">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modal-title" class="text-2xl font-bold text-blue-400">文化主题</h3>
+                <button class="close-modal-btn text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="modal-buttons-container" class="space-y-3 pr-2 overflow-y-auto" style="max-height: 220px;"></div>
+        </div>
+    </div>
+    
+    <!-- 新增: 通用信息提示模态框 -->
+    <div id="info-modal" class="modal fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50 opacity-0 invisible">
+        <div class="transitionable rounded-xl shadow-2xl p-8 w-11/12 max-w-sm mx-auto flex flex-col text-center" style="background-color: var(--modal-bg); border: 1px solid var(--modal-border); backdrop-filter: blur(12px);">
+            <h3 id="info-modal-title" class="text-xl font-bold mb-4" style="color: var(--text-color-primary);">通知</h3>
+            <p id="info-modal-text" class="mb-6" style="color: var(--text-color-secondary);"></p>
+            <button class="close-modal-btn bg-blue-600/80 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-500 transition-colors duration-300">关闭</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const civilizationTopics = [
+                { textKey: 'topic_civi11_cours', href: 'https://learnfr.de/civilization/civi11/cours/' },
+                { textKey: 'topic_civi11_exercices', href: 'https://learnfr.de/civilization/civi11/exercices/' },
+                { textKey: 'topic_art', href: null },
+                { textKey: 'topic_cinema', href: null },
+                { textKey: 'topic_music', href: null },
+            ];
+            const translations = {
+                zh: {'main-title':'法语学习导航','main-subtitle':'开启您的法语探索之旅','card1-title':'法国巡礼','card1-desc':'探索法国的文化、历史和地理...','card2-title':'天气表达','card2-desc':'学习如何用法语谈论天气...','card3-title':'关于数字的一切','card3-desc':'全面掌握法语数字的听说读写...','card4-title':'认识各种商店','card4-desc':'从面包店到书店，学习不同商店的法语名称...','card5-title':'法国文化','card5-desc':'深入了解法国的社会、艺术和生活方式...','card6-title':'更多敬请期待','card6-desc':'新的学习板块正在精心准备中...','footer-text':'&copy; 2025 Hugo. All Rights Reserved.','current-lang-text':'中文','modal-title':'文化主题','topic_civi11_cours':'Civi11课','topic_civi11_exercices':'Civi11练习','topic_art':'敬请期待','topic_cinema':'敬请期待','topic_music':'敬请期待','footer-link-about':'关于','footer-link-support':'技术支持','footer-link-join':'加入我们','footer-link-feedback':'反馈与建议','info-modal-title':'通知','info-gemini':'由Gemini驱动','info-coming-soon':'敬请期待'},
+                en: {'main-title':'French Learning Navigator','main-subtitle':'Start your journey of French exploration','card1-title':'A Tour of France','card1-desc':'Explore the culture, history, and geography of France...','card2-title':'Weather Expressions','card2-desc':'Learn how to talk about the weather in French...','card3-title':'All About Numbers','card3-desc':'Master the reading, writing, and speaking of French numbers...','card4-title':'Learn French: Types of Shops','card4-desc':'From bakeries to bookstores, learn the French names...','card5-title':'French Civilization','card5-desc':'Dive deep into French society, arts, and lifestyle...','card6-title':'More Coming Soon','card6-desc':'New learning modules are being prepared...','footer-text':'&copy; 2025 Hugo. All Rights Reserved.','current-lang-text':'English','modal-title':'Civilization Topics','topic_civi11_cours':'Civi Lesson 11','topic_civi11_exercices':'Civi Lesson 11 Exercises','topic_art':'Coming Soon','topic_cinema':'Coming Soon','topic_music':'Coming Soon','footer-link-about':'About','footer-link-support':'Support','footer-link-join':'Join Us','footer-link-feedback':'Feedback','info-modal-title':'Notification','info-gemini':'Powered by Gemini','info-coming-soon':'Coming Soon'},
+                es: {'main-title':'Navegador de Aprendizaje de Francés','main-subtitle':'Comienza tu viaje de exploración del francés','card1-title':'Un Tour por Francia','card1-desc':'Explora la cultura, historia y geografía de Francia...','card2-title':'Expresiones del Tiempo','card2-desc':'Aprende a hablar sobre el tiempo en francés...','card3-title':'Todo Sobre los Números','card3-desc':'Domina la lectura, escritura y pronunciación de los números...','card4-title':'Aprende Francés: Tipos de Tiendas','card4-desc':'Desde panaderías hasta librerías, aprende los nombres...','card5-title':'Civilización Francesa','card5-desc':'Profundiza en la sociedad, las artes y el estilo de vida...','card6-title':'Más Próximamente','card6-desc':'¡Nuevos módulos de aprendizaje se están preparando...!','footer-text':'&copy; 2025 Hugo. All Rights Reserved.','current-lang-text':'Español','modal-title':'Temas de Civilización','topic_civi11_cours':'Civi Lección 11','topic_civi11_exercices':'Civi Lección 11 Ejercicios','topic_art':'Próximamente','topic_cinema':'Próximamente','topic_music':'Próximamente','footer-link-about':'Sobre nosotros','footer-link-support':'Soporte','footer-link-join':'Únete','footer-link-feedback':'Sugerencias','info-modal-title':'Notificación','info-gemini':'Desarrollado por Gemini','info-coming-soon':'Próximamente'}
+            };
+
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+            function applyTheme(theme) {
+                if (theme === 'light') {
+                    document.body.classList.add('light-mode');
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                } else {
+                    document.body.classList.remove('light-mode');
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                }
+            }
+            themeToggleBtn.addEventListener('click', () => {
+                const isLight = document.body.classList.toggle('light-mode');
+                const newTheme = isLight ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+
+            const langDropdownContainer = document.getElementById('lang-dropdown-container');
+            const langDropdownBtn = document.getElementById('lang-dropdown-btn');
+            const langDropdownMenu = document.getElementById('lang-dropdown-menu');
+            let currentLanguage = 'zh';
+            const modalButtonsContainer = document.getElementById('modal-buttons-container');
+            function renderModalButtons() {
+                modalButtonsContainer.innerHTML = '';
+                const currentTranslations = translations[currentLanguage];
+                civilizationTopics.forEach(topic => {
+                    let button;
+                    if (topic.href) {
+                        button = document.createElement('a');
+                        button.href = topic.href;
+                        button.target = '_blank';
+                        button.rel = 'noopener noreferrer';
+                        button.className = 'block w-full text-left font-semibold p-4 rounded-lg transition-colors duration-200';
+                        button.style.backgroundColor = 'var(--btn-active-bg)';
+                        button.style.borderColor = 'var(--btn-active-border)';
+                        button.style.color = 'var(--btn-active-text)';
+                        button.style.borderWidth = '1px';
+                    } else {
+                        button = document.createElement('button');
+                        button.className = 'block w-full text-left font-semibold p-4 rounded-lg cursor-not-allowed';
+                        button.style.backgroundColor = 'var(--btn-disabled-bg)';
+                        button.style.color = 'var(--btn-disabled-text)';
+                        button.disabled = true;
+                    }
+                    button.textContent = currentTranslations[topic.textKey] || topic.textKey;
+                    modalButtonsContainer.appendChild(button);
+                });
+            }
+            function updateText(lang) {
+                currentLanguage = lang;
+                const langData = translations[lang];
+                for (const id in langData) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.innerHTML = langData[id];
+                    }
+                }
+                renderModalButtons();
+            }
+            langDropdownBtn.addEventListener('click', () => langDropdownMenu.classList.toggle('hidden'));
+            document.addEventListener('click', (event) => {
+                if (!langDropdownContainer.contains(event.target) && !langDropdownMenu.classList.contains('hidden')) {
+                    langDropdownMenu.classList.add('hidden');
+                }
+            });
+            langDropdownMenu.addEventListener('click', (event) => {
+                if (event.target.tagName === 'A') {
+                    event.preventDefault();
+                    const selectedLang = event.target.getAttribute('data-lang');
+                    if (selectedLang) {
+                        updateText(selectedLang);
+                        langDropdownMenu.classList.add('hidden');
+                    }
+                }
+            });
+
+            const civilizationCard = document.getElementById('civilization-card');
+            const civilizationModal = document.getElementById('civilization-modal');
+            civilizationCard.addEventListener('click', () => civilizationModal.classList.remove('opacity-0', 'invisible'));
+            
+            // --- 通用模态框逻辑 ---
+            const infoModal = document.getElementById('info-modal');
+            const infoModalText = document.getElementById('info-modal-text');
+            const supportLink = document.getElementById('footer-link-support');
+            const joinUsLink = document.getElementById('footer-link-join');
+
+            function showInfoModal(textKey) {
+                infoModalText.textContent = translations[currentLanguage][textKey];
+                infoModal.classList.remove('opacity-0', 'invisible');
+            }
+            
+            supportLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showInfoModal('info-gemini');
+            });
+            
+            joinUsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showInfoModal('info-coming-soon');
+            });
+
+            // 关闭所有模态框的逻辑
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', (event) => {
+                    // 如果点击的是背景或者关闭按钮
+                    if (event.target === modal || event.target.closest('.close-modal-btn')) {
+                        modal.classList.add('opacity-0', 'invisible');
+                    }
+                });
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    document.querySelectorAll('.modal').forEach(modal => {
+                        modal.classList.add('opacity-0', 'invisible');
+                    });
+                }
+            });
+
+            document.querySelectorAll('.premium-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+                });
+            });
+
+            // --- 初始化 ---
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            applyTheme(savedTheme);
+            updateText(currentLanguage);
+        });
+    </script>
+
+</body>
+</html>
