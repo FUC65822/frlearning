@@ -79,50 +79,60 @@
         html.dark .correct-bg { background-color: #14532d; }
         html.dark .incorrect-bg { background-color: #7f1d1d; }
 
+        /* 导航栏激活状态 */
+        .nav-active {
+            background-color: var(--bg-accent);
+            color: var(--brand-primary);
+            font-weight: 600;
+        }
+
         /* 通用过渡效果 */
         .transitionable {
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
         }
     </style>
 </head>
 <body class="transitionable">
 
-    <div class="flex flex-col md:flex-row min-h-screen">
+    <!-- 移动端顶部导航栏 -->
+    <header class="md:hidden sticky top-0 z-30 bg-secondary/80 backdrop-blur-sm border-b border-primary flex items-center justify-between p-4 transitionable">
+        <button id="menu-toggle-btn" class="p-2 -ml-2">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <h1 id="mobile-title" class="text-lg font-bold text-brand-primary">法语区练习</h1>
+        <div id="mobile-score-container" class="text-sm font-semibold text-secondary transitionable text-right w-24"></div>
+    </header>
+
+    <div class="relative flex min-h-screen">
         <!-- 侧边导航栏 -->
-        <aside class="w-full md:w-64 bg-secondary border-r border-primary p-4 md:p-6 md:sticky top-0 h-auto md:h-screen overflow-y-auto transitionable">
-            <h1 id="main-title" class="text-2xl font-bold text-brand-primary mb-4">法语区练习</h1>
-            <button id="lang-switch-btn" class="w-full mb-2 px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors shadow-sm text-sm">
-                切换语言 / Changer de langue
-            </button>
-            <button id="theme-toggle-btn" class="w-full mb-4 px-4 py-2 bg-tertiary text-secondary font-semibold rounded-lg hover:bg-accent transitionable">
-                <span class="flex items-center justify-center text-sm">
-                    <svg id="theme-icon-sun" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                    <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                    <span id="theme-btn-text" class="ml-2"></span>
-                </span>
-            </button>
-            <nav id="navigation" class="space-y-2">
-                <!-- 导航链接将由JS动态生成 -->
-            </nav>
+        <aside id="sidebar" class="w-64 bg-secondary border-r border-primary p-4 md:p-6 transitionable transform -translate-x-full md:translate-x-0 md:sticky fixed top-0 h-screen z-40 flex flex-col">
+            <div>
+                <h1 id="main-title" class="text-2xl font-bold text-brand-primary mb-4 hidden md:block">法语区练习</h1>
+                <button id="lang-switch-btn" class="w-full mb-2 px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors shadow-sm text-sm">
+                    切换语言 / Changer de langue
+                </button>
+                <button id="theme-toggle-btn" class="w-full mb-4 px-4 py-2 bg-tertiary text-secondary font-semibold rounded-lg hover:bg-accent transitionable">
+                    <span class="flex items-center justify-center text-sm">
+                        <svg id="theme-icon-sun" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                        <span id="theme-btn-text" class="ml-2"></span>
+                    </span>
+                </button>
+                <nav id="navigation" class="space-y-2 overflow-y-auto" style="height: calc(100vh - 250px);"></nav>
+            </div>
+             <div id="desktop-score-container" class="mt-auto p-3 bg-tertiary rounded-lg text-center text-secondary font-semibold hidden md:block transitionable">
+                <!-- Desktop score appears here -->
+            </div>
         </aside>
+        
+        <!-- 遮罩层 -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden"></div>
 
         <!-- 主内容区域 -->
         <div class="flex flex-col flex-1">
             <main class="flex-1 p-4 md:p-8 lg:p-12">
                 <div id="quiz-container">
                     <!-- 题目将由JS动态生成 -->
-                </div>
-
-                <!-- 操作按钮和分数显示 -->
-                <div class="mt-12 p-6 bg-secondary rounded-xl shadow-md sticky bottom-4 border border-primary flex flex-col sm:flex-row items-center justify-between gap-4 transitionable">
-                    <div id="score-container" class="text-lg font-semibold text-secondary transitionable">
-                        请完成题目后检查答案。
-                    </div>
-                    <div class="flex items-center gap-2 sm:gap-4">
-                        <button id="show-answers-btn" class="px-4 sm:px-6 py-2 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition-colors shadow-sm">显示答案</button>
-                        <button id="reset-btn" class="px-4 sm:px-6 py-2 bg-tertiary text-secondary font-semibold rounded-lg hover:bg-accent transitionable">重置</button>
-                        <button id="check-answers-btn" class="px-4 sm:px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-sm">检查答案</button>
-                    </div>
                 </div>
             </main>
 
@@ -133,6 +143,14 @@
             </footer>
         </div>
     </div>
+    
+    <!-- 浮动操作按钮 -->
+    <div class="fixed bottom-4 right-4 z-20 flex flex-col items-center gap-2">
+        <button id="check-answers-btn" class="w-36 px-4 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-lg text-sm">检查答案</button>
+        <button id="reset-btn" class="w-36 px-4 py-2 bg-tertiary text-secondary font-semibold rounded-full hover:bg-accent transitionable shadow-lg text-sm">重置</button>
+        <button id="show-answers-btn" class="w-36 px-4 py-2 bg-yellow-500 text-white font-semibold rounded-full hover:bg-yellow-600 transition-all shadow-lg text-sm">显示答案</button>
+    </div>
+
 
     <!-- 确认弹窗 -->
     <div id="confirmation-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50">
@@ -216,7 +234,7 @@
             { id: "afrique-subsaharienne", title: "11.3 L'AFRIQUE SUBSAHARIENNE", title_zh: "11.3 撒哈拉以南非洲",
                 sections: [
                     { title: "Compréhension globale", title_zh: "整体理解", questions: [
-                            { q: "1. Combien de zones sont identifiées dans l'Afrique subsaharienne ?", q_zh: "1. 在撒哈拉以南非洲确定了多少个区域？", o: ["Deux", "Trois", "Quatre", "Cinq"], o_zh: ["两个", "三个", "四个", "五个"], a: 3 },
+                            { q: "1. Combien de zones sont identifiées dans l'Afrique subsaharienne ?", q_zh: "1. 在撒哈拉以南非洲确定了多少个区域？", o: ["Deux", "Trois", "Quatre", "Cinq"], o_zh: ["两个", "三个", "四个", "五个"], a: 1 },
                             { q: "2. Quelle est la principale langue utilisée en Afrique subsaharienne ?", q_zh: "2. 撒哈拉以南非洲使用的主要语言是什么？", o: ["L'arabe", "Le français", "L'anglais", "Le swahili"], o_zh: ["阿拉伯语", "法语", "英语", "斯瓦希里语"], a: 1 },
                             { q: "3. Quels sont les pays de l'Afrique subsaharienne mentionnés dans le texte ?", q_zh: "3. 文中提到了哪些撒哈拉以南非洲国家？", o: ["Afrique du Sud, Zambie, Nigeria", "Cameroun, Sénégal, Mali", "Niger, Algérie, Tunisie", "Rwanda, Libye, Tchad"], o_zh: ["南非、赞比亚、尼日利亚", "喀麦隆、塞内加尔、马里", "尼日尔、阿尔及利亚、突尼斯", "卢旺达、利比亚、乍得"], a: 1 },
                             { q: "4. Qu'est-ce qui est mentionné comme étant une caractéristique importante de l'Afrique subsaharienne ?", q_zh: "4. 文中提到撒哈拉以南非洲的一个重要特征是什么？", o: ["Une forte croissance démographique", "Une grande stabilité politique", "Un faible taux de chômage", "Une grande quantité de ressources naturelles"], o_zh: ["强劲的人口增长", "高度的政治稳定", "低失业率", "大量的自然资源"], a: 0 },
@@ -394,7 +412,8 @@
         const navigation = document.getElementById('navigation');
         const checkBtn = document.getElementById('check-answers-btn');
         const resetBtn = document.getElementById('reset-btn');
-        const scoreContainer = document.getElementById('score-container');
+        const mobileScoreContainer = document.getElementById('mobile-score-container');
+        const desktopScoreContainer = document.getElementById('desktop-score-container');
         const showAnswersBtn = document.getElementById('show-answers-btn');
         const confirmationModal = document.getElementById('confirmation-modal');
         const modalCancelBtn = document.getElementById('modal-cancel-btn');
@@ -464,17 +483,22 @@
             quizData.forEach((region, regionIndex) => {
                 const navLink = document.createElement('a');
                 navLink.href = `#${region.id}`;
+                navLink.dataset.navId = region.id;
                 navLink.textContent = lang === 'fr' ? region.title : region.title_zh;
                 navLink.className = 'block px-4 py-2 text-secondary rounded-md hover:bg-accent hover:text-brand-primary transitionable';
                 navLink.addEventListener('click', (e) => {
                     e.preventDefault();
                     document.getElementById(region.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close sidebar on mobile after clicking a link
+                    if (window.innerWidth < 768) {
+                        toggleSidebar(false);
+                    }
                 });
                 navigation.appendChild(navLink);
 
                 const regionEl = document.createElement('div');
                 regionEl.id = region.id;
-                regionEl.className = 'mb-12 scroll-mt-4';
+                regionEl.className = 'mb-12 scroll-mt-20'; // Increased scroll margin top for mobile header
                 
                 const regionTitle = document.createElement('h2');
                 regionTitle.textContent = lang === 'fr' ? `${region.title} (${region.title_zh})` : `${region.title_zh} (${region.title})`;
@@ -585,7 +609,22 @@
                 quizContainer.appendChild(regionEl);
             });
             restoreAnswers(answers);
+            setupScrollSpy();
         }
+
+        // 更新分数显示
+        function updateScoreDisplay(score, total) {
+            const scoreText = currentLang === 'fr' ? 'Votre score' : '你的得分';
+            const html = `${scoreText}: <span class="text-brand-primary font-bold text-lg">${score}</span> / ${total}`;
+            mobileScoreContainer.innerHTML = html;
+            desktopScoreContainer.innerHTML = html;
+        }
+
+        function resetScoreDisplay() {
+            mobileScoreContainer.innerHTML = '';
+            desktopScoreContainer.innerHTML = '';
+        }
+
 
         // 检查答案
         function checkAnswers() {
@@ -669,8 +708,7 @@
                 }
             });
 
-            const scoreText = currentLang === 'fr' ? 'Votre score' : '你的得分';
-            scoreContainer.innerHTML = `${scoreText}: <span class="text-blue-600 font-bold text-2xl">${score}</span> / ${totalQuestions}`;
+            updateScoreDisplay(score, totalQuestions);
         }
         
         // 重置
@@ -686,7 +724,7 @@
             
             document.querySelectorAll('.mt-2').forEach(feedback => feedback.innerHTML = '');
 
-            scoreContainer.textContent = currentLang === 'fr' ? 'Veuillez répondre aux questions, puis vérifier les réponses.' : '请完成题目后检查答案。';
+            resetScoreDisplay();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -726,7 +764,8 @@
         // 更新UI文本
         function updateUIText(lang) {
             document.getElementById('main-title').textContent = lang === 'fr' ? 'Exercices sur la Francophonie' : '法语区练习';
-            document.getElementById('score-container').textContent = lang === 'fr' ? 'Veuillez répondre aux questions, puis vérifier les réponses.' : '请完成题目后检查答案。';
+            document.getElementById('mobile-title').textContent = lang === 'fr' ? 'Exercices sur la Francophonie' : '法语区练习';
+            resetScoreDisplay();
             document.getElementById('show-answers-btn').textContent = lang === 'fr' ? 'Montrer les réponses' : '显示答案';
             document.getElementById('reset-btn').textContent = lang === 'fr' ? 'Réinitialiser' : '重置';
             document.getElementById('check-answers-btn').textContent = lang === 'fr' ? 'Vérifier les réponses' : '检查答案';
@@ -792,6 +831,57 @@
 
         checkBtn.addEventListener('click', checkAnswers);
         resetBtn.addEventListener('click', resetQuiz);
+        
+        // --- 移动端侧边栏逻辑 ---
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const menuToggleBtn = document.getElementById('menu-toggle-btn');
+        
+        function toggleSidebar(show) {
+            if (show) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebarOverlay.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebarOverlay.classList.add('hidden');
+            }
+        }
+
+        menuToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSidebar(true);
+        });
+        sidebarOverlay.addEventListener('click', () => toggleSidebar(false));
+        
+        // --- 导航栏滚动监听 ---
+        let observer;
+        function setupScrollSpy() {
+            const sections = quizData.map(q => document.getElementById(q.id));
+            const navLinks = document.querySelectorAll('[data-nav-id]');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: "-30% 0px -70% 0px",
+                threshold: 0
+            };
+
+            observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const navLink = document.querySelector(`[data-nav-id="${entry.target.id}"]`);
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.remove('nav-active'));
+                        if (navLink) {
+                            navLink.classList.add('nav-active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                if (section) observer.observe(section);
+            });
+        }
+
 
         // 初始化
         const savedTheme = localStorage.getItem('theme');
