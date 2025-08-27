@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实时数字时钟</title>
+    <!-- 引入 Tailwind CSS 以便快速进行现代化样式设计 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts 的 Inter 字体，使文本更美观 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* 自定义字体 */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* 为时钟部分使用等宽字体，防止数字跳动 */
+        #time-display {
+            font-family: 'Roboto Mono', monospace;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
+
+    <!-- 主容器 -->
+    <div class="text-center bg-gray-800 p-8 sm:p-12 rounded-2xl shadow-2xl border border-gray-700">
+        <!-- 日期显示区域 -->
+        <div id="date-display" class="text-lg sm:text-2xl text-gray-400 mb-2"></div>
+        
+        <!-- 时间显示区域 -->
+        <div id="time-display" class="text-6xl sm:text-8xl md:text-9xl font-bold tracking-wider">
+            <!-- 时间将通过 JavaScript 动态插入这里 -->
+            00:00:00
+        </div>
+        
+        <!-- 星期显示区域 -->
+        <div id="weekday-display" class="text-lg sm:text-2xl text-gray-400 mt-2"></div>
+    </div>
+
+    <script>
+        // 获取用于显示日期、时间和星期的 DOM 元素
+        const timeDisplay = document.getElementById('time-display');
+        const dateDisplay = document.getElementById('date-display');
+        const weekdayDisplay = document.getElementById('weekday-display');
+
+        /**
+         * 更新时钟显示的函数
+         */
+        function updateClock() {
+            // 创建一个新的 Date 对象以获取当前时间
+            const now = new Date();
+
+            // 获取小时、分钟和秒
+            // 使用 padStart(2, '0') 确保数字始终是两位数（例如 "01", "02"）
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            // 获取年份、月份和日期
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // 月份从 0 开始，所以需要 +1
+            const day = String(now.getDate()).padStart(2, '0');
+
+            // 获取星期
+            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const weekday = weekdays[now.getDay()];
+
+            // 更新 HTML 元素的内容
+            timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+            dateDisplay.textContent = `${year} 年 ${month} 月 ${day} 日`;
+            weekdayDisplay.textContent = weekday;
+        }
+
+        // 首次加载时立即调用一次 updateClock，以避免页面刚打开时显示默认值
+        updateClock();
+
+        // 设置一个定时器，每秒钟（1000毫秒）调用一次 updateClock 函数
+        setInterval(updateClock, 1000);
+    </script>
+
+</body>
+</html>
