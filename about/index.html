@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - LearnFR.de</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for body, Playfair Display for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- ScrollReveal.js for animations -->
+    <!-- FIX: Added 'defer' to ensure this script executes before the DOMContentLoaded event -->
+    <script src="https://unpkg.com/scrollreveal" defer></script>
+    <style>
+        /* Custom styles for the luxurious theme */
+        :root {
+            --gold-color: #D4AF37; /* A classic, elegant gold */
+            --gold-text: #F0E68C;  /* A softer gold for text */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a; /* A deeper black for contrast */
+            color: #E5E7EB;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animated Gradient Background */
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 20% 20%, rgba(13, 71, 161, 0.2), transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(186, 104, 200, 0.2), transparent 40%),
+                        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1), transparent 30%);
+            animation: moveGradient 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes moveGradient {
+            from { transform: translate(0, 0); }
+            to { transform: translate(100px, -100px); }
+        }
+
+        /* Cursor Follower Glow */
+        .cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out;
+            z-index: -1;
+        }
+
+        /* Hide cursor glow on touch devices/small screens */
+        @media (max-width: 1024px) {
+            .cursor-glow {
+                display: none;
+            }
+        }
+
+        /* Glassmorphism Effect for Header */
+        .glass-header {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Custom Gold Button */
+        .btn-gold {
+            background-color: var(--gold-color);
+            color: #111;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+        .btn-gold:hover {
+            background-color: #EACD69;
+            box-shadow: 0 0 30px rgba(224, 205, 105, 0.6);
+        }
+
+        /* Style for active language */
+        .lang-switcher a.active {
+            color: var(--gold-text);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="background-gradient"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- Header with Glass Effect -->
+    <header class="w-full py-5 px-4 sm:px-6 md:px-8 fixed top-0 z-50 glass-header">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl sm:text-2xl font-bold tracking-wider text-white">LearnFR.de</a>
+            
+            <!-- Navigation & Language Switcher Container -->
+            <div class="hidden md:flex items-center">
+                <nav>
+                    <a href="#mission" class="text-gray-300 hover:text-white transition duration-300 ml-8" data-translate-key="nav_mission">使命</a>
+                    <a href="#philosophy" class="text-gray-300 hover:text-white transition duration-300 ml-8" data-translate-key="nav_philosophy">理念</a>
+                    <a href="#story" class="text-gray-300 hover:text-white transition duration-300 ml-8" data-translate-key="nav_story">故事</a>
+                </nav>
+
+                <!-- Language Switcher with separator -->
+                <div class="ml-8 pl-8 border-l border-white/20 flex items-center space-x-5 lang-switcher">
+                    <a href="#" onclick="changeLanguage('zh'); return false;" class="text-sm active">ZH</a>
+                    <a href="#" onclick="changeLanguage('en'); return false;" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">EN</a>
+                    <a href="#" onclick="changeLanguage('fr'); return false;" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">FR</a>
+                    <a href="#" onclick="changeLanguage('es'); return false;" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">ES</a>
+                    <a href="#" onclick="changeLanguage('ru'); return false;" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">RU</a>
+                    <a href="#" onclick="changeLanguage('ar'); return false;" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">AR</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 md:pt-32 relative z-10">
+
+        <!-- Hero Section -->
+        <section class="text-center py-20 md:py-40 px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight reveal" data-translate-key="hero_title">重塑法语学习的艺术</h1>
+                <p class="mt-6 md:mt-8 text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto reveal" data-sr-delay="200" data-translate-key="hero_subtitle">我们探索语言的深度，构筑连接文化与思想的桥梁。</p>
+            </div>
+        </section>
+
+        <!-- Content Sections with subtle borders -->
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-20 md:space-y-32">
+
+            <!-- Mission Section -->
+            <section id="mission" class="py-8 md:py-16">
+                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="reveal">
+                        <div class="rounded-lg overflow-hidden shadow-2xl border border-white/10 p-4">
+                            <!-- SVG for Vision -->
+                            <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                                <defs>
+                                    <filter id="glow">
+                                        <feGaussianBlur stdDeviation="3.5" result="coloredBlur"></feGaussianBlur>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"></feMergeNode>
+                                            <feMergeNode in="SourceGraphic"></feMergeNode>
+                                        </feMerge>
+                                    </filter>
+                                    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                        <stop offset="0%" style="stop-color:rgb(240,230,140);stop-opacity:0.8" />
+                                        <stop offset="100%" style="stop-color:rgb(212,175,55);stop-opacity:0" />
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="100" cy="75" r="50" fill="url(#grad1)" filter="url(#glow)"/>
+                                <g stroke="rgba(240,230,140,0.5)" stroke-width="0.5">
+                                    <path d="M 100,75 L 20,25" />
+                                    <path d="M 100,75 L 50,125" />
+                                    <path d="M 100,75 L 180,50" />
+                                    <path d="M 100,75 L 150,125" />
+                                </g>
+                                <circle cx="100" cy="75" r="15" fill="none" stroke="rgba(240,230,140,0.7)" stroke-width="1"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="reveal" data-sr-delay="100">
+                        <h2 class="text-sm uppercase font-bold tracking-widest" style="color: var(--gold-text);" data-translate-key="mission_tag">我们的使命</h2>
+                        <h3 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate-key="mission_title">回归语言的本质</h3>
+                        <p class="mt-6 md:mt-8 text-gray-300 leading-relaxed text-base sm:text-lg" data-translate-key="mission_text">在 LearnFR.de，我们致力于打破传统语言学习的桎梏。我们创造的是一个充满美学、智慧与乐趣的沉浸式环境，让每一位学习者不仅能自信地运用法语，更能深刻领悟其背后的文化精髓。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Philosophy Section -->
+            <section id="philosophy" class="py-8 md:py-16">
+                <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div class="reveal md:order-2">
+                         <div class="rounded-lg overflow-hidden shadow-2xl border border-white/10 p-4">
+                            <!-- SVG for Method -->
+                            <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                                <defs>
+                                    <filter id="glow2">
+                                        <feGaussianBlur stdDeviation="2.5" result="coloredBlur"></feGaussianBlur>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"></feMergeNode>
+                                            <feMergeNode in="SourceGraphic"></feMergeNode>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <g fill="none" stroke="rgba(240,230,140,0.4)" stroke-width="1">
+                                    <path d="M 40,75 C 80,35, 120,35, 160,75" />
+                                    <path d="M 40,75 C 80,115, 120,115, 160,75" />
+                                    <path d="M 100,45 C 120,75, 120,75, 100,105" />
+                                    <path d="M 100,45 C 80,75, 80,75, 100,105" />
+                                </g>
+                                <circle cx="40" cy="75" r="8" fill="rgba(212,175,55,0.7)" filter="url(#glow2)"/>
+                                <circle cx="160" cy="75" r="8" fill="rgba(212,175,55,0.7)" filter="url(#glow2)"/>
+                                <circle cx="100" cy="45" r="5" fill="rgba(240,230,140,0.5)"/>
+                                <circle cx="100" cy="105" r="5" fill="rgba(240,230,140,0.5)"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="reveal md:order-1" data-sr-delay="100">
+                        <h2 class="text-sm uppercase font-bold tracking-widest" style="color: var(--gold-text);" data-translate-key="philosophy_tag">我们的理念</h2>
+                        <h3 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate-key="philosophy_title">智慧、沉浸、卓越</h3>
+                        <p class="mt-6 md:mt-8 text-gray-300 leading-relaxed text-base sm:text-lg" data-translate-key="philosophy_text">我们坚信，最高效的学习源于最深刻的理解与共鸣。课程设计围绕“实用”与“启发”的核心，融合前沿的认知科学与AI技术，为您雕琢专属的学习路径，点燃您内在的求知火焰。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Story Section -->
+            <section id="story" class="py-8 md:py-16 text-center">
+                <div class="max-w-3xl mx-auto reveal px-4">
+                    <h2 class="text-sm uppercase font-bold tracking-widest" style="color: var(--gold-text);" data-translate-key="story_tag">我们的故事</h2>
+                    <h3 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate-key="story_title">一位创造者的初心</h3>
+                    <p class="mt-6 md:mt-8 text-gray-300 leading-relaxed text-base sm:text-lg" data-translate-key="story_text">LearnFR.de 源自一个纯粹的愿景：法语学习能否成为一场优雅而高效的探索之旅？创始人 Hugo，一位对法语充满热忱的开发者，决心将这份热爱与精湛的技术相结合，从零开始，精心打造一个为极致学习体验而生的平台。这趟旅程始于热爱，也将因坚持而绽放光芒。</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Call to Action -->
+        <section class="text-center py-20 md:py-40 px-4">
+            <div class="max-w-2xl mx-auto reveal">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate-key="cta_title">开启您的法语探索之旅</h2>
+                <p class="mt-6 text-base sm:text-lg text-gray-400" data-translate-key="cta_subtitle">即刻启程，体验一场前所未有的语言盛宴。</p>
+                <a href="https://learnfr.de" class="mt-10 inline-block btn-gold font-semibold py-3 px-8 sm:py-4 sm:px-10 rounded-lg transition duration-300 transform hover:scale-105" data-translate-key="cta_button">
+                    即刻开始
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 mt-16 md:mt-20">
+        <div class="max-w-6xl mx-auto py-8 px-4 text-center text-gray-500">
+            <p>&copy; 2025 LearnFR.de. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- TRANSLATION SCRIPT ---
+        const translations = {
+            zh: {
+                nav_mission: "使命",
+                nav_philosophy: "理念",
+                nav_story: "故事",
+                hero_title: "重塑法语学习的艺术",
+                hero_subtitle: "我们探索语言的深度，构筑连接文化与思想的桥梁。",
+                mission_tag: "我们的使命",
+                mission_title: "回归语言的本质",
+                mission_text: "在 LearnFR.de，我们致力于打破传统语言学习的桎梏。我们创造的是一个充满美学、智慧与乐趣的沉浸式环境，让每一位学习者不仅能自信地运用法语，更能深刻领悟其背后的文化精髓。",
+                philosophy_tag: "我们的理念",
+                philosophy_title: "智慧、沉浸、卓越",
+                philosophy_text: "我们坚信，最高效的学习源于最深刻的理解与共鸣。课程设计围绕“实用”与“启发”的核心，融合前沿的认知科学与AI技术，为您雕琢专属的学习路径，点燃您内在的求知火焰。",
+                story_tag: "我们的故事",
+                story_title: "一位创造者的初心",
+                story_text: "LearnFR.de 源自一个纯粹的愿景：法语学习能否成为一场优雅而高效的探索之旅？创始人 Hugo，一位对法语充满热忱的开发者，决心将这份热爱与精湛的技术相结合，从零开始，精心打造一个为极致学习体验而生的平台。这趟旅程始于热爱，也将因坚持而绽放光芒。",
+                cta_title: "开启您的法语探索之旅",
+                cta_subtitle: "即刻启程，体验一场前所未有的语言盛宴。",
+                cta_button: "即刻开始",
+            },
+            en: {
+                nav_mission: "Mission",
+                nav_philosophy: "Philosophy",
+                nav_story: "Story",
+                hero_title: "Redefining the Art of Learning French",
+                hero_subtitle: "We explore the depth of language, building bridges between cultures and ideas.",
+                mission_tag: "Our Mission",
+                mission_title: "Returning to the Essence of Language",
+                mission_text: "At LearnFR.de, we are dedicated to breaking the barriers of traditional language learning. We create an immersive environment filled with aesthetics, wisdom, and joy, enabling every learner to not only use French confidently but also to deeply appreciate the cultural essence behind it.",
+                philosophy_tag: "Our Philosophy",
+                philosophy_title: "Wisdom, Immersion, Excellence",
+                philosophy_text: "We firmly believe that the most effective learning stems from the deepest understanding and resonance. Our curriculum is designed around the core of 'practicality' and 'inspiration', integrating cutting-edge cognitive science and AI to craft a personalized learning path for you, igniting your inner flame of curiosity.",
+                story_tag: "Our Story",
+                story_title: "A Creator's Vision",
+                story_text: "LearnFR.de was born from a pure vision: can learning French be an elegant and efficient journey of exploration? Founder Hugo, a developer with a passion for French, decided to combine this love with exquisite technology to build a platform dedicated to the ultimate learning experience from scratch. This journey began with passion and will shine through perseverance.",
+                cta_title: "Begin Your French Exploration",
+                cta_subtitle: "Embark now and experience an unprecedented feast of language.",
+                cta_button: "Start Now",
+            },
+            fr: {
+                nav_mission: "Mission",
+                nav_philosophy: "Philosophie",
+                nav_story: "Histoire",
+                hero_title: "Réinventer l'Art d'Apprendre le Français",
+                hero_subtitle: "Nous explorons la profondeur de la langue, construisant des ponts entre les cultures et les idées.",
+                mission_tag: "Notre Mission",
+                mission_title: "Retour à l'Essence de la Langue",
+                mission_text: "Chez LearnFR.de, nous nous engageons à briser les barrières de l'apprentissage traditionnel des langues. Nous créons un environnement immersif rempli d'esthétique, de sagesse et de joie, permettant à chaque apprenant non seulement d'utiliser le français avec confiance, mais aussi d'apprécier profondément son essence culturelle.",
+                philosophy_tag: "Notre Philosophie",
+                philosophy_title: "Sagesse, Immersion, Excellence",
+                philosophy_text: "Nous croyons fermement que l'apprentissage le plus efficace découle de la compréhension et de la résonance les plus profondes. Notre programme est conçu autour du cœur de la 'praticité' et de l''inspiration', intégrant la science cognitive de pointe et l'IA pour vous façonner un parcours d'apprentissage personnalisé, allumant votre flamme intérieure de curiosité.",
+                story_tag: "Notre Histoire",
+                story_title: "La Vision d'un Créateur",
+                story_text: "LearnFR.de est né d'une vision pure : l'apprentissage du français peut-il être un voyage élégant et efficace ? Le fondateur, Hugo, un développeur passionné par le français, a décidé de combiner cet amour avec une technologie exquise pour construire de A à Z une plateforme dédiée à l'expérience d'apprentissage ultime. Ce voyage a commencé avec passion et brillera par la persévérance.",
+                cta_title: "Commencez Votre Exploration du Français",
+                cta_subtitle: "Embarquez maintenant et vivez un festin linguistique sans précédent.",
+                cta_button: "Commencer Maintenant",
+            },
+            es: {
+                nav_mission: "Misión",
+                nav_philosophy: "Filosofía",
+                nav_story: "Historia",
+                hero_title: "Redefiniendo el Arte de Aprender Francés",
+                hero_subtitle: "Exploramos la profundidad del lenguaje, construyendo puentes entre culturas e ideas.",
+                mission_tag: "Nuestra Misión",
+                mission_title: "Volver a la Esencia del Idioma",
+                mission_text: "En LearnFR.de, nos dedicamos a romper las barreras del aprendizaje de idiomas tradicional. Creamos un entorno inmersivo lleno de estética, sabiduría y alegría, que permite a cada estudiante no solo usar el francés con confianza, sino también apreciar profundamente la esencia cultural que hay detrás.",
+                philosophy_tag: "Nuestra Filosofía",
+                philosophy_title: "Sabiduría, Inmersión, Excelencia",
+                philosophy_text: "Creemos firmemente que el aprendizaje más efectivo proviene de la comprensión y resonancia más profundas. Nuestro plan de estudios está diseñado en torno al núcleo de la 'practicidad' y la 'inspiración', integrando la ciencia cognitiva de vanguardia y la IA para crear una ruta de aprendizaje personalizada para usted, encendiendo su llama interna de curiosidad.",
+                story_tag: "Nuestra Historia",
+                story_title: "La Visión de un Creador",
+                story_text: "LearnFR.de nació de una visión pura: ¿puede el aprendizaje del francés ser un viaje elegante y eficiente de exploración? El fundador Hugo, un desarrollador apasionado por el francés, decidió combinar este amor con una tecnología exquisita para construir desde cero una plataforma dedicada a la experiencia de aprendizaje definitiva. Este viaje comenzó con pasión y brillará a través de la perseverancia.",
+                cta_title: "Comience Su Exploración del Francés",
+                cta_subtitle: "Embárquese ahora y experimente un festín lingüístico sin precedentes.",
+                cta_button: "Empezar Ahora",
+            },
+            ru: {
+                nav_mission: "Миссия",
+                nav_philosophy: "Философия",
+                nav_story: "История",
+                hero_title: "Переосмысление Искусства Изучения Французского",
+                hero_subtitle: "Мы исследуем глубину языка, строя мосты между культурами и идеями.",
+                mission_tag: "Наша Миссия",
+                mission_title: "Возвращение к Сущности Языка",
+                mission_text: "В LearnFR.de мы стремимся разрушить барьеры традиционного изучения языков. Мы создаем иммерсивную среду, наполненную эстетикой, мудростью и радостью, позволяя каждому учащемуся не только уверенно использовать французский, но и глубоко ценить его культурную сущность.",
+                philosophy_tag: "Наша Философия",
+                philosophy_title: "Мудрость, Погружение, Совершенство",
+                philosophy_text: "Мы твердо верим, что наиболее эффективное обучение проистекает из глубочайшего понимания и резонанса. Наша учебная программа разработана вокруг 'практичности' и 'вдохновения', интегрируя передовые когнитивные науки и ИИ, чтобы создать для вас персонализированный путь обучения, зажигая ваш внутренний огонь любознательности.",
+                story_tag: "Наша История",
+                story_title: "Видение Создателя",
+                story_text: "LearnFR.de родился из чистого видения: может ли изучение французского быть элегантным и эффективным путешествием? Основатель Хьюго, разработчик со страстью к французскому, решил объединить эту любовь с изысканными технологиями, чтобы с нуля создать платформу, посвященную непревзойденному опыту обучения. Это путешествие началось со страсти и будет сиять благодаря настойчивости.",
+                cta_title: "Начните Ваше Французское Путешествие",
+                cta_subtitle: "Отправляйтесь сейчас и испытайте беспрецедентный языковой пир.",
+                cta_button: "Начать сейчас",
+            },
+            ar: {
+                nav_mission: "المهمة",
+                nav_philosophy: "الفلسفة",
+                nav_story: "القصة",
+                hero_title: "إعادة تعريف فن تعلم الفرنسية",
+                hero_subtitle: "نستكشف عمق اللغة، ونبني الجسور بين الثقافات والأفكار.",
+                mission_tag: "مهمتنا",
+                mission_title: "العودة إلى جوهر اللغة",
+                mission_text: "في LearnFR.de، نحن ملتزمون بكسر حواجز تعلم اللغات التقليدي. نخلق بيئة غامرة مليئة بالجماليات والحكمة والمتعة، مما يمكّن كل متعلم ليس فقط من استخدام الفرنسية بثقة، ولكن أيضًا من تقدير جوهرها الثقافي بعمق.",
+                philosophy_tag: "فلسفتنا",
+                philosophy_title: "الحكمة، الانغماس، التميز",
+                philosophy_text: "نؤمن إيمانًا راسخًا بأن التعلم الأكثر فعالية ينبع من أعمق فهم ورنين. تم تصميم منهجنا حول جوهر 'التطبيق العملي' و 'الإلهام'، مع دمج علوم الإدراك المتطورة والذكاء الاصطناعي لصياغة مسار تعليمي مخصص لك، وإشعال شعلة فضولك الداخلية.",
+                story_tag: "قصتنا",
+                story_title: "رؤية مبدع",
+                story_text: "وُلد LearnFR.de من رؤية نقية: هل يمكن أن يكون تعلم الفرنسية رحلة استكشاف أنيقة وفعالة؟ قرر المؤسس هوغو، وهو مطور شغوف بالفرنسية، الجمع بين هذا الحب والتكنولوجيا الرائعة لبناء منصة مخصصة لتجربة تعليمية مطلقة من الصفر. بدأت هذه الرحلة بشغف وسوف تتألق بالمثابرة.",
+                cta_title: "ابدأ رحلتك في استكشاف الفرنسية",
+                cta_subtitle: "انطلق الآن واستمتع بوليمة لغوية لم يسبق لها مثيل.",
+                cta_button: "ابدأ الآن",
+            },
+        };
+
+        function changeLanguage(lang) {
+            // Check if the language exists in our translations object
+            if (translations[lang]) {
+                document.querySelectorAll('[data-translate-key]').forEach(element => {
+                    const key = element.getAttribute('data-translate-key');
+                    if (translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+
+                // Update active language button style
+                document.querySelectorAll('.lang-switcher a').forEach(a => {
+                    a.classList.remove('active');
+                    a.style.color = ''; // Reset color
+                    a.style.fontWeight = ''; // Reset font weight
+                    if (a.textContent.toLowerCase() === lang) {
+                        a.classList.add('active');
+                    }
+                });
+                // Set html lang attribute
+                document.documentElement.lang = lang;
+                // For Arabic, set text direction to RTL
+                if (lang === 'ar') {
+                    document.documentElement.dir = 'rtl';
+                } else {
+                    document.documentElement.dir = 'ltr';
+                }
+
+            } else {
+                console.warn(`Language "${lang}" not found in translations.`);
+            }
+        }
+
+
+        // --- MAIN SCRIPT ---
+        // FIX: Changed from 'load' back to 'DOMContentLoaded' which is more standard
+        // when using the 'defer' attribute on scripts.
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Cursor Glow Effect
+            const glow = document.getElementById('cursor-glow');
+            if (window.matchMedia("(min-width: 1024px)").matches) {
+                document.addEventListener('mousemove', (e) => {
+                    if (glow) {
+                        glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+                    }
+                });
+            }
+
+            // Initialize ScrollReveal
+            if (typeof ScrollReveal !== 'undefined') {
+                const sr = ScrollReveal({
+                    distance: '50px',
+                    duration: 1000,
+                    easing: 'cubic-bezier(0.5, 0, 0, 1)',
+                    reset: false
+                });
+
+                sr.reveal('.reveal', {
+                    origin: 'bottom',
+                    interval: 150
+                });
+            } else {
+                // This message is a fallback, but with 'defer' it's unlikely to be needed.
+                console.error("ScrollReveal library did not load in time.");
+            }
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.length > 1) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
