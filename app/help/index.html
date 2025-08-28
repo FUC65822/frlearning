@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learnfr v0.1.0 - 帮助文档</title>
+    <!-- 引入 Tailwind CSS 以实现现代化和响应式设计 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Inter 字体，使文本更美观 -->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>
+        /* 自定义基础样式 */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* 为代码/文件名等元素提供统一样式 */
+        code {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            color: #4b5563; /* text-gray-600 */
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 主内容容器 -->
+    <div class="container mx-auto max-w-4xl px-4 py-8 sm:py-12">
+
+        <!-- 网页头部 -->
+        <header class="mb-10 text-center">
+            <div class="flex items-center justify-center gap-4">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">learnfr</h1>
+                <span class="bg-yellow-200 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full">v0.1.0 Pre-release</span>
+            </div>
+            <p class="mt-3 text-lg text-gray-600">您的专属法语词汇学习工具帮助文档</p>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="space-y-12">
+
+            <!-- 主要功能 Section -->
+            <section id="features">
+                <div class="flex items-center gap-3 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                    <h2 class="text-2xl font-bold text-gray-900">主要功能 (Features)</h2>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span><strong>自定义词书导入</strong>：支持导入 <code>.xlsx</code> 格式的表格文件，让你能够轻松创建和学习专属于你的法语词汇书。</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span><strong>核心闪卡模式</strong>：采用经典的“单词-释义”闪卡模式进行学习，帮助你摆脱干扰，专注于高效记忆。</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span><strong>简洁的用户界面</strong>：经过全新设计的界面，让你能够专注于核心的背单词体验，操作直观，上手简单。</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 已知问题与未来计划 Section -->
+            <section id="known-issues">
+                <div class="flex items-center gap-3 mb-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <h2 class="text-2xl font-bold text-gray-900">已知问题与未来计划 (Known Issues & Future Plans)</h2>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>目前版本暂未包含学习进度跟踪功能，我们将在未来的更新中加入此功能，敬请期待！</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>当前版本的语音朗读（TTS）功能存在一些无法发出声音的问题，我们正在积极修复。</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 如何使用 Section -->
+            <section id="how-to-use">
+                 <div class="flex items-center gap-3 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h2 class="text-2xl font-bold text-gray-900">如何使用 (How to Use)</h2>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 space-y-6">
+                    <!-- 步骤一 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2"><span class="bg-green-500 text-white rounded-full w-6 h-6 inline-flex items-center justify-center mr-2">1</span>准备词书文件</h3>
+                        <p class="text-gray-600 mb-3">首先，您需要按照特定格式创建一个 <code>.xlsx</code> 电子表格文件。</p>
+                        <div class="border-l-4 border-green-300 pl-4 text-gray-700 space-y-2">
+                            <p><strong>第一行</strong>：填写您词书的标题（例如：“我的法语核心词汇”）。</p>
+                            <p><strong>从第二行开始</strong>：</p>
+                            <ul class="list-disc list-inside pl-4 space-y-1">
+                                <li><strong>A列</strong>：填入法语单词。</li>
+                                <li><strong>B列</strong>：填入对应的音标。</li>
+                                <li><strong>C列</strong>：填入中文或其他语言的释义。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 步骤二 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2"><span class="bg-green-500 text-white rounded-full w-6 h-6 inline-flex items-center justify-center mr-2">2</span>下载并安装应用</h3>
+                        <p class="text-gray-600">从软件发布页面的 "Assets" 区域中下载 <code>learnfr.apk</code> 安装包，并在您的安卓设备上完成安装。</p>
+                    </div>
+                    <!-- 步骤三 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2"><span class="bg-green-500 text-white rounded-full w-6 h-6 inline-flex items-center justify-center mr-2">3</span>导入并开始学习</h3>
+                        <p class="text-gray-600">打开应用，点击主界面的“导入词书”按钮，选择您刚刚准备好的 <code>.xlsx</code> 文件，即可开始您的学习之旅！</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 网页页脚 -->
+        <footer class="mt-12 pt-8 border-t border-gray-200 text-center text-gray-500">
+            <p>&copy; 2025 learnfr. All Rights Reserved.</p>
+            <p class="text-sm mt-1">此文档由 Gemini 生成。</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
