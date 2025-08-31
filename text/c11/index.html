@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法语课文学习 S11</title>
+    <!-- 引入Tailwind CSS框架 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 关键修复：添加Tailwind暗色模式配置 -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <!-- 引入Google Fonts以优化字体显示 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 设置全局字体，优先使用英文字体Inter，中文使用Noto Sans SC */
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+        }
+        /* 隐藏所有浏览器的滚动条 */
+        html {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        html::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+    </style>
+    <script>
+        // 在页面加载前检查并应用主题，防止亮色模式闪烁
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300">
+
+    <!-- 主内容容器 -->
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl lg:max-w-7xl relative">
+
+        <!-- 暗色模式切换按钮 -->
+        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8">
+            <button id="theme-toggle" type="button" class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:focus:ring-slate-700 rounded-lg text-sm p-2.5">
+                <!-- 月亮图标 -->
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <!-- 太阳图标 -->
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+        </div>
+
+        <!-- 页面主标题 -->
+        <header class="text-center mb-10 pt-8 sm:pt-0">
+            <h1 class="text-4xl font-bold text-slate-900 dark:text-slate-100">法语课文 S11</h1>
+            <p class="text-lg text-slate-600 dark:text-slate-400 mt-2">French & Chinese Texts</p>
+        </header>
+
+        <!-- 第一部分: SYMBOLES DE LA FRANCE -->
+        <section class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg dark:shadow-slate-700/20 mb-10">
+            <h2 class="text-2xl font-bold text-cyan-700 dark:text-cyan-400 border-b-2 border-cyan-200 dark:border-cyan-800 pb-3 mb-6">SYMBOLES DE LA FRANCE</h2>
+            <ol class="list-decimal list-inside space-y-6">
+                <!-- 条目 1 -->
+                <li>
+                    <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">C'est un des plus beaux musées du monde où se trouvent la Joconde, la Vénus de Milo et la Victoire de Samothrace.</p>
+                    <p class="text-md text-slate-600 dark:text-slate-400 italic mt-1"><strong>中译：</strong> 这是世界上最美的博物馆之一，收藏着《蒙娜丽莎》《米洛的维纳斯》和《萨莫色雷斯的胜利女神》。</p>
+                </li>
+                <!-- 条目 2 -->
+                <li>
+                    <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">C'est une femme créatrice qui a émancipé les femmes dans leur style vestimentaire et dont la marque est connue dans le monde entier.</p>
+                    <p class="text-md text-slate-600 dark:text-slate-400 italic mt-1"><strong>中译：</strong> 她是一位女性设计师，通过服装风格解放了女性，其品牌享誉全球。</p>
+                </li>
+                <!-- 条目 3 -->
+                <li>
+                    <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">C'est un écrivain qui a obtenu le prix Nobel de littérature de 2008. Il est passionné de l'Afrique, de l'Asie et de l'Amérique latine.</p>
+                    <p class="text-md text-slate-600 dark:text-slate-400 italic mt-1"><strong>中译：</strong> 他是一位获得2008年诺贝尔文学奖的作家，对非洲、亚洲和拉丁美洲充满热情。</p>
+                </li>
+                <!-- 条目 4 -->
+                <li>
+                    <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">C'est un livre où il y a plein d'images et de bulles et que les grands aiment autant que les enfants.</p>
+                    <p class="text-md text-slate-600 dark:text-slate-400 italic mt-1"><strong>中译：</strong> 这是一本充满插图和气泡对话的书，大人和孩子一样喜爱。</p>
+                </li>
+                <!-- 条目 5 -->
+                <li>
+                    <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">C'est un lieu où on s'assoit pour prendre un verre au soleil et regarder les gens passer.</p>
+                    <p class="text-md text-slate-600 dark:text-slate-400 italic mt-1"><strong>中译：</strong> 这是一个可以坐在阳光下喝一杯、看人来人往的地方。</p>
+                </li>
+                <!-- 条目 6 -->
+                <li>
+                    <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">C'est une écrivaine et philosophe qui a dit : « On ne naît pas femme, on le devient. »</p>
+                    <p class="text-md text-slate-600 dark:text-slate-400 italic mt-1"><strong>中译：</strong> 她是一位女作家兼哲学家，曾说过："女人不是天生的，而是后天成为的。"</p>
+                </li>
+                <!-- 条目 7 -->
+                <li>
+                    <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">C'est une équipe de sportifs qui a fait le bonheur des Français en 1998 et en 2018.</p>
+                    <p class="text-md text-slate-600 dark:text-slate-400 italic mt-1"><strong>中译：</strong> 这是一支运动队，曾在1998年和2018年让法国人民感到幸福。</p>
+                </li>
+                <!-- 条目 8 -->
+                <li>
+                    <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">C'est un aliment à base de farine qui existe sous différentes formes et dont le plus connu s'appelle la baguette.</p>
+                    <p class="text-md text-slate-600 dark:text-slate-400 italic mt-1"><strong>中译：</strong> 这是一种以面粉为原料的食物，有多种形态，最著名的是长棍面包。</p>
+                </li>
+                <!-- 条目 9 -->
+                <li>
+                    <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">C'est une boisson alcoolisée qui est produite avec du raisin et dont les Français sont fiers.</p>
+                    <p class="text-md text-slate-600 dark:text-slate-400 italic mt-1"><strong>中译：</strong> 这是一种用葡萄酿造的酒精饮料，是法国人的骄傲。</p>
+                </li>
+                <!-- 条目 10 -->
+                <li>
+                    <p class="text-lg font-semibold text-slate-700 dark:text-slate-300">C'est un aliment laitier qui sent fort et dont les Français ne peuvent se passer.</p>
+                    <p class="text-md text-slate-600 dark:text-slate-400 italic mt-1"><strong>中译：</strong> 这是一种气味浓郁的乳制品，法国人离不开它。</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- 第二部分: T'ES PAS COMME NOUS ! -->
+        <section class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg dark:shadow-slate-700/20 mb-10">
+            <h2 class="text-2xl font-bold text-cyan-700 dark:text-cyan-400 border-b-2 border-cyan-200 dark:border-cyan-800 pb-3 mb-6">T'ES PAS COMME NOUS !</h2>
+            
+            <!-- 背景介绍 -->
+            <div class="bg-slate-100 dark:bg-slate-700 p-4 rounded-lg mb-6 text-slate-600 dark:text-slate-300 italic">
+                <p><strong>背景：</strong> 故事发生在20世纪60年代。奥马尔出生在法国，父母是来自阿尔及利亚的移民。和许多像他们一样的家庭一样，他们住在里昂附近的一个贫民窟"沙巴"。与其他人不同，奥马尔热衷于法国文化，学习非常努力。但他的聪明才智和勤奋却引起了同学的嫉妒……</p>
+            </div>
+
+            <!-- 响应式网格布局，大屏幕上两列，小屏幕上自动堆叠 -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 法文原文列 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-100">法文原文</h3>
+                    <div class="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed">
+                        <p>Dès que nous avons pénétré dans la salle, je me suis installé au premier rang, juste sous le nez du maître. Celui qui était là avant n'a pas demandé son reste. Il est allé droit au fond occuper ma place désormais vacante.</p>
+                        <p>Le maître m'a jeté un regard surpris. Je le comprends. Je vais lui montrer que je peux être parmi les plus obéissants, parmi ceux qui tiennent leur carnet du jour proprement, parmi ceux dont les mains et les ongles ne laissent pas filtrer la moindre trace de crasse, parmi les plus actifs en cours.</p>
+                        <p>« Nous sommes tous descendants de Vercingétorix !<br>– Oui, maître !<br>– Notre pays, la France, a une superficie de...<br>– Oui, maître ! »</p>
+                        <p>Le maître a toujours raison. S'il dit que nous sommes tous descendants des Gaulois, c'est qu'il a raison, et tant pis si chez moi nous n'avons pas les mêmes moustaches.</p>
+                        <p class="italic text-slate-500 dark:text-slate-400">(Le jour où monsieur Grand, l'instituteur, donne le classement, Azouz est second alors que ses camarades du Chaâba sont tous derniers. Le lendemain, Moussaoui et Nasser demandent des explications.)</p>
+                        <p>« Alors ? » dit Moussaoui en me fixant d'un œil malicieux et plein de reproches.</p>
+                        <p>« Alors quoi ? » fais-je sans me douter le moins du monde de ce qu'il peut bien me vouloir.</p>
+                        <p>Ses yeux se font lance-roquettes et, méprisant, il lâche :<br>« T'es pas un Arabe, toi ! »</p>
+                        <p>Aussitôt, sans même comprendre la signification de ces mots, je réagis :<br>« Si, je suis un Arabe ! »</p>
+                        <p>« Non, t'es pas un Arabe, j'te dis. »</p>
+                        <p>« Si, je suis un Arabe ! »</p>
+                        <p>« J'te dis que t'es pas comme nous ! »</p>
+                        <p>Alors là, plus aucun mot ne parvient à sortir de ma bouche. Le dernier reste coincé entre mes dents. C'est vrai que je ne suis pas comme eux.</p>
+                        <p>Une terrible impression de vide s'empare de moi. Mon cœur cogne lourdement dans mon ventre.</p>
+                    </div>
+                </div>
+
+                <!-- 中文翻译列 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-100">中文翻译</h3>
+                    <div class="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed">
+                        <p>一进教室，我就坐在前排，正对着老师的脸。原本坐在这里的人二话不说就走了，径直去后面占了我现在的空位。</p>
+                        <p>老师惊讶地看着我。我明白他的意思。我要向他证明，我可以是最守纪律的学生之一，可以是笔记写得最整洁的人之一，可以是手和指甲一点污渍都没有、上课最积极的人之一。</p>
+                        <p>「我们都是韦辛格托利克斯的后代！<br>——是的，老师！<br>——我们的国家，法国，面积是……<br>——是的，老师！」</p>
+                        <p>老师总是对的。如果他说我们都是高卢人的后代，那一定没错，就算我家没有同样的小胡子也无关紧要。</p>
+                        <p class="italic text-slate-500 dark:text-slate-400">（当校长先生公布排名时，阿祖兹位列第二，而沙巴的同学们都在末尾。第二天，穆萨乌伊和纳赛尔来找我问话。）</p>
+                        <p>「怎么样？」穆萨乌伊用充满恶意和责备的眼神盯着我问道。</p>
+                        <p>「怎么了？」我完全没料到他会找我的麻烦。</p>
+                        <p>他的眼神变得像火箭筒般锐利，轻蔑地说：<br>「你可不是阿拉伯人吧！」</p>
+                        <p>我立刻反驳，甚至没理解这句话的含义：<br>「是的，我是阿拉伯人！」</p>
+                        <p>「不，我不是告诉过你了吗，你不是阿拉伯人！」</p>
+                        <p>「是的，我是阿拉伯人！」</p>
+                        <p>「我就说你跟我们不一样！」</p>
+                        <p>刹那间，我一句话也说不出来，最后一个字卡在牙缝里。事实确实如此，我和他们不同。</p>
+                        <p>一种可怕的空虚感袭来，我的心沉重地撞击着胃部。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三部分: 作者介绍 -->
+        <section class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg dark:shadow-slate-700/20">
+            <h2 class="text-2xl font-bold text-cyan-700 dark:text-cyan-400 border-b-2 border-cyan-200 dark:border-cyan-800 pb-3 mb-6">作者介绍</h2>
+            <div class="space-y-4 mb-6">
+                <p class="text-lg text-slate-700 dark:text-slate-300"><strong>法文原文：</strong> Azouz Begag, né le 5 février 1957 à Lyon, est un homme politique, écrivain et chercheur français en économie et sociologie. Il est chargé de recherche du CNRS à l’université Paris IV.</p>
+                <p class="text-lg text-slate-700 dark:text-slate-300"><strong>中译：</strong> 阿祖兹·贝加格（Azouz Begag），1957年2月5日出生于里昂，是法国政治家、作家、经济学家和社会学家。他曾担任法国国家科学研究中心（CNRS）在巴黎第四大学的研究员。</p>
+            </div>
+            
+            <!-- 注释区域 -->
+            <div class="bg-amber-50 dark:bg-slate-700 border-l-4 border-amber-400 dark:border-amber-600 p-4 rounded-r-lg">
+                 <h3 class="text-lg font-semibold text-amber-800 dark:text-amber-400 mb-2">注释</h3>
+                 <ul class="list-disc list-inside text-amber-700 dark:text-amber-500 space-y-1">
+                     <li><strong>Vercingétorix</strong>：古高卢领袖，象征法国民族身份。</li>
+                     <li><strong>Gone du Chaâba</strong>：阿祖兹·贝加格自传体小说，反映移民二代的身份认同问题。这上面有两个课文。</li>
+                 </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // 使用DOMContentLoaded确保在操作DOM之前，HTML已完全加载和解析
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggleButton = document.getElementById('theme-toggle');
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+            const htmlElement = document.documentElement;
+
+            // 一个统一的函数来更新图标的可见性
+            const updateIcons = () => {
+                const isDark = htmlElement.classList.contains('dark');
+                // 如果是暗色模式，显示太阳图标；否则显示月亮图标
+                themeToggleLightIcon.classList.toggle('hidden', !isDark);
+                themeToggleDarkIcon.classList.toggle('hidden', isDark);
+            };
+
+            // 页面加载时立即更新一次图标，以匹配初始主题
+            updateIcons();
+
+            // 为按钮添加点击事件监听器
+            themeToggleButton.addEventListener('click', function() {
+                // 切换html元素的'dark'类
+                htmlElement.classList.toggle('dark');
+                
+                // 根据当前是否有'dark'类来更新localStorage
+                if (htmlElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+
+                // 每次点击后都更新图标
+                updateIcons();
+            });
+        });
+    </script>
+</body>
+</html>
+
+
