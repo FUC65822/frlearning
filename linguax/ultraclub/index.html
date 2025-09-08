@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="pageTitle">LinguaX Ultra Club - 尊享权益</title>
+    <meta name="description" data-translate="metaDescription" content="探索 LinguaX Ultra Club 的专属世界，一个为追求卓越的翻译家打造的精英圈层。">
+    <meta name="keywords" content="LinguaX, Ultra Club, 高端法语, 翻译家社群, 学术交流">
+    
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 引入字体和图标 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Sans:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Noto Sans', 'Noto Sans SC', sans-serif;
+            background-color: #000000;
+            color: #EAEAEA;
+        }
+        :lang(ar) body {
+            font-family: 'Cairo', sans-serif;
+        }
+        h1, h2, h3 {
+             font-weight: 900;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-color: #000000;
+            position: relative;
+            overflow: hidden;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .gold-text {
+            color: #D4AF37;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(45deg, #FDB813, #E1A22E, #C7811F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .platinum-gradient-text {
+            background: linear-gradient(45deg, #FFFFFF, #E5E4E2, #C0C0C0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+        .delay-3 { transition-delay: 0.6s; }
+        .delay-4 { transition-delay: 0.8s; }
+
+        .tier-card {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(16, 16, 16, 0.5);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .tier-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-300">
+    <div id="particles-js"></div>
+
+    <header class="sticky top-0 z-20 bg-black/50 backdrop-blur-md">
+        <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl sm:text-2xl font-bold tracking-wider gold-gradient-text whitespace-nowrap">
+                <i class="fas fa-crown mr-2"></i><span data-translate="brandName">LinguaX Ultra Club</span>
+            </a>
+             <!-- Language Switcher -->
+            <div id="language-switcher" class="relative">
+                <button id="language-switcher-button" class="flex items-center hover:text-amber-400 transition duration-300 text-sm font-bold bg-gray-900/50 px-3 py-2 rounded-full border border-gray-800">
+                    <i class="fas fa-globe"></i>
+                    <span id="current-lang" class="mx-1.5">中文</span>
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div id="language-dropdown" class="hidden absolute top-full right-0 mt-2 bg-black border border-gray-800 rounded-md shadow-lg w-32">
+                    <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-gray-800" data-lang="zh">中文</a>
+                    <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-gray-800" data-lang="en">English</a>
+                    <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-gray-800" data-lang="fr">Français</a>
+                    <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-gray-800" data-lang="es">Español</a>
+                    <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-gray-800" data-lang="ru">Русский</a>
+                    <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-gray-800" data-lang="ar">العربية</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== Hero Section ========== -->
+    <section class="hero-bg text-center py-28 md:py-48 relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <i class="fas fa-crown text-5xl gold-gradient-text mb-6 animate-on-scroll"></i>
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-black mb-4 leading-tight text-white animate-on-scroll delay-1" data-translate="heroTitle">
+                欢迎来到 <span class="gold-gradient-text">LinguaX Ultra Club</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10 animate-on-scroll delay-2" data-translate="heroSubtitle">
+                一个专为追求卓越的翻译家与语言学者打造的精英圈层。
+            </p>
+            <a href="#tiers" class="bg-amber-500 text-black font-bold py-3 px-8 rounded-full text-lg hover:bg-amber-400 transition duration-300 transform hover:scale-105 shadow-2xl shadow-amber-500/30 animate-on-scroll delay-3" data-translate="heroButton">
+                探索您的会员等级与权益
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== Philosophy Section ========== -->
+    <section id="philosophy" class="py-20 md:py-32 relative z-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 animate-on-scroll" data-translate="philosophyTitle">超越语言，连接思想</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 mb-8 rounded animate-on-scroll delay-1"></div>
+                <p class="text-gray-400 text-base sm:text-lg leading-relaxed mb-4 animate-on-scroll delay-2" data-translate="philosophyDesc1">
+                    LinguaX Ultra Club 不仅仅是一项会员服务，它是一个汇聚了行业顶尖思想、前沿学者和未来翻译领袖的专属社群。我们相信，真正的语言大师不仅精通字词的转换，更能洞悉文化深处的脉络，促进思想的交融。
+                </p>
+                <p class="text-gray-400 text-base sm:text-lg leading-relaxed animate-on-scroll delay-3" data-translate="philosophyDesc2">
+                    在这里，我们为您打破知识与人脉的壁垒，提供一个与全球顶尖头脑交流的平台。每一次活动，都是一次思想的碰撞；每一次交流，都是一次视野的升华。
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========== Tier System Section ========== -->
+    <section id="tiers" class="py-20 md:py-24 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate="tiersTitle">Ultra Club 等级体系</h2>
+                <p class="text-gray-400 mt-3 text-lg" data-translate="tiersSubtitle">您的尊贵，伴随成长与成就而彰显。每订阅一年Ultra会员即可获得1000成长值。</p>
+                <p class="text-gray-500 text-sm mt-2" data-translate="tiersNote">*您的会员成长值在Ultra会员订阅期间持续有效。若会员身份中断，成长值将为您保留12个月的缓冲期。*</p>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6 rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <!-- Tier 1: Platinum -->
+                <div class="tier-card rounded-xl p-8 flex flex-col animate-on-scroll delay-1">
+                    <div class="text-center mb-6">
+                        <i class="far fa-gem text-5xl text-gray-400 mb-4"></i>
+                        <h3 class="text-3xl font-bold text-gray-300" data-translate="tier1Name">白金卡</h3>
+                        <p class="text-amber-400 font-bold" data-translate="tier1Req">0+ 成长值</p>
+                    </div>
+                    <ul class="space-y-3 text-gray-400 flex-grow">
+                        <li data-translate="tier1Feat1"><i class="fas fa-check-circle gold-text mr-3"></i>专属数字身份徽章</li>
+                        <li data-translate="tier1Feat2"><i class="fas fa-check-circle gold-text mr-3"></i>年度限量版礼品</li>
+                        <li data-translate="tier1Feat3"><i class="fas fa-check-circle gold-text mr-3"></i>24/7 全球礼宾服务</li>
+                        <li data-translate="tier1Feat4"><i class="fas fa-check-circle gold-text mr-3"></i>优先项目接洽权</li>
+                    </ul>
+                </div>
+
+                <!-- Tier 2: Black Gold -->
+                <div class="tier-card rounded-xl p-8 flex flex-col animate-on-scroll delay-2">
+                     <div class="text-center mb-6">
+                        <i class="fas fa-gem text-5xl gold-text mb-4"></i>
+                        <h3 class="text-3xl font-bold text-white" data-translate="tier2Name">黑金卡</h3>
+                        <p class="text-amber-300 font-bold" data-translate="tier2Req">1000+ 成长值</p>
+                        <p class="text-sm text-gray-500 mt-1" data-translate="tier2Note">需持有 DELF B2 / TCF 4 证书</p>
+                    </div>
+                    <p class="mb-4 text-gray-300 text-center" data-translate="tier2Unlock">尊享白金卡<strong class="text-white mx-1">全部权益</strong>，并额外解锁：</p>
+                    <ul class="space-y-3 text-gray-400 flex-grow">
+                        <li data-translate="tier2Feat1"><i class="fas fa-check-circle gold-text mr-3"></i>线下私享沙龙参与权</li>
+                        <li data-translate="tier2Feat2"><i class="fas fa-check-circle gold-text mr-3"></i>前沿学术闭门研讨会</li>
+                        <li data-translate="tier2Feat3"><i class="fas fa-check-circle gold-text mr-3"></i>与行业大咖会面机会</li>
+                    </ul>
+                </div>
+
+                <!-- Tier 3: Diamond -->
+                <div class="tier-card rounded-xl p-8 flex flex-col animate-on-scroll delay-3">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-crown text-5xl gold-gradient-text mb-4"></i>
+                        <h3 class="text-3xl font-bold gold-gradient-text" data-translate="tier3Name">钻石卡</h3>
+                        <p class="text-amber-300 font-bold" data-translate="tier3Req">3000+ 成长值</p>
+                        <p class="text-sm text-gray-500 mt-1" data-translate="tier3Note">需持有 DALF C1 证书</p>
+                    </div>
+                    <p class="mb-4 text-gray-300 text-center" data-translate="tier3Unlock">尊享黑金卡<strong class="text-white mx-1">全部权益</strong>，并额外解锁：</p>
+                    <ul class="space-y-3 text-gray-400 flex-grow">
+                        <li data-translate="tier3Feat1"><i class="fas fa-check-circle gold-text mr-3"></i>年度成就晚宴贵宾席</li>
+                        <li data-translate="tier3Feat2"><i class="fas fa-check-circle gold-text mr-3"></i>顶级翻译项目合伙人资格</li>
+                    </ul>
+                </div>
+                
+                 <!-- Tier 4: Diamond+ -->
+                <div class="tier-card rounded-xl p-8 flex flex-col animate-on-scroll delay-4 border-2 border-white/50 md:scale-105 shadow-2xl shadow-white/10">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-shield-alt text-5xl platinum-gradient-text mb-4"></i>
+                        <h3 class="text-3xl font-bold platinum-gradient-text" data-translate="tier4Name">钻石+卡</h3>
+                        <p class="text-gray-300 font-bold" data-translate="tier4Req">5000+ 成长值</p>
+                        <p class="text-sm text-gray-500 mt-1" data-translate="tier4Note">需持有 DALF C2 证书</p>
+                    </div>
+                    <p class="mb-4 text-gray-300 text-center" data-translate="tier4Unlock">尊享钻石卡<strong class="text-white mx-1">全部权益</strong>，并额外解锁：</p>
+                    <ul class="space-y-3 text-gray-400 flex-grow">
+                        <li data-translate="tier4Feat1"><i class="fas fa-check-circle text-white mr-3"></i>授予 "LinguaX 全球大使" 荣誉头衔</li>
+                        <li data-translate="tier4Feat2"><i class="fas fa-check-circle text-white mr-3"></i>参与顶层课程研发决策</li>
+                        <li data-translate="tier4Feat3"><i class="fas fa-check-circle text-white mr-3"></i>创始人签发的个性化推荐信</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== How to Join ========== -->
+    <section id="join" class="bg-gradient-to-t from-black via-gray-900 to-black py-24 text-white relative z-10">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl font-black mb-4 animate-on-scroll" data-translate="joinTitle">如何开启您的尊贵之旅？</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto text-gray-400 animate-on-scroll delay-1" data-translate="joinDesc">
+                LinguaX Ultra Club 是为我们的 Ultra 会员及 Ultra+ 会员提供的专属尊享服务。现在升级，即刻开启您的非凡之旅。
+            </p>
+            <a href="https://learnfr.de/linguax/price" target="_blank" rel="noopener noreferrer" class="bg-white text-black font-bold py-4 px-10 rounded-full text-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105 shadow-2xl animate-on-scroll delay-2" data-translate="joinButton">
+                查看会员方案并升级
+            </a>
+        </div>
+    </section>
+
+    <!-- ========== Footer ========== -->
+    <footer class="bg-black text-white py-12 relative z-10">
+        <div class="container mx-auto px-6 text-center">
+             <p class="text-gray-500 text-sm mb-2" data-translate="footerBrandInfo">“翻译水平”是 <a href="https://learnfr.de" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition">learnfr.de</a> 倾力打造的旗舰语言学习品牌。</p>
+            <p class="text-gray-500 text-sm" data-translate="footerCopyright">&copy; 2025 LinguaX. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DATA ---
+            const translations = {
+                zh: {
+                    pageTitle: "LinguaX Ultra Club - 尊享权益",
+                    metaDescription: "探索 LinguaX Ultra Club 的专属世界，一个为追求卓越的翻译家打造的精英圈层。",
+                    brandName: "LinguaX Ultra Club",
+                    heroTitle: "欢迎来到 <span class='gold-gradient-text'>LinguaX Ultra Club</span>",
+                    heroSubtitle: "一个专为追求卓越的翻译家与语言学者打造的精英圈层。",
+                    heroButton: "探索您的会员等级与权益",
+                    philosophyTitle: "超越语言，连接思想",
+                    philosophyDesc1: "LinguaX Ultra Club 不仅仅是一项会员服务，它是一个汇聚了行业顶尖思想、前沿学者和未来翻译领袖的专属社群。我们相信，真正的语言大师不仅精通字词的转换，更能洞悉文化深处的脉络，促进思想的交融。",
+                    philosophyDesc2: "在这里，我们为您打破知识与人脉的壁垒，提供一个与全球顶尖头脑交流的平台。每一次活动，都是一次思想的碰撞；每一次交流，都是一次视野的升华。",
+                    tiersTitle: "Ultra Club 等级体系",
+                    tiersSubtitle: "您的尊贵，伴随成长与成就而彰显。每订阅一年Ultra会员即可获得1000成长值。",
+                    tiersNote: "*您的会员成长值在Ultra会员订阅期间持续有效。若会员身份中断，成长值将为您保留12个月的缓冲期。*",
+                    tier1Name: "白金卡",
+                    tier1Req: "0+ 成长值",
+                    tier1Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>专属数字身份徽章",
+                    tier1Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>年度限量版礼品",
+                    tier1Feat3: "<i class='fas fa-check-circle gold-text mr-3'></i>24/7 全球礼宾服务",
+                    tier1Feat4: "<i class='fas fa-check-circle gold-text mr-3'></i>优先项目接洽权",
+                    tier2Name: "黑金卡",
+                    tier2Req: "1000+ 成长值",
+                    tier2Note: "需持有 DELF B2 / TCF 4 证书",
+                    tier2Unlock: "尊享白金卡<strong class='text-white mx-1'>全部权益</strong>，并额外解锁：",
+                    tier2Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>线下私享沙龙参与权",
+                    tier2Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>前沿学术闭门研讨会",
+                    tier2Feat3: "<i class='fas fa-check-circle gold-text mr-3'></i>与行业大咖会面机会",
+                    tier3Name: "钻石卡",
+                    tier3Req: "3000+ 成长值",
+                    tier3Note: "需持有 DALF C1 证书",
+                    tier3Unlock: "尊享黑金卡<strong class='text-white mx-1'>全部权益</strong>，并额外解锁：",
+                    tier3Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>年度成就晚宴贵宾席",
+                    tier3Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>顶级翻译项目合伙人资格",
+                    tier4Name: "钻石+卡",
+                    tier4Req: "5000+ 成长值",
+                    tier4Note: "需持有 DALF C2 证书",
+                    tier4Unlock: "尊享钻石卡<strong class='text-white mx-1'>全部权益</strong>，并额外解锁：",
+                    tier4Feat1: "<i class='fas fa-check-circle text-white mr-3'></i>授予 \"LinguaX 全球大使\" 荣誉头衔",
+                    tier4Feat2: "<i class='fas fa-check-circle text-white mr-3'></i>参与顶层课程研发决策",
+                    tier4Feat3: "<i class='fas fa-check-circle text-white mr-3'></i>创始人签发的个性化推荐信",
+                    joinTitle: "如何开启您的尊贵之旅？",
+                    joinDesc: "LinguaX Ultra Club 是为我们的 Ultra 会员及 Ultra+ 会员提供的专属尊享服务。现在升级，即刻开启您的非凡之旅。",
+                    joinButton: "查看会员方案并升级",
+                    footerBrandInfo: "“翻译水平”是 <a href='https://learnfr.de' target='_blank' rel='noopener noreferrer' class='hover:text-amber-400 transition'>learnfr.de</a> 倾力打造的旗舰语言学习品牌。",
+                    footerCopyright: "© 2025 LinguaX. All Rights Reserved."
+                },
+                en: {
+                    pageTitle: "LinguaX Ultra Club - Exclusive Privileges",
+                    metaDescription: "Explore the exclusive world of LinguaX Ultra Club, an elite circle for translators and linguists who pursue excellence.",
+                    brandName: "LinguaX Ultra Club",
+                    heroTitle: "Welcome to the <span class='gold-gradient-text'>LinguaX Ultra Club</span>",
+                    heroSubtitle: "An elite circle crafted for translators and linguists who pursue excellence.",
+                    heroButton: "Explore Your Tiers & Privileges",
+                    philosophyTitle: "Beyond Language, Connecting Minds",
+                    philosophyDesc1: "The LinguaX Ultra Club is more than a membership; it's an exclusive community that brings together the industry's top minds, leading scholars, and future leaders in translation. We believe that true masters of language not only excel at converting words but also understand the deep currents of culture, fostering the exchange of ideas.",
+                    philosophyDesc2: "Here, we break down the barriers to knowledge and networking, offering you a platform to connect with the world's brightest minds. Every event is a collision of ideas; every conversation is an expansion of your horizons.",
+                    tiersTitle: "Ultra Club Tier System",
+                    tiersSubtitle: "Your prestige grows with your achievements. Earn 1000 status points for each year of your Ultra membership.",
+                    tiersNote: "*Your status points remain active during your Ultra membership. If your membership lapses, your points will be held for a 12-month grace period.*",
+                    tier1Name: "Platinum Card",
+                    tier1Req: "0+ Status Points",
+                    tier1Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>Exclusive Digital Identity Badge",
+                    tier1Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Annual Limited-Edition Gift",
+                    tier1Feat3: "<i class='fas fa-check-circle gold-text mr-3'></i>24/7 Global Concierge Service",
+                    tier1Feat4: "<i class='fas fa-check-circle gold-text mr-3'></i>Priority Access to Projects",
+                    tier2Name: "Centurion Card",
+                    tier2Req: "1000+ Status Points",
+                    tier2Note: "Requires DELF B2 / TCF 4 Certificate",
+                    tier2Unlock: "Enjoy all Platinum benefits, plus unlock:",
+                    tier2Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>Access to Private Offline Salons",
+                    tier2Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Invitation to Closed-Door Academic Seminars",
+                    tier2Feat3: "<i class='fas fa-check-circle gold-text mr-3'></i>Opportunities to Meet Industry Leaders",
+                    tier3Name: "Diamond Card",
+                    tier3Req: "3000+ Status Points",
+                    tier3Note: "Requires DALF C1 Certificate",
+                    tier3Unlock: "Enjoy all Centurion benefits, plus unlock:",
+                    tier3Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>VIP Seating at Annual Achievement Gala",
+                    tier3Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Partnership Eligibility for Top-Tier Translation Projects",
+                    tier4Name: "Diamond+ Card",
+                    tier4Req: "5000+ Status Points",
+                    tier4Note: "Requires DALF C2 Certificate",
+                    tier4Unlock: "Enjoy all Diamond benefits, plus unlock:",
+                    tier4Feat1: "<i class='fas fa-check-circle text-white mr-3'></i>\"LinguaX Global Ambassador\" Honorable Title",
+                    tier4Feat2: "<i class='fas fa-check-circle text-white mr-3'></i>Involvement in Top-Level Curriculum Development",
+                    tier4Feat3: "<i class='fas fa-check-circle text-white mr-3'></i>Personalized Letter of Recommendation from the Founder",
+                    joinTitle: "How to Begin Your Exclusive Journey?",
+                    joinDesc: "The LinguaX Ultra Club is an exclusive service for our Ultra and Ultra+ members. Upgrade now to begin your extraordinary journey.",
+                    joinButton: "View Plans & Upgrade",
+                    footerBrandInfo: "\"LinguaX\" is the flagship language learning brand crafted by <a href='https://learnfr.de' target='_blank' rel='noopener noreferrer' class='hover:text-amber-400 transition'>learnfr.de</a>.",
+                    footerCopyright: "© 2025 LinguaX. All Rights Reserved."
+                },
+                fr: {
+                    pageTitle: "LinguaX Ultra Club - Privilèges Exclusifs",
+                    metaDescription: "Explorez le monde exclusif du LinguaX Ultra Club, un cercle d'élite pour les traducteurs et linguistes qui visent l'excellence.",
+                    brandName: "LinguaX Ultra Club",
+                    heroTitle: "Bienvenue au <span class='gold-gradient-text'>LinguaX Ultra Club</span>",
+                    heroSubtitle: "Un cercle d'élite conçu pour les traducteurs et linguistes qui visent l'excellence.",
+                    heroButton: "Découvrez vos Niveaux & Privilèges",
+                    philosophyTitle: "Au-delà de la Langue, Connecter les Esprits",
+                    philosophyDesc1: "Le LinguaX Ultra Club est plus qu'une simple adhésion ; c'est une communauté exclusive qui rassemble les plus grands esprits de l'industrie, des universitaires de premier plan et les futurs leaders de la traduction.",
+                    philosophyDesc2: "Ici, nous brisons les barrières du savoir et du réseautage, vous offrant une plateforme pour vous connecter avec les esprits les plus brillants du monde. Chaque événement est une collision d'idées ; chaque conversation est une expansion de vos horizons.",
+                    tiersTitle: "Système de Niveaux Ultra Club",
+                    tiersSubtitle: "Votre prestige grandit avec vos accomplissements. Gagnez 1000 points de statut pour chaque année d'adhésion Ultra.",
+                    tiersNote: "*Vos points de statut restent actifs pendant votre adhésion Ultra. Si votre adhésion expire, vos points seront conservés pendant une période de grâce de 12 mois.*",
+                    tier1Name: "Carte Platine",
+                    tier1Req: "0+ Points de Statut",
+                    tier1Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>Badge d'Identité Numérique Exclusif",
+                    tier1Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Cadeau Annuel en Édition Limitée",
+                    tier1Feat3: "<i class='fas fa-check-circle gold-text mr-3'></i>Service de Conciergerie Mondial 24/7",
+                    tier1Feat4: "<i class='fas fa-check-circle gold-text mr-3'></i>Accès Prioritaire aux Projets",
+                    tier2Name: "Carte Centurion",
+                    tier2Req: "1000+ Points de Statut",
+                    tier2Note: "Certificat DELF B2 / TCF 4 requis",
+                    tier2Unlock: "Profitez de tous les avantages Platine, et débloquez en plus :",
+                    tier2Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>Accès aux Salons Privés Hors Ligne",
+                    tier2Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Invitation aux Séminaires Académiques à huis clos",
+                    tier2Feat3: "<i class='fas fa-check-circle gold-text mr-3'></i>Opportunités de Rencontrer des Leaders de l'Industrie",
+                    tier3Name: "Carte Diamant",
+                    tier3Req: "3000+ Points de Statut",
+                    tier3Note: "Certificat DALF C1 requis",
+                    tier3Unlock: "Profitez de tous les avantages Centurion, et débloquez en plus :",
+                    tier3Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>Place VIP au Gala Annuel des Réalisations",
+                    tier3Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Éligibilité au Partenariat pour les Projets de Traduction de Haut Niveau",
+                    tier4Name: "Carte Diamant+",
+                    tier4Req: "5000+ Points de Statut",
+                    tier4Note: "Certificat DALF C2 requis",
+                    tier4Unlock: "Profitez de tous les avantages Diamant, et débloquez en plus :",
+                    tier4Feat1: "<i class='fas fa-check-circle text-white mr-3'></i>Titre honorifique \"Ambassadeur Mondial LinguaX\"",
+                    tier4Feat2: "<i class='fas fa-check-circle text-white mr-3'></i>Participation au Développement de Programmes d'Études de Haut Niveau",
+                    tier4Feat3: "<i class='fas fa-check-circle text-white mr-3'></i>Lettre de Recommandation Personnalisée du Fondateur",
+                    joinTitle: "Comment Commencer Votre Voyage Exclusif ?",
+                    joinDesc: "Le LinguaX Ultra Club est un service exclusif pour nos membres Ultra et Ultra+. Mettez à niveau maintenant pour commencer votre voyage extraordinaire.",
+                    joinButton: "Voir les Forfaits & Mettre à Niveau",
+                    footerBrandInfo: "\"LinguaX\" est la marque phare d'apprentissage des langues conçue par <a href='https://learnfr.de' target='_blank' rel='noopener noreferrer' class='hover:text-amber-400 transition'>learnfr.de</a>.",
+                    footerCopyright: "© 2025 LinguaX. Tous droits réservés."
+                },
+                es: {
+                    pageTitle: "LinguaX Ultra Club - Privilegios Exclusivos",
+                    metaDescription: "Explora el mundo exclusivo del LinguaX Ultra Club, un círculo de élite para traductores y lingüistas que buscan la excelencia.",
+                    brandName: "LinguaX Ultra Club",
+                    heroTitle: "Bienvenido al <span class='gold-gradient-text'>LinguaX Ultra Club</span>",
+                    heroSubtitle: "Un círculo de élite creado para traductores y lingüistas que buscan la excelencia.",
+                    heroButton: "Explora tus Niveles y Privilegios",
+                    philosophyTitle: "Más Allá del Idioma, Conectando Mentes",
+                    philosophyDesc1: "El LinguaX Ultra Club es más que una membresía; es una comunidad exclusiva que reúne a las mentes más destacadas de la industria, académicos líderes y futuros líderes en traducción.",
+                    philosophyDesc2: "Aquí, rompemos las barreras del conocimiento y el networking, ofreciéndote una plataforma para conectar con las mentes más brillantes del mundo. Cada evento es una colisión de ideas; cada conversación es una expansión de tus horizontes.",
+                    tiersTitle: "Sistema de Niveles Ultra Club",
+                    tiersSubtitle: "Tu prestigio crece con tus logros. Gana 1000 puntos de estatus por cada año de tu membresía Ultra.",
+                    tiersNote: "*Tus puntos de estatus permanecen activos durante tu membresía Ultra. Si tu membresía caduca, tus puntos se mantendrán durante un período de gracia de 12 meses.*",
+                    tier1Name: "Tarjeta Platino",
+                    tier1Req: "0+ Puntos de Estatus",
+                    tier1Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>Insignia de Identidad Digital Exclusiva",
+                    tier1Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Regalo Anual de Edición Limitada",
+                    tier1Feat3: "<i class='fas fa-check-circle gold-text mr-3'></i>Servicio de Conserjería Global 24/7",
+                    tier1Feat4: "<i class='fas fa-check-circle gold-text mr-3'></i>Acceso Prioritario a Proyectos",
+                    tier2Name: "Tarjeta Centurion",
+                    tier2Req: "1000+ Puntos de Estatus",
+                    tier2Note: "Requiere Certificado DELF B2 / TCF 4",
+                    tier2Unlock: "Disfruta de todos los beneficios Platino, y además desbloquea:",
+                    tier2Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>Acceso a Salones Privados Presenciales",
+                    tier2Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Invitación a Seminarios Académicos a puerta cerrada",
+                    tier2Feat3: "<i class='fas fa-check-circle gold-text mr-3'></i>Oportunidades para Conocer a Líderes de la Industria",
+                    tier3Name: "Tarjeta Diamante",
+                    tier3Req: "3000+ Puntos de Estatus",
+                    tier3Note: "Requiere Certificado DALF C1",
+                    tier3Unlock: "Disfruta de todos los beneficios Centurion, y además desbloquea:",
+                    tier3Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>Asiento VIP en la Gala Anual de Logros",
+                    tier3Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Elegibilidad de Asociación para Proyectos de Traducción de Alto Nivel",
+                    tier4Name: "Tarjeta Diamante+",
+                    tier4Req: "5000+ Puntos de Estatus",
+                    tier4Note: "Requiere Certificado DALF C2",
+                    tier4Unlock: "Disfruta de todos los beneficios Diamante, y además desbloquea:",
+                    tier4Feat1: "<i class='fas fa-check-circle text-white mr-3'></i>Título Honorífico \"Embajador Global de LinguaX\"",
+                    tier4Feat2: "<i class='fas fa-check-circle text-white mr-3'></i>Participación en el Desarrollo de Currículos de Alto Nivel",
+                    tier4Feat3: "<i class='fas fa-check-circle text-white mr-3'></i>Carta de Recomendación Personalizada del Fundador",
+                    joinTitle: "¿Cómo Comenzar tu Viaje Exclusivo?",
+                    joinDesc: "El LinguaX Ultra Club es un servicio exclusivo para nuestros miembros Ultra y Ultra+. Actualiza ahora para comenzar tu viaje extraordinario.",
+                    joinButton: "Ver Planes y Actualizar",
+                    footerBrandInfo: "\"LinguaX\" es la marca insignia de aprendizaje de idiomas creada por <a href='https://learnfr.de' target='_blank' rel='noopener noreferrer' class='hover:text-amber-400 transition'>learnfr.de</a>.",
+                    footerCopyright: "© 2025 LinguaX. Todos los derechos reservados."
+                },
+                ru: {
+                    pageTitle: "LinguaX Ultra Club - Эксклюзивные привилегии",
+                    metaDescription: "Откройте для себя эксклюзивный мир LinguaX Ultra Club, элитного круга для переводчиков и лингвистов, стремящихся к совершенству.",
+                    brandName: "LinguaX Ultra Club",
+                    heroTitle: "Добро пожаловать в <span class='gold-gradient-text'>LinguaX Ultra Club</span>",
+                    heroSubtitle: "Элитный круг, созданный для переводчиков и лингвистов, стремящихся к совершенству.",
+                    heroButton: "Изучите ваши уровни и привилегии",
+                    philosophyTitle: "За пределами языка, соединяя умы",
+                    philosophyDesc1: "LinguaX Ultra Club - это больше, чем членство; это эксклюзивное сообщество, объединяющее ведущие умы отрасли, ведущих ученых и будущих лидеров в области перевода.",
+                    philosophyDesc2: "Здесь мы разрушаем барьеры для знаний и связей, предлагая вам платформу для общения с самыми яркими умами мира. Каждое событие - это столкновение идей; каждый разговор - это расширение ваших горизонтов.",
+                    tiersTitle: "Система уровней Ultra Club",
+                    tiersSubtitle: "Ваш престиж растет вместе с вашими достижениями. Зарабатывайте 1000 статусных очков за каждый год вашего членства в Ultra.",
+                    tiersNote: "*Ваши статусные очки остаются активными во время вашего членства в Ultra. Если ваше членство истечет, ваши очки будут сохранены в течение 12-месячного льготного периода.*",
+                    tier1Name: "Платиновая карта",
+                    tier1Req: "0+ статусных очков",
+                    tier1Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>Эксклюзивный цифровой значок",
+                    tier1Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Ежегодный подарок ограниченной серии",
+                    tier1Feat3: "<i class='fas fa-check-circle gold-text mr-3'></i>Глобальный консьерж-сервис 24/7",
+                    tier1Feat4: "<i class='fas fa-check-circle gold-text mr-3'></i>Приоритетный доступ к проектам",
+                    tier2Name: "Карта Центурион",
+                    tier2Req: "1000+ статусных очков",
+                    tier2Note: "Требуется сертификат DELF B2 / TCF 4",
+                    tier2Unlock: "Наслаждайтесь всеми преимуществами Платины, плюс разблокируйте:",
+                    tier2Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>Доступ к частным оффлайн-салонам",
+                    tier2Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Приглашение на закрытые академические семинары",
+                    tier2Feat3: "<i class='fas fa-check-circle gold-text mr-3'></i>Возможности встретиться с лидерами отрасли",
+                    tier3Name: "Бриллиантовая карта",
+                    tier3Req: "3000+ статусных очков",
+                    tier3Note: "Требуется сертификат DALF C1",
+                    tier3Unlock: "Наслаждайтесь всеми преимуществами Центурион, плюс разблокируйте:",
+                    tier3Feat1: "<i class='fas fa-check-circle gold-text mr-3'></i>VIP-места на ежегодном гала-вечере достижений",
+                    tier3Feat2: "<i class='fas fa-check-circle gold-text mr-3'></i>Право на партнерство в переводческих проектах высшего уровня",
+                    tier4Name: "Бриллиантовая+ карта",
+                    tier4Req: "5000+ статусных очков",
+                    tier4Note: "Требуется сертификат DALF C2",
+                    tier4Unlock: "Наслаждайтесь всеми преимуществами Бриллиантовой карты, плюс разблокируйте:",
+                    tier4Feat1: "<i class='fas fa-check-circle text-white mr-3'></i>Почетное звание \"Глобальный посол LinguaX\"",
+                    tier4Feat2: "<i class='fas fa-check-circle text-white mr-3'></i>Участие в разработке учебных программ высшего уровня",
+                    tier4Feat3: "<i class='fas fa-check-circle text-white mr-3'></i>Персональное рекомендательное письмо от основателя",
+                    joinTitle: "Как начать ваше эксклюзивное путешествие?",
+                    joinDesc: "LinguaX Ultra Club - это эксклюзивная услуга для наших членов Ultra и Ultra+. Обновитесь сейчас, чтобы начать свое необыкновенное путешествие.",
+                    joinButton: "Посмотреть планы и обновиться",
+                    footerBrandInfo: "\"LinguaX\" - флагманский бренд по изучению языков, созданный <a href='https://learnfr.de' target='_blank' rel='noopener noreferrer' class='hover:text-amber-400 transition'>learnfr.de</a>.",
+                    footerCopyright: "© 2025 LinguaX. Все права защищены."
+                },
+                ar: {
+                    pageTitle: "LinguaX Ultra Club - امتيازات حصرية",
+                    metaDescription: "استكشف العالم الحصري لـ LinguaX Ultra Club، دائرة النخبة للمترجمين واللغويين الذين يسعون إلى التميز.",
+                    brandName: "LinguaX Ultra Club",
+                    heroTitle: "أهلاً بك في <span class='gold-gradient-text'>LinguaX Ultra Club</span>",
+                    heroSubtitle: "دائرة النخبة المصممة للمترجمين واللغويين الذين يسعون إلى التميز.",
+                    heroButton: "استكشف مستوياتك وامتيازاتك",
+                    philosophyTitle: "ما وراء اللغة، ربط العقول",
+                    philosophyDesc1: "LinguaX Ultra Club هو أكثر من مجرد عضوية؛ إنه مجتمع حصري يجمع بين أفضل عقول الصناعة والعلماء البارزين وقادة المستقبل في مجال الترجمة.",
+                    philosophyDesc2: "هنا، نكسر حواجز المعرفة والتواصل، ونوفر لك منصة للتواصل مع ألمع العقول في العالم. كل حدث هو تصادم للأفكار؛ كل محادثة هي توسيع لآفاقك.",
+                    tiersTitle: "نظام مستويات Ultra Club",
+                    tiersSubtitle: "مكانتك تنمو مع إنجازاتك. اكسب 1000 نقطة حالة عن كل عام من عضوية Ultra.",
+                    tiersNote: "*تظل نقاط حالتك نشطة أثناء عضويتك في Ultra. إذا انتهت عضويتك، فسيتم الاحتفاظ بنقاطك لفترة سماح مدتها 12 شهرًا.*",
+                    tier1Name: "البطاقة البلاتينية",
+                    tier1Req: "0+ نقطة حالة",
+                    tier1Feat1: "<i class='fas fa-check-circle gold-text ml-3'></i>شارة هوية رقمية حصرية",
+                    tier1Feat2: "<i class='fas fa-check-circle gold-text ml-3'></i>هدية سنوية محدودة الإصدار",
+                    tier1Feat3: "<i class='fas fa-check-circle gold-text ml-3'></i>خدمة كونسيرج عالمية 24/7",
+                    tier1Feat4: "<i class='fas fa-check-circle gold-text ml-3'></i>أولوية الوصول إلى المشاريع",
+                    tier2Name: "بطاقة سنتوريون",
+                    tier2Req: "1000+ نقطة حالة",
+                    tier2Note: "تتطلب شهادة DELF B2 / TCF 4",
+                    tier2Unlock: "استمتع بجميع مزايا البلاتين، بالإضافة إلى فتح:",
+                    tier2Feat1: "<i class='fas fa-check-circle gold-text ml-3'></i>الوصول إلى صالونات خاصة غير متصلة بالإنترنت",
+                    tier2Feat2: "<i class='fas fa-check-circle gold-text ml-3'></i>دعوة إلى ندوات أكاديمية مغلقة",
+                    tier2Feat3: "<i class='fas fa-check-circle gold-text ml-3'></i>فرص للقاء قادة الصناعة",
+                    tier3Name: "البطاقة الماسية",
+                    tier3Req: "3000+ نقطة حالة",
+                    tier3Note: "تتطلب شهادة DALF C1",
+                    tier3Unlock: "استمتع بجميع مزايا سنتوريون، بالإضافة إلى فتح:",
+                    tier3Feat1: "<i class='fas fa-check-circle gold-text ml-3'></i>مقاعد VIP في حفل الإنجاز السنوي",
+                    tier3Feat2: "<i class='fas fa-check-circle gold-text ml-3'></i>أهلية الشراكة لمشاريع الترجمة عالية المستوى",
+                    tier4Name: "بطاقة ماسية+",
+                    tier4Req: "5000+ نقطة حالة",
+                    tier4Note: "تتطلب شهادة DALF C2",
+                    tier4Unlock: "استمتع بجميع مزايا الماسية، بالإضافة إلى فتح:",
+                    tier4Feat1: "<i class='fas fa-check-circle text-white ml-3'></i>لقب \"سفير LinguaX العالمي\" الفخري",
+                    tier4Feat2: "<i class='fas fa-check-circle text-white ml-3'></i>المشاركة في تطوير المناهج الدراسية عالية المستوى",
+                    tier4Feat3: "<i class='fas fa-check-circle text-white ml-3'></i>خطاب توصية شخصي من المؤسس",
+                    joinTitle: "كيف تبدأ رحلتك الحصرية؟",
+                    joinDesc: "LinguaX Ultra Club هي خدمة حصرية لأعضائنا Ultra و Ultra+. قم بالترقية الآن لبدء رحلتك الاستثنائية.",
+                    joinButton: "عرض الخطط والترقية",
+                    footerBrandInfo: "\"LinguaX\" هي العلامة التجارية الرائدة في تعلم اللغات التي صممتها <a href='https://learnfr.de' target='_blank' rel='noopener noreferrer' class='hover:text-amber-400 transition'>learnfr.de</a>.",
+                    footerCopyright: "© 2025 LinguaX. جميع الحقوق محفوظة."
+                }
+            };
+            
+            let currentLang = 'zh';
+
+            function changeLanguage(lang) {
+                if (!translations[lang] || Object.keys(translations[lang]).length === 0) return;
+                currentLang = lang;
+                document.documentElement.lang = lang;
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+                document.title = translations[lang].pageTitle;
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc) {
+                    metaDesc.content = translations[lang].metaDescription;
+                }
+
+                document.querySelectorAll('[data-translate]').forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+                document.getElementById('current-lang').textContent = {zh:"中文",en:"English",fr:"Français",es:"Español",ru:"Русский",ar:"العربية"}[lang];
+            }
+
+            const langSwitcherButton = document.getElementById('language-switcher-button');
+            const langDropdown = document.getElementById('language-dropdown');
+
+            langSwitcherButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                langDropdown.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                    langDropdown.classList.add('hidden');
+                });
+            });
+
+            window.addEventListener('click', function() {
+                if (!langDropdown.classList.contains('hidden')) {
+                    langDropdown.classList.add('hidden');
+                }
+            });
+
+            // Initial Load
+            changeLanguage('zh');
+
+            // Particle JS Config
+            particlesJS('particles-js', {
+              "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#D4AF37" }, "shape": { "type": "circle", }, "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 2, "random": true, "anim": { "enable": false } }, "line_linked": { "enable": false }, "move": { "enable": true, "speed": 0.5, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true } }, "retina_detect": true
+            });
+
+            // Scroll Animation Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
