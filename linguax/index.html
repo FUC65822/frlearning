@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻译水平有限公司 - 专业法语培训与翻译教学</title>
+    <meta name="description" content="翻译水平有限公司是一家专注于提供高质量法语培训和专业翻译技巧教学的公司。我们帮助您不仅掌握语言，更能精通翻译的艺术。">
+    <meta name="keywords" content="法语培训, 法语翻译, 语言教学, 翻译技巧, 翻译水平有限公司">
+    
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 引入字体和图标 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Sans:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* 应用自定义字体，加粗标题 */
+        body {
+            font-family: 'Noto Sans', 'Noto Sans SC', sans-serif;
+            background-color: #0c1427; /* 深蓝背景色 */
+        }
+        /* 阿拉伯语字体 */
+        :lang(ar) body {
+            font-family: 'Cairo', sans-serif;
+        }
+        h1, h2, h3 {
+             font-weight: 900;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 导航栏背景 */
+        .header-bg {
+             background-color: rgba(12, 20, 39, 0.8);
+             backdrop-filter: blur(10px);
+        }
+        /* 英雄区域动态背景 */
+        .hero-bg {
+            background: #0c1427;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.15), transparent 70%);
+            animation: pulse-glow 12s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.5); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.15; }
+        }
+
+        /* 标题文字渐变效果 */
+        .gradient-text {
+            background: linear-gradient(45deg, #38bdf8, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        /* 滚动动画 */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* 3D 悬停卡片 */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.4s ease;
+        }
+        .tilt-card:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale(1.05);
+        }
+        
+        /* 时间线样式 */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: #1e3a8a;
+        }
+        [dir="ltr"] .timeline-item::before { left: -2.7rem; }
+        [dir="rtl"] .timeline-item::before { right: -2.7rem; }
+        .timeline-item:last-child::before { display: none; }
+        .timeline-dot {
+            position: absolute;
+            top: 0.2rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            border: 4px solid #1e3a8a;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+        }
+        [dir="ltr"] .timeline-dot { left: -3.2rem; }
+        [dir="rtl"] .timeline-dot { right: -3.2rem; }
+
+
+        /* FAQ Accordion */
+        .faq-question svg { transition: transform 0.3s ease; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out; }
+        
+        /* Modal Styles */
+        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
+        
+        /* Language Dropdown - No longer needs CSS for hover, JS will handle it */
+        
+    </style>
+</head>
+<body class="bg-slate-900 text-gray-300">
+
+    <!-- ========== 导航栏 ========== -->
+    <header class="header-bg text-white sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-wider gradient-text">
+                <i class="fas fa-language mr-2"></i><span data-translate="brandName">翻译水平</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 items-center text-sm font-bold">
+                <a href="#features" class="hover:text-sky-400 transition duration-300" data-translate="navFeatures">教学特色</a>
+                <a href="#instructors" class="hover:text-sky-400 transition duration-300" data-translate="navInstructors">师资团队</a>
+                <a href="#courses" class="hover:text-sky-400 transition duration-300" data-translate="navCourses">课程体系</a>
+                <a href="#pricing" class="hover:text-sky-400 transition duration-300" data-translate="navPricing">定价体系</a>
+                <a href="#journey" class="hover:text-sky-400 transition duration-300" data-translate="navJourney">学习路径</a>
+                <a href="#faq" class="hover:text-sky-400 transition duration-300" data-translate="navFAQ">常见问题</a>
+                <a href="#about" class="hover:text-sky-400 transition duration-300" data-translate="navAbout">关于我们</a>
+                
+                <!-- Language Switcher -->
+                <div id="language-switcher" class="relative">
+                    <button id="language-switcher-button" class="flex items-center hover:text-sky-400 transition duration-300">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang" class="mx-1">中文</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="language-dropdown" class="hidden absolute top-full right-0 mt-2 bg-slate-800 border border-slate-700 rounded-md shadow-lg w-32">
+                        <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-slate-700" data-lang="zh">中文</a>
+                        <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-slate-700" data-lang="en">English</a>
+                        <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-slate-700" data-lang="fr">Français</a>
+                        <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-slate-700" data-lang="es">Español</a>
+                        <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-slate-700" data-lang="ru">Русский</a>
+                        <a href="#" class="lang-option block px-4 py-2 text-sm hover:bg-slate-700" data-lang="ar">العربية</a>
+                    </div>
+                </div>
+
+                <a href="#" class="bg-sky-500 text-white font-bold py-2 px-5 rounded-full hover:bg-sky-400 transition duration-300 shadow-lg shadow-sky-500/30 open-modal-button" data-translate="navContact">免费咨询</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#features" class="block py-2 text-center hover:bg-slate-700 rounded" data-translate="navFeatures_m">教学特色</a>
+            <a href="#instructors" class="block py-2 text-center hover:bg-slate-700 rounded" data-translate="navInstructors_m">师资团队</a>
+            <a href="#courses" class="block py-2 text-center hover:bg-slate-700 rounded" data-translate="navCourses_m">课程体系</a>
+            <a href="#pricing" class="block py-2 text-center hover:bg-slate-700 rounded" data-translate="navPricing_m">定价体系</a>
+            <a href="#journey" class="block py-2 text-center hover:bg-slate-700 rounded" data-translate="navJourney_m">学习路径</a>
+            <a href="#faq" class="block py-2 text-center hover:bg-slate-700 rounded" data-translate="navFAQ_m">常见问题</a>
+            <a href="#about" class="block py-2 text-center hover:bg-slate-700 rounded" data-translate="navAbout_m">关于我们</a>
+            <a href="#" class="block py-2 text-center mt-2 bg-sky-500 text-white font-bold rounded-full hover:bg-sky-400 open-modal-button" data-translate="navContact_m">免费咨询</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========== 英雄区域 ========== -->
+        <section class="hero-bg text-center py-24 md:py-40">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-black mb-6 leading-tight text-white animate-on-scroll">
+                    <span data-translate="heroTitle1">不止于言，</span><span class="gradient-text" data-translate="heroTitle2">精于译</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 animate-on-scroll delay-1" data-translate="heroSubtitle">
+                    我们专注于法语教学与翻译实践，帮助您将语言能力转化为真正的专业技能。
+                </p>
+                <a href="#" class="open-modal-button bg-sky-500 text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-sky-400 transition duration-300 transform hover:scale-105 shadow-2xl shadow-sky-500/30 animate-on-scroll delay-2" data-translate="heroButton">
+                    了解我们的课程
+                </a>
+            </div>
+        </section>
+
+        <!-- ========== 特色优势 ========== -->
+        <section id="features" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate="featuresTitle">我们的教学特色</h2>
+                    <p class="text-gray-400 mt-3 text-lg" data-translate="featuresSubtitle">我们致力于提供专业的教育体验</p>
+                    <div class="w-24 h-1 bg-sky-500 mx-auto mt-6 rounded"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="p-8 bg-slate-800 rounded-xl shadow-lg border border-slate-700 tilt-card animate-on-scroll delay-1">
+                        <i class="fas fa-chalkboard-teacher text-5xl text-sky-400 mb-5"></i>
+                        <h3 class="text-2xl font-bold mb-3 text-white" data-translate="feature1Title">资深师资团队</h3>
+                        <p class="text-gray-400" data-translate="feature1Desc">所有教师均具备多年海外教学经验和一线翻译实战背景，理论与实践完美结合。</p>
+                    </div>
+                    <div class="p-8 bg-slate-800 rounded-xl shadow-lg border border-slate-700 tilt-card animate-on-scroll delay-2">
+                        <i class="fas fa-book-open text-5xl text-sky-400 mb-5"></i>
+                        <h3 class="text-2xl font-bold mb-3 text-white" data-translate="feature2Title">实战导向课程</h3>
+                        <p class="text-gray-400" data-translate="feature2Desc">课程设计紧扣实际翻译工作需求，涵盖商务、法律、文学等多个领域，学以致用。</p>
+                    </div>
+                    <div class="p-8 bg-slate-800 rounded-xl shadow-lg border border-slate-700 tilt-card animate-on-scroll delay-3">
+                        <i class="fas fa-route text-5xl text-sky-400 mb-5"></i>
+                        <h3 class="text-2xl font-bold mb-3 text-white" data-translate="feature3Title">个性化学习体验</h3>
+                        <p class="text-gray-400" data-translate="feature3Desc">我们的平台会根据您的学习进度和掌握情况，智能推荐学习内容，规划最适合您的成长路径。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== 师资团队 ========== -->
+        <section id="instructors" class="py-16 md:py-24 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate="instructorsTitle">精英师资团队</h2>
+                    <p class="text-gray-400 mt-3 text-lg" data-translate="instructorsSubtitle">认识我们的专业教学与翻译专家</p>
+                    <div class="w-24 h-1 bg-sky-500 mx-auto mt-6 rounded"></div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="bg-slate-800 text-center rounded-lg p-8 border border-slate-700 animate-on-scroll delay-1">
+                        <img src="assets/1.jpg" alt="学术派专家" class="w-32 h-32 rounded-full mx-auto mb-5 border-4 border-slate-700 object-cover">
+                        <h3 class="text-2xl font-bold text-white" data-translate="instructor1Title">学术派专家</h3>
+                        <p class="text-sky-400 font-bold mb-3" data-translate="instructor1Subtitle">深耕语言教学</p>
+                        <p class="text-gray-400 text-sm" data-translate="instructor1Desc">我们的教师团队拥有海外知名学府语言学背景与多年教学经验，善于引导学生建立系统化的语言体系。</p>
+                    </div>
+                    <div class="bg-slate-800 text-center rounded-lg p-8 border border-slate-700 animate-on-scroll delay-2">
+                        <img src="assets/2.jpg" alt="实战派译员" class="w-32 h-32 rounded-full mx-auto mb-5 border-4 border-slate-700 object-cover">
+                        <h3 class="text-2xl font-bold text-white" data-translate="instructor2Title">实战派译员</h3>
+                        <p class="text-sky-400 font-bold mb-3" data-translate="instructor2Subtitle">一线翻译经验</p>
+                        <p class="text-gray-400 text-sm" data-translate="instructor2Desc">具备国际认证的专业译员资格，拥有丰富的口笔译实战经验，将前沿的行业标准融入教学之中。</p>
+                    </div>
+                    <div class="bg-slate-800 text-center rounded-lg p-8 border border-slate-700 animate-on-scroll delay-3">
+                        <img src="assets/3.jpg" alt="行业领域专家" class="w-32 h-32 rounded-full mx-auto mb-5 border-4 border-slate-700 object-cover">
+                        <h3 class="text-2xl font-bold text-white" data-translate="instructor3Title">行业领域专家</h3>
+                        <p class="text-sky-400 font-bold mb-3" data-translate="instructor3Subtitle">专注特定领域</p>
+                        <p class="text-gray-400 text-sm" data-translate="instructor3Desc">来自专业领域的一线专家，精通特定行业的法语应用，课程内容与实际工作需求紧密结合。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 课程体系 ========== -->
+        <section id="courses" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate="coursesTitle">我们的核心课程</h2>
+                    <p class="text-gray-400 mt-3 text-lg" data-translate="coursesSubtitle">系统化的课程设计，助您稳步提升</p>
+                    <div class="w-24 h-1 bg-sky-500 mx-auto mt-6 rounded"></div>
+                </div>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-10">
+                    <div class="bg-slate-800 rounded-lg p-8 text-center shadow-xl border border-slate-700 transition-all duration-300 hover:border-sky-500 hover:shadow-sky-500/20 tilt-card animate-on-scroll delay-1">
+                        <i class="fas fa-feather-alt text-5xl text-sky-400 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-3 text-white" data-translate="course1Title">零基础法语入门</h3>
+                        <p class="text-gray-400 mb-5" data-translate="course1Desc">专为初学者设计，系统学习发音、语法和日常对话，为翻译之路打下坚实基础。</p>
+                        <a href="#" class="font-bold text-sky-400 hover:text-sky-300 transition open-modal-button" data-translate="courseButton">立即咨询 &rarr;</a>
+                    </div>
+                    <div class="bg-slate-800 rounded-lg p-8 text-center shadow-xl border border-slate-700 transition-all duration-300 hover:border-sky-500 hover:shadow-sky-500/20 tilt-card animate-on-scroll delay-2">
+                         <i class="fas fa-briefcase text-5xl text-sky-400 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-3 text-white" data-translate="course2Title">中级商务翻译</h3>
+                        <p class="text-gray-400 mb-5" data-translate="course2Desc">聚焦商务场景，学习合同、邮件、报告的翻译技巧，提升职场竞争力。</p>
+                        <a href="#" class="font-bold text-sky-400 hover:text-sky-300 transition open-modal-button" data-translate="courseButton_2">立即咨询 &rarr;</a>
+                    </div>
+                    <div class="bg-slate-800 rounded-lg p-8 text-center shadow-xl border border-slate-700 transition-all duration-300 hover:border-sky-500 hover:shadow-sky-500/20 tilt-card animate-on-scroll delay-3">
+                         <i class="fas fa-trophy text-5xl text-sky-400 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-3 text-white" data-translate="course3Title">高级翻译工作坊</h3>
+                        <p class="text-gray-400 mb-5" data-translate="course3Desc">面向高阶学习者，通过高强度实战项目，挑战同声传译与文学翻译等高难度领域。</p>
+                        <a href="#" class="font-bold text-sky-400 hover:text-sky-300 transition open-modal-button" data-translate="courseButton_3">立即咨询 &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 定价体系 ========== -->
+        <section id="pricing" class="py-16 md:py-24 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate="pricingTitle">我们的定价体系</h2>
+                    <p class="text-gray-400 mt-3 text-lg" data-translate="pricingSubtitle">探索最适合您的学习方案与权益</p>
+                    <div class="w-24 h-1 bg-sky-500 mx-auto mt-6 rounded"></div>
+                </div>
+                <div class="max-w-md mx-auto text-center bg-slate-800 p-10 rounded-xl shadow-lg border border-slate-700 animate-on-scroll delay-1">
+                     <p class="text-lg text-gray-300 mb-8" data-translate="pricingDesc">我们提供多种灵活的会员方案以满足您的不同需求。点击下方按钮查看完整的定价详情与会员权益。</p>
+                     <a href="https://learnfr.de/linguax/price" target="_blank" rel="noopener noreferrer" class="bg-sky-500 text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-sky-400 transition duration-300 transform hover:scale-105 shadow-2xl shadow-sky-500/30" data-translate="pricingButton">
+                        查看完整定价方案
+                     </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========== 学习路径 ========== -->
+        <section id="journey" class="py-16 md:py-24">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-20 animate-on-scroll">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate="journeyTitle">清晰的学习路径</h2>
+                    <p class="text-gray-400 mt-3 text-lg" data-translate="journeySubtitle">我们为您规划了清晰、系统的成长路径</p>
+                    <div class="w-24 h-1 bg-sky-500 mx-auto mt-6 rounded"></div>
+                </div>
+                <div class="max-w-3xl mx-auto pl-4 sm:pl-10 rtl:pr-4 rtl:sm:pr-10 rtl:pl-0 rtl:sm:pl-0">
+                    <div class="relative">
+                        <div class="ml-10 rtl:mr-10 rtl:ml-0 mb-16 relative timeline-item animate-on-scroll delay-1">
+                            <div class="timeline-dot"></div>
+                            <span class="text-xs font-bold text-sky-400 uppercase" data-translate="journey1Stage">阶段一</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-2" data-translate="journey1Title">语言基础夯实</h3>
+                            <p class="text-gray-400" data-translate="journey1Desc">从语音、词汇到核心语法，构建坚实的法语大厦地基，让你听说读写无障碍。</p>
+                        </div>
+                        <div class="ml-10 rtl:mr-10 rtl:ml-0 mb-16 relative timeline-item animate-on-scroll delay-2">
+                            <div class="timeline-dot"></div>
+                            <span class="text-xs font-bold text-sky-400 uppercase" data-translate="journey2Stage">阶段二</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-2" data-translate="journey2Title">翻译思维建立</h3>
+                            <p class="text-gray-400" data-translate="journey2Desc">学习中法语言差异与转换技巧，培养精准的翻译逻辑，告别生硬的“中式法语”。</p>
+                        </div>
+                        <div class="ml-10 rtl:mr-10 rtl:ml-0 mb-16 relative timeline-item animate-on-scroll delay-3">
+                            <div class="timeline-dot"></div>
+                            <span class="text-xs font-bold text-sky-400 uppercase" data-translate="journey3Stage">阶段三</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-2" data-translate="journey3Title">专项领域突破</h3>
+                            <p class="text-gray-400" data-translate="journey3Desc">深入商务、法律或文学等特定领域，掌握专业术语和行业规范，成为领域专家。</p>
+                        </div>
+                        <div class="ml-10 rtl:mr-10 rtl:ml-0 relative timeline-item animate-on-scroll delay-4">
+                            <div class="timeline-dot"></div>
+                            <span class="text-xs font-bold text-sky-400 uppercase" data-translate="journey4Stage">阶段四</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-2" data-translate="journey4Title">高级实战模拟</h3>
+                            <p class="text-gray-400" data-translate="journey4Desc">参与真实项目，挑战同传、交传等高难度任务，在压力下锤炼顶尖翻译能力。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== 常见问题 ========== -->
+        <section id="faq" class="py-16 md:py-24 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate="faqTitle">常见问题解答</h2>
+                    <p class="text-gray-400 mt-3 text-lg" data-translate="faqSubtitle">为您解答关于课程与学习的疑惑</p>
+                    <div class="w-24 h-1 bg-sky-500 mx-auto mt-6 rounded"></div>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <div class="border-b border-slate-700 py-4 animate-on-scroll delay-1">
+                        <button class="w-full text-left faq-question flex justify-between items-center">
+                            <span class="text-lg font-bold text-white" data-translate="faq1q">我是零基础，可以报名吗？</span>
+                            <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer pt-2 text-gray-400">
+                            <p data-translate="faq1a">当然可以！我们的“零基础法语入门”课程就是专为没有任何法语基础的学员设计的。老师会从最基础的发音、字母开始教起，带您轻松入门。</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-slate-700 py-4 animate-on-scroll delay-2">
+                        <button class="w-full text-left faq-question flex justify-between items-center">
+                            <span class="text-lg font-bold text-white" data-translate="faq2q">学习模式是怎样的？</span>
+                            <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer pt-2 text-gray-400">
+                            <p data-translate="faq2a">我们的平台提供系统化的在线课程，您可以根据自己的节奏随时随地通过App或网站进行学习。课程内容结合了视频教学、交互练习和实战项目，您可以灵活安排学习时间。</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-slate-700 py-4 animate-on-scroll delay-3">
+                        <button class="w-full text-left faq-question flex justify-between items-center">
+                            <span class="text-lg font-bold text-white" data-translate="faq3q">我可以随时回顾学习内容吗？</span>
+                            <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer pt-2 text-gray-400">
+                            <p data-translate="faq3a">是的，一旦购买课程，您可以在有效期内无限次回顾所有的课程视频和学习资料，方便您巩固复习。</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-slate-700 py-4 animate-on-scroll delay-4">
+                        <button class="w-full text-left faq-question flex justify-between items-center">
+                            <span class="text-lg font-bold text-white" data-translate="faq4q">课程结束后会颁发证书吗？</span>
+                            <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer pt-2 text-gray-400">
+                            <p data-translate="faq4a">是的，在完成所有课程学习并通过最终考核后，我们会为您颁发由“翻译水平有限公司”认证的结业证书，作为您学习成果的证明。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 关于我们 ========== -->
+        <section id="about" class="py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto animate-on-scroll">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5" data-translate="aboutTitle">我们的使命</h2>
+                    <div class="w-24 h-1.5 bg-sky-500 mb-6 rounded mx-auto"></div>
+                    <p class="text-gray-400 mb-4 leading-relaxed" data-translate="aboutDesc1">
+                        “翻译水平有限公司”的创立初衷，是改变传统的语言教学模式。我们坚信，语言学习的最终目的在于应用，而翻译是语言应用能力的最高体现。
+                    </p>
+                    <p class="text-gray-400 leading-relaxed" data-translate="aboutDesc2">
+                        因此，我们致力于将专业的翻译训练融入到法语教学的每一个环节，培养既有扎实语言功底，又懂跨文化沟通的复合型人才。我们不仅仅是语言的教授者，更是文化交流的桥梁搭建者。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 教学方法与理念 ========== -->
+        <section id="methodology" class="py-16 md:py-24 bg-slate-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white" data-translate="methodologyTitle">教学方法与理念</h2>
+                    <p class="text-gray-400 mt-3 text-lg" data-translate="methodologySubtitle">我们相信，有效的方法是成功的关键</p>
+                    <div class="w-24 h-1 bg-sky-500 mx-auto mt-6 rounded"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 animate-on-scroll delay-1">
+                        <i class="fas fa-street-view text-4xl text-sky-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-3" data-translate="method1Title">沉浸式学习环境</h3>
+                        <p class="text-gray-400" data-translate="method1Desc">我们通过模拟真实的法语环境和场景，鼓励学员用法语思考和表达，从而自然地内化语言知识。</p>
+                    </div>
+                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 animate-on-scroll delay-2">
+                        <i class="fas fa-tasks text-4xl text-sky-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-3" data-translate="method2Title">项目驱动式实践</h3>
+                        <p class="text-gray-400" data-translate="method2Desc">课程中包含大量基于真实案例的翻译项目，让学员在实践中解决问题，将理论知识转化为实战能力。</p>
+                    </div>
+                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 animate-on-scroll delay-3">
+                        <i class="fas fa-comments text-4xl text-sky-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-3" data-translate="method3Title">个性化反馈与指导</h3>
+                        <p class="text-gray-400" data-translate="method3Desc">老师会对每位学员的作业和课堂表现提供一对一的详细反馈，针对性地帮助学员攻克难点，弥补不足。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 立即行动 ========== -->
+        <section class="bg-gradient-to-r from-sky-500 to-indigo-500 py-20 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl sm:text-4xl font-black mb-4 animate-on-scroll" data-translate="ctaTitle">准备好提升您的法语水平了吗？</h2>
+                <p class="text-lg mb-8 max-w-2xl mx-auto animate-on-scroll delay-1" data-translate="ctaSubtitle">
+                    无论您是初学者还是希望成为专业译员，我们都有适合您的课程。立即迈出第一步！
+                </p>
+                <a href="#" class="open-modal-button bg-white text-sky-600 font-bold py-4 px-10 rounded-full text-lg hover:bg-slate-100 transition duration-300 transform hover:scale-105 shadow-2xl animate-on-scroll delay-2" data-translate="ctaButton">
+                    获取免费课程咨询
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== 页脚 ========== -->
+    <footer id="contact" class="bg-slate-900 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4 gradient-text" data-translate="footerTitle">开始您的法语学习之旅</h2>
+            <p class="mb-8 max-w-2xl mx-auto text-gray-400" data-translate="footerSubtitle">欢迎咨询课程详情。</p>
+
+            <div class="text-center mt-10 pt-8 border-t border-slate-800">
+                <p class="text-gray-500 text-sm mb-2" data-translate="footerBrandInfo">“翻译水平”是 <a href="https://learnfr.de" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition">learnfr.de</a> 倾力打造的旗舰语言学习品牌。</p>
+                <p class="text-gray-500 text-sm" data-translate="footerCopyright">&copy; 2025 翻译水平有限公司. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== Modal ========== -->
+    <div id="auth-modal" class="modal fixed inset-0 bg-black bg-opacity-70 z-[100] flex items-center justify-center invisible opacity-0">
+        <div class="modal-content bg-slate-800 text-center rounded-lg p-8 max-w-sm w-full mx-4 relative border border-slate-700 shadow-xl transform scale-95">
+            <button id="close-modal-button" class="absolute top-3 right-4 rtl:right-auto rtl:left-4 text-gray-500 hover:text-white text-3xl transition-colors">&times;</button>
+            <i class="fas fa-info-circle text-5xl text-sky-400 mb-5"></i>
+            <h3 class="text-2xl font-bold mb-3 text-white" data-translate="modalTitle">提示</h3>
+            <p class="text-gray-400" data-translate="modalText">目前仅支持内测用户，敬请期待。</p>
+        </div>
+    </div>
+
+
+    <script>
+        // --- 1. 多语言翻译数据 ---
+        const translations = {
+            // 中文
+            zh: {
+                brandName: "翻译水平",
+                navFeatures: "教学特色", navInstructors: "师资团队", navCourses: "课程体系", navPricing: "定价体系", navJourney: "学习路径", navFAQ: "常见问题", navAbout: "关于我们", navContact: "免费咨询",
+                navFeatures_m: "教学特色", navInstructors_m: "师资团队", navCourses_m: "课程体系", navPricing_m: "定价体系", navJourney_m: "学习路径", navFAQ_m: "常见问题", navAbout_m: "关于我们", navContact_m: "免费咨询",
+                heroTitle1: "不止于言，", heroTitle2: "精于译",
+                heroSubtitle: "我们专注于法语教学与翻译实践，帮助您将语言能力转化为真正的专业技能。",
+                heroButton: "了解我们的课程",
+                featuresTitle: "我们的教学特色", featuresSubtitle: "我们致力于提供专业的教育体验",
+                feature1Title: "资深师资团队", feature1Desc: "所有教师均具备多年海外教学经验和一线翻译实战背景，理论与实践完美结合。",
+                feature2Title: "实战导向课程", feature2Desc: "课程设计紧扣实际翻译工作需求，涵盖商务、法律、文学等多个领域，学以致用。",
+                feature3Title: "个性化学习体验", feature3Desc: "我们的平台会根据您的学习进度和掌握情况，智能推荐学习内容，规划最适合您的成长路径。",
+                instructorsTitle: "精英师资团队", instructorsSubtitle: "认识我们的专业教学与翻译专家",
+                instructor1Title: "学术派专家", instructor1Subtitle: "深耕语言教学", instructor1Desc: "我们的教师团队拥有海外知名学府语言学背景与多年教学经验，善于引导学生建立系统化的语言体系。",
+                instructor2Title: "实战派译员", instructor2Subtitle: "一线翻译经验", instructor2Desc: "具备国际认证的专业译员资格，拥有丰富的口笔译实战经验，将前沿的行业标准融入教学之中。",
+                instructor3Title: "行业领域专家", instructor3Subtitle: "专注特定领域", instructor3Desc: "来自专业领域的一线专家，精通特定行业的法语应用，课程内容与实际工作需求紧密结合。",
+                coursesTitle: "我们的核心课程", coursesSubtitle: "系统化的课程设计，助您稳步提升",
+                course1Title: "零基础法语入门", course1Desc: "专为初学者设计，系统学习发音、语法和日常对话，为翻译之路打下坚实基础。",
+                courseButton: "立即咨询 →",
+                course2Title: "中级商务翻译", course2Desc: "聚焦商务场景，学习合同、邮件、报告的翻译技巧，提升职场竞争力。",
+                courseButton_2: "立即咨询 →",
+                course3Title: "高级翻译工作坊", course3Desc: "面向高阶学习者，通过高强度实战项目，挑战同声传译与文学翻译等高难度领域。",
+                courseButton_3: "立即咨询 →",
+                pricingTitle: "我们的定价体系", pricingSubtitle: "探索最适合您的学习方案与权益",
+                pricingDesc: "我们提供多种灵活的会员方案以满足您的不同需求。点击下方按钮查看完整的定价详情与会员权益。",
+                pricingButton: "查看完整定价方案",
+                journeyTitle: "清晰的学习路径", journeySubtitle: "我们为您规划了清晰、系统的成长路径",
+                journey1Stage: "阶段一", journey1Title: "语言基础夯实", journey1Desc: "从语音、词汇到核心语法，构建坚实的法语大厦地基，让你听说读写无障碍。",
+                journey2Stage: "阶段二", journey2Title: "翻译思维建立", journey2Desc: "学习中法语言差异与转换技巧，培养精准的翻译逻辑，告别生硬的“中式法语”。",
+                journey3Stage: "阶段三", journey3Title: "专项领域突破", journey3Desc: "深入商务、法律或文学等特定领域，掌握专业术语和行业规范，成为领域专家。",
+                journey4Stage: "阶段四", journey4Title: "高级实战模拟", journey4Desc: "参与真实项目，挑战同传、交传等高难度任务，在压力下锤炼顶尖翻译能力。",
+                faqTitle: "常见问题解答", faqSubtitle: "为您解答关于课程与学习的疑惑",
+                faq1q: "我是零基础，可以报名吗？", faq1a: "当然可以！我们的“零基础法语入门”课程就是专为没有任何法语基础的学员设计的。老师会从最基础的发音、字母开始教起，带您轻松入门。",
+                faq2q: "学习模式是怎样的？", faq2a: "我们的平台提供系统化的在线课程，您可以根据自己的节奏随时随地通过App或网站进行学习。课程内容结合了视频教学、交互练习和实战项目，您可以灵活安排学习时间。",
+                faq3q: "我可以随时回顾学习内容吗？", faq3a: "是的，一旦购买课程，您可以在有效期内无限次回顾所有的课程视频和学习资料，方便您巩固复习。",
+                faq4q: "课程结束后会颁发证书吗？", faq4a: "是的，在完成所有课程学习并通过最终考核后，我们会为您颁发由“翻译水平有限公司”认证的结业证书，作为您学习成果的证明。",
+                aboutTitle: "我们的使命", aboutDesc1: "“翻译水平有限公司”的创立初衷，是改变传统的语言教学模式。我们坚信，语言学习的最终目的在于应用，而翻译是语言应用能力的最高体现。", aboutDesc2: "因此，我们致力于将专业的翻译训练融入到法语教学的每一个环节，培养既有扎实语言功底，又懂跨文化沟通的复合型人才。我们不仅仅是语言的教授者，更是文化交流的桥梁搭建者。",
+                methodologyTitle: "教学方法与理念", methodologySubtitle: "我们相信，有效的方法是成功的关键",
+                method1Title: "沉浸式学习环境", method1Desc: "我们通过模拟真实的法语环境和场景，鼓励学员用法语思考和表达，从而自然地内化语言知识。",
+                method2Title: "项目驱动式实践", method2Desc: "课程中包含大量基于真实案例的翻译项目，让学员在实践中解决问题，将理论知识转化为实战能力。",
+                method3Title: "个性化反馈与指导", method3Desc: "老师会对每位学员的作业和课堂表现提供一对一的详细反馈，针对性地帮助学员攻克难点，弥补不足。",
+                ctaTitle: "准备好提升您的法语水平了吗？", ctaSubtitle: "无论您是初学者还是希望成为专业译员，我们都有适合您的课程。立即迈出第一步！",
+                ctaButton: "获取免费课程咨询",
+                footerTitle: "开始您的法语学习之旅", footerSubtitle: "欢迎咨询课程详情。",
+                footerBrandInfo: "“翻译水平”是 learnfr.de 倾力打造的旗舰语言学习品牌。",
+                footerCopyright: "© 2025 翻译水平有限公司. All Rights Reserved.",
+                modalTitle: "提示", modalText: "目前仅支持内测用户，敬请期待。"
+            },
+            // 英语
+            en: {
+                brandName: "LinguaX",
+                navFeatures: "Features", navInstructors: "Instructors", navCourses: "Courses", navPricing: "Pricing", navJourney: "Learning Path", navFAQ: "FAQ", navAbout: "About Us", navContact: "Free Consultation",
+                navFeatures_m: "Features", navInstructors_m: "Instructors", navCourses_m: "Courses", navPricing_m: "Pricing", navJourney_m: "Learning Path", navFAQ_m: "FAQ", navAbout_m: "About Us", navContact_m: "Free Consultation",
+                heroTitle1: "Beyond Words, ", heroTitle2: "Master Translation",
+                heroSubtitle: "We focus on French teaching and translation practice to help you turn language skills into real professional abilities.",
+                heroButton: "Explore Our Courses",
+                featuresTitle: "Our Teaching Features", featuresSubtitle: "Dedicated to providing a professional educational experience",
+                feature1Title: "Expert Instructors", feature1Desc: "All our instructors have years of overseas teaching experience and a background in frontline translation, perfectly combining theory and practice.",
+                feature2Title: "Practice-Oriented Courses", feature2Desc: "Our curriculum is designed to meet the demands of real-world translation work, covering business, law, literature, and more.",
+                feature3Title: "Personalized Learning", feature3Desc: "Our platform intelligently recommends content and plans the best growth path for you based on your learning progress.",
+                instructorsTitle: "Our Elite Instructors", instructorsSubtitle: "Meet our professional teaching and translation experts",
+                instructor1Title: "Academic Experts", instructor1Subtitle: "Deep in Language Pedagogy", instructor1Desc: "Our team holds linguistic backgrounds from renowned overseas universities and has years of teaching experience, adept at helping students build a systematic language framework.",
+                instructor2Title: "Veteran Translators", instructor2Subtitle: "Frontline Experience", instructor2Desc: "Certified professional translators with extensive experience in interpretation and translation, integrating industry standards into teaching.",
+                instructor3Title: "Industry Specialists", instructor3Subtitle: "Field-Specific Focus", instructor3Desc: "Experts from professional fields, proficient in French for specific industries, ensuring course content is relevant to real-world job needs.",
+                coursesTitle: "Our Core Courses", coursesSubtitle: "Systematic course design to help you improve steadily",
+                course1Title: "Beginner's French", course1Desc: "Designed for absolute beginners to systematically learn pronunciation, grammar, and daily conversation, building a solid foundation for translation.",
+                courseButton: "Inquire Now →",
+                course2Title: "Intermediate Business Translation", course2Desc: "Focusing on business scenarios, learn to translate contracts, emails, and reports to enhance your professional competitiveness.",
+                courseButton_2: "Inquire Now →",
+                course3Title: "Advanced Translation Workshop", course3Desc: "For advanced learners, tackle challenging fields like simultaneous interpretation and literary translation through intensive projects.",
+                courseButton_3: "Inquire Now →",
+                pricingTitle: "Our Pricing System", pricingSubtitle: "Explore the best learning plan and benefits for you",
+                pricingDesc: "We offer a variety of flexible membership plans to meet your needs. Click the button below to view full pricing details and member benefits.",
+                pricingButton: "View Full Pricing Plans",
+                journeyTitle: "A Clear Learning Path", journeySubtitle: "We've planned a clear, systematic growth path for you",
+                journey1Stage: "Stage 1", journey1Title: "Foundational Skills", journey1Desc: "Build a strong French foundation from pronunciation, vocabulary, to core grammar, enabling you to listen, speak, read, and write.",
+                journey2Stage: "Stage 2", journey2Title: "Translation Mindset", journey2Desc: "Learn the nuances between Chinese and French to develop precise translation logic and avoid literal, awkward translations.",
+                journey3Stage: "Stage 3", journey3Title: "Specialized Fields", journey3Desc: "Dive into specific fields like business, law, or literature to master professional terminology and industry norms.",
+                journey4Stage: "Stage 4", journey4Title: "Advanced Simulation", journey4Desc: "Participate in real projects and tackle high-level tasks like simultaneous interpretation to hone top-tier translation skills under pressure.",
+                faqTitle: "Frequently Asked Questions", faqSubtitle: "Your questions about our courses and learning answered",
+                faq1q: "I'm a complete beginner. Can I enroll?", faq1a: "Absolutely! Our 'Beginner's French' course is specifically designed for students with no prior French knowledge. We start from the very basics.",
+                faq2q: "What is the learning model like?", faq2a: "Our platform offers systematic online courses that you can access anytime, anywhere, via app or website, allowing you to learn at your own pace.",
+                faq3q: "Can I review the course content anytime?", faq3a: "Yes, once you purchase a course, you have unlimited access to all videos and materials within the validity period for review.",
+                faq4q: "Will I receive a certificate upon completion?", faq4a: "Yes, after completing all course requirements and passing the final assessment, you will be awarded a certificate of completion from LinguaX.",
+                aboutTitle: "Our Mission", aboutDesc1: "LinguaX was founded to change the traditional language teaching model. We believe the ultimate goal of language learning is application, and translation is its highest form.", aboutDesc2: "Therefore, we are committed to integrating professional translation training into every aspect of French teaching, cultivating versatile talents with solid language skills and cross-cultural communication abilities.",
+                methodologyTitle: "Teaching Methods & Philosophy", methodologySubtitle: "We believe that effective methods are the key to success",
+                method1Title: "Immersive Learning", method1Desc: "We simulate real French environments to encourage students to think and express themselves in French, internalizing the language naturally.",
+                method2Title: "Project-Based Practice", method2Desc: "Our courses include numerous real-case translation projects, allowing students to solve problems and turn theoretical knowledge into practical skills.",
+                method3Title: "Personalized Feedback", method3Desc: "Instructors provide detailed, one-on-one feedback on assignments, helping students overcome difficulties and improve targetedly.",
+                ctaTitle: "Ready to Elevate Your French Skills?", ctaSubtitle: "Whether you're a beginner or aspiring to be a professional translator, we have the right course for you. Take the first step now!",
+                ctaButton: "Get a Free Course Consultation",
+                footerTitle: "Start Your French Learning Journey", footerSubtitle: "Feel free to inquire about course details.",
+                footerBrandInfo: "\"LinguaX\" is the flagship language learning brand crafted by learnfr.de.",
+                footerCopyright: "© 2025 LinguaX. All Rights Reserved.",
+                modalTitle: "Notice", modalText: "Currently available for internal beta users only. Stay tuned."
+            },
+            // ... Other languages would follow the same structure
+             // French
+            fr: {
+                brandName: "LinguaX",
+                navFeatures: "Caractéristiques", navInstructors: "Instructeurs", navCourses: "Cours", navPricing: "Tarifs", navJourney: "Parcours", navFAQ: "FAQ", navAbout: "À propos", navContact: "Consultation Gratuite",
+                navFeatures_m: "Caractéristiques", navInstructors_m: "Instructeurs", navCourses_m: "Cours", navPricing_m: "Tarifs", navJourney_m: "Parcours", navFAQ_m: "FAQ", navAbout_m: "À propos", navContact_m: "Consultation Gratuite",
+                heroTitle1: "Au-delà des mots, ", heroTitle2: "la maîtrise de la traduction",
+                heroSubtitle: "Nous nous concentrons sur l'enseignement du français et la pratique de la traduction pour vous aider à transformer vos compétences linguistiques en véritables capacités professionnelles.",
+                heroButton: "Découvrez nos cours",
+                featuresTitle: "Nos caractéristiques pédagogiques", featuresSubtitle: "Dédiés à fournir une expérience éducative professionnelle",
+                feature1Title: "Instructeurs Experts", feature1Desc: "Tous nos instructeurs possèdent des années d'expérience dans l'enseignement à l'étranger et une formation en traduction de première ligne, alliant parfaitement théorie et pratique.",
+                feature2Title: "Cours axés sur la pratique", feature2Desc: "Notre programme est conçu pour répondre aux exigences du monde réel de la traduction, couvrant les domaines des affaires, du droit, de la littérature, et plus encore.",
+                feature3Title: "Apprentissage personnalisé", feature3Desc: "Notre plateforme recommande intelligemment du contenu et planifie le meilleur parcours de croissance pour vous en fonction de vos progrès d'apprentissage.",
+                instructorsTitle: "Notre équipe d'élite", instructorsSubtitle: "Rencontrez nos experts en enseignement et traduction",
+                instructor1Title: "Experts académiques", instructor1Subtitle: "Spécialisés en pédagogie", instructor1Desc: "Notre équipe est issue d'universités étrangères renommées en linguistique et possède des années d'expérience, aidant les étudiants à construire un cadre linguistique systématique.",
+                instructor2Title: "Traducteurs vétérans", instructor2Subtitle: "Expérience de terrain", instructor2Desc: "Traducteurs professionnels certifiés avec une vaste expérience en interprétation et traduction, intégrant les normes de l'industrie dans l'enseignement.",
+                instructor3Title: "Spécialistes de l'industrie", instructor3Subtitle: "Focus sectoriel", instructor3Desc: "Experts de domaines professionnels, maîtrisant le français pour des industries spécifiques, garantissant la pertinence du contenu des cours.",
+                coursesTitle: "Nos cours principaux", coursesSubtitle: "Une conception de cours systématique pour vous aider à progresser régulièrement",
+                course1Title: "Français pour débutants", course1Desc: "Conçu pour les débutants absolus afin d'apprendre systématiquement la prononciation, la grammaire et la conversation quotidienne.",
+                courseButton: "Se renseigner →",
+                course2Title: "Traduction commerciale intermédiaire", course2Desc: "Axé sur les scénarios d'affaires, apprenez à traduire des contrats, des e-mails et des rapports pour améliorer votre compétitivité.",
+                courseButton_2: "Se renseigner →",
+                course3Title: "Atelier de traduction avancée", course3Desc: "Pour les apprenants avancés, abordez des domaines difficiles comme l'interprétation simultanée et la traduction littéraire.",
+                courseButton_3: "Se renseigner →",
+                pricingTitle: "Notre système de tarification", pricingSubtitle: "Découvrez le meilleur plan d'apprentissage pour vous",
+                pricingDesc: "Nous proposons une variété de plans d'adhésion flexibles. Cliquez ci-dessous pour voir les détails complets des tarifs et les avantages.",
+                pricingButton: "Voir les plans tarifaires",
+                journeyTitle: "Un parcours d'apprentissage clair", journeySubtitle: "Nous avons planifié un parcours de croissance clair et systématique pour vous",
+                journey1Stage: "Étape 1", journey1Title: "Fondations solides", journey1Desc: "Construisez une base solide en français à partir de la prononciation, du vocabulaire et de la grammaire de base.",
+                journey2Stage: "Étape 2", journey2Title: "Mentalité de traducteur", journey2Desc: "Apprenez les nuances entre les langues pour développer une logique de traduction précise.",
+                journey3Stage: "Étape 3", journey3Title: "Domaines spécialisés", journey3Desc: "Plongez dans des domaines spécifiques comme les affaires ou le droit pour maîtriser la terminologie professionnelle.",
+                journey4Stage: "Étape 4", journey4Title: "Simulation avancée", journey4Desc: "Participez à de vrais projets et abordez des tâches de haut niveau pour affiner vos compétences.",
+                faqTitle: "Questions fréquemment posées", faqSubtitle: "Vos questions sur nos cours et l'apprentissage répondues",
+                faq1q: "Je suis un débutant complet. Puis-je m'inscrire ?", faq1a: "Absolument ! Notre cours 'Français pour débutants' est spécialement conçu pour les étudiants sans aucune connaissance préalable du français.",
+                faq2q: "Quel est le modèle d'apprentissage ?", faq2a: "Notre plateforme propose des cours en ligne systématiques auxquels vous pouvez accéder à tout moment, n'importe où, via une application ou un site web.",
+                faq3q: "Puis-je revoir le contenu du cours à tout moment ?", faq3a: "Oui, une fois que vous achetez un cours, vous avez un accès illimité à toutes les vidéos et à tous les matériaux pendant la période de validité.",
+                faq4q: "Recevrai-je un certificat à la fin ?", faq4a: "Oui, après avoir rempli toutes les exigences du cours et réussi l'évaluation finale, vous recevrez un certificat de LinguaX.",
+                aboutTitle: "Notre Mission", aboutDesc1: "LinguaX a été fondé pour changer le modèle traditionnel d'enseignement des langues. Nous croyons que le but ultime de l'apprentissage est l'application.", aboutDesc2: "Par conséquent, nous nous engageons à intégrer la formation à la traduction professionnelle dans chaque aspect de l'enseignement du français.",
+                methodologyTitle: "Méthodes et philosophie", methodologySubtitle: "Nous croyons que des méthodes efficaces sont la clé du succès",
+                method1Title: "Apprentissage immersif", method1Desc: "Nous simulons de vrais environnements français pour encourager les étudiants à penser et à s'exprimer en français.",
+                method2Title: "Pratique par projet", method2Desc: "Nos cours comprennent de nombreux projets de traduction basés sur des cas réels, permettant aux étudiants de transformer les connaissances en compétences pratiques.",
+                method3Title: "Feedback personnalisé", method3Desc: "Les instructeurs fournissent des commentaires détaillés et personnalisés sur les devoirs pour aider les étudiants à s'améliorer.",
+                ctaTitle: "Prêt à améliorer votre français ?", ctaSubtitle: "Que vous soyez débutant ou que vous aspiriez à devenir un traducteur professionnel, nous avons le cours qu'il vous faut.",
+                ctaButton: "Obtenir une consultation gratuite",
+                footerTitle: "Commencez votre voyage d'apprentissage", footerSubtitle: "N'hésitez pas à vous renseigner sur les détails des cours.",
+                footerBrandInfo: "\"LinguaX\" est la marque phare d'apprentissage des langues conçue par learnfr.de.",
+                footerCopyright: "© 2025 LinguaX. Tous droits réservés.",
+                modalTitle: "Avis", modalText: "Actuellement disponible pour les bêta-testeurs internes uniquement. Restez à l'écoute."
+            },
+            // Spanish
+            es: {
+                brandName: "LinguaX",
+                navFeatures: "Características", navInstructors: "Instructores", navCourses: "Cursos", navPricing: "Precios", navJourney: "Ruta", navFAQ: "FAQ", navAbout: "Nosotros", navContact: "Consulta Gratuita",
+                navFeatures_m: "Características", navInstructors_m: "Instructores", navCourses_m: "Cursos", navPricing_m: "Precios", navJourney_m: "Ruta", navFAQ_m: "FAQ", navAbout_m: "Nosotros", navContact_m: "Consulta Gratuita",
+                heroTitle1: "Más allá de las palabras, ", heroTitle2: "domina la traducción",
+                heroSubtitle: "Nos centramos en la enseñanza del francés y la práctica de la traducción para ayudarte a convertir las habilidades lingüísticas en verdaderas capacidades profesionales.",
+                heroButton: "Explora nuestros cursos",
+                featuresTitle: "Nuestras características de enseñanza", featuresSubtitle: "Dedicados a proporcionar una experiencia educativa profesional",
+                feature1Title: "Instructores Expertos", feature1Desc: "Todos nuestros instructores tienen años de experiencia docente en el extranjero y experiencia en traducción de primera línea, combinando perfectamente teoría y práctica.",
+                feature2Title: "Cursos orientados a la práctica", feature2Desc: "Nuestro plan de estudios está diseñado para satisfacer las demandas del trabajo de traducción del mundo real, cubriendo negocios, derecho, literatura y más.",
+                feature3Title: "Aprendizaje personalizado", feature3Desc: "Nuestra plataforma recomienda inteligentemente contenido y planifica la mejor ruta de crecimiento para ti en función de tu progreso de aprendizaje.",
+                instructorsTitle: "Nuestros instructores de élite", instructorsSubtitle: "Conoce a nuestros expertos en enseñanza y traducción",
+                instructor1Title: "Expertos académicos", instructor1Subtitle: "Profundos en pedagogía", instructor1Desc: "Nuestro equipo tiene formación en lingüística de reconocidas universidades extranjeras y años de experiencia, ayudando a los estudiantes a construir un marco lingüístico sistemático.",
+                instructor2Title: "Traductores veteranos", instructor2Subtitle: "Experiencia de primera línea", instructor2Desc: "Traductores profesionales certificados con amplia experiencia en interpretación y traducción, integrando los estándares de la industria en la enseñanza.",
+                instructor3Title: "Especialistas de la industria", instructor3Subtitle: "Enfoque específico", instructor3Desc: "Expertos de campos profesionales, competentes en francés para industrias específicas, asegurando que el contenido del curso sea relevante.",
+                coursesTitle: "Nuestros cursos principales", coursesSubtitle: "Diseño de cursos sistemático para ayudarte a mejorar constantemente",
+                course1Title: "Francés para principiantes", course1Desc: "Diseñado para principiantes absolutos para aprender sistemáticamente pronunciación, gramática y conversación diaria.",
+                courseButton: "Consultar ahora →",
+                course2Title: "Traducción de negocios intermedia", course2Desc: "Centrándose en escenarios de negocios, aprende a traducir contratos, correos electrónicos e informes para mejorar tu competitividad.",
+                courseButton_2: "Consultar ahora →",
+                course3Title: "Taller de traducción avanzada", course3Desc: "Para estudiantes avanzados, aborda campos desafiantes como la interpretación simultánea y la traducción literaria.",
+                courseButton_3: "Consultar ahora →",
+                pricingTitle: "Nuestro sistema de precios", pricingSubtitle: "Explora el mejor plan de aprendizaje para ti",
+                pricingDesc: "Ofrecemos una variedad de planes de membresía flexibles. Haz clic a continuación para ver los detalles completos de precios y beneficios.",
+                pricingButton: "Ver planes de precios",
+                journeyTitle: "Una ruta de aprendizaje clara", journeySubtitle: "Hemos planeado una ruta de crecimiento clara y sistemática para ti",
+                journey1Stage: "Etapa 1", journey1Title: "Habilidades fundamentales", journey1Desc: "Construye una base sólida de francés desde la pronunciación, el vocabulario hasta la gramática básica.",
+                journey2Stage: "Etapa 2", journey2Title: "Mentalidad de traducción", journey2Desc: "Aprende los matices entre idiomas para desarrollar una lógica de traducción precisa.",
+                journey3Stage: "Etapa 3", journey3Title: "Campos especializados", journey3Desc: "Sumérgete en campos específicos como negocios o derecho para dominar la terminología profesional.",
+                journey4Stage: "Etapa 4", journey4Title: "Simulación avanzada", journey4Desc: "Participa en proyectos reales y aborda tareas de alto nivel para perfeccionar tus habilidades.",
+                faqTitle: "Preguntas frecuentes", faqSubtitle: "Tus preguntas sobre nuestros cursos y aprendizaje respondidas",
+                faq1q: "¿Soy un principiante total. ¿Puedo inscribirme?", faq1a: "¡Por supuesto! Nuestro curso 'Francés para principiantes' está diseñado específicamente para estudiantes sin conocimientos previos de francés.",
+                faq2q: "¿Cómo es el modelo de aprendizaje?", faq2a: "Nuestra plataforma ofrece cursos en línea sistemáticos a los que puedes acceder en cualquier momento y lugar, a través de una aplicación o un sitio web.",
+                faq3q: "¿Puedo revisar el contenido del curso en cualquier momento?", faq3a: "Sí, una vez que compras un curso, tienes acceso ilimitado a todos los videos y materiales dentro del período de validez.",
+                faq4q: "¿Recibiré un certificado al finalizar?", faq4a: "Sí, después de completar todos los requisitos del curso y aprobar la evaluación final, recibirás un certificado de LinguaX.",
+                aboutTitle: "Nuestra Misión", aboutDesc1: "LinguaX se fundó para cambiar el modelo tradicional de enseñanza de idiomas. Creemos que el objetivo final del aprendizaje es la aplicación.", aboutDesc2: "Por lo tanto, estamos comprometidos a integrar la formación en traducción profesional en todos los aspectos de la enseñanza del francés.",
+                methodologyTitle: "Métodos y filosofía", methodologySubtitle: "Creemos que los métodos efectivos son la clave del éxito",
+                method1Title: "Aprendizaje inmersivo", method1Desc: "Simulamos entornos franceses reales para animar a los estudiantes a pensar y expresarse en francés.",
+                method2Title: "Práctica basada en proyectos", method2Desc: "Nuestros cursos incluyen numerosos proyectos de traducción basados en casos reales, permitiendo a los estudiantes convertir el conocimiento en habilidades prácticas.",
+                method3Title: "Retroalimentación personalizada", method3Desc: "Los instructores proporcionan comentarios detallados y personalizados sobre las tareas para ayudar a los estudiantes a mejorar.",
+                ctaTitle: "¿Listo para mejorar tu francés?", ctaSubtitle: "Ya seas un principiante o aspires a ser un traductor profesional, tenemos el curso adecuado para ti.",
+                ctaButton: "Obtener una consulta gratuita",
+                footerTitle: "Comienza tu viaje de aprendizaje", footerSubtitle: "No dudes en consultar los detalles de los cursos.",
+                footerBrandInfo: "\"LinguaX\" es la marca insignia de aprendizaje de idiomas creada por learnfr.de.",
+                footerCopyright: "© 2025 LinguaX. Todos los derechos reservados.",
+                modalTitle: "Aviso", modalText: "Actualmente disponible solo para usuarios de la beta interna. Mantente atento."
+            },
+            // Russian
+            ru: {
+                brandName: "LinguaX",
+                navFeatures: "Особенности", navInstructors: "Преподаватели", navCourses: "Курсы", navPricing: "Цены", navJourney: "Путь", navFAQ: "FAQ", navAbout: "О нас", navContact: "Консультация",
+                navFeatures_m: "Особенности", navInstructors_m: "Преподаватели", navCourses_m: "Курсы", navPricing_m: "Цены", navJourney_m: "Путь", navFAQ_m: "FAQ", navAbout_m: "О нас", navContact_m: "Консультация",
+                heroTitle1: "За гранью слов, ", heroTitle2: "мастерство перевода",
+                heroSubtitle: "Мы специализируемся на обучении французскому языку и практике перевода, чтобы помочь вам превратить языковые навыки в настоящие профессиональные способности.",
+                heroButton: "Наши курсы",
+                featuresTitle: "Особенности нашего обучения", featuresSubtitle: "Стремимся предоставить профессиональный образовательный опыт",
+                feature1Title: "Эксперты-преподаватели", feature1Desc: "Все наши преподаватели имеют многолетний опыт преподавания за рубежом и опыт работы в сфере переводов, идеально сочетая теорию и практику.",
+                feature2Title: "Практико-ориентированные курсы", feature2Desc: "Наша учебная программа разработана для удовлетворения потребностей реальной переводческой работы, охватывая бизнес, право, литературу и многое другое.",
+                feature3Title: "Персонализированное обучение", feature3Desc: "Наша платформа интеллектуально рекомендует контент и планирует лучший путь роста для вас на основе вашего прогресса в обучении.",
+                instructorsTitle: "Наша элитная команда", instructorsSubtitle: "Познакомьтесь с нашими экспертами по преподаванию и переводу",
+                instructor1Title: "Академические эксперты", instructor1Subtitle: "Глубоко в педагогике", instructor1Desc: "Наша команда имеет лингвистическое образование из известных зарубежных университетов и многолетний опыт преподавания.",
+                instructor2Title: "Опытные переводчики", instructor2Subtitle: "Опыт на передовой", instructor2Desc: "Сертифицированные профессиональные переводчики с большим опытом устного и письменного перевода, интегрирующие отраслевые стандарты в обучение.",
+                instructor3Title: "Отраслевые специалисты", instructor3Subtitle: "Специализированный фокус", instructor3Desc: "Эксперты из профессиональных областей, владеющие французским языком для конкретных отраслей, обеспечивая актуальность содержания курса.",
+                coursesTitle: "Наши основные курсы", coursesSubtitle: "Систематический дизайн курсов, чтобы помочь вам постоянно совершенствоваться",
+                course1Title: "Французский для начинающих", course1Desc: "Разработан для абсолютных новичков, чтобы систематически изучать произношение, грамматику и повседневное общение.",
+                courseButton: "Узнать больше →",
+                course2Title: "Средний уровень делового перевода", course2Desc: "Сосредоточившись на деловых сценариях, научитесь переводить контракты, электронные письма и отчеты, чтобы повысить свою конкурентоспособность.",
+                courseButton_2: "Узнать больше →",
+                course3Title: "Продвинутый семинар по переводу", course3Desc: "Для продвинутых учащихся, решайте сложные задачи, такие как синхронный перевод и литературный перевод.",
+                courseButton_3: "Узнать больше →",
+                pricingTitle: "Наша система ценообразования", pricingSubtitle: "Найдите лучший план обучения для себя",
+                pricingDesc: "Мы предлагаем различные гибкие планы членства. Нажмите ниже, чтобы просмотреть полную информацию о ценах и преимуществах.",
+                pricingButton: "Посмотреть тарифы",
+                journeyTitle: "Четкий путь обучения", journeySubtitle: "Мы спланировали для вас четкий, систематический путь роста",
+                journey1Stage: "Этап 1", journey1Title: "Фундаментальные навыки", journey1Desc: "Создайте прочную основу французского языка, начиная с произношения, словарного запаса и заканчивая основной грамматикой.",
+                journey2Stage: "Этап 2", journey2Title: "Мышление переводчика", journey2Desc: "Изучите нюансы между языками, чтобы развить точную логику перевода.",
+                journey3Stage: "Этап 3", journey3Title: "Специализированные области", journey3Desc: "Погрузитесь в конкретные области, такие как бизнес или право, чтобы овладеть профессиональной терминологией.",
+                journey4Stage: "Этап 4", journey4Title: "Продвинутая симуляция", journey4Desc: "Участвуйте в реальных проектах и решайте задачи высокого уровня, чтобы отточить свои навыки.",
+                faqTitle: "Часто задаваемые вопросы", faqSubtitle: "Ответы на ваши вопросы о наших курсах и обучении",
+                faq1q: "Я полный новичок. Могу ли я записаться?", faq1a: "Конечно! Наш курс «Французский для начинающих» специально разработан для студентов без предварительных знаний французского языка.",
+                faq2q: "Какова модель обучения?", faq2a: "Наша платформа предлагает систематические онлайн-курсы, к которым вы можете получить доступ в любое время и в любом месте через приложение или веб-сайт.",
+                faq3q: "Могу ли я просматривать материалы курса в любое время?", faq3a: "Да, после покупки курса у вас есть неограниченный доступ ко всем видео и материалам в течение срока действия.",
+                faq4q: "Получу ли я сертификат по окончании?", faq4a: "Да, после выполнения всех требований курса и сдачи итоговой оценки вы получите сертификат от LinguaX.",
+                aboutTitle: "Наша миссия", aboutDesc1: "LinguaX была основана, чтобы изменить традиционную модель преподавания языков. Мы считаем, что конечной целью изучения языка является его применение.", aboutDesc2: "Поэтому мы стремимся интегрировать профессиональную подготовку переводчиков во все аспекты преподавания французского языка.",
+                methodologyTitle: "Методы и философия", methodologySubtitle: "Мы считаем, что эффективные методы - ключ к успеху",
+                method1Title: "Погружение в языковую среду", method1Desc: "Мы имитируем реальную французскую среду, чтобы побудить студентов думать и выражать свои мысли на французском языке.",
+                method2Title: "Практика на основе проектов", method2Desc: "Наши курсы включают множество проектов по переводу на основе реальных случаев, что позволяет студентам превращать знания в практические навыки.",
+                method3Title: "Персональная обратная связь", method3Desc: "Преподаватели предоставляют подробную, индивидуальную обратную связь по заданиям, чтобы помочь студентам совершенствоваться.",
+                ctaTitle: "Готовы улучшить свой французский?", ctaSubtitle: "Независимо от того, новичок вы или стремитесь стать профессиональным переводчиком, у нас есть подходящий курс для вас.",
+                ctaButton: "Получить бесплатную консультацию",
+                footerTitle: "Начните свое путешествие в мир французского", footerSubtitle: "Не стесняйтесь узнавать подробности о курсах.",
+                footerBrandInfo: "\"LinguaX\" - это флагманский бренд изучения языков, созданный learnfr.de.",
+                footerCopyright: "© 2025 LinguaX. Все права защищены.",
+                modalTitle: "Уведомление", modalText: "В настоящее время доступно только для внутренних бета-тестеров. Следите за обновлениями."
+            },
+            // Arabic
+            ar: {
+                brandName: "LinguaX",
+                navFeatures: "الميزات", navInstructors: "المعلمون", navCourses: "الدورات", navPricing: "الأسعار", navJourney: "مسار التعلم", navFAQ: "الأسئلة الشائعة", navAbout: "من نحن", navContact: "استشارة مجانية",
+                navFeatures_m: "الميزات", navInstructors_m: "المعلمون", navCourses_m: "الدورات", navPricing_m: "الأسعار", navJourney_m: "مسار التعلم", navFAQ_m: "الأسئلة الشائعة", navAbout_m: "من نحن", navContact_m: "استشارة مجانية",
+                heroTitle1: "أبعد من الكلمات، ", heroTitle2: "إتقان الترجمة",
+                heroSubtitle: "نحن نركز على تدريس اللغة الفرنسية وممارسة الترجمة لمساعدتك على تحويل المهارات اللغوية إلى قدرات مهنية حقيقية.",
+                heroButton: "اكتشف دوراتنا",
+                featuresTitle: "ميزات التدريس لدينا", featuresSubtitle: " ملتزمون بتقديم تجربة تعليمية احترافية",
+                feature1Title: "معلمون خبراء", feature1Desc: "يتمتع جميع مدرسينا بسنوات من الخبرة في التدريس في الخارج وخلفية في الترجمة المباشرة، ويمزجون بشكل مثالي بين النظرية والتطبيق.",
+                feature2Title: "دورات عملية المنحى", feature2Desc: "تم تصميم مناهجنا لتلبية متطلبات أعمال الترجمة في العالم الحقيقي، وتغطي مجالات الأعمال والقانون والأدب والمزيد.",
+                feature3Title: "تعلم شخصي", feature3Desc: "توصي منصتنا بذكاء بالمحتوى وتخطط لأفضل مسار نمو لك بناءً على تقدمك في التعلم.",
+                instructorsTitle: "فريق المعلمين المتميز", instructorsSubtitle: "تعرف على خبراء التدريس والترجمة المحترفين لدينا",
+                instructor1Title: "خبراء أكاديميون", instructor1Subtitle: "متعمقون في علم أصول التدريس", instructor1Desc: "يمتلك فريقنا خلفيات لغوية من جامعات خارجية شهيرة وسنوات من الخبرة التعليمية، وهم بارعون في مساعدة الطلاب على بناء إطار لغوي منهجي.",
+                instructor2Title: "مترجمون مخضرمون", instructor2Subtitle: "خبرة ميدانية", instructor2Desc: "مترجمون محترفون معتمدون يتمتعون بخبرة واسعة في الترجمة الفورية والتحريرية، ويدمجون معايير الصناعة في التدريس.",
+                instructor3Title: "متخصصون في الصناعة", instructor3Subtitle: "تركيز خاص بالمجال", instructor3Desc: "خبراء من المجالات المهنية، يتقنون اللغة الفرنسية لصناعات معينة، مما يضمن أن محتوى الدورة وثيق الصلة باحتياجات الوظائف في العالم الحقيقي.",
+                coursesTitle: "دوراتنا الأساسية", coursesSubtitle: "تصميم دورات منهجي لمساعدتك على التحسن بشكل مطرد",
+                course1Title: "اللغة الفرنسية للمبتدئين", course1Desc: "مصممة للمبتدئين تمامًا لتعلم النطق والقواعد والمحادثة اليومية بشكل منهجي.",
+                courseButton: "استفسر الآن →",
+                course2Title: "ترجمة الأعمال المتوسطة", course2Desc: "بالتركيز على سيناريوهات الأعمال، تعلم ترجمة العقود ورسائل البريد الإلكتروني والتقارير لتعزيز قدرتك التنافسية المهنية.",
+                courseButton_2: "استفسر الآن →",
+                course3Title: "ورشة عمل الترجمة المتقدمة", course3Desc: "للمتعلمين المتقدمين، تعامل مع المجالات الصعبة مثل الترجمة الفورية والترجمة الأدبية.",
+                courseButton_3: "استفسر الآن →",
+                pricingTitle: "نظام التسعير لدينا", pricingSubtitle: "اكتشف أفضل خطة تعليمية ومزايا لك",
+                pricingDesc: "نحن نقدم مجموعة متنوعة من خطط العضوية المرنة لتلبية احتياجاتك. انقر فوق الزر أدناه لعرض تفاصيل الأسعار الكاملة ومزايا الأعضاء.",
+                pricingButton: "عرض خطط التسعير الكاملة",
+                journeyTitle: "مسار تعليمي واضح", journeySubtitle: "لقد خططنا لك مسار نمو واضحًا ومنهجيًا",
+                journey1Stage: "المرحلة 1", journey1Title: "المهارات الأساسية", journey1Desc: "ابنِ أساسًا قويًا للغة الفرنسية من النطق والمفردات إلى القواعد الأساسية.",
+                journey2Stage: "المرحلة 2", journey2Title: "عقلية الترجمة", journey2Desc: "تعلم الفروق الدقيقة بين اللغات لتطوير منطق ترجمة دقيق.",
+                journey3Stage: "المرحلة 3", journey3Title: "المجالات المتخصصة", journey3Desc: "تعمق في مجالات محددة مثل الأعمال أو القانون لإتقان المصطلحات المهنية.",
+                journey4Stage: "المرحلة 4", journey4Title: "محاكاة متقدمة", journey4Desc: "شارك في مشاريع حقيقية وتعامل مع مهام عالية المستوى لصقل مهاراتك.",
+                faqTitle: "أسئلة مكررة", faqSubtitle: "تمت الإجابة على أسئلتك حول دوراتنا والتعلم",
+                faq1q: "أنا مبتدئ تمامًا. هل يمكنني التسجيل؟", faq1a: "بالتأكيد! تم تصميم دورة 'اللغة الفرنسية للمبتدئين' خصيصًا للطلاب الذين ليس لديهم معرفة سابقة باللغة الفرنسية.",
+                faq2q: "كيف هو نموذج التعلم؟", faq2a: "تقدم منصتنا دورات منهجية عبر الإنترنت يمكنك الوصول إليها في أي وقت وفي أي مكان عبر التطبيق أو موقع الويب.",
+                faq3q: "هل يمكنني مراجعة محتوى الدورة في أي وقت؟", faq3a: "نعم، بمجرد شراء دورة تدريبية، يكون لديك وصول غير محدود إلى جميع مقاطع الفيديو والمواد خلال فترة الصلاحية.",
+                faq4q: "هل سأحصل على شهادة عند الانتهاء؟", faq4a: "نعم، بعد إكمال جميع متطلبات الدورة واجتياز التقييم النهائي، ستحصل على شهادة من LinguaX.",
+                aboutTitle: "مهمتنا", aboutDesc1: "تأسست LinguaX لتغيير نموذج تدريس اللغة التقليدي. نحن نؤمن بأن الهدف النهائي لتعلم اللغة هو التطبيق.", aboutDesc2: "لذلك، نحن ملتزمون بدمج التدريب على الترجمة الاحترافية في كل جانب من جوانب تدريس اللغة الفرنسية.",
+                methodologyTitle: "طرق وفلسفة التدريس", methodologySubtitle: "نحن نؤمن بأن الأساليب الفعالة هي مفتاح النجاح",
+                method1Title: "التعلم الغامر", method1Desc: "نحن نحاكي البيئات الفرنسية الحقيقية لتشجيع الطلاب على التفكير والتعبير عن أنفسهم باللغة الفرنسية.",
+                method2Title: "الممارسة القائمة على المشاريع", method2Desc: "تشمل دوراتنا العديد من مشاريع الترجمة القائمة على حالات حقيقية، مما يسمح للطلاب بتحويل المعرفة إلى مهارات عملية.",
+                method3Title: "ملاحظات شخصية", method3Desc: "يقدم المعلمون ملاحظات مفصلة وفردية على الواجبات لمساعدة الطلاب على التحسن.",
+                ctaTitle: "هل أنت مستعد للارتقاء بمهاراتك في اللغة الفرنسية؟", ctaSubtitle: "سواء كنت مبتدئًا أو تطمح إلى أن تكون مترجمًا محترفًا، فلدينا الدورة المناسبة لك.",
+                ctaButton: "احصل على استشارة مجانية للدورة",
+                footerTitle: "ابدأ رحلتك في تعلم اللغة الفرنسية", footerSubtitle: "لا تتردد في الاستفسار عن تفاصيل الدورة.",
+                footerBrandInfo: "\"LinguaX\" هي العلامة التجارية الرائدة في تعلم اللغات التي صممتها learnfr.de.",
+                footerCopyright: "© 2025 LinguaX. كل الحقوق محفوظة.",
+                modalTitle: "تنويه", modalText: "متوفر حاليًا لمستخدمي النسخة التجريبية الداخلية فقط. ترقبوا."
+            },
+        };
+
+        const langOptions = {
+            zh: "中文",
+            en: "English",
+            fr: "Français",
+            es: "Español",
+            ru: "Русский",
+            ar: "العربية"
+        };
+
+
+        // --- 2. 函数和事件监听器 ---
+        
+        // 语言切换函数
+        function changeLanguage(lang) {
+            if (!translations[lang]) return;
+
+            // 设置页面语言和方向
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // 更新所有带 data-translate 属性的元素
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // 特殊处理品牌名称（根据语言）
+            const brandNameElement = document.querySelector('[data-translate="brandName"]');
+            brandNameElement.innerHTML = lang === 'zh' ? translations.zh.brandName : translations.en.brandName;
+
+            // 特殊处理页脚版权（根据语言）
+            const copyrightElement = document.querySelector('[data-translate="footerCopyright"]');
+            let copyrightText = translations[lang].footerCopyright;
+            if (lang !== 'zh') {
+                copyrightText = copyrightText.replace("翻译水平有限公司", "LinguaX");
+            }
+            copyrightElement.innerHTML = copyrightText;
+
+            // 更新导航栏当前语言显示
+            document.getElementById('current-lang').textContent = langOptions[lang];
+
+            // 更新页面标题和 meta 描述 (可选但推荐)
+            document.title = lang === 'zh' ? '翻译水平有限公司 - 专业法语培训与翻译教学' : 'Linguax - Professional French Training & Translation Teaching';
+        }
+
+        // --- 3. 初始化和事件绑定 ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // 设置默认语言
+            changeLanguage('zh');
+
+            // 移动端菜单切换
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!link.classList.contains('open-modal-button')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // 滚动动画
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.animate-on-scroll').forEach(el => { observer.observe(el); });
+
+            // 3D卡片悬停效果
+            const cards = document.querySelectorAll('.tilt-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    const rotateX = -y / 20;
+                    const rotateY = x / 20;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                });
+            });
+
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('svg');
+                    const isOpen = answer.style.maxHeight;
+
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                       ans.style.maxHeight = null;
+                       ans.previousElementSibling.querySelector('svg').style.transform = 'rotate(0deg)';
+                    });
+
+                    if (!isOpen) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Modal functionality
+            const authModal = document.getElementById('auth-modal');
+            const modalContent = authModal.querySelector('.modal-content');
+            const closeModalButton = document.getElementById('close-modal-button');
+            const openModalButtons = document.querySelectorAll('.open-modal-button');
+
+            function openModal() {
+                authModal.classList.remove('invisible', 'opacity-0');
+                modalContent.classList.remove('scale-95');
+                mobileMenu.classList.add('hidden');
+            }
+
+            function closeModal() {
+                authModal.classList.add('opacity-0');
+                modalContent.classList.add('scale-95');
+                setTimeout(() => {
+                    authModal.classList.add('invisible');
+                }, 300);
+            }
+
+            openModalButtons.forEach(button => {
+                button.addEventListener('click', (e) => { e.preventDefault(); openModal(); });
+            });
+
+            closeModalButton.addEventListener('click', closeModal);
+            authModal.addEventListener('click', (e) => { if (e.target === authModal) closeModal(); });
+
+            // 平滑滚动到指定板块
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.classList.contains('open-modal-button')) return;
+                    const href = this.getAttribute('href');
+                    if (href === '#') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // --- 语言切换功能 (已修复) ---
+            const langSwitcherButton = document.getElementById('language-switcher-button');
+            const langDropdown = document.getElementById('language-dropdown');
+
+            // 通过点击按钮来切换下拉菜单的显示/隐藏
+            langSwitcherButton.addEventListener('click', function(e) {
+                e.stopPropagation(); // 阻止事件冒泡到window
+                langDropdown.classList.toggle('hidden');
+            });
+
+            // 点击语言选项时，切换语言并关闭下拉菜单
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                    langDropdown.classList.add('hidden'); // 切换后隐藏菜单
+                });
+            });
+
+            // 点击页面其他任何地方时，关闭下拉菜单
+            window.addEventListener('click', function() {
+                if (!langDropdown.classList.contains('hidden')) {
+                    langDropdown.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
