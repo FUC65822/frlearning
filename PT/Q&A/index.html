@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugging Face 问答练习</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 使用Inter字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto max-w-3xl p-4 md:p-8">
+        
+        <!-- 网页主标题 -->
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-center text-gray-900 mb-2">HUGGING FACE 演示文稿</h1>
+            <h2 class="text-2xl font-semibold text-center text-blue-700">问答练习 (Q&A)</h2>
+            <p class="text-center text-gray-600 mt-2">这里是一些评委或同学可能会提的问题，以及建议的A2水平回答。</p>
+        </header>
+
+        <!-- Q&A 内容 -->
+        <main class="space-y-8">
+
+            <!-- 第 1 部分 -->
+            <section>
+                <h3 class="text-xl font-bold text-gray-900 border-b-2 border-blue-200 pb-2 mb-4">
+                    关于第 1 部分：Introduction (提问 A)
+                </h3>
+                
+                <!-- Q1 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 1 :</strong> <em>Pouvez-vous répéter, s'il vous plaît ? Pourquoi le nom "Hugging Face" ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">(你能重复一下吗？为什么叫 "Hugging Face" 这个名字？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(A) Réponse :</strong> Oui. Le nom "Hugging Face" vient de l'emoji "visage qui fait un câlin" (🤗). Les fondateurs aiment cet emoji.</p>
+                    <p class="text-sm text-gray-500 italic">(是的。"Hugging Face" 这个名字来自 "拥抱表情" (🤗)。创始人们喜欢这个表情。)</p>
+                </div>
+
+                <!-- Q2 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 2 :</strong> <em>Comment l'entreprise gagne de l'argent si la plateforme est gratuite ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">(如果平台是免费的，公司怎么赚钱？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(A) Réponse :</strong> C'est un modèle "Freemium". La plateforme est gratuite pour la communauté. Mais les entreprises paient pour des services "Premium". Par exemple, plus de sécurité et de support.</p>
+                    <p class="text-sm text-gray-500 italic">(这是一个 "免费增值" 模式。平台对社区是免费的。但是企业会为 "高级" 服务付费。例如，更多的安全支持。)</p>
+                </div>
+
+                <!-- Q3 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 3 :</strong> <em>Les fondateurs sont Américains ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">(创始人是美国人吗？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(A) Réponse :</strong> Non, les trois fondateurs sont Français. Mais ils ont créé l'entreprise à New York.</p>
+                    <p class="text-sm text-gray-500 italic">(不，三位创始人是法国人。但是他们是在纽约创建的公司。)</p>
+                </div>
+            </section>
+
+            <!-- 第 2 部分 -->
+            <section>
+                <h3 class="text-xl font-bold text-gray-900 border-b-2 border-blue-200 pb-2 mb-4">
+                    关于第 2 部分：Historique (提问 A)
+                </h3>
+                
+                <!-- Q4 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 4 :</strong> <em>Quelle était la première idée de Hugging Face ? C'était déjà une plateforme ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">(Hugging Face 最初的想法是什么？它当时就是一个平台吗？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(A) Réponse :</strong> Non. Au début, en 2016, c'était une application de "chatbot". C'était un robot pour parler avec les adolescents. Ce n'était pas populaire.</p>
+                    <p class="text-sm text-gray-500 italic">(不是。最早在2016年，它是一个 "聊天机器人" 应用。是给青少年聊天用的机器人。它当时并不受欢迎。)</p>
+                </div>
+
+                <!-- Q5 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 5 :</strong> <em>Pourquoi ils ont changé ? Qu'est-ce que c'est un "pivot" ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">(他们为什么改变了？什么是 "pivot"？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(A) Réponse :</strong> Un "pivot", c'est un grand changement de stratégie. Ils ont changé parce que leur "chatbot" n'était pas populaire. Mais leurs outils "open-source" pour les développeurs étaient très populaires.</p>
+                    <p class="text-sm text-gray-500 italic">(一个 "pivot" 就是一个大的策略改变。他们改变是因为他们的 "聊天机器人" 不火。但他们给开发者的 "开源" 工具非常受欢迎。)</p>
+                </div>
+
+                <!-- Q6 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 6 :</strong> <em>Vous avez dit "open-source". Qu'est-ce que ça veut dire ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">(你们提到了 "open-source"。这是什么意思？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(A) Réponse :</strong> "Open-source", ça veut dire "code ouvert". Le code est public et gratuit. Tout le monde peut voir le code, l'utiliser et le modifier. C'est le contraire de "code fermé" ou "privé". Hugging Face est basé sur l'open-source.</p>
+                    <p class="text-sm text-gray-500 italic">("Open-source" 意思是 "开放源码"。代码是公开且免费的。所有人都可以查看、使用和修改代码。这和 "封闭代码" 或 "私有" 相反。Hugging Face 就是基于开源的。)</p>
+                </div>
+            </section>
+
+            <!-- 第 3 部分 -->
+            <section>
+                <h3 class="text-xl font-bold text-gray-900 border-b-2 border-blue-200 pb-2 mb-4">
+                    关于第 3 部分：Les Produits (提问 L)
+                </h3>
+
+                <!-- Q7 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 7 :</strong> <em>Quelle est la différence entre "Models" et "Datasets" sur le Hub ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">(在 Hub 上的 "Models" 和 "Datasets" 有什么区别？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(L) Réponse :</strong> C'est simple. Les "Models" (modèles), c'est l'intelligence, c'est le "cerveau" de l'IA. Les "Datasets" (données), c'est la nourriture pour entraîner le cerveau.</p>
+                    <p class="text-sm text-gray-500 italic">(很简单。"Models" (模型) 是智能，是IA的 "大脑"。"Datasets" (数据集) 是用来训练这个大脑的 "食物"。)</p>
+                </div>
+
+                <!-- Q8 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 8 :</strong> <em>"Transformers", c'est le film ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">("Transformers" 是那个电影吗？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(L) Réponse :</strong> (Rire) Non, ce n'est pas le film. "Transformers", c'est le nom de leur librairie (outil) la plus célèbre. C'est un outil pour travailler avec le langage, pour le texte.</p>
+                    <p class="text-sm text-gray-500 italic">((笑) 不，不是那个电影。"Transformers" 是他们最著名的工具库的名字。这是一个用来处理语言和文本的工具。)</p>
+                </div>
+            </section>
+
+            <!-- 第 4 部分 -->
+            <section>
+                <h3 class="text-xl font-bold text-gray-900 border-b-2 border-blue-200 pb-2 mb-4">
+                    关于第 4 部分：L'Avenir (提问 L)
+                </h3>
+
+                <!-- Q9 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 9 :</strong> <em>Hugging Face est un concurrent de ChatGPT ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">(Hugging Face 是 ChatGPT 的竞争对手吗？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(L) Réponse :</strong> C'est différent. ChatGPT (OpenAI) crée *un* grand modèle fermé (privé). Hugging Face est une plateforme pour *des milliers* de modèles ouverts (open-source). L'objectif de Hugging Face est d'aider les autres entreprises à créer leurs propres IA.</p>
+                    <p class="text-sm text-gray-500 italic">(这不一样。ChatGPT (OpenAI) 创建了 *一个* 封闭的 (私有) 大模型。Hugging Face 是一个平台，上面有 *数千个* 开放的 (开源) 模型。Hugging Face 的目标是帮助其他公司创建他们自己的AI。)</p>
+                </div>
+
+                <!-- Q10 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 10 :</strong> <em>Quel est le plus grand défi (challenge) pour l'entreprise ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">(这家公司最大的挑战是什么？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(L) Réponse :</strong> Il y a deux grands défis. Le premier, c'est la concurrence avec les géants, comme Google ou Microsoft. Le deuxième, c'est de gagner plus d'argent (monétisation) sans perdre la communauté gratuite.</p>
+                    <p class="text-sm text-gray-500 italic">(有两个大挑战。第一个是来自巨头（比如谷歌或微软）的竞争。第二个是赚更多的钱（商业化），同时不失去免费社区。)</p>
+                </div>
+
+                <!-- Q11 -->
+                <div class="bg-white p-5 rounded-lg shadow-md mb-4">
+                    <p class="text-base font-semibold text-blue-800 mb-2"><strong>Question 11 :</strong> <em>Est-ce que Hugging Face fonctionne en Chine ?</em></p>
+                    <p class="text-sm text-gray-500 italic mb-3">(Hugging Face 在中国能用吗？)</p>
+                    <p class="text-gray-700 mb-2"><strong>(L) Réponse :</strong> Oui, mais l'accès direct (huggingface.co) est parfois lent en Chine. Pour résoudre ce problème, Hugging Face a un site "miroir" spécial pour la Chine (`hf-mirror.com`). Ils travaillent aussi avec des partenaires chinois comme Alibaba Cloud.</p>
+                    <p class="text-sm text-gray-500 italic">(是的，但是直接访问 (huggingface.co) 在中国有时很慢。为了解决这个问题，Hugging Face 为中国提供了一个特殊的“镜像”网站 (`hf-mirror.com`)。他们也和像阿里云这样的中国伙伴合作。)</p>
+                </div>
+            </section>
+        
+        </main>
+        
+        <footer class="text-center text-gray-500 text-sm mt-12 pb-4">
+            <p>Bonne chance pour votre présentation !</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

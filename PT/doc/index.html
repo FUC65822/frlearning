@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugging Face 演示讲稿 (匿名版)</title>
+    <!-- 使用 Inter 字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 基础样式 --- */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* 柔和的背景色 */
+            color: #333;
+            line-height: 1.7; /* 增加行高 */
+        }
+
+        /* --- 容器 --- */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- 头部 --- */
+        header {
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2rem; /* 28px */
+            color: #1a202c;
+            margin: 0;
+        }
+        header h2 {
+            font-size: 1.25rem; /* 20px */
+            color: #2c5282; /* 蓝色 */
+            font-weight: 500;
+            margin: 10px 0 0;
+        }
+        .speaker-allocation {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 1rem;
+        }
+        .speaker-allocation div {
+            text-align: center;
+        }
+        .speaker-allocation strong {
+            color: #2c5282;
+            font-weight: 600;
+            display: block;
+        }
+        .speaker-allocation span {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        /* --- 内容区域 --- */
+        main {
+            padding: 0;
+        }
+
+        /* --- 章节标题 --- */
+        .part-title {
+            font-size: 1.75rem; /* 24px */
+            font-weight: 700;
+            color: #1a202c;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3182ce; /* 蓝色下划线 */
+        }
+
+        /* --- 幻灯片区块 --- */
+        .slide-block {
+            background-color: #fdfdfd;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* --- 幻灯片标题 --- */
+        .slide-title {
+            font-size: 1.25rem; /* 20px */
+            font-weight: 600;
+            color: #2d3748;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        /* --- 讲稿内容 --- */
+        .script-line {
+            margin: 0 0 12px 0; /* 增加段落间距 */
+            font-size: 1rem;
+            color: #4a5568;
+        }
+        .script-line strong {
+            color: #2b6cb0; /* 演讲者名字用蓝色 */
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        
+        /* --- 列表样式 (Slide 12) --- */
+        .script-list {
+            margin-left: 20px;
+            padding-left: 0;
+            list-style-type: disc;
+        }
+        .script-list li {
+            margin-bottom: 8px;
+            color: #4a5568;
+        }
+        
+        /* --- 尾部 --- */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #a0aec0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>Hugging Face: 商务法语演示讲稿</h1>
+            <h2>(@learnfr.de)</h2>
+            
+            <div class="speaker-allocation">
+                <div>
+                    <strong>Présentateur 1</strong>
+                    <span>(第 1 和 第 2 部分)</span>
+                </div>
+                <div>
+                    <strong>Présentateur 2</strong>
+                    <span>(第 3 和 第 4 部分)</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+
+            <!-- ======================= -->
+            <!--        PARTIE 1         -->
+            <!-- ======================= -->
+            <section id="part1">
+                <h2 class="part-title">Partie 1 : Introduction</h2>
+                
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 1 : Titre (Hugging Face : La plateforme de la communauté IA)</h3>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Bonjour à tous. Je m'appelle Présentateur 1.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Et voici mon partenaire, Présentateur 2.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Aujourd'hui, nous allons vous présenter Hugging Face. C'est une plateforme très importante pour l'intelligence artificielle, l'IA.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 2 : Sommaire</h3>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Voici le plan de notre présentation.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> D'abord, je vais faire une introduction de Hugging Face.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Ensuite, je vais parler de l'historique de l'entreprise.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Puis, Présentateur 2 va présenter les produits principaux.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Et pour finir, il va parler de l'avenir de la société.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 3 : INTRODUCTION À HUGGING FACE (01)</h3>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Commençons par la première partie : l'introduction.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 4 : Qu'est-ce que Hugging Face ?</h3>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Qu'est-ce que Hugging Face ?</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> C'est une plateforme pour l'IA. C'est un lieu central pour partager des modèles et du code.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> La mission de Hugging Face est de "démocratiser le machine learning".</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> L'objectif est simple : rendre l'IA facile et accessible pour tout le monde.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 5 : Fiche d'identité</h3>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Voici la fiche d'identité.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> L'entreprise est fondée par trois Français à New York, en 2016.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Le nom "Hugging Face" vient de cet emoji (🤗). C'est un visage qui fait un câlin.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> L'entreprise grandit vite. Il y a plus de 170 employés à Paris et New York.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 6 : Comment gagnent-ils de l'argent ? (Le Modèle "Freemium")</h3>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Comment Hugging Face gagne de l'argent ?</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Ils utilisent un modèle "Freemium". C'est-à-dire "Free" (gratuit) et "Premium" (payant).</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> La partie gratuite est pour la communauté. C'est public. Cela attire beaucoup d'utilisateurs.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> La partie payante ("Premium") est pour les entreprises. Les entreprises paient pour avoir plus de sécurité et de support. C'est un service privé.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 7 : La performance (Finance)</h3>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Parlons de la performance financière.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> La croissance est très rapide.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> En 2023, la valeur de l'entreprise est de 4,5 milliards de dollars.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> De grands investisseurs comme Google, Amazon et NVIDIA font confiance à Hugging Face.</p>
+                </div>
+            </section>
+
+            <!-- ======================= -->
+            <!--        PARTIE 2         -->
+            <!-- ======================= -->
+            <section id="part2">
+                <h2 class="part-title">Partie 2 : Historique</h2>
+                
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 8 : HISTORIQUE (02)</h3>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Maintenant, je vais parler de la deuxième partie : l'historique.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 9 : L'évolution</h3>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Au début, en 2016, Hugging Face n'était pas une plateforme.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> C'était une application de "chatbot". Un robot pour parler.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Le public était les adolescents.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> L'idée était de créer un "ami virtuel".</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Mais... l'application n'était pas populaire.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 10 : Le "Pivot" (Le grand changement)</h3>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Alors, l'entreprise a fait un "pivot". C'est un grand changement.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Ils ont une découverte : leurs outils "open-source" sont très populaires. Spécialement la librairie "Transformers".</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Donc, en 2018, ils prennent une décision : arrêter le chatbot.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Le nouvel objectif est de se concentrer sur les outils pour les développeurs d'IA.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> C'est une bonne stratégie. Ils vendent "des pelles" pour "la ruée vers l'or" de l'IA.</p>
+                    <p class="script-line"><strong>(Présentateur 1) :</strong> Merci. Maintenant, je laisse la parole à Présentateur 2.</p>
+                </div>
+            </section>
+            
+            <!-- ======================= -->
+            <!--        PARTIE 3         -->
+            <!-- ======================= -->
+            <section id="part3">
+                <h2 class="part-title">Partie 3 : Les Produits</h2>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 11 : LES PRODUITS PRINCIPAUX (03)</h3>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Merci, Présentateur 1. Bonjour à tous.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Je vais vous présenter la troisième partie : les produits principaux.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 12 : Le "Hub" (Le centre)</h3>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Le produit principal s'appelle le "Hub". C'est le cœur de la plateforme.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Sur le Hub, il y a trois choses importantes :</p>
+                    <ul class="script-list">
+                        <li><strong>1. "Models" :</strong> Ce sont des milliers de modèles d'IA, prêts à utiliser.</li>
+                        <li><strong>2. "Datasets" :</strong> Ce sont des données pour entraîner les modèles.</li>
+                        <li><strong>3. "Spaces" :</strong> C'est pour montrer des démos d'applications IA.</li>
+                    </ul>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 13 : Les librairies (Les outils)</h3>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Hugging Face offre aussi des "librairies". Ce sont des outils pour les développeurs.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> La plus célèbre est "Transformers". Elle est très utilisée pour le texte et le langage (NLP).</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Il y a aussi "Diffusers", pour créer des images.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> "Gradio" est un outil pour créer des démos (les "Spaces") facilement.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Et "Datasets" est une librairie pour charger les données.</p>
+                </div>
+            </section>
+
+            <!-- ======================= -->
+            <!--        PARTIE 4         -->
+            <!-- ======================= -->
+            <section id="part4">
+                <h2 class="part-title">Partie 4 : L'Avenir</h2>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 14 : L'AVENIR DE LA SOCIÉTÉ (04)</h3>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Enfin, parlons de la quatrième partie : l'avenir de la société.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 15 : Nouveaux projets et défis</h3>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Hugging Face a de nouveaux projets, par exemple dans la robotique, l'audio et la vidéo.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Mais il y a aussi des défis.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Le premier défi est la concurrence. Les "géants" comme Google ou Microsoft ont aussi leurs plateformes.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Le deuxième défi est la "monétisation". L'entreprise doit gagner plus d'argent, mais elle doit aussi garder sa communauté gratuite.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 16 : La vision du PDG</h3>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Voici la vision du PDG, Clément Delangue.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Il pense que le futur n'est pas un seul gros modèle, comme ChatGPT.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Il pense que le futur, c'est des milliers de petits modèles "open-source".</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Son objectif est d'aider toutes les entreprises à créer leurs propres modèles d'IA.</p>
+                </div>
+
+                <div class="slide-block">
+                    <h3 class="slide-title">Slide 17 : Merci!</h3>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Notre présentation est terminée.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Merci beaucoup pour votre attention.</p>
+                    <p class="script-line"><strong>(Présentateur 2) :</strong> Si vous avez des questions, nous sommes prêts à répondre.</p>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>Bonne chance pour votre présentation !</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+

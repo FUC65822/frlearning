@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation : Hugging Face</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Google Fonts (Roboto Slab for titles, Inter for body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Slab:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 在这里应用自定义字体 */
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        body {
+            font-family: 'Inter', sans-serif; /* 默认正文字体 */
+            @apply bg-gray-50 text-gray-700;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Slab', serif; /* 标题字体 */
+            @apply text-gray-900;
+        }
+
+        /* 导航栏激活状态 */
+        .nav-link.active {
+            @apply bg-indigo-100 text-indigo-700;
+        }
+        
+        /* 交互式选项卡 (Tabs) */
+        .tab-link {
+            @apply px-4 py-3 font-medium text-lg leading-5 rounded-md transition-colors duration-150;
+        }
+        .tab-link.active {
+            @apply bg-indigo-600 text-white shadow-md;
+        }
+        .tab-link:not(.active) {
+            @apply text-gray-600 hover:bg-gray-100;
+        }
+        .tab-content {
+            display: none; /* 默认隐藏 */
+        }
+        .tab-content.active {
+            display: block; /* 激活时显示 */
+        }
+        
+        /* 自定义列表样式 */
+        .styled-list li {
+            @apply flex items-start space-x-3 py-2;
+        }
+        .styled-list li::before {
+            content: '✓'; /* 使用对勾作为图标 */
+            @apply text-indigo-500 font-bold text-xl flex-shrink-0 mt-1;
+        }
+        
+        /* 工具库列表激活状态 */
+        .lib-link.active {
+            @apply bg-indigo-50 border-l-4 border-indigo-500 text-indigo-700;
+        }
+        .lib-link:not(.active) {
+            @apply border-l-4 border-transparent text-gray-600 hover:bg-gray-50;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 粘性导航栏 -->
+    <header class="sticky top-0 bg-white/95 backdrop-blur-sm shadow-md z-50 w-full">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-3xl" role="img" aria-label="Hugging Face Emoji">🤗</span>
+                    <span class="ml-2 text-2xl font-bold font-['Roboto_Slab']">Hugging Face</span>
+                </div>
+                <!-- 导航链接 -->
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-2">
+                    <a href="#intro" data-nav-link="intro" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">Introduction</a>
+                    <a href="#historique" data-nav-link="historique" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">Historique</a>
+                    <a href="#produits" data-nav-link="produits" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">Produits</a>
+                    <a href="#avenir" data-nav-link="avenir" class="nav-link px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">Avenir</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="max-w-5xl mx-auto pt-16 md:pt-24 px-4 sm:px-6 lg:px-8">
+
+        <!-- 网页标题 (Hero) -->
+        <section class="text-center mb-16 md:mb-24">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900">Hugging Face</h1>
+            <p class="text-2xl md:text-3xl text-indigo-600 mt-4">La plateforme de la communauté IA</p>
+            <p class="text-lg text-gray-500 mt-6 max-w-2xl mx-auto">(Présenté par : AAAlex et  Lamarrr)</p>
+        </section>
+
+        <!-- Section 1: INTRODUCTION -->
+        <section id="intro" class="bg-white shadow-xl rounded-2xl p-8 md:p-12 mb-12 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-10 border-b-4 border-indigo-100 pb-4">INTRODUCTION À HUGGING FACE</h2>
+
+            <!-- Qu'est-ce que c'est ? -->
+            <h3 class="text-3xl font-semibold mb-6">Qu'est-ce que Hugging Face ?</h3>
+            <ul class="styled-list space-y-2 text-lg">
+                <li><strong class="font-medium text-gray-900">Définition :</strong> C'est une plateforme pour l'intelligence artificielle (IA).</li>
+                <li><strong class="font-medium text-gray-900">Concept :</strong> C'est un lieu central pour partager le code et les modèles d'IA.</li>
+                <li><strong class="font-medium text-gray-900">Mission :</strong> "Démocratiser le machine learning".</li>
+                <li><strong class="font-medium text-gray-900">Objectif :</strong> Rendre l'IA facile et accessible pour tout le monde.</li>
+            </ul>
+
+            <!-- Fiche d'identité -->
+            <h3 class="text-3xl font-semibold mt-12 mb-6">Fiche d'identité</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <strong class="font-medium text-gray-900">Fondateurs :</strong> Clément Delangue (PDG), Julien Chaumond (CTO), Thomas Wolf (CSO).
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <strong class="font-medium text-gray-900">Origine :</strong> 3 Français à New York (2016).
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <strong class="font-medium text-gray-900">Le nom "Hugging Face" :</strong> Vient de l'emoji "visage qui fait un câlin" (🤗).
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <strong class="font-medium text-gray-900">Taille :</strong> De 30 à 170+ employés (Paris et New York).
+                </div>
+            </div>
+
+            <!-- Comment gagnent-ils de l'argent ? (INTERACTIVE TABS) -->
+            <h3 class="text-3xl font-semibold mt-12 mb-6">Comment gagnent-ils de l'argent ?</h3>
+            <div class="flex flex-col">
+                <!-- Tab Headers -->
+                <nav class="flex flex-wrap -mb-px space-x-2" aria-label="Tabs">
+                    <button class="tab-link active" data-tab="freemium">Le Modèle "Freemium"</button>
+                    <button class="tab-link" data-tab="gratuit">Partie Gratuite</button>
+                    <button class="tab-link" data-tab="payant">Partie Payante</button>
+                    <button class="tab-link" data-tab="cercle">Le "Cercle Vertueux"</button>
+                </nav>
+                <!-- Tab Content -->
+                <div class="bg-white border border-gray-200 rounded-b-lg rounded-tr-lg p-6 text-lg">
+                    <div class="tab-content active" id="freemium">
+                        Le modèle économique de Hugging Face est "Freemium" (Gratuit + Premium). Il crée un équilibre parfait entre la construction d'une communauté open-source massive et la génération de revenus auprès des entreprises.
+                    </div>
+                    <div class="tab-content" id="gratuit">
+                        <strong class="font-medium text-gray-900">Pour la communauté :</strong> L'accès public au Hub, aux modèles et aux datasets est gratuit.
+                        <br>
+                        <strong class="font-medium text-gray-900">Objectif :</strong> Attirer des millions d'utilisateurs et de développeurs, ce qui en fait la plateforme standard de l'industrie.
+                    </div>
+                    <div class="tab-content" id="payant">
+                        <strong class="font-medium text-gray-900">Pour les entreprises :</strong> Les entreprises paient pour des fonctionnalités avancées via des abonnements ("Pro", "Team", "Enterprise").
+                        <br>
+                        <strong class="font-medium text-gray-900">Offre :</strong> Sécurité (SSO), support expert, hébergement privé, et services de calcul (Inference Endpoints).
+                    </div>
+                    <div class="tab-content" id="cercle">
+                        <ul class="list-decimal list-inside space-y-2">
+                            <li>La communauté (gratuite) rend la plateforme populaire et riche en modèles.</li>
+                            <li>Les entreprises sont attirées et paient pour des services "premium".</li>
+                            <li>L'argent gagné finance l'équipe qui améliore la plateforme gratuite.</li>
+                            <li>(Cycle recommence)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- La performance (Finance) -->
+            <h3 class="text-3xl font-semibold mt-12 mb-6">La performance (Finance)</h3>
+            <ul class="styled-list space-y-2 text-lg">
+                <li><strong class="font-medium text-gray-900">Croissance :</strong> Très rapide.</li>
+                <li><strong class="font-medium text-gray-900">Valeur (Valorisation) :</strong> 4,5 milliards de dollars (en 2023).</li>
+                <li><strong class="font-medium text-gray-900">Investisseurs importants :</strong> Google, Amazon, NVIDIA.</li>
+                <li><strong class="font-medium text-gray-900">Confiance :</strong> Le fait que des géants concurrents (Google, etc.) investissent prouve sa position neutre et essentielle.</li>
+            </ul>
+        </section>
+        
+        <!-- Section 2: HISTORIQUE -->
+        <section id="historique" class="bg-white shadow-xl rounded-2xl p-8 md:p-12 mb-12 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-10 border-b-4 border-indigo-100 pb-4">HISTORIQUE</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <!-- L'évolution (Début) -->
+                <div>
+                    <h3 class="text-3xl font-semibold mb-6">L'évolution (2016)</h3>
+                    <ul class="styled-list space-y-2 text-lg">
+                        <li><strong class="font-medium text-gray-900">Début :</strong> Une application "chatbot" (robot de conversation).</li>
+                        <li><strong class="font-medium text-gray-900">Public :</strong> Pour les adolescents.</li>
+                        <li><strong class="font-medium text-gray-900">Idée originale :</strong> Créer un "ami virtuel" (AI best friend).</li>
+                        <li><strong class="font-medium text-gray-900">Constat :</strong> L'application n'est pas très populaire.</li>
+                    </ul>
+                </div>
+                <!-- Le Pivot (Changement) -->
+                <div>
+                    <h3 class="text-3xl font-semibold mb-6">Le "Pivot" (2018)</h3>
+                    <ul class="styled-list space-y-2 text-lg">
+                        <li><strong class="font-medium text-gray-900">La découverte :</strong> Leurs outils "open-source" (la librairie "Transformers") sont très populaires.</li>
+                        <li><strong class="font-medium text-gray-900">La décision :</strong> Arrêter le chatbot.</li>
+                        <li><strong class="font-medium text-gray-900">Nouvel objectif :</strong> Se concentrer sur les outils pour les développeurs d'IA.</li>
+                        <li><strong class="font-medium text-gray-900">Stratégie :</strong> Vendre "des pelles" (outils) pour "la ruée vers l'or" (l'IA).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: LES PRODUITS PRINCIPAUX -->
+        <section id="produits" class="bg-white shadow-xl rounded-2xl p-8 md:p-12 mb-12 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-10 border-b-4 border-indigo-100 pb-4">LES PRODUITS PRINCIPAUX</h2>
+
+            <!-- Le "Hub" -->
+            <h3 class="text-3xl font-semibold mb-6">Le "Hub" (Le centre)</h3>
+            <p class="text-lg mb-6">C'est le "cœur" de la plateforme, un lieu central qui héberge les 3 piliers du Machine Learning :</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-lg">
+                <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-100">
+                    <strong class="font-medium text-indigo-800 text-xl">Models :</strong> Des milliers de modèles d'IA prêts à utiliser.
+                </div>
+                <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-100">
+                    <strong class="font-medium text-indigo-800 text-xl">Datasets :</strong> Des données pour entraîner les modèles.
+                </div>
+                <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-100">
+                    <strong class="font-medium text-indigo-800 text-xl">Spaces :</strong> Pour montrer des démos (démonstrations) d'applications IA.
+                </div>
+            </div>
+
+            <!-- Les librairies (INTERACTIVE) -->
+            <h3 class="text-3xl font-semibold mt-12 mb-6">Les librairies (Les outils)</h3>
+            <div class="md:flex md:space-x-8">
+                <!-- Liste des Librairies (Navigation) -->
+                <div class="md:w-1/3 flex flex-col space-y-1 mb-6 md:mb-0">
+                    <button class="lib-link text-left p-4 rounded-lg text-lg font-medium active" data-lib="transformers">"Transformers"</button>
+                    <button class="lib-link text-left p-4 rounded-lg text-lg font-medium" data-lib="diffusers">"Diffusers"</button>
+                    <button class="lib-link text-left p-4 rounded-lg text-lg font-medium" data-lib="gradio">"Gradio"</button>
+                    <button class="lib-link text-left p-4 rounded-lg text-lg font-medium" data-lib="datasets">"Datasets"</button>
+                </div>
+                <!-- Description de la Librairie -->
+                <div class="md:w-2/3 bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <div id="lib-description-content" class="text-lg">
+                        <!-- Le contenu sera inséré ici par JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 4: L'AVENIR DE LA SOCIÉTÉ -->
+        <section id="avenir" class="bg-white shadow-xl rounded-2xl p-8 md:p-12 mb-12 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-10 border-b-4 border-indigo-100 pb-4">L'AVENIR DE LA SOCIÉTÉ</h2>
+
+            <!-- La vision du PDG -->
+            <h3 class="text-3xl font-semibold mb-6">La vision du PDG (Clément Delangue)</h3>
+            <ul class="styled-list space-y-2 text-lg">
+                <li><strong class="font-medium text-gray-900">Sa vision :</strong> Le futur n'est pas 1 seul gros modèle (comme OpenAI/ChatGPT).</li>
+                <li><strong class="font-medium text-gray-900">Son pari (bet) :</strong> Le futur, c'est des milliers de petits modèles "open-source".</li>
+                <li><strong class="font-medium text-gray-900">Objectif :</strong> Aider toutes les entreprises à créer leurs propres modèles d'IA.</li>
+            </ul>
+
+            <!-- Nouveaux projets et défis -->
+            <h3 class="text-3xl font-semibold mt-12 mb-6">Nouveaux projets et défis</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div>
+                    <h4 class="text-2xl font-semibold mb-4 text-green-700">Nouveaux domaines</h4>
+                    <ul class="styled-list space-y-2 text-lg">
+                        <li>Robotique</li>
+                        <li>Audio & Vidéo (Multimodalité)</li>
+                        <li>Outils "No-Code" (plus simples)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-semibold mb-4 text-red-700">Défis</h4>
+                    <ul class="styled-list space-y-2 text-lg">
+                        <li><strong class="font-medium text-gray-900">Concurrence :</strong> Les géants (AWS, Google, Microsoft) ont aussi leurs plateformes.</li>
+                        <li><strong class="font-medium text-gray-900">Monétisation :</strong> Gagner plus d'argent sans perdre la communauté gratuite.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Conclusion -->
+            <h3 class="text-3xl font-semibold mt-12 mb-6">Conclusion</h3>
+            <ul class="styled-list space-y-2 text-lg">
+                <li><strong class="font-medium text-gray-900">Résumé :</strong> Hugging Face est devenue "la place publique" de l'IA.</li>
+                <li><strong class="font-medium text-gray-900">Force :</strong> Une communauté très forte et des outils open-source.</li>
+                <li class="!text-xl !font-semibold !text-indigo-600 mt-4"><strong class="font-medium text-indigo-600">Merci pour votre attention.</strong></li>
+                <li>Avez-vous des questions ?</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center p-10 mt-12 border-t border-gray-200">
+        <p class="text-sm text-gray-500">Présentation web interactive créée à partir du rapport d'analyse sur Hugging Face.</p>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- 1. Données pour le contenu interactif ---
+            const libraryData = {
+                "transformers": {
+                    title: '"Transformers"',
+                    description: "La librairie la plus célèbre. Elle rend l'utilisation des modèles de langage (NLP) incroyablement simple. C'est le produit qui a lancé le succès de l'entreprise."
+                },
+                "diffusers": {
+                    title: '"Diffusers"',
+                    description: "Une librairie spécialisée pour les modèles de génération d'images (modèles de diffusion), similaires à DALL-E ou Stable Diffusion. Elle rend la création d'images simple."
+                },
+                "gradio": {
+                    title: '"Gradio"',
+                    description: "Un outil acheté par Hugging Face. Il permet de créer très facilement des interfaces web (des démos) pour les modèles d'IA. C'est ce qui alimente les 'Spaces'."
+                },
+                "datasets": {
+                    title: '"Datasets"',
+                    description: "Une librairie très efficace pour charger et manipuler d'énormes jeux de données, même s'ils sont trop gros pour la mémoire de l'ordinateur."
+                }
+            };
+            
+            // --- 2. Logique pour les onglets (Tabs) "Comment gagnent-ils de l'argent ?" ---
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const targetId = link.dataset.tab;
+
+                    // Gérer l'état actif des boutons
+                    tabLinks.forEach(btn => btn.classList.remove('active'));
+                    link.classList.add('active');
+
+                    // Gérer l'affichage du contenu
+                    tabContents.forEach(content => {
+                        if (content.id === targetId) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // --- 3. Logique pour la section interactive "Librairies" ---
+            const libLinks = document.querySelectorAll('.lib-link');
+            const libDescriptionContent = document.getElementById('lib-description-content');
+
+            function updateLibraryDescription(libId) {
+                const data = libraryData[libId];
+                if (data) {
+                    libDescriptionContent.innerHTML = `
+                        <h4 class="text-2xl font-bold mb-3">${data.title}</h4>
+                        <p class="text-gray-700">${data.description}</p>
+                    `;
+                }
+                 // Gérer l'état actif des boutons
+                libLinks.forEach(link => {
+                    if(link.dataset.lib === libId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            libLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const targetId = link.dataset.lib;
+                    updateLibraryDescription(targetId);
+                });
+            });
+
+            // Afficher la première librairie par défaut
+            updateLibraryDescription('transformers');
+
+
+            // --- 4. Logique pour le suivi de la navigation (Scroll Spy) ---
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.dataset.navLink === id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { 
+                rootMargin: '-50% 0px -50% 0px', // Active le lien au milieu de l'écran
+                threshold: 0 
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+        });
+    </script>
+
+</body>
+</html>
