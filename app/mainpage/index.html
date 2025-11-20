@@ -3,335 +3,539 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 网站总标题 -->
-    <title>Français APP</title>
-    <!-- 网站标签页图标 -->
+    <title data-translate="page_title">Français APP - Neo Edition</title>
     <link rel="icon" href="images/icon.jpg" type="image/jpeg">
+    
+    <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 引入 Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- 引入 Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;700;900&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
     <style>
-        /* --- Theme Variables --- */
         :root {
-            /* Dark Mode (Default) */
-            --bg-primary: #111827;
-            --bg-secondary: #1f2937;
-            --bg-header: rgba(17, 24, 39, 0.7);
-            --hero-gradient-start: #1e3a8a;
-            --hero-gradient-end: #3730a3;
-            --text-primary: #f9fafb;
-            --text-secondary: #d1d5db;
-            --text-muted: #9ca3af;
-            --text-subtle: #6b7280;
-            --text-accent: #60a5fa;
-            --hero-text-primary: #ffffff; /* Text color for hero section in dark mode */
-            --hero-text-secondary: #e5e7eb; /* Sub-text color for hero section in dark mode */
-            --border-primary: #374151;
-            --border-secondary: #4b5563;
-            --btn-accent-bg: #2563eb;
-            --btn-accent-hover-bg: #1d4ed8;
-            --btn-secondary-border: #f9fafb;
+            /* --- Neo-Brutalism Palette --- */
+            --bg-color: #ffffff;
+            --text-main: #000000;
+            
+            /* 核心色 */
+            --c-yellow: #FFE66D;
+            --c-pink: #FF6B6B;
+            --c-cyan: #4ECDC4;
+            --c-purple: #9b5de5;
+            --c-dark: #1F2937;
+
+            --border-width: 3px;
+            --shadow-hard: 8px 8px 0px #000000;
+            --shadow-hover: 4px 4px 0px #000000;
         }
 
-        .light-mode {
-            /* Light Mode */
-            --bg-primary: #f9fafb;
-            --bg-secondary: #ffffff;
-            --bg-header: rgba(255, 255, 255, 0.7);
-            --hero-gradient-start: #e0e7ff;
-            --hero-gradient-end: #f3e8ff;
-            --text-primary: #1f2937;
-            --text-secondary: #4b5563;
-            --text-muted: #6b7280;
-            --text-subtle: #9ca3af;
-            --text-accent: #4f46e5;
-            --hero-text-primary: #1f2937; /* Text color for hero section in light mode */
-            --hero-text-secondary: #4b5563; /* Sub-text color for hero section in light mode */
-            --border-primary: #e5e7eb;
-            --border-secondary: #d1d5db;
-            --btn-accent-bg: #4f46e5;
-            --btn-accent-hover-bg: #4338ca;
-            --btn-secondary-border: #1f2937;
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            /* 点阵背景 */
+            background-image: radial-gradient(#000 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+
+        :lang(ar) body { font-family: 'Cairo', sans-serif; }
+
+        /* --- 几何装饰 --- */
+        .geo-shape {
+            position: absolute;
+            border: var(--border-width) solid black;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
         }
         
-        /* --- Base Styles & Transitions --- */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            transition: background-color 0.3s ease, color 0.3s ease;
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-10px, -15px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
         }
 
-        .transitionable {
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        /* --- 跑马灯 --- */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #000;
+            color: #fff;
+            border-top: var(--border-width) solid black;
+            border-bottom: var(--border-width) solid black;
+            transform: rotate(-1deg);
+            width: 105%;
+            margin-left: -2.5%;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+            padding: 12px 0;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        #theme-toggle-btn .hidden, #mobile-menu .hidden {
-            display: none;
+        /* --- 组件样式 --- */
+        .neo-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: var(--border-width) solid black;
+            background: white;
+            box-shadow: 4px 4px 0px black;
+            font-weight: 700;
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+        .neo-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px black;
+        }
+        .neo-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px black;
         }
 
-        /* --- Applying Variables --- */
-        .bg-primary { background-color: var(--bg-primary); }
-        .bg-secondary { background-color: var(--bg-secondary); }
-        .bg-header { background-color: var(--bg-header); }
-        .text-primary { color: var(--text-primary); }
-        .text-secondary { color: var(--text-secondary); }
-        .text-muted { color: var(--text-muted); }
-        .text-subtle { color: var(--text-subtle); }
-        .text-accent { color: var(--text-accent); }
-        .text-hero-primary { color: var(--hero-text-primary); }
-        .text-hero-secondary { color: var(--hero-text-secondary); }
-        .border-primary { border-color: var(--border-primary); }
-        .border-secondary { border-color: var(--border-secondary); }
-        .btn-accent { background-color: var(--btn-accent-bg); }
-        .btn-accent:hover { background-color: var(--btn-accent-hover-bg); }
-        .btn-secondary { border-color: var(--btn-secondary-border); color: var(--btn-secondary-border); }
-        .hero-gradient { background: linear-gradient(135deg, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%); }
+        /* 粗框手机模型 (Neo-Brutalist Phone Frame) */
+        .neo-phone-frame {
+            border: 4px solid black;
+            border-radius: 2.5rem;
+            background-color: black;
+            padding: 0.5rem;
+            box-shadow: 12px 12px 0px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            max-width: 300px; /* 限制最大宽度，保持比例 */
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        .neo-phone-frame:hover {
+            transform: translateY(-10px) rotate(1deg);
+        }
+        .neo-phone-screen {
+            border: 2px solid black;
+            border-radius: 2rem;
+            overflow: hidden;
+            aspect-ratio: 1280 / 2816; /* 锁定宽高比 */
+            background-color: white;
+        }
+        .neo-phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        .cta-button {
-            transition: all 0.3s ease;
+        /* 装饰性色块背景 (放在手机后面) */
+        .phone-bg-blob {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 3px solid black;
+            z-index: 0;
         }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+        /* Feature Card (Text side) */
+        .neo-feature-text {
+            background: white;
+            border: 3px solid black;
+            padding: 2rem;
+            box-shadow: 8px 8px 0px black;
+            position: relative;
         }
-        .phone-mockup {
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: var(--border-width) solid black;
+            backdrop-filter: blur(5px);
         }
-        /* FIX: Change sun icon color in light mode for better visibility */
-        .light-mode #theme-icon-sun {
-            color: var(--text-secondary);
+
+        /* Scroll Animation */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+        .animate-on-scroll { opacity: 0; }
+        .is-visible { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
     </style>
 </head>
-<body class="transitionable">
+<body class="min-h-screen flex flex-col relative selection:bg-[var(--c-yellow)] selection:text-black">
 
-    <!-- 导航栏 -->
-    <header class="bg-header backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-primary transitionable">
+    <!-- 1. 几何背景装饰 -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- 左上：黄色圆 -->
+        <div class="geo-shape w-48 h-48 rounded-full bg-[var(--c-yellow)] top-20 -left-10"></div>
+        <!-- 中间：粉色方块 -->
+        <div class="geo-shape w-32 h-32 bg-[var(--c-pink)] top-1/3 right-10 rotate-12" style="animation-delay: 1s;"></div>
+        <!-- 右下：蓝色矩形 -->
+        <div class="geo-shape w-40 h-24 bg-[var(--c-cyan)] bottom-1/4 left-10 -rotate-6" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- 2. 导航栏 -->
+    <header class="sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-             <!-- App Logo 和名字 -->
-            <a href="#" class="flex items-center space-x-3">
-                <img src="images/icon.jpg" alt="Français APP Logo" class="h-8 w-8 rounded-md">
-                <h1 class="text-2xl font-bold text-primary transitionable">Français APP</h1>
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 border-2 border-black rounded-md overflow-hidden shadow-[2px_2px_0_0_#000]">
+                    <img src="images/icon.jpg" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <span class="text-xl font-black uppercase tracking-tighter">Français APP</span>
             </a>
             
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-4 md:space-x-6">
-                <nav>
-                    <a href="#features" class="text-secondary hover:text-primary transitionable" data-key="nav_features">功能介绍</a>
+            <div class="hidden md:flex items-center gap-4">
+                <nav class="flex gap-6 font-bold text-sm mr-4">
+                    <a href="#features" class="hover:bg-black hover:text-white px-2 py-1 transition-colors" data-translate="nav_features">功能介绍</a>
                 </nav>
-                <a href="https://github.com/FUC65822/frlearning/releases/download/%E5%AD%A6%E4%B9%A0%E6%B3%95%E8%AF%AD/learnfr.apk" class="text-white px-5 py-2 rounded-lg font-semibold cta-button btn-accent transitionable" data-key="nav_get_app">获取App</a>
-                <button id="theme-toggle-btn" class="p-2 rounded-lg hover:bg-black/10 dark:hover:bg-white/20 transition-colors">
-                    <svg id="theme-icon-sun" class="w-6 h-6 text-yellow-300 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                    <svg id="theme-icon-moon" class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                <a href="https://github.com/FUC65822/frlearning/releases/download/%E5%AD%A6%E4%B9%A0%E6%B3%95%E8%AF%AD/learnfr.apk" class="neo-btn px-4 py-2 text-sm bg-[var(--c-yellow)] text-black hover:bg-black hover:text-[var(--c-yellow)]" data-translate="nav_get_app">
+                    <i class="ph-bold ph-download-simple mr-2"></i> 获取App
+                </a>
+
+                <!-- 语言切换 -->
+                <button id="lang-toggle" class="neo-btn px-3 py-2 text-xs bg-white hover:bg-gray-100">
+                    <span id="current-lang">ZH</span>
                 </button>
-                <button id="lang-toggle" class="text-secondary hover:text-primary font-semibold px-3 py-2 rounded-lg border border-secondary hover:border-primary transitionable">EN / ZH</button>
             </div>
 
-            <!-- Mobile Menu Button (Hamburger) -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-secondary hover:text-primary p-2 rounded-md">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
+             <!-- Mobile Menu Button -->
+             <button id="mobile-menu-btn" class="md:hidden text-2xl border-2 border-black p-1 bg-white shadow-[2px_2px_0_0_#000]">
+                <i class="ph-bold ph-list"></i>
+            </button>
         </div>
 
-        <!-- Mobile Menu (Dropdown) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-header backdrop-blur-md">
-            <div class="px-4 pt-2 pb-4 space-y-2">
-                <a href="#features" class="block text-secondary hover:text-primary transitionable py-2" data-key="nav_features">功能介绍</a>
-                <a href="https://github.com/FUC65822/frlearning/releases/download/%E5%AD%A6%E4%B9%A0%E6%B3%95%E8%AF%AD/learnfr.apk" class="block text-white py-2 px-4 text-center rounded-lg font-semibold cta-button btn-accent transitionable" data-key="nav_get_app">获取App</a>
-                <div class="flex justify-between items-center pt-4 border-t border-primary">
-                    <span class="text-secondary" data-key="theme_toggle">切换主题</span>
-                    <button id="mobile-theme-toggle-btn" class="p-2 rounded-lg hover:bg-black/10 dark:hover:bg-white/20 transition-colors">
-                        <svg id="mobile-theme-icon-sun" class="w-6 h-6 text-yellow-300 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <svg id="mobile-theme-icon-moon" class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                    </button>
-                </div>
-                 <div class="flex justify-between items-center">
-                    <span class="text-secondary" data-key="lang_toggle">切换语言</span>
-                    <button id="mobile-lang-toggle" class="text-secondary hover:text-primary font-semibold px-3 py-2 rounded-lg border border-secondary hover:border-primary transitionable">EN / ZH</button>
-                </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b-[3px] border-black p-4 absolute w-full z-40 shadow-xl">
+            <div class="flex flex-col gap-4">
+                <a href="#features" class="font-bold text-lg" data-translate="nav_features">功能介绍</a>
+                <a href="https://github.com/FUC65822/frlearning/releases/download/%E5%AD%A6%E4%B9%A0%E6%B3%95%E8%AF%AD/learnfr.apk" class="neo-btn w-full py-3 bg-[var(--c-yellow)]" data-translate="nav_get_app">获取App</a>
+                <button id="mobile-lang-toggle" class="text-left font-bold text-sm text-gray-500">Switch Language (EN/ZH)</button>
             </div>
         </div>
     </header>
 
-    <!-- 主视觉区域 (Hero Section) -->
-    <main class="pt-20">
-        <section class="hero-gradient py-20 md:py-32 transitionable">
-            <div class="container mx-auto px-6 text-center">
-                <div class="max-w-3xl mx-auto">
-                    <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-6 text-hero-primary transitionable" data-key="hero_title">更聪明，更高效<br>重塑你的法语单词记忆方式</h2>
-                    <p class="text-lg md:text-xl mb-10 text-hero-secondary transitionable" data-key="hero_subtitle">结合主动回忆与AI技术，为你打造个性化、高效率的词汇学习体验。</p>
-                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="https://github.com/FUC65822/frlearning/releases/download/%E5%AD%A6%E4%B9%A0%E6%B3%95%E8%AF%AD/learnfr.apk" class="text-white px-8 py-4 rounded-lg font-bold text-lg cta-button w-full sm:w-auto btn-accent transitionable">
-                            <svg class="inline-block w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M3 22V2a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zm3-2h12V4H6v16zm4.5-10.25l4 2.25-4 2.25v-4.5z"/></svg>
-                            <span data-key="hero_button">下载安卓版</span>
-                        </a>
-                        <a href="https://learnfr.de" target="_blank" class="bg-transparent border-2 btn-secondary px-8 py-4 rounded-lg font-bold text-lg cta-button w-full sm:w-auto transitionable" data-key="hero_learn_more">
-                            了解更多
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="mt-16 md:mt-24">
-                    <div class="phone-mockup">
-                        <img src="images/dcb7faee8a1360a2952e5f07e2a3bec4.jpg" alt="App主界面" class="rounded-2xl shadow-2xl" onerror="this.onerror=null;this.src='https://placehold.co/400x800/111827/ffffff?text=App主界面';">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 核心功能一览 -->
-        <section id="features" class="py-20 bg-primary transitionable">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-20">
-                    <h3 class="text-3xl md:text-4xl font-bold mb-4 text-primary transitionable" data-key="features_title">核心功能一览</h3>
-                    <p class="text-lg text-muted max-w-2xl mx-auto transitionable" data-key="features_subtitle">每一个设计，都为了让你的学习更进一步。</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-                    <div class="phone-mockup transform hover:scale-105 transition-transform duration-300"><img src="images/0753dc4c053039fe5377d3a150c728db.jpg" alt="主动回忆测试界面" class="rounded-2xl shadow-lg"></div>
-                    <div class="text-center md:text-left">
-                        <h4 class="text-2xl font-bold mb-3 text-accent transitionable" data-key="feature1_title">主动回忆，告别假装“已记住”</h4>
-                        <p class="text-muted text-lg transitionable" data-key="feature1_desc">我们采用“先想后看”的学习模式，强制大脑主动提取信息，从而激活深度记忆。这比被动浏览有效得多，确保你真正掌握每一个单词，而非仅仅是“眼熟”。</p>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-                    <div class="phone-mockup md:order-last transform hover:scale-105 transition-transform duration-300"><img src="images/4870de0bf5a184dd3a1a1239004ea71a.jpg" alt="单词详情界面" class="rounded-2xl shadow-lg"></div>
-                    <div class="text-center md:text-left">
-                        <h4 class="text-2xl font-bold mb-3 text-accent transitionable" data-key="feature2_title">清晰详尽的单词卡片</h4>
-                        <p class="text-muted text-lg transitionable" data-key="feature2_desc">每一个单词都配有清晰的音标、纯正的发音和全面的释义。点击喇叭即可跟读，助你掌握最地道的法语发音。</p>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-                    <div class="phone-mockup transform hover:scale-105 transition-transform duration-300"><img src="images/5b09ec6d46af4d78a9bb6ae919522859.jpg" alt="学习总结界面" class="rounded-2xl shadow-lg"></div>
-                    <div class="text-center md:text-left">
-                        <h4 class="text-2xl font-bold mb-3 text-accent transitionable" data-key="feature3_title">学习总结，让进步清晰可见</h4>
-                        <p class="text-muted text-lg transitionable" data-key="feature3_desc">每次学习结束后，一份清晰的总结报告会呈现在你眼前。无论是新学单词还是复习情况，所有数据一目了然。看着自己的进步，学习自然更有动力。</p>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-                    <div class="phone-mockup md:order-last transform hover:scale-105 transition-transform duration-300"><img src="images/935a945f873595a3416bb3264777ff9d.jpg" alt="设置界面" class="rounded-2xl shadow-lg"></div>
-                    <div class="text-center md:text-left">
-                        <h4 class="text-2xl font-bold mb-3 text-accent transitionable" data-key="feature4_title">你的App，由你定义</h4>
-                        <p class="text-muted text-lg transitionable" data-key="feature4_desc">我们提供强大的自定义功能。你可以轻松导入自己的词书，选择不同的显示设置，打造最适合你个人学习习惯的专属工具。</p>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-                    <div class="phone-mockup transform hover:scale-105 transition-transform duration-300"><img src="images/f4f35b99bccfc2e97b434f3e0c7b4d01.jpg" alt="自定义AI引擎界面" class="rounded-2xl shadow-lg"></div>
-                    <div class="text-center md:text-left">
-                        <h4 class="text-2xl font-bold mb-3 text-accent transitionable" data-key="feature5_title">接入你自己的AI引擎*</h4>
-                        <p class="text-muted text-lg transitionable" data-key="feature5_desc">对于高阶用户，我们开放了自定义AI Tutor API接口。你可以接入自己的大语言模型服务，获得独一无二、完全由你掌控的智能学习体验。</p>
-                        <p class="text-subtle text-sm mt-2 transitionable" data-key="feature5_note">* 该功能目前仍在开发中，敬请期待。</p>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="phone-mockup md:order-last transform hover:scale-105 transition-transform duration-300"><img src="images/aaa1553f90037050fbc742610af49d7a.jpg" alt="个人主页界面" class="rounded-2xl shadow-lg"></div>
-                    <div class="text-center md:text-left">
-                        <h4 class="text-2xl font-bold mb-3 text-accent transitionable" data-key="feature6_title">词汇掌握度，时刻追踪</h4>
-                        <p class="text-muted text-lg transitionable" data-key="feature6_desc">在个人主页，直观的进度条会实时显示你的词汇掌握情况。设定一个5000词的目标？或是10000词？每一步的成长，我们都为你记录在案。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <main class="flex-grow relative z-10">
         
-        <section id="download" class="hero-gradient transitionable py-20">
-            <div class="container mx-auto px-6 text-center">
-                 <h3 class="text-3xl md:text-4xl font-bold mb-4 text-hero-primary transitionable" data-key="download_title">准备好开始你的法语之旅了吗？</h3>
-                 <p class="text-lg text-hero-secondary transitionable mb-8 max-w-2xl mx-auto" data-key="download_subtitle">立即下载，体验前所未有的单词学习方式。</p>
-                 <a href="https://github.com/FUC65822/frlearning/releases/download/%E5%AD%A6%E4%B9%A0%E6%B3%95%E8%AF%AD/learnfr.apk" class="text-white px-10 py-5 rounded-lg font-bold text-xl cta-button inline-block btn-accent transitionable" data-key="download_button">
-                    免费获取安卓版
-                 </a>
+        <!-- Hero Section -->
+        <section class="py-20 px-6">
+            <div class="container mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                
+                <!-- Text Content -->
+                <div class="md:w-1/2 text-center md:text-left animate-on-scroll">
+                    <div class="inline-block bg-black text-white px-4 py-1 font-bold text-sm mb-6 transform -rotate-2 shadow-[4px_4px_0_0_var(--c-cyan)]" data-translate="hero_badge">AI 驱动 • 主动回忆</div>
+                    <h1 class="text-5xl md:text-7xl font-black uppercase mb-6 leading-none" data-translate="hero_title">
+                        重塑<br><span class="text-[var(--c-purple)]" style="-webkit-text-stroke: 2px black;">法语记忆</span>
+                    </h1>
+                    <p class="text-xl font-bold text-gray-700 mb-10 leading-relaxed border-l-4 border-black pl-4 bg-white py-2" data-translate="hero_subtitle">
+                        告别枯燥背诵。结合主动回忆与AI技术，为你打造个性化、高效率的词汇学习体验。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="https://github.com/FUC65822/frlearning/releases/download/%E5%AD%A6%E4%B9%A0%E6%B3%95%E8%AF%AD/learnfr.apk" class="neo-btn px-8 py-4 text-xl bg-[var(--c-yellow)] text-black shadow-[6px_6px_0_0_#000]">
+                            <i class="ph-fill ph-android-logo mr-2"></i>
+                            <span data-translate="hero_btn_download">下载安卓版</span>
+                        </a>
+                        <a href="#features" class="neo-btn px-8 py-4 text-xl bg-white text-black">
+                            <span data-translate="hero_btn_learn">了解更多</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Phone Mockup (Right Side) -->
+                <div class="md:w-1/2 flex justify-center relative animate-on-scroll delay-1">
+                    <!-- Blob Background -->
+                    <div class="phone-bg-blob bg-[var(--c-cyan)]"></div>
+                    <!-- Phone -->
+                    <div class="neo-phone-frame transform rotate-3">
+                        <div class="neo-phone-screen">
+                            <img src="images/dcb7faee8a1360a2952e5f07e2a3bec4.jpg" alt="App Home Screen" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
+
+        <!-- Marquee -->
+        <div class="marquee-container">
+            <div class="marquee-content">
+                ACTIVE RECALL • AI TUTOR • VOCABULARY • MASTERY • FRENCH • PROGRESS • MEMORY • ACTIVE RECALL • AI TUTOR • VOCABULARY •
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-24 animate-on-scroll">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase mb-4" data-translate="features_title">核心功能</h2>
+                    <div class="h-3 w-24 bg-[var(--c-pink)] mx-auto border-2 border-black"></div>
+                </div>
+
+                <!-- Feature 1: Active Recall -->
+                <div class="flex flex-col md:flex-row items-center gap-12 mb-32">
+                    <div class="md:w-1/2 relative order-2 md:order-1 animate-on-scroll">
+                        <div class="phone-bg-blob bg-[var(--c-pink)] left-1/3"></div>
+                        <div class="neo-phone-frame transform -rotate-2">
+                            <div class="neo-phone-screen">
+                                <img src="images/0753dc4c053039fe5377d3a150c728db.jpg" alt="Active Recall" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 order-1 md:order-2 animate-on-scroll delay-1">
+                        <div class="neo-feature-text">
+                            <div class="absolute -top-6 -left-6 w-16 h-16 bg-black text-white flex items-center justify-center border-2 border-white text-3xl font-black shadow-[4px_4px_0_0_var(--c-pink)]">01</div>
+                            <h3 class="text-3xl font-black mb-4 text-[var(--c-pink)]" style="-webkit-text-stroke: 1px black;" data-translate="feature1_title">主动回忆</h3>
+                            <p class="text-lg font-bold leading-relaxed" data-translate="feature1_desc">
+                                告别假装“已记住”。我们采用“先想后看”模式，强制大脑主动提取信息。这比被动浏览有效得多，确保你真正掌握每一个单词。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Word Cards -->
+                <div class="flex flex-col md:flex-row items-center gap-12 mb-32">
+                    <div class="md:w-1/2 order-1 animate-on-scroll">
+                        <div class="neo-feature-text">
+                            <div class="absolute -top-6 -right-6 w-16 h-16 bg-black text-white flex items-center justify-center border-2 border-white text-3xl font-black shadow-[4px_4px_0_0_var(--c-yellow)]">02</div>
+                            <h3 class="text-3xl font-black mb-4 text-[var(--c-yellow)]" style="-webkit-text-stroke: 1px black;" data-translate="feature2_title">详尽卡片</h3>
+                            <p class="text-lg font-bold leading-relaxed" data-translate="feature2_desc">
+                                每一个单词都配有清晰的音标、纯正的发音和全面的释义。点击喇叭即可跟读，助你掌握最地道的法语发音。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 relative order-2 animate-on-scroll delay-1">
+                        <div class="phone-bg-blob bg-[var(--c-yellow)] right-1/3"></div>
+                        <div class="neo-phone-frame transform rotate-2">
+                            <div class="neo-phone-screen">
+                                <img src="images/4870de0bf5a184dd3a1a1239004ea71a.jpg" alt="Word Details" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Summary & Stats -->
+                <div class="flex flex-col md:flex-row items-center gap-12 mb-32">
+                    <div class="md:w-1/2 relative order-2 md:order-1 animate-on-scroll">
+                        <div class="phone-bg-blob bg-[var(--c-purple)] left-1/3"></div>
+                        <div class="neo-phone-frame transform -rotate-1">
+                            <div class="neo-phone-screen">
+                                <img src="images/5b09ec6d46af4d78a9bb6ae919522859.jpg" alt="Summary" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 order-1 md:order-2 animate-on-scroll delay-1">
+                        <div class="neo-feature-text">
+                            <div class="absolute -top-6 -left-6 w-16 h-16 bg-black text-white flex items-center justify-center border-2 border-white text-3xl font-black shadow-[4px_4px_0_0_var(--c-purple)]">03</div>
+                            <h3 class="text-3xl font-black mb-4 text-[var(--c-purple)]" style="-webkit-text-stroke: 1px black;" data-translate="feature3_title">学习总结</h3>
+                            <p class="text-lg font-bold leading-relaxed" data-translate="feature3_desc">
+                                每次学习结束后，一份清晰的总结报告会呈现在你眼前。无论是新学单词还是复习情况，所有数据一目了然，让进步清晰可见。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 4: Customization -->
+                <div class="flex flex-col md:flex-row items-center gap-12 mb-32">
+                    <div class="md:w-1/2 order-1 animate-on-scroll">
+                        <div class="neo-feature-text">
+                            <div class="absolute -top-6 -right-6 w-16 h-16 bg-black text-white flex items-center justify-center border-2 border-white text-3xl font-black shadow-[4px_4px_0_0_var(--c-cyan)]">04</div>
+                            <h3 class="text-3xl font-black mb-4 text-[var(--c-cyan)]" style="-webkit-text-stroke: 1px black;" data-translate="feature4_title">由你定义</h3>
+                            <p class="text-lg font-bold leading-relaxed" data-translate="feature4_desc">
+                                强大的自定义功能。轻松导入自己的词书，选择不同的显示设置，打造最适合你个人学习习惯的专属工具。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 relative order-2 animate-on-scroll delay-1">
+                        <div class="phone-bg-blob bg-[var(--c-cyan)] right-1/3"></div>
+                        <div class="neo-phone-frame transform rotate-3">
+                            <div class="neo-phone-screen">
+                                <img src="images/935a945f873595a3416bb3264777ff9d.jpg" alt="Settings" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Feature 5: AI (Special) -->
+                 <div class="relative bg-black text-white p-8 md:p-16 border-[3px] border-black shadow-[10px_10px_0_0_var(--c-yellow)] animate-on-scroll">
+                    <div class="absolute top-4 right-4 text-[var(--c-yellow)]">
+                        <i class="ph-duotone ph-robot text-6xl"></i>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center gap-12">
+                        <div class="md:w-1/2">
+                            <h3 class="text-4xl font-black mb-6 uppercase text-[var(--c-yellow)]" data-translate="feature5_title">自定义 AI 引擎</h3>
+                            <p class="text-xl font-bold text-gray-300 mb-4" data-translate="feature5_desc">
+                                开放 API 接口。接入你自己的大语言模型服务，获得独一无二、完全由你掌控的智能学习体验。
+                            </p>
+                            <div class="inline-block border border-[var(--c-yellow)] text-[var(--c-yellow)] px-3 py-1 text-sm font-mono" data-translate="feature5_note">* 开发中功能</div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center">
+                             <div class="neo-phone-frame border-white bg-gray-900 transform rotate-0 hover:rotate-0">
+                                <div class="neo-phone-screen border-gray-700">
+                                    <img src="images/f4f35b99bccfc2e97b434f3e0c7b4d01.jpg" alt="AI Settings" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 bg-[var(--c-cyan)] border-t-[3px] border-black relative overflow-hidden">
+            <!-- Pattern -->
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 30px 30px;"></div>
+            
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <div class="bg-white border-[3px] border-black p-10 inline-block shadow-[8px_8px_0_0_#000] transform -rotate-1 max-w-2xl">
+                    <h2 class="text-3xl md:text-5xl font-black uppercase mb-6" data-translate="download_title">准备好开始了吗？</h2>
+                    <p class="text-lg font-bold mb-8 text-gray-800" data-translate="download_subtitle">立即下载，体验前所未有的单词学习方式。</p>
+                    <a href="https://github.com/FUC65822/frlearning/releases/download/%E5%AD%A6%E4%B9%A0%E6%B3%95%E8%AF%AD/learnfr.apk" class="neo-btn w-full md:w-auto px-12 py-4 text-xl bg-black text-white hover:bg-[var(--c-pink)] hover:text-black">
+                        <i class="ph-bold ph-download-simple mr-2"></i>
+                        <span data-translate="download_button">免费获取安卓版</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="bg-primary border-t border-primary transitionable">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p class="text-muted transitionable" data-key="footer_copyright">&copy; 2025 learnfr.de</p>
+    <!-- Footer -->
+    <footer class="bg-white py-8 text-center border-t-[3px] border-black">
+        <div class="container mx-auto px-6">
+             <p class="font-bold font-mono text-sm" data-translate="footer_copyright">&copy; 2025 learnfr.de</p>
         </div>
     </footer>
 
     <script>
-        // --- Language Translation Logic ---
+        // --- TRANSLATION DATA ---
         const translations = {
             zh: {
-                nav_features: "功能介绍", nav_get_app: "获取App", hero_title: "更聪明，更高效<br>重塑你的法语单词记忆方式", hero_subtitle: "结合主动回忆与AI技术，为你打造个性化、高效率的词汇学习体验。", hero_button: "下载安卓版", hero_learn_more: "了解更多", features_title: "核心功能一览", features_subtitle: "每一个设计，都为了让你的学习更进一步。", feature1_title: "主动回忆，告别假装“已记住”", feature1_desc: "我们采用“先想后看”的学习模式，强制大脑主动提取信息，从而激活深度记忆。这比被动浏览有效得多，确保你真正掌握每一个单词，而非仅仅是“眼熟”。", feature2_title: "清晰详尽的单词卡片", feature2_desc: "每一个单词都配有清晰的音标、纯正的发音和全面的释义。点击喇叭即可跟读，助你掌握最地道的法语发音。", feature3_title: "学习总结，让进步清晰可见", feature3_desc: "每次学习结束后，一份清晰的总结报告会呈现在你眼前。无论是新学单词还是复习情况，所有数据一目了然。看着自己的进步，学习自然更有动力。", feature4_title: "你的App，由你定义", feature4_desc: "我们提供强大的自定义功能。你可以轻松导入自己的词书，选择不同的显示设置，打造最适合你个人学习习惯的专属工具。", feature5_title: "接入你自己的AI引擎*", feature5_desc: "对于高阶用户，我们开放了自定义AI Tutor API接口。你可以接入自己的大语言模型服务，获得独一无二、完全由你掌控的智能学习体验。", feature5_note: "* 该功能目前仍在开发中，敬请期待。", feature6_title: "词汇掌握度，时刻追踪", feature6_desc: "在个人主页，直观的进度条会实时显示你的词汇掌握情况。设定一个5000词的目标？或是10000词？每一步的成长，我们都为你记录在案。", download_title: "准备好开始你的法语之旅了吗？", download_subtitle: "立即下载，体验前所未有的单词学习方式。", download_button: "免费获取安卓版", footer_copyright: "&copy; 2025 learnfr.de", theme_toggle: "切换主题", lang_toggle: "切换语言"
+                page_title: "Français APP - Neo Edition",
+                nav_features: "功能介绍",
+                nav_get_app: "获取App",
+                hero_badge: "AI 驱动 • 主动回忆",
+                hero_title: "重塑<br><span class='text-[var(--c-purple)]' style='-webkit-text-stroke: 2px black;'>法语记忆</span>",
+                hero_subtitle: "告别枯燥背诵。结合主动回忆与AI技术，为你打造个性化、高效率的词汇学习体验。",
+                hero_btn_download: "下载安卓版",
+                hero_btn_learn: "了解更多",
+                features_title: "核心功能",
+                feature1_title: "主动回忆",
+                feature1_desc: "告别假装“已记住”。我们采用“先想后看”模式，强制大脑主动提取信息。这比被动浏览有效得多，确保你真正掌握每一个单词。",
+                feature2_title: "详尽卡片",
+                feature2_desc: "每一个单词都配有清晰的音标、纯正的发音和全面的释义。点击喇叭即可跟读，助你掌握最地道的法语发音。",
+                feature3_title: "学习总结",
+                feature3_desc: "每次学习结束后，一份清晰的总结报告会呈现在你眼前。无论是新学单词还是复习情况，所有数据一目了然，让进步清晰可见。",
+                feature4_title: "由你定义",
+                feature4_desc: "强大的自定义功能。轻松导入自己的词书，选择不同的显示设置，打造最适合你个人学习习惯的专属工具。",
+                feature5_title: "自定义 AI 引擎",
+                feature5_desc: "开放 API 接口。接入你自己的大语言模型服务，获得独一无二、完全由你掌控的智能学习体验。",
+                feature5_note: "* 开发中功能",
+                download_title: "准备好开始了吗？",
+                download_subtitle: "立即下载，体验前所未有的单词学习方式。",
+                download_button: "免费获取安卓版",
+                footer_copyright: "&copy; 2025 learnfr.de"
             },
             en: {
-                nav_features: "Features", nav_get_app: "Get App", hero_title: "Smarter, More Efficient<br>Reshape Your French Vocabulary Memory", hero_subtitle: "Combining active recall with AI technology to create a personalized and efficient vocabulary learning experience for you.", hero_button: "Download for Android", hero_learn_more: "Learn More", features_title: "Core Features at a Glance", features_subtitle: "Every design is made to take your learning one step further.", feature1_title: "Active Recall, No More Pretending to 'Remember'", feature1_desc: "We use a 'think first, then see' learning model that forces the brain to actively retrieve information, activating deep memory. It's far more effective than passive browsing, ensuring you truly master each word, not just recognize it.", feature2_title: "Clear and Detailed Word Cards", feature2_desc: "Each word comes with clear phonetic transcription, authentic pronunciation, and comprehensive definitions. Click the speaker icon to follow along and master the most authentic French pronunciation.", feature3_title: "Session Summary, Progress Made Visible", feature3_desc: "After each study session, a clear summary report is presented to you. All data, from new words to review status, is available at a glance. Watching your own progress naturally boosts motivation.", feature4_title: "Your App, Defined by You", feature4_desc: "We offer powerful customization features. You can easily import your own word books and choose different display settings to create a personalized tool that best suits your learning habits.", feature5_title: "Connect Your Own AI Engine*", feature5_desc: "For advanced users, we provide a custom AI Tutor API interface. You can connect your own large language model service for a unique and fully controlled intelligent learning experience.", feature5_note: "* This feature is currently under development. Stay tuned.", feature6_title: "Track Your Vocabulary Mastery", feature6_desc: "On your profile page, an intuitive progress bar displays your vocabulary mastery in real-time. Setting a goal of 5,000 words? Or 10,000? We record every step of your growth.", download_title: "Ready to Start Your French Journey?", download_subtitle: "Download now and experience an unprecedented way of learning words.", download_button: "Get for Android Free", footer_copyright: "&copy; 2025 learnfr.de", theme_toggle: "Toggle Theme", lang_toggle: "Toggle Language"
+                page_title: "Français APP - Neo Edition",
+                nav_features: "Features",
+                nav_get_app: "Get App",
+                hero_badge: "AI Powered • Active Recall",
+                hero_title: "Reshape<br><span class='text-[var(--c-purple)]' style='-webkit-text-stroke: 2px black;'>Memory</span>",
+                hero_subtitle: "Stop rote memorization. Combine active recall with AI to create a personalized, high-efficiency vocabulary learning experience.",
+                hero_btn_download: "Download APK",
+                hero_btn_learn: "Learn More",
+                features_title: "Core Features",
+                feature1_title: "Active Recall",
+                feature1_desc: "No more pretending to 'remember'. We use a 'think first, see later' model to force active brain retrieval. Far more effective than passive browsing.",
+                feature2_title: "Detailed Cards",
+                feature2_desc: "Clear phonetics, authentic pronunciation, and comprehensive definitions. Click to listen and master authentic French pronunciation.",
+                feature3_title: "Session Summary",
+                feature3_desc: "A clear summary report after every session. New words, review status, all at a glance. Make your progress visible.",
+                feature4_title: "Defined by You",
+                feature4_desc: "Powerful customization. Import your own word books, choose display settings, and craft the perfect tool for your habits.",
+                feature5_title: "Custom AI Engine",
+                feature5_desc: "Open API interface. Connect your own LLM service for a unique, fully controlled intelligent learning experience.",
+                feature5_note: "* In Development",
+                download_title: "Ready to Start?",
+                download_subtitle: "Download now and experience an unprecedented way of learning.",
+                download_button: "Get Android App",
+                footer_copyright: "&copy; 2025 learnfr.de"
             }
         };
 
+        function changeLanguage(lang) {
+            const data = translations[lang];
+            if (!data) return;
+            
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            document.getElementById('current-lang').textContent = lang.toUpperCase();
+
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (data[key]) {
+                    el.innerHTML = data[key];
+                }
+            });
+        }
+
+        // Events
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Mobile Menu ---
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            // Language Toggle
+            const langToggle = document.getElementById('lang-toggle');
+            const mobileLangToggle = document.getElementById('mobile-lang-toggle');
+            let currentLang = 'zh';
+
+            const toggleFn = () => {
+                currentLang = currentLang === 'zh' ? 'en' : 'zh';
+                changeLanguage(currentLang);
+            };
+
+            langToggle.addEventListener('click', toggleFn);
+            mobileLangToggle.addEventListener('click', toggleFn);
+
+            // Mobile Menu
+            const menuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
+            menuBtn.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // --- Language Toggle Logic ---
-            const langToggleButtons = [document.getElementById('lang-toggle'), document.getElementById('mobile-lang-toggle')];
-            let currentLang = localStorage.getItem('lang') || 'zh';
-
-            function updateText(lang) {
-                document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-                document.querySelectorAll('[data-key]').forEach(el => {
-                    const key = el.getAttribute('data-key');
-                    if (translations[lang] && translations[lang][key]) {
-                        el.innerHTML = translations[lang][key];
+            // Scroll Animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
                     }
                 });
-            }
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
             
-            function toggleLanguage() {
-                currentLang = currentLang === 'zh' ? 'en' : 'zh';
-                localStorage.setItem('lang', currentLang);
-                updateText(currentLang);
-            }
-
-            langToggleButtons.forEach(btn => btn.addEventListener('click', toggleLanguage));
-            
-            // --- Theme Toggle Logic ---
-            const themeToggleButtons = [document.getElementById('theme-toggle-btn'), document.getElementById('mobile-theme-toggle-btn')];
-            const sunIcons = [document.getElementById('theme-icon-sun'), document.getElementById('mobile-theme-icon-sun')];
-            const moonIcons = [document.getElementById('theme-icon-moon'), document.getElementById('mobile-theme-icon-moon')];
-
-            function applyTheme(theme) {
-                if (theme === 'light') {
-                    document.body.classList.add('light-mode');
-                    sunIcons.forEach(icon => icon.classList.remove('hidden'));
-                    moonIcons.forEach(icon => icon.classList.add('hidden'));
-                } else {
-                    document.body.classList.remove('light-mode');
-                    sunIcons.forEach(icon => icon.classList.add('hidden'));
-                    moonIcons.forEach(icon => icon.classList.remove('hidden'));
-                }
-            }
-
-            function toggleTheme() {
-                const isLight = document.body.classList.toggle('light-mode');
-                const newTheme = isLight ? 'light' : 'dark';
-                localStorage.setItem('theme', newTheme);
-                applyTheme(newTheme);
-            }
-
-            themeToggleButtons.forEach(btn => btn.addEventListener('click', toggleTheme));
-
-            // --- Initial Load ---
-            const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark
-            applyTheme(savedTheme);
-            updateText(currentLang);
+            // Init
+            changeLanguage('zh');
         });
     </script>
 </body>

@@ -3,379 +3,594 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>法语数字与表达学习指南</title>
+    <title>法语数字与表达 - Neo Edition</title>
+    
     <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 引入 Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            /* --- Neo-Brutalism Palette --- */
+            --bg-color: #ffffff;
+            --text-main: #000000;
+            
+            /* 核心色 */
+            --c-yellow: #FFE66D;
+            --c-pink: #FF6B6B;
+            --c-cyan: #4ECDC4;
+            --c-purple: #9b5de5;
+            --c-green: #00f5d4;
+            --c-blue: #3b82f6;
+
+            --border-width: 3px;
+            --shadow-hard: 8px 8px 0px #000000;
+            --shadow-hover: 4px 4px 0px #000000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            /* 点阵背景 */
+            background-image: radial-gradient(#000 2px, transparent 2px);
+            background-size: 40px 40px;
         }
-        /* 选项卡激活时的样式 */
-        .tab.active {
-            border-color: #4f46e5;
-            color: #4f46e5;
-            background-color: #eef2ff;
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #000;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 0;
+            font-size: 0.85em;
+            border: 1px solid black;
         }
-        /* 语言切换按钮样式 */
-        .lang-btn.active {
-            background-color: #4f46e5;
+
+        /* --- 几何装饰 --- */
+        .geo-shape {
+            position: absolute;
+            border: var(--border-width) solid black;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-10px, -15px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        /* --- 跑马灯 --- */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #000;
+            color: #fff;
+            border-top: var(--border-width) solid black;
+            border-bottom: var(--border-width) solid black;
+            transform: rotate(-1deg);
+            width: 105%;
+            margin-left: -2.5%;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            padding: 12px 0;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- 组件样式 --- */
+        .neo-card {
+            background: white;
+            border: var(--border-width) solid black;
+            box-shadow: var(--shadow-hard);
+            transition: all 0.2s;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .neo-card:hover {
+            transform: translate(4px, 4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .neo-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: var(--border-width) solid black;
+            background: white;
+            box-shadow: 4px 4px 0px black;
+            font-weight: 700;
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+        .neo-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px black;
+        }
+        .neo-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px black;
+        }
+        .neo-btn.active {
+            background: black;
             color: white;
         }
+
+        /* 选项卡样式 */
+        .neo-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: -3px; /* Overlap border */
+            position: relative;
+            z-index: 10;
+            flex-wrap: wrap;
+        }
+        .neo-tab {
+            padding: 10px 20px;
+            background: #eee;
+            border: var(--border-width) solid black;
+            border-bottom: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            top: 3px;
+        }
+        .neo-tab.active {
+            background: white;
+            top: 0px;
+            padding-bottom: 13px;
+            z-index: 20;
+        }
+        .neo-tab:hover:not(.active) {
+            background: #ddd;
+        }
+        .neo-tab-content {
+            background: white;
+            border: var(--border-width) solid black;
+            padding: 2rem;
+            box-shadow: var(--shadow-hard);
+            position: relative;
+            z-index: 5;
+        }
+
+        /* 输入框 */
+        .neo-input {
+            border: var(--border-width) solid black;
+            padding: 1rem;
+            font-size: 1.25rem;
+            text-align: center;
+            font-weight: bold;
+            width: 100%;
+            outline: none;
+            box-shadow: inset 4px 4px 0px rgba(0,0,0,0.1);
+            background: #f9fafb;
+            transition: background 0.2s;
+        }
+        .neo-input:focus {
+            background: white;
+        }
+
+        /* 标题标签 */
+        .section-tag {
+            display: inline-block;
+            background: black;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-weight: 900;
+            transform: skew(-10deg);
+            margin-bottom: 1rem;
+        }
+
+        /* 数字卡片 */
+        .num-card {
+            border: 2px solid black;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            transition: all 0.2s;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        }
+        .num-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px black;
+            background: var(--c-cyan);
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: var(--border-width) solid black;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Scroll Animation */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-on-scroll { opacity: 0; }
+        .is-visible { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="min-h-screen flex flex-col relative selection:bg-[var(--c-yellow)] selection:text-black">
 
-    <div class="container mx-auto px-4 py-8 md:py-12 max-w-4xl">
-        <!-- 页面主标题 -->
-        <header class="text-center mb-10">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800" data-key="mainTitle">法语数字与表达全攻略</h1>
-            <p class="text-gray-500 mt-3 text-lg" data-key="subTitle">一个系统学习法语基础知识的交互式指南</p>
-            <!-- 语言切换器 -->
-            <div class="mt-6 inline-flex rounded-lg shadow-sm">
-                <button id="lang-zh" class="lang-btn active px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">中文</button>
-                <button id="lang-en" class="lang-btn px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-r border-gray-200 rounded-r-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">English</button>
-            </div>
-        </header>
-
-        <!-- 数字部分 -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center" data-key="part1Title">第一部分：数字 (Les Nombres)</h2>
-            <!-- 基础数字 (0-20) -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-gray-700 mb-4 border-l-4 border-indigo-500 pl-3" data-key="basicNumbersTitle">基础数字 (0-20)</h3>
-                <div id="basic-numbers-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                    <!-- JS动态生成 -->
-                </div>
-            </div>
-
-            <!-- 整十数字 -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-gray-700 mb-4 border-l-4 border-indigo-500 pl-3" data-key="tensNumbersTitle">整十数字 (20-60)</h3>
-                <div id="tens-numbers-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                    <!-- JS动态生成 -->
-                </div>
-            </div>
-
-            <!-- 数字规则、语法等 -->
-            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <div class="flex flex-wrap border-b border-gray-200 mb-6">
-                    <button data-tab="rules" class="tab active py-2 px-4 font-semibold border-b-2" data-key="tabRules">特殊规则</button>
-                    <button data-tab="grammar" class="tab py-2 px-4 font-semibold border-b-2 border-transparent text-gray-500" data-key="tabGrammar">语法要点</button>
-                    <button data-tab="pronunciation" class="tab py-2 px-4 font-semibold border-b-2 border-transparent text-gray-500" data-key="tabPronunciation">发音技巧</button>
-                    <button data-tab="mistakes" class="tab py-2 px-4 font-semibold border-b-2 border-transparent text-gray-500" data-key="tabMistakes">常见易错点</button>
-                </div>
-                <div id="tab-content">
-                    <!-- 特殊规则 (默认显示) -->
-                    <div id="rules-content" class="tab-pane">
-                        <p class="mb-4 text-gray-600" data-key="rulesDesc">法语数字在70、80、90处有独特的计数逻辑，是学习的重点和难点。</p>
-                        <div class="space-y-4">
-                            <div class="p-4 bg-blue-50 rounded-lg">
-                                <h3 class="font-bold text-lg text-blue-800" data-key="rules70Title">70-79: 基于60的加法</h3>
-                                <p data-key="rules70Desc">70 是 <code class="bg-blue-200 text-blue-900 px-1 rounded">soixante-dix</code> (60+10)，71 是 <code class="bg-blue-200 text-blue-900 px-1 rounded">soixante-et-onze</code> (60+11)，以此类推。</p>
-                            </div>
-                            <div class="p-4 bg-green-50 rounded-lg">
-                                <h3 class="font-bold text-lg text-green-800" data-key="rules80Title">80-89: 基于20的乘法</h3>
-                                <p data-key="rules80Desc">80 是 <code class="bg-green-200 text-green-900 px-1 rounded">quatre-vingts</code> (4x20)。注意 <code class="font-mono">vingt</code> 在这里有's'。但 81 <code class="bg-green-200 text-green-900 px-1 rounded">quatre-vingt-un</code> (4x20-1) 开始，'s'就消失了。</p>
-                            </div>
-                            <div class="p-4 bg-yellow-50 rounded-lg">
-                                <h3 class="font-bold text-lg text-yellow-800" data-key="rules90Title">90-99: 80 + 10</h3>
-                                <p data-key="rules90Desc">90 是 <code class="bg-yellow-200 text-yellow-900 px-1 rounded">quatre-vingt-dix</code> (4x20+10)，91 是 <code class="bg-yellow-200 text-yellow-900 px-1 rounded">quatre-vingt-onze</code> (4x20+11)，以此类推。</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 语法要点 -->
-                    <div id="grammar-content" class="tab-pane hidden">
-                        <ul class="space-y-3 list-disc list-inside text-gray-700">
-                            <li data-key="grammarHyphen"><strong>连字符 (-):</strong> 复合数字中，小于100的个位和十位之间通常用连字符连接，例如 <code class="bg-gray-200 px-1 rounded">dix-sept</code> (17), <code class="bg-gray-200 px-1 rounded">trente-deux</code> (32)。</li>
-                            <li data-key="grammarEt"><strong>"et" (和):</strong> 只在 21, 31, 41, 51, 61, 71 中使用 "et"，例如 <code class="bg-gray-200 px-1 rounded">vingt-et-un</code>。81 和 91 不用 "et"。</li>
-                            <li data-key="grammarPlural"><strong>Vingt (20) 和 Cent (100) 的复数 's':</strong> 当它们是整数倍且后面没有其他数字时，加 's'。例如 <code class="bg-gray-200 px-1 rounded">quatre-vingts</code> (80), <code class="bg-gray-200 px-1 rounded">deux cents</code> (200)。但 <code class="bg-gray-200 px-1 rounded">quatre-vingt-trois</code> (83) 和 <code class="bg-gray-200 px-1 rounded">deux cent un</code> (201) 则不加 's'。</li>
-                            <li data-key="grammarMille"><strong>Mille (1000):</strong> 是不变的，永远不加 's'。例如 <code class="bg-gray-200 px-1 rounded">deux mille</code> (2000)。</li>
-                        </ul>
-                    </div>
-
-                    <!-- 发音技巧 -->
-                    <div id="pronunciation-content" class="tab-pane hidden">
-                         <ul class="space-y-3 list-disc list-inside text-gray-700">
-                            <li data-key="pronunciationConsonant"><strong>末尾辅音:</strong> 数字 5 (cinq), 6 (six), 8 (huit), 10 (dix) 的末尾辅音在单独念或在元音前会发音，但在辅音前通常不发音。</li>
-                            <li data-key="pronunciationLiaison"><strong>联诵 (Liaison):</strong> 当数字以辅音结尾，而后面的词以元音开头时，会发生联诵。例如 "deux ans" (两年) 听起来像 "deu-zans"。</li>
-                            <li data-key="pronunciationNasal"><strong>鼻化元音:</strong> Un, vingt, cent 包含典型的法语鼻化元音，发音时气流同时从口腔和鼻腔通过。</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- 常见易错点 -->
-                    <div id="mistakes-content" class="tab-pane hidden">
-                        <ul class="space-y-4 list-disc list-inside text-gray-700">
-                            <li>
-                                <strong data-key="mistakesPluralTitle">"Vingt" 和 "Cent" 的 's' 规则:</strong>
-                                <p class="ml-4 mt-1 text-sm text-gray-600" data-key="mistakesPluralDesc">
-                                    <code>quatre-vingts</code> (80) 有 's'，但 <code>quatre-vingt-un</code> (81) 就没有 's' 了。只有在作为整数倍且后面没有其他数字时才加 's'。例如: <code>deux cents</code> (200) vs <code>deux cent cinquante</code> (250)。
-                                </p>
-                            </li>
-                            <li>
-                                <strong data-key="mistakesEtTitle">"et" 的使用时机:</strong>
-                                <p class="ml-4 mt-1 text-sm text-gray-600" data-key="mistakesEtDesc">
-                                    "et" (和) 只用于 21, 31, 41, 51, 61, 71。特别注意，81 (<code class="bg-gray-200 px-1 rounded">quatre-vingt-un</code>) 和 91 (<code class="bg-gray-200 px-1 rounded">quatre-vingt-onze</code>) 中间没有 "et"。
-                                </p>
-                            </li>
-                             <li>
-                                <strong data-key="mistakesMilleTitle">"Mille" 的不变性:</strong>
-                                <p class="ml-4 mt-1 text-sm text-gray-600" data-key="mistakesMilleDesc">
-                                    <code>mille</code> (1000) 永远不加 's'。例如 <code>trois mille</code> (3000)。但是，<code>million</code> (百万) 和 <code>milliard</code> (十亿) 是名词，需要加 's'，例如 <code>deux millions</code>。
-                                </p>
-                            </li>
-                            <li>
-                                <strong data-key="mistakesHyphenTitle">连字符的遗漏:</strong>
-                                <p class="ml-4 mt-1 text-sm text-gray-600" data-key="mistakesHyphenDesc">
-                                    小于100的复合数字基本都需要连字符，例如 <code>soixante-dix-huit</code> (78)。这是一个常见的书写错误。
-                                </p>
-                            </li>
-                             <li>
-                                <strong data-key="mistakesUnTitle">数字 "Un" 的性数变化:</strong>
-                                <p class="ml-4 mt-1 text-sm text-gray-600" data-key="mistakesUnDesc">
-                                    当 "un" 作为冠词修饰名词时，它需要与名词的性数配合。例如 "un livre" (一本书) vs "une table" (一张桌子)。但在复合数字中，它保持不变，例如 <code>vingt-et-un</code>。
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 数字互动练习 -->
-            <div class="mt-12">
-                <h3 class="text-2xl font-bold text-gray-700 mb-4 border-l-4 border-indigo-500 pl-3" data-key="quizNumbersTitle">数字小测验</h3>
-                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-                    <p class="text-lg text-gray-600 mb-2" data-key="quizNumbersDesc">请写出下面数字的法语形式:</p>
-                    <p id="practice-number" class="text-6xl font-bold text-indigo-600 mb-4">25</p>
-                    <input type="text" id="practice-input" class="w-full md:w-2/3 p-3 border-2 border-gray-300 rounded-lg text-center text-lg focus:border-indigo-500 focus:ring-indigo-500" data-key-placeholder="quizPlaceholder">
-                    <div class="mt-4">
-                        <button id="check-button" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-indigo-700 transition-colors" data-key="btnCheck">检查</button>
-                        <button id="next-practice-button" class="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-lg hover:bg-gray-300 transition-colors ml-2" data-key="btnNext">下一个</button>
-                    </div>
-                    <p id="feedback" class="mt-4 h-6 text-lg font-semibold"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 分割线 -->
-        <hr class="my-16 border-t-2 border-gray-200">
-
-        <!-- 时间、日期、季节部分 -->
-        <section>
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center" data-key="part2Title">第二部分：时间与日期 (Le Temps et la Date)</h2>
-            
-            <!-- 时间的表达 -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-gray-700 mb-4 border-l-4 border-green-500 pl-3" data-key="timeTitle">时间的表达 (L'heure)</h3>
-                <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
-                    <p data-key="timeAsk">询问时间: <strong class="text-green-700">Quelle heure est-il ?</strong></p>
-                    <p data-key="timeAnswer">回答时间以 "Il est..." 开始。</p>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li data-key="timeOClock">整点: <code class="bg-gray-200 p-1 rounded">Il est deux heures.</code> (2:00)</li>
-                        <li data-key="timeQuarter">一刻钟 (15分): <code class="bg-gray-200 p-1 rounded">Il est deux heures et quart.</code> (2:15)</li>
-                        <li data-key="timeHalf">半小时 (30分): <code class="bg-gray-200 p-1 rounded">Il est deux heures et demie.</code> (2:30)</li>
-                        <li data-key="timeThreeQuarters">三刻钟 (45分): <code class="bg-gray-200 p-1 rounded">Il est trois heures moins le quart.</code> (2:45, 即 "三点差一刻")</li>
-                        <li data-key="time24h">正式/24小时制: 直接读数字，例如 <code class="bg-gray-200 p-1 rounded">Il est quatorze heures quarante-cinq.</code> (14:45)</li>
-                    </ul>
-                </div>
-                <!-- 时间小测验 -->
-                <div class="mt-6">
-                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-                        <p class="text-lg text-gray-600 mb-2" data-key="quizTimeDesc">请用日常法语写出下面时间 (例如: 2:30):</p>
-                        <p id="time-practice-q" class="text-6xl font-bold text-green-600 mb-4">08:15</p>
-                        <input type="text" id="time-practice-input" class="w-full md:w-2/3 p-3 border-2 border-gray-300 rounded-lg text-center text-lg focus:border-green-500 focus:ring-green-500" data-key-placeholder="quizTimePlaceholder">
-                        <div class="mt-4">
-                            <button id="time-check-button" class="bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700" data-key="btnCheck">检查</button>
-                            <button id="time-next-button" class="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-lg hover:bg-gray-300 ml-2" data-key="btnNext">下一个</button>
-                        </div>
-                        <p id="time-feedback" class="mt-4 h-6 text-lg font-semibold"></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 具体时间的表达 -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-gray-700 mb-4 border-l-4 border-teal-500 pl-3" data-key="specificTimeTitle">具体时间的表达 (L'heure exacte)</h3>
-                <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
-                    <p data-key="specificTimeDesc">对于非固定的分钟数，有两种主要表达方式。规则的分界点在“半小时”。</p>
-                    <ul class="list-disc list-inside space-y-3">
-                        <li>
-                            <strong data-key="specificTimeRule1">分钟数在 1-30 分:</strong>
-                            <p class="ml-4 mt-1 text-sm text-gray-600" data-key="specificTimeRule1Desc">
-                                格式为 <code class="bg-gray-200 p-1 rounded">Il est [小时] heure(s) [分钟].</code> 例如: <code class="bg-gray-200 p-1 rounded">Il est deux heures dix.</code> (2:10)
-                            </p>
-                        </li>
-                        <li>
-                            <strong data-key="specificTimeRule2">分钟数在 31-59 分:</strong>
-                            <p class="ml-4 mt-1 text-sm text-gray-600" data-key="specificTimeRule2Desc">
-                                常用“差几分到下个整点”的方式。格式为 <code class="bg-gray-200 p-1 rounded">Il est [下一个小时] heure(s) moins [差的分钟数].</code> 例如: <code class="bg-gray-200 p-1 rounded">Il est trois heures moins vingt.</code> (2:40, 即“三点差二十分”)
-                            </p>
-                        </li>
-                        <li>
-                            <strong data-key="specificTimeNoon">中午和午夜:</strong>
-                            <p class="ml-4 mt-1 text-sm text-gray-600" data-key="specificTimeNoonDesc">
-                                中午12点是 <code class="bg-gray-200 p-1 rounded">midi</code>，午夜12点是 <code class="bg-gray-200 p-1 rounded">minuit</code>。例如: <code class="bg-gray-200 p-1 rounded">Il est midi et quart.</code> (12:15)
-                            </p>
-                        </li>
-                        <li>
-                            <strong data-key="specificTimeHalfTitle">半小时 (demi / demie):</strong>
-                            <p class="ml-4 mt-1 text-sm text-gray-600" data-key="specificTimeHalfDesc">
-                                半小时的表达是 <code class="bg-gray-200 p-1 rounded">et demie</code>。<strong>易错点:</strong> <code class="font-mono">demie</code> 在这里需要与阴性的 <code class="font-mono">heure</code> 配合，所以用 <code class="font-mono">-e</code> 结尾。但是，在 <code class="font-mono">midi</code> 和 <code class="font-mono">minuit</code> (均为阳性) 后面，则用 <code class="font-mono">demi</code>，例如 <code class="bg-gray-200 p-1 rounded">Il est midi et demi.</code> (12:30)。
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                <!-- 具体时间小测验 -->
-                <div class="mt-6">
-                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-                        <p class="text-lg text-gray-600 mb-2" data-key="quizSpecificTimeDesc">请用日常法语写出下面具体时间:</p>
-                        <p id="specific-time-q" class="text-6xl font-bold text-teal-600 mb-4">04:50</p>
-                        <input type="text" id="specific-time-input" class="w-full md:w-2/3 p-3 border-2 border-gray-300 rounded-lg text-center text-lg focus:border-teal-500 focus:ring-teal-500" data-key-placeholder="quizTimePlaceholder">
-                        <div class="mt-4">
-                            <button id="specific-time-check-button" class="bg-teal-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-teal-700" data-key="btnCheck">检查</button>
-                            <button id="specific-time-next-button" class="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-lg hover:bg-gray-300 ml-2" data-key="btnNext">下一个</button>
-                        </div>
-                        <p id="specific-time-feedback" class="mt-4 h-6 text-lg font-semibold"></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 日期与星期 -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-gray-700 mb-4 border-l-4 border-blue-500 pl-3" data-key="dateTitle">日期与星期 (La Date)</h3>
-                <div class="bg-white rounded-lg shadow-lg p-6 grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="font-bold text-lg mb-2" data-key="daysOfWeek">星期 (Les jours)</h4>
-                        <ul id="days-list" class="space-y-1"></ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-lg mb-2" data-key="monthsOfYear">月份 (Les mois)</h4>
-                        <ul id="months-list" class="space-y-1"></ul>
-                    </div>
-                </div>
-                 <div class="bg-white rounded-lg shadow-lg p-6 mt-6">
-                    <h4 class="font-bold text-lg mb-2" data-key="dateExpressionTitle">如何表达日期</h4>
-                    <p data-key="dateExpressionFormat">格式: <code class="bg-gray-200 p-1 rounded">On est le [星期] [日] [月].</code></p>
-                    <p data-key="dateExpressionExample">例如: <strong class="text-blue-700">On est le lundi 25 août.</strong> (今天是8月25日星期一)</p>
-                    <p class="text-sm text-gray-500 mt-2" data-key="dateExpressionNote">注意：星期和月份在法语中首字母不需要大写。</p>
-                </div>
-            </div>
-            
-            <!-- 年份的表达 -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-gray-700 mb-4 border-l-4 border-purple-500 pl-3" data-key="yearTitle">年份的表达 (L'année)</h3>
-                <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
-                    <p data-key="yearDesc">在法语中，年份通常作为一个完整的数字来读。介词 <code class="bg-gray-200 p-1 rounded">en</code> 用于表达“在某某年”。</p>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li data-key="yearExample1">1995: <code class="bg-gray-200 p-1 rounded">mille neuf cent quatre-vingt-quinze</code></li>
-                        <li data-key="yearExample2">2024: <code class="bg-gray-200 p-1 rounded">deux mille vingt-quatre</code></li>
-                        <li data-key="yearExample3">1800: <code class="bg-gray-200 p-1 rounded">mille huit cents</code> (注意 <code class="font-mono">cent</code> 在这里有's')</li>
-                        <li data-key="yearUsage">用法: <code class="bg-gray-200 p-1 rounded">Je suis né en mille neuf cent quatre-vingt-dix.</code> (我出生于1990年)</li>
-                    </ul>
-                </div>
-                <!-- 年份小测验 -->
-                <div class="mt-6">
-                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-                        <p class="text-lg text-gray-600 mb-2" data-key="quizYearDesc">请写出下面年份的法语形式:</p>
-                        <p id="year-practice-q" class="text-6xl font-bold text-purple-600 mb-4">1984</p>
-                        <input type="text" id="year-practice-input" class="w-full md:w-2/3 p-3 border-2 border-gray-300 rounded-lg text-center text-lg focus:border-purple-500 focus:ring-purple-500" data-key-placeholder="quizPlaceholder">
-                        <div class="mt-4">
-                            <button id="year-check-button" class="bg-purple-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-purple-700" data-key="btnCheck">检查</button>
-                            <button id="year-next-button" class="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-lg hover:bg-gray-300 ml-2" data-key="btnNext">下一个</button>
-                        </div>
-                        <p id="year-feedback" class="mt-4 h-6 text-lg font-semibold"></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 季节 -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-gray-700 mb-4 border-l-4 border-yellow-500 pl-3" data-key="seasonsTitle">季节 (Les Saisons)</h3>
-                <div id="seasons-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <!-- JS动态生成 -->
-                </div>
-                 <div class="bg-white rounded-lg shadow-lg p-6 mt-6">
-                    <h4 class="font-bold text-lg mb-2" data-key="seasonsPrepositionTitle">季节的介词</h4>
-                    <p data-key="seasonsPrepositionSpring">春季用 <code class="bg-gray-200 p-1 rounded">au</code>: au printemps.</p>
-                    <p data-key="seasonsPrepositionOthers">其他季节用 <code class="bg-gray-200 p-1 rounded">en</code>: en été, en automne, en hiver.</p>
-                </div>
-                 <!-- 季节小测验 -->
-                <div class="mt-6">
-                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
-                        <p id="season-q-text" class="text-lg text-gray-600 mb-2">"夏天" 的法语怎么说?</p>
-                        <div id="season-options" class="flex flex-wrap justify-center gap-4 my-4"></div>
-                        <div class="mt-4">
-                             <button id="season-next-button" class="bg-gray-200 text-gray-800 font-bold py-2 px-6 rounded-lg hover:bg-gray-300" data-key="btnNext">下一题</button>
-                        </div>
-                        <p id="season-feedback" class="mt-4 h-6 text-lg font-semibold"></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 分割线 -->
-        <hr class="my-16 border-t-2 border-gray-200">
-
-        <!-- 地道表达与地区差异 -->
-        <section>
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center" data-key="part3Title">第三部分：地道表达与地区差异</h2>
-
-            <!-- 地道表达 -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-gray-700 mb-4 border-l-4 border-rose-500 pl-3" data-key="idiomsTitle">地道表达 (Expressions idiomatiques)</h3>
-                <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
-                    <ul class="list-disc list-inside space-y-3">
-                        <li>
-                            <strong data-key="idiom1Title">Chercher midi à quatorze heures:</strong>
-                            <p class="ml-4 mt-1 text-sm text-gray-600" data-key="idiom1Desc">
-                                字面意思是“在下午两点找中午”，实际意为“庸人自扰，把简单问题复杂化”。
-                            </p>
-                        </li>
-                        <li>
-                            <strong data-key="idiom2Title">Se mettre sur son trente-et-un:</strong>
-                            <p class="ml-4 mt-1 text-sm text-gray-600" data-key="idiom2Desc">
-                                意为“盛装打扮，穿上自己最好的衣服”。
-                            </p>
-                        </li>
-                        <li>
-                            <strong data-key="idiom3Title">La semaine des quatre jeudis:</strong>
-                            <p class="ml-4 mt-1 text-sm text-gray-600" data-key="idiom3Desc">
-                                字面意思是“有四个星期四的一周”，实际意为“永远不可能发生的事，遥遥无期”。
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 地区差异 -->
-            <div>
-                <h3 class="text-2xl font-bold text-gray-700 mb-4 border-l-4 border-cyan-500 pl-3" data-key="regionalTitle">地区差异 (Variations régionales)</h3>
-                <div class="bg-white rounded-lg shadow-lg p-6 space-y-6">
-                    <div>
-                        <h4 class="font-bold text-lg text-cyan-800" data-key="regionalCanadaTitle">加拿大法语 (Français canadien)</h4>
-                         <ul class="list-disc list-inside space-y-2 mt-2">
-                            <li data-key="regionalCanadaMeals"><strong>一日三餐:</strong> 在魁北克，早餐是 <code class="bg-gray-200 p-1 rounded">le déjeuner</code>，午餐是 <code class="bg-gray-200 p-1 rounded">le dîner</code>，晚餐是 <code class="bg-gray-200 p-1 rounded">le souper</code>。这和法国本土的用法 (<code class="font-mono">petit-déjeuner</code>, <code class="font-mono">déjeuner</code>, <code class="font-mono">dîner</code>) 完全不同。</li>
-                         </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-lg text-cyan-800" data-key="regionalSwissTitle">瑞士与比利时法语 (Français de Suisse et de Belgique)</h4>
-                         <ul class="list-disc list-inside space-y-2 mt-2">
-                            <li data-key="regionalSwissNumbers"><strong>数字:</strong> 在瑞士（以及比利时）的某些地区，70, 80, 90 的说法不同，且更符合逻辑：70 是 <code class="bg-gray-200 p-1 rounded">septante</code>，80 是 <code class="bg-gray-200 p-1 rounded">huitante</code> (主要在瑞士) 或 <code class="bg-gray-200 p-1 rounded">quatre-vingts</code>，90 是 <code class="bg-gray-200 p-1 rounded">nonante</code>。</li>
-                         </ul>
-                    </div>
-                </div>
-            </div>
-
-        </section>
+    <!-- 1. 几何背景装饰 -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- 青色圆 -->
+        <div class="geo-shape w-64 h-64 rounded-full bg-[var(--c-cyan)] -top-20 -left-20 opacity-50"></div>
+        <!-- 紫色方块 -->
+        <div class="geo-shape w-32 h-32 bg-[var(--c-purple)] top-1/4 right-10 rotate-12 opacity-50"></div>
+        <!-- 黄色矩形 -->
+        <div class="geo-shape w-40 h-24 bg-[var(--c-yellow)] bottom-1/4 left-10 -rotate-6 opacity-50"></div>
     </div>
 
-    <!-- 页面底部 -->
-    <footer class="text-center py-6 text-gray-500 text-sm">
-        <div class="space-y-1">
-            <p data-key="copyright">版权所有hugo</p>
-            <p><span data-key="contact">帮助与反馈联系邮箱</span>: <a href="mailto:help@745520.xyz" class="text-indigo-600 hover:underline">help@745520.xyz</a></p>
+    <!-- 2. 导航栏 -->
+    <header class="sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-black text-white flex items-center justify-center border-2 border-black group-hover:bg-[var(--c-cyan)] group-hover:text-black transition-colors shadow-[2px_2px_0_0_#000]">
+                    <i class="ph-bold ph-calculator text-2xl"></i>
+                </div>
+                <span class="text-xl font-black uppercase tracking-tighter">Nombres & Dates</span>
+            </a>
+            
+            <div class="flex items-center gap-3">
+                <button id="lang-zh" class="neo-btn px-3 py-1 text-xs font-bold active">中文</button>
+                <button id="lang-en" class="neo-btn px-3 py-1 text-xs font-bold">EN</button>
+            </div>
         </div>
-        <p class="mt-4">Powered by Gemini</p>
+    </header>
+
+    <main class="flex-grow relative z-10">
+        
+        <!-- Hero Section -->
+        <section class="py-16 px-6 text-center">
+            <div class="container mx-auto max-w-4xl animate-on-scroll">
+                <h1 class="text-5xl md:text-7xl font-black uppercase mb-6 leading-tight" data-key="mainTitle">
+                    法语数字与表达全攻略
+                </h1>
+                <p class="text-xl font-bold text-gray-800 mb-8 max-w-2xl mx-auto bg-white border-2 border-black p-4 shadow-[4px_4px_0_0_#000]" data-key="subTitle">
+                    一个系统学习法语基础知识的交互式指南
+                </p>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="marquee-container">
+            <div class="marquee-content">
+                NUMBERS • TIME • DATE • SEASONS • LEARNING • FRENCH • GRAMMAR • QUIZ • NUMBERS • TIME • DATE • SEASONS •
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 max-w-6xl space-y-24 pb-24">
+
+            <!-- PART 1: NUMBERS -->
+            <section id="numbers" class="animate-on-scroll">
+                <div class="mb-12 text-center">
+                    <span class="section-tag bg-[var(--c-cyan)] text-black border-black" data-key="part1Title">第一部分：数字 (Les Nombres)</span>
+                </div>
+
+                <!-- Basic Numbers -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-black mb-6 border-l-8 border-[var(--c-cyan)] pl-4" data-key="basicNumbersTitle">基础数字 (0-20)</h3>
+                    <div id="basic-numbers-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                        <!-- JS Generated -->
+                    </div>
+                </div>
+
+                <!-- Tens -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-black mb-6 border-l-8 border-[var(--c-cyan)] pl-4" data-key="tensNumbersTitle">整十数字 (20-60)</h3>
+                    <div id="tens-numbers-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                        <!-- JS Generated -->
+                    </div>
+                </div>
+
+                <!-- Tabs: Rules & Grammar -->
+                <div class="mt-16">
+                    <div class="neo-tabs">
+                        <div class="neo-tab active" data-tab="rules" data-key="tabRules">特殊规则</div>
+                        <div class="neo-tab" data-tab="grammar" data-key="tabGrammar">语法要点</div>
+                        <div class="neo-tab" data-tab="pronunciation" data-key="tabPronunciation">发音技巧</div>
+                        <div class="neo-tab" data-tab="mistakes" data-key="tabMistakes">常见易错点</div>
+                    </div>
+                    <div class="neo-tab-content">
+                        <!-- 1. Rules -->
+                        <div id="rules-content" class="tab-pane">
+                            <p class="mb-6 font-bold text-lg" data-key="rulesDesc">法语数字在70、80、90处有独特的计数逻辑。</p>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="border-2 border-black p-4 bg-[var(--c-blue)] text-white shadow-[4px_4px_0_0_#000]">
+                                    <h3 class="font-black text-xl mb-2 text-white" data-key="rules70Title">70-79</h3>
+                                    <p data-key="rules70Desc" class="text-sm opacity-90">基于60的加法...</p>
+                                </div>
+                                <div class="border-2 border-black p-4 bg-[var(--c-green)] text-black shadow-[4px_4px_0_0_#000]">
+                                    <h3 class="font-black text-xl mb-2" data-key="rules80Title">80-89</h3>
+                                    <p data-key="rules80Desc" class="text-sm">基于20的乘法...</p>
+                                </div>
+                                <div class="border-2 border-black p-4 bg-[var(--c-yellow)] text-black shadow-[4px_4px_0_0_#000]">
+                                    <h3 class="font-black text-xl mb-2" data-key="rules90Title">90-99</h3>
+                                    <p data-key="rules90Desc" class="text-sm">80 + 10...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Grammar -->
+                        <div id="grammar-content" class="tab-pane hidden">
+                            <ul class="space-y-4 list-disc list-inside font-bold text-gray-800">
+                                <li data-key="grammarHyphen">连字符...</li>
+                                <li data-key="grammarEt">"et"...</li>
+                                <li data-key="grammarPlural">复数 's'...</li>
+                                <li data-key="grammarMille">Mille...</li>
+                            </ul>
+                        </div>
+
+                        <!-- 3. Pronunciation -->
+                        <div id="pronunciation-content" class="tab-pane hidden">
+                             <ul class="space-y-4 list-disc list-inside font-bold text-gray-800">
+                                <li data-key="pronunciationConsonant">末尾辅音...</li>
+                                <li data-key="pronunciationLiaison">联诵...</li>
+                                <li data-key="pronunciationNasal">鼻化元音...</li>
+                            </ul>
+                        </div>
+
+                        <!-- 4. Mistakes -->
+                        <div id="mistakes-content" class="tab-pane hidden">
+                             <div class="space-y-6">
+                                <div><strong class="text-red-600" data-key="mistakesPluralTitle"></strong><p data-key="mistakesPluralDesc"></p></div>
+                                <div><strong class="text-red-600" data-key="mistakesEtTitle"></strong><p data-key="mistakesEtDesc"></p></div>
+                                <div><strong class="text-red-600" data-key="mistakesMilleTitle"></strong><p data-key="mistakesMilleDesc"></p></div>
+                                <div><strong class="text-red-600" data-key="mistakesHyphenTitle"></strong><p data-key="mistakesHyphenDesc"></p></div>
+                                <div><strong class="text-red-600" data-key="mistakesUnTitle"></strong><p data-key="mistakesUnDesc"></p></div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Number Quiz Console -->
+                <div class="mt-12">
+                    <div class="neo-card bg-gray-100 p-8 text-center border-black border-[4px] shadow-[10px_10px_0_0_var(--c-cyan)]">
+                        <h3 class="text-2xl font-black mb-4 uppercase tracking-wider" data-key="quizNumbersTitle">数字大挑战</h3>
+                        <p class="font-bold mb-6 text-gray-600" data-key="quizNumbersDesc">Write this number in French:</p>
+                        
+                        <div class="bg-black text-[var(--c-green)] font-mono text-6xl p-6 mb-6 border-4 border-gray-500 rounded-lg relative inline-block shadow-[inset_0_0_20px_rgba(0,255,0,0.2)]">
+                            <span id="practice-number">25</span>
+                        </div>
+
+                        <div class="max-w-md mx-auto">
+                            <input type="text" id="practice-input" class="neo-input mb-4" data-key-placeholder="quizPlaceholder">
+                            <div class="flex gap-4 justify-center">
+                                <button id="check-button" class="neo-btn px-8 py-3 bg-[var(--c-blue)] text-white shadow-[4px_4px_0_0_black]" data-key="btnCheck">检查</button>
+                                <button id="next-practice-button" class="neo-btn px-8 py-3 bg-white text-black border-black hover:bg-gray-200" data-key="btnNext">下一个</button>
+                            </div>
+                        </div>
+                        <p id="feedback" class="mt-6 h-6 text-xl font-black"></p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- PART 2: TIME & DATE -->
+            <section id="time-date" class="animate-on-scroll border-t-[3px] border-black pt-20">
+                <div class="mb-12 text-center">
+                    <span class="section-tag bg-[var(--c-pink)] text-black border-black" data-key="part2Title">第二部分：时间与日期</span>
+                </div>
+
+                <!-- Time Section -->
+                <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+                    <div class="neo-card bg-white">
+                        <div class="p-2 border-b-2 border-black bg-[var(--c-pink)]"><h3 class="font-black text-center" data-key="timeTitle">时间的表达</h3></div>
+                        <div class="p-6 space-y-4 text-sm font-bold">
+                            <p data-key="timeAsk"></p>
+                            <ul class="list-none space-y-2">
+                                <li data-key="timeOClock" class="bg-gray-100 p-2 border-l-4 border-black"></li>
+                                <li data-key="timeQuarter" class="bg-gray-100 p-2 border-l-4 border-black"></li>
+                                <li data-key="timeHalf" class="bg-gray-100 p-2 border-l-4 border-black"></li>
+                                <li data-key="timeThreeQuarters" class="bg-gray-100 p-2 border-l-4 border-black"></li>
+                                <li data-key="time24h" class="bg-gray-100 p-2 border-l-4 border-black"></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Time Quiz Console -->
+                    <div class="neo-card bg-black text-white border-black p-8 text-center relative overflow-hidden">
+                         <div class="absolute top-0 right-0 p-4 opacity-20">
+                            <i class="ph-fill ph-clock text-8xl text-[var(--c-pink)]"></i>
+                        </div>
+                        <p class="font-bold mb-4 text-[var(--c-pink)]" data-key="quizTimeDesc">Write the time:</p>
+                        <p id="time-practice-q" class="text-5xl font-black mb-6">08:15</p>
+                        <input type="text" id="time-practice-input" class="neo-input text-black mb-4" data-key-placeholder="quizTimePlaceholder">
+                        <div class="flex gap-2 justify-center">
+                            <button id="time-check-button" class="neo-btn px-6 py-2 bg-[var(--c-pink)] text-black" data-key="btnCheck">Check</button>
+                            <button id="time-next-button" class="neo-btn px-6 py-2 bg-white text-black" data-key="btnNext">Next</button>
+                        </div>
+                        <p id="time-feedback" class="mt-4 font-bold h-6"></p>
+                    </div>
+                </div>
+
+                <!-- Specific Time Rules -->
+                 <div class="neo-card bg-[var(--c-gray)] mb-16">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-black mb-4" data-key="specificTimeTitle">具体时间 (L'heure exacte)</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-white border-2 border-black p-4 shadow-[4px_4px_0_0_#000]">
+                                <strong data-key="specificTimeRule1">1-30 分</strong>
+                                <p data-key="specificTimeRule1Desc" class="text-sm mt-2"></p>
+                            </div>
+                            <div class="bg-white border-2 border-black p-4 shadow-[4px_4px_0_0_#000]">
+                                <strong data-key="specificTimeRule2">31-59 分</strong>
+                                <p data-key="specificTimeRule2Desc" class="text-sm mt-2"></p>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-black text-white border-2 border-black">
+                             <strong class="text-[var(--c-pink)]">⚠️ Note:</strong>
+                             <p data-key="specificTimeHalfDesc" class="text-sm mt-1"></p>
+                        </div>
+                    </div>
+                     <!-- Specific Time Quiz -->
+                    <div class="p-6 border-t-2 border-black bg-white flex flex-col items-center">
+                         <p class="font-bold mb-2" data-key="quizSpecificTimeDesc">练习具体时间:</p>
+                         <div class="flex gap-4 items-center flex-wrap justify-center">
+                             <span id="specific-time-q" class="text-3xl font-black bg-[var(--c-pink)] px-2 border-2 border-black text-white">04:50</span>
+                             <input type="text" id="specific-time-input" class="neo-input w-48 py-1 text-base" data-key-placeholder="quizTimePlaceholder">
+                             <button id="specific-time-check-button" class="neo-btn px-4 py-1 bg-black text-white text-sm">OK</button>
+                             <button id="specific-time-next-button" class="neo-btn px-4 py-1 bg-white text-black text-sm">Next</button>
+                         </div>
+                         <p id="specific-time-feedback" class="mt-2 font-bold h-6 text-sm"></p>
+                    </div>
+                </div>
+
+                <!-- Date & Seasons -->
+                <div class="grid md:grid-cols-2 gap-12">
+                     <!-- Date List -->
+                    <div class="neo-card p-8">
+                        <h3 class="text-xl font-black mb-4 uppercase border-b-2 border-black pb-2" data-key="dateTitle">Date & Week</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                             <div>
+                                <h4 class="font-bold text-[var(--c-blue)] mb-2" data-key="daysOfWeek">Days</h4>
+                                <ul id="days-list" class="text-sm space-y-1 font-mono"></ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[var(--c-blue)] mb-2" data-key="monthsOfYear">Months</h4>
+                                <ul id="months-list" class="text-sm space-y-1 font-mono"></ul>
+                            </div>
+                        </div>
+                         <div class="mt-4 p-3 bg-yellow-100 border-2 border-black text-sm">
+                             <p data-key="dateExpressionFormat"></p>
+                             <p data-key="dateExpressionExample" class="mt-1"></p>
+                         </div>
+                    </div>
+
+                    <!-- Seasons -->
+                    <div>
+                        <div class="mb-6">
+                            <span class="inline-block bg-[var(--c-yellow)] border-2 border-black px-3 py-1 font-bold text-sm mb-2" data-key="seasonsTitle">季节</span>
+                            <div id="seasons-grid" class="grid grid-cols-2 gap-4">
+                                <!-- JS Generated -->
+                            </div>
+                        </div>
+                        
+                        <!-- Seasons Quiz -->
+                        <div class="neo-card bg-[var(--c-purple)] p-6 border-black text-center">
+                             <p id="season-q-text" class="text-white font-bold text-lg mb-4">"夏天" 的法语怎么说?</p>
+                             <div id="season-options" class="flex flex-wrap justify-center gap-2 mb-4"></div>
+                             <div id="season-feedback" class="h-6 font-black text-black bg-white inline-block px-2"></div>
+                             <button id="season-next-button" class="block mx-auto mt-4 neo-btn px-4 py-1 bg-black text-white text-xs" data-key="btnNext">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Year -->
+                <div class="mt-12 neo-card bg-[var(--c-green)] p-8">
+                     <h3 class="text-2xl font-black mb-4 text-center" data-key="yearTitle">年份 (L'année)</h3>
+                     <div class="flex flex-col md:flex-row items-center gap-8 justify-center">
+                         <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0_0_#000] max-w-md text-sm">
+                             <p data-key="yearDesc" class="mb-2"></p>
+                             <ul class="list-disc list-inside space-y-1 font-bold">
+                                 <li data-key="yearExample1"></li>
+                                 <li data-key="yearExample2"></li>
+                                 <li data-key="yearExample3"></li>
+                             </ul>
+                         </div>
+                         <!-- Year Quiz -->
+                         <div class="text-center w-full max-w-xs">
+                             <p data-key="quizYearDesc" class="font-bold mb-2"></p>
+                             <div class="text-5xl font-black mb-4 bg-white border-2 border-black inline-block px-4 shadow-[4px_4px_0_0_#000]" id="year-practice-q">1984</div>
+                             <input type="text" id="year-practice-input" class="neo-input bg-white mb-2">
+                             <div class="flex gap-2 justify-center">
+                                 <button id="year-check-button" class="neo-btn px-4 py-1 bg-black text-white">OK</button>
+                                 <button id="year-next-button" class="neo-btn px-4 py-1 bg-white text-black">Next</button>
+                             </div>
+                             <p id="year-feedback" class="mt-2 font-bold"></p>
+                         </div>
+                     </div>
+                </div>
+
+            </section>
+
+            <!-- PART 3: EXTRAS -->
+            <section id="extras" class="animate-on-scroll border-t-[3px] border-black pt-20">
+                 <div class="mb-12 text-center">
+                    <span class="section-tag bg-[var(--c-purple)] text-white border-black" data-key="part3Title">第三部分：拓展</span>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Idioms -->
+                    <div class="neo-card">
+                        <div class="bg-[var(--c-purple)] p-3 border-b-2 border-black"><h3 class="font-black text-white" data-key="idiomsTitle">地道表达</h3></div>
+                        <div class="p-6 space-y-4">
+                            <div class="bg-gray-100 p-3 border-l-4 border-black">
+                                <p data-key="idiom1Title" class="font-bold"></p>
+                                <p data-key="idiom1Desc" class="text-sm text-gray-600"></p>
+                            </div>
+                             <div class="bg-gray-100 p-3 border-l-4 border-black">
+                                <p data-key="idiom2Title" class="font-bold"></p>
+                                <p data-key="idiom2Desc" class="text-sm text-gray-600"></p>
+                            </div>
+                             <div class="bg-gray-100 p-3 border-l-4 border-black">
+                                <p data-key="idiom3Title" class="font-bold"></p>
+                                <p data-key="idiom3Desc" class="text-sm text-gray-600"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regions -->
+                    <div class="neo-card">
+                         <div class="bg-[var(--c-blue)] p-3 border-b-2 border-black"><h3 class="font-black text-white" data-key="regionalTitle">地区差异</h3></div>
+                         <div class="p-6 space-y-6">
+                             <div>
+                                 <h4 class="font-black text-[var(--c-blue)] mb-1" data-key="regionalCanadaTitle">Canada</h4>
+                                 <p data-key="regionalCanadaMeals" class="text-sm"></p>
+                             </div>
+                             <div>
+                                 <h4 class="font-black text-[var(--c-blue)] mb-1" data-key="regionalSwissTitle">Swiss/Belgium</h4>
+                                 <p data-key="regionalSwissNumbers" class="text-sm"></p>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 text-center border-t-[3px] border-black">
+        <div class="container mx-auto px-6">
+             <div class="flex justify-center mb-4">
+                 <i class="ph-duotone ph-books text-4xl text-black"></i>
+             </div>
+             <p class="font-bold font-mono text-sm" data-key="copyright">&copy; 2025 Hugo.</p>
+             <p class="text-xs mt-2 font-bold"><span data-key="contact">Contact</span>: <a href="mailto:help@745520.xyz" class="hover:bg-[var(--c-yellow)]">help@745520.xyz</a></p>
+        </div>
     </footer>
 
     <script>
@@ -400,193 +615,173 @@
                 tabGrammar: '语法要点',
                 tabPronunciation: '发音技巧',
                 tabMistakes: '常见易错点',
-                rulesDesc: '法语数字在70、80、90处有独特的计数逻辑，是学习的重点和难点。',
-                rules70Title: '70-79: 基于60的加法',
-                rules70Desc: '70 是 <code class="bg-blue-200 text-blue-900 px-1 rounded">soixante-dix</code> (60+10)，71 是 <code class="bg-blue-200 text-blue-900 px-1 rounded">soixante-et-onze</code> (60+11)，以此类推。',
-                rules80Title: '80-89: 基于20的乘法',
-                rules80Desc: '80 是 <code class="bg-green-200 text-green-900 px-1 rounded">quatre-vingts</code> (4x20)。注意 <code class="font-mono">vingt</code> 在这里有\'s\'。但 81 <code class="bg-green-200 text-green-900 px-1 rounded">quatre-vingt-un</code> (4x20-1) 开始，\'s\'就消失了。',
-                rules90Title: '90-99: 80 + 10',
-                rules90Desc: '90 是 <code class="bg-yellow-200 text-yellow-900 px-1 rounded">quatre-vingt-dix</code> (4x20+10)，91 是 <code class="bg-yellow-200 text-yellow-900 px-1 rounded">quatre-vingt-onze</code> (4x20+11)，以此类推。',
-                grammarHyphen: '<strong>连字符 (-):</strong> 复合数字中，小于100的个位和十位之间通常用连字符连接，例如 <code class="bg-gray-200 px-1 rounded">dix-sept</code> (17), <code class="bg-gray-200 px-1 rounded">trente-deux</code> (32)。',
-                grammarEt: '<strong>"et" (和):</strong> 只在 21, 31, 41, 51, 61, 71 中使用 "et"，例如 <code class="bg-gray-200 px-1 rounded">vingt-et-un</code>。81 和 91 不用 "et"。',
-                grammarPlural: '<strong>Vingt (20) 和 Cent (100) 的复数 \'s\':</strong> 当它们是整数倍且后面没有其他数字时，加 \'s\'。例如 <code class="bg-gray-200 px-1 rounded">quatre-vingts</code> (80), <code class="bg-gray-200 px-1 rounded">deux cents</code> (200)。但 <code class="bg-gray-200 px-1 rounded">quatre-vingt-trois</code> (83) 和 <code class="bg-gray-200 px-1 rounded">deux cent un</code> (201) 则不加 \'s\'。',
-                grammarMille: '<strong>Mille (1000):</strong> 是不变的，永远不加 \'s\'。例如 <code class="bg-gray-200 px-1 rounded">deux mille</code> (2000)。',
-                pronunciationConsonant: '<strong>末尾辅音:</strong> 数字 5 (cinq), 6 (six), 8 (huit), 10 (dix) 的末尾辅音在单独念或在元音前会发音，但在辅音前通常不发音。',
-                pronunciationLiaison: '<strong>联诵 (Liaison):</strong> 当数字以辅音结尾，而后面的词以元音开头时，会发生联诵。例如 "deux ans" (两年) 听起来像 "deu-zans"。',
-                pronunciationNasal: '<strong>鼻化元音:</strong> Un, vingt, cent 包含典型的法语鼻化元音，发音时气流同时从口腔和鼻腔通过。',
+                rulesDesc: '法语数字在70、80、90处有独特的计数逻辑。',
+                rules70Title: '70-79: 基于60',
+                rules70Desc: '70 = soixante-dix (60+10)',
+                rules80Title: '80-89: 基于20',
+                rules80Desc: '80 = quatre-vingts (4x20)',
+                rules90Title: '90-99: 80+10',
+                rules90Desc: '90 = quatre-vingt-dix',
+                grammarHyphen: '<strong>连字符 (-):</strong> <100的复合数字用连字符连接。',
+                grammarEt: '<strong>"et":</strong> 用于 21, 31, 41, 51, 61, 71。',
+                grammarPlural: '<strong>复数 \'s\':</strong> Vingt/Cent在整数倍结尾加s。',
+                grammarMille: '<strong>Mille:</strong> 永远不加 \'s\'。',
+                pronunciationConsonant: '<strong>末尾辅音:</strong> 5, 6, 8, 10 单独念发音。',
+                pronunciationLiaison: '<strong>联诵:</strong> 辅音结尾接元音需联诵。',
+                pronunciationNasal: '<strong>鼻化元音:</strong> Un, vingt, cent。',
                 mistakesPluralTitle: '"Vingt" 和 "Cent" 的 \'s\' 规则:',
-                mistakesPluralDesc: '<code>quatre-vingts</code> (80) 有 \'s\'，但 <code>quatre-vingt-un</code> (81) 就没有 \'s\' 了。只有在作为整数倍且后面没有其他数字时才加 \'s\'。例如: <code>deux cents</code> (200) vs <code>deux cent cinquante</code> (250)。',
+                mistakesPluralDesc: '80(quatre-vingts)有s，81(quatre-vingt-un)无s。',
                 mistakesEtTitle: '"et" 的使用时机:',
-                mistakesEtDesc: '"et" (和) 只用于 21, 31, 41, 51, 61, 71。特别注意，81 (<code class="bg-gray-200 px-1 rounded">quatre-vingt-un</code>) 和 91 (<code class="bg-gray-200 px-1 rounded">quatre-vingt-onze</code>) 中间没有 "et"。',
+                mistakesEtDesc: '81, 91 不用 et。',
                 mistakesMilleTitle: '"Mille" 的不变性:',
-                mistakesMilleDesc: '<code>mille</code> (1000) 永远不加 \'s\'。例如 <code>trois mille</code> (3000)。但是，<code>million</code> (百万) 和 <code>milliard</code> (十亿) 是名词，需要加 \'s\'，例如 <code>deux millions</code>。',
-                mistakesHyphenTitle: '连字符的遗漏:',
-                mistakesHyphenDesc: '小于100的复合数字基本都需要连字符，例如 <code>soixante-dix-huit</code> (78)。这是一个常见的书写错误。',
-                mistakesUnTitle: '数字 "Un" 的性数变化:',
-                mistakesUnDesc: '当 "un" 作为冠词修饰名词时，它需要与名词的性数配合。例如 "un livre" (一本书) vs "une table" (一张桌子)。但在复合数字中，它保持不变，例如 <code>vingt-et-un</code>。',
-                quizNumbersTitle: '数字小测验',
-                quizNumbersDesc: '请写出下面数字的法语形式:',
-                quizPlaceholder: '在此输入答案...',
+                mistakesMilleDesc: 'Mille 永远不变。Million/Milliard 变。',
+                mistakesHyphenTitle: '连字符:',
+                mistakesHyphenDesc: '别忘了连字符！',
+                mistakesUnTitle: '数字 "Un":',
+                mistakesUnDesc: '作为数字不变，作为冠词变性。',
+                quizNumbersTitle: '数字大挑战',
+                quizNumbersDesc: '写出这个数字的法语:',
+                quizPlaceholder: '输入法语...',
                 btnCheck: '检查',
                 btnNext: '下一个',
-                part2Title: '第二部分：时间与日期 (Le Temps et la Date)',
-                timeTitle: '时间的表达 (L\'heure)',
-                timeAsk: '询问时间:',
-                timeAnswer: '回答时间以 "Il est..." 开始。',
-                timeOClock: '整点: <code class="bg-gray-200 p-1 rounded">Il est deux heures.</code> (2:00)',
-                timeQuarter: '一刻钟 (15分): <code class="bg-gray-200 p-1 rounded">Il est deux heures et quart.</code> (2:15)',
-                timeHalf: '半小时 (30分): <code class="bg-gray-200 p-1 rounded">Il est deux heures et demie.</code> (2:30)',
-                timeThreeQuarters: '三刻钟 (45分): <code class="bg-gray-200 p-1 rounded">Il est trois heures moins le quart.</code> (2:45, 即 "三点差一刻")',
-                time24h: '正式/24小时制: 直接读数字，例如 <code class="bg-gray-200 p-1 rounded">Il est quatorze heures quarante-cinq.</code> (14:45)',
-                quizTimeDesc: '请用日常法语写出下面时间 (例如: 2:30):',
+                part2Title: '第二部分：时间与日期',
+                timeTitle: '时间的表达',
+                timeAsk: '询问: Quelle heure est-il ?',
+                timeOClock: '整点: Il est deux heures.',
+                timeQuarter: '一刻: et quart.',
+                timeHalf: '半点: et demie.',
+                timeThreeQuarters: '三刻: moins le quart.',
+                time24h: '24小时制: 直接读数。',
+                quizTimeDesc: '写出时间 (例: 2:30):',
                 quizTimePlaceholder: 'Il est...',
-                specificTimeTitle: '具体时间的表达 (L\'heure exacte)',
-                specificTimeDesc: '对于非固定的分钟数，有两种主要表达方式。规则的分界点在“半小时”。',
-                specificTimeRule1: '<strong>分钟数在 1-30 分:</strong>',
-                specificTimeRule1Desc: '格式为 <code class="bg-gray-200 p-1 rounded">Il est [小时] heure(s) [分钟].</code> 例如: <code class="bg-gray-200 p-1 rounded">Il est deux heures dix.</code> (2:10)',
-                specificTimeRule2: '<strong>分钟数在 31-59 分:</strong>',
-                specificTimeRule2Desc: '常用“差几分到下个整点”的方式。格式为 <code class="bg-gray-200 p-1 rounded">Il est [下一个小时] heure(s) moins [差的分钟数].</code> 例如: <code class="bg-gray-200 p-1 rounded">Il est trois heures moins vingt.</code> (2:40, 即“三点差二十分”)',
-                specificTimeNoon: '<strong>中午和午夜:</strong>',
-                specificTimeNoonDesc: '中午12点是 <code class="bg-gray-200 p-1 rounded">midi</code>，午夜12点是 <code class="bg-gray-200 p-1 rounded">minuit</code>。例如: <code class="bg-gray-200 p-1 rounded">Il est midi et quart.</code> (12:15)',
-                specificTimeHalfTitle: '<strong>半小时 (demi / demie):</strong>',
-                specificTimeHalfDesc: '半小时的表达是 <code class="bg-gray-200 p-1 rounded">et demie</code>。<strong>易错点:</strong> <code class="font-mono">demie</code> 在这里需要与阴性的 <code class="font-mono">heure</code> 配合，所以用 <code class="font-mono">-e</code> 结尾。但是，在 <code class="font-mono">midi</code> 和 <code class="font-mono">minuit</code> (均为阳性) 后面，则用 <code class="font-mono">demi</code>，例如 <code class="bg-gray-200 p-1 rounded">Il est midi et demi.</code> (12:30)。',
-                quizSpecificTimeDesc: '请用日常法语写出下面具体时间:',
-                dateTitle: '日期与星期 (La Date)',
-                daysOfWeek: '星期 (Les jours)',
-                monthsOfYear: '月份 (Les mois)',
-                dateExpressionTitle: '如何表达日期',
-                dateExpressionFormat: '格式: <code class="bg-gray-200 p-1 rounded">On est le [星期] [日] [月].</code>',
-                dateExpressionExample: '例如: <strong class="text-blue-700">On est le lundi 25 août.</strong> (今天是8月25日星期一)',
-                dateExpressionNote: '注意：星期和月份在法语中首字母不需要大写。',
-                yearTitle: '年份的表达 (L\'année)',
-                yearDesc: '在法语中，年份通常作为一个完整的数字来读。介词 <code class="bg-gray-200 p-1 rounded">en</code> 用于表达“在某某年”。',
-                yearExample1: '1995: <code class="bg-gray-200 p-1 rounded">mille neuf cent quatre-vingt-quinze</code>',
-                yearExample2: '2024: <code class="bg-gray-200 p-1 rounded">deux mille vingt-quatre</code>',
-                yearExample3: '1800: <code class="bg-gray-200 p-1 rounded">mille huit cents</code> (注意 <code class="font-mono">cent</code> 在这里有\'s\')',
-                yearUsage: '用法: <code class="bg-gray-200 p-1 rounded">Je suis né en mille neuf cent quatre-vingt-dix.</code> (我出生于1990年)',
-                quizYearDesc: '请写出下面年份的法语形式:',
-                seasonsTitle: '季节 (Les Saisons)',
-                seasonsPrepositionTitle: '季节的介词',
-                seasonsPrepositionSpring: '春季用 <code class="bg-gray-200 p-1 rounded">au</code>: au printemps.',
-                seasonsPrepositionOthers: '其他季节用 <code class="bg-gray-200 p-1 rounded">en</code>: en été, en automne, en hiver.',
+                specificTimeTitle: '具体时间',
+                specificTimeRule1: '1-30 分',
+                specificTimeRule1Desc: 'Il est [时] heures [分].',
+                specificTimeRule2: '31-59 分',
+                specificTimeRule2Desc: 'Il est [下一时] heures moins [差分].',
+                specificTimeHalfDesc: 'demie (阴) vs demi (阳, midi/minuit后).',
+                quizSpecificTimeDesc: '练习具体时间:',
+                dateTitle: '日期与星期',
+                daysOfWeek: '星期',
+                monthsOfYear: '月份',
+                dateExpressionFormat: '格式: On est le [星期] [日] [月].',
+                dateExpressionExample: '例: On est le lundi 25 août.',
+                yearTitle: '年份 (L\'année)',
+                yearDesc: '年份通常作为完整数字读。',
+                yearExample1: '1995: mille neuf cent...',
+                yearExample2: '2024: deux mille...',
+                yearExample3: '1800: mille huit cents',
+                quizYearDesc: '写出年份法语:',
+                seasonsTitle: '季节',
+                seasonsPrepositionTitle: '季节介词',
                 feedbackCorrect: '正确! 🎉',
-                feedbackIncorrect: '错误。正确答案: ',
-                seasonFeedbackCorrect: '非常棒！正确！',
-                seasonFeedbackIncorrect: '不对哦, 正确答案是 ',
-                part3Title: '第三部分：地道表达与地区差异',
-                idiomsTitle: '地道表达 (Expressions idiomatiques)',
-                idiom1Title: '<strong>Chercher midi à quatorze heures:</strong>',
-                idiom1Desc: '字面意思是“在下午两点找中午”，实际意为“庸人自扰，把简单问题复杂化”。',
-                idiom2Title: '<strong>Se mettre sur son trente-et-un:</strong>',
-                idiom2Desc: '意为“盛装打扮，穿上自己最好的衣服”。',
-                idiom3Title: '<strong>La semaine des quatre jeudis:</strong>',
-                idiom3Desc: '字面意思是“有四个星期四的一周”，实际意为“永远不可能发生的事，遥遥无期”。',
-                regionalTitle: '地区差异 (Variations régionales)',
-                regionalCanadaTitle: '加拿大法语 (Français canadien)',
-                regionalCanadaMeals: '<strong>一日三餐:</strong> 在魁北克，早餐是 <code class="bg-gray-200 p-1 rounded">le déjeuner</code>，午餐是 <code class="bg-gray-200 p-1 rounded">le dîner</code>，晚餐是 <code class="bg-gray-200 p-1 rounded">le souper</code>。这和法国本土的用法 (<code class="font-mono">petit-déjeuner</code>, <code class="font-mono">déjeuner</code>, <code class="font-mono">dîner</code>) 完全不同。',
-                regionalSwissTitle: '瑞士与比利时法语 (Français de Suisse et de Belgique)',
-                regionalSwissNumbers: '<strong>数字:</strong> 在瑞士（以及比利时）的某些地区，70, 80, 90 的说法不同，且更符合逻辑：70 是 <code class="bg-gray-200 p-1 rounded">septante</code>，80 是 <code class="bg-gray-200 p-1 rounded">huitante</code> (主要在瑞士) 或 <code class="bg-gray-200 p-1 rounded">quatre-vingts</code>，90 是 <code class="bg-gray-200 p-1 rounded">nonante</code>。',
-                copyright: '版权所有hugo',
-                contact: '帮助与反馈联系邮箱'
+                feedbackIncorrect: '错误。正确: ',
+                seasonFeedbackCorrect: '棒极了！',
+                seasonFeedbackIncorrect: '不对哦，是 ',
+                part3Title: '第三部分：拓展',
+                idiomsTitle: '地道表达',
+                idiom1Title: 'Chercher midi à 14h',
+                idiom1Desc: '庸人自扰，把简单变复杂。',
+                idiom2Title: 'Se mettre sur son 31',
+                idiom2Desc: '盛装打扮。',
+                idiom3Title: 'La semaine des 4 jeudis',
+                idiom3Desc: '遥遥无期，不可能。',
+                regionalTitle: '地区差异',
+                regionalCanadaTitle: '加拿大法语',
+                regionalCanadaMeals: '早/午/晚: déjeuner/dîner/souper.',
+                regionalSwissTitle: '瑞士/比利时',
+                regionalSwissNumbers: '70/80/90: septante/huitante/nonante.',
+                copyright: '版权所有 hugo',
+                contact: '联系我们'
             },
             en: {
-                mainTitle: 'Complete Guide to French Numbers & Expressions',
-                subTitle: 'An interactive guide to systematically learn French basics',
-                part1Title: 'Part 1: Numbers (Les Nombres)',
-                basicNumbersTitle: 'Basic Numbers (0-20)',
+                mainTitle: 'French Numbers & Expressions',
+                subTitle: 'Interactive Guide to Basics',
+                part1Title: 'Part 1: Numbers',
+                basicNumbersTitle: 'Basic (0-20)',
                 tensNumbersTitle: 'Tens (20-60)',
-                tabRules: 'Special Rules',
-                tabGrammar: 'Grammar Points',
+                tabRules: 'Rules',
+                tabGrammar: 'Grammar',
                 tabPronunciation: 'Pronunciation',
-                tabMistakes: 'Common Mistakes',
-                rulesDesc: 'French numbers have a unique counting logic for 70, 80, and 90, which are key points to learn.',
-                rules70Title: '70-79: Based on 60 + addition',
-                rules70Desc: '70 is <code class="bg-blue-200 text-blue-900 px-1 rounded">soixante-dix</code> (60+10), 71 is <code class="bg-blue-200 text-blue-900 px-1 rounded">soixante-et-onze</code> (60+11), and so on.',
-                rules80Title: '80-89: Based on 20 x multiplication',
-                rules80Desc: '80 is <code class="bg-green-200 text-green-900 px-1 rounded">quatre-vingts</code> (4x20). Note that <code class="font-mono">vingt</code> has an \'s\' here. But from 81 <code class="bg-green-200 text-green-900 px-1 rounded">quatre-vingt-un</code> (4x20-1), the \'s\' disappears.',
-                rules90Title: '90-99: Based on 80 + 10',
-                rules90Desc: '90 is <code class="bg-yellow-200 text-yellow-900 px-1 rounded">quatre-vingt-dix</code> (4x20+10), 91 is <code class="bg-yellow-200 text-yellow-900 px-1 rounded">quatre-vingt-onze</code> (4x20+11), and so on.',
-                grammarHyphen: '<strong>Hyphen (-):</strong> In compound numbers less than 100, a hyphen is usually used between the tens and units digits, e.g., <code class="bg-gray-200 px-1 rounded">dix-sept</code> (17), <code class="bg-gray-200 px-1 rounded">trente-deux</code> (32).',
-                grammarEt: '<strong>"et" (and):</strong> "et" is only used for 21, 31, 41, 51, 61, 71, e.g., <code class="bg-gray-200 px-1 rounded">vingt-et-un</code>. It is not used for 81 and 91.',
-                grammarPlural: '<strong>Plural \'s\' for Vingt (20) and Cent (100):</strong> An \'s\' is added when they are multiplied and not followed by another number, e.g., <code class="bg-gray-200 px-1 rounded">quatre-vingts</code> (80), <code class="bg-gray-200 px-1 rounded">deux cents</code> (200). But not in <code class="bg-gray-200 px-1 rounded">quatre-vingt-trois</code> (83) or <code class="bg-gray-200 px-1 rounded">deux cent un</code> (201).',
-                grammarMille: '<strong>Mille (1000):</strong> Is invariable and never takes an \'s\'. E.g., <code class="bg-gray-200 px-1 rounded">deux mille</code> (2000).',
-                pronunciationConsonant: '<strong>Final consonants:</strong> The final consonants of 5 (cinq), 6 (six), 8 (huit), 10 (dix) are pronounced when said alone or before a vowel, but often silent before a consonant.',
-                pronunciationLiaison: '<strong>Liaison:</strong> Occurs when a number ends in a consonant and is followed by a word starting with a vowel. E.g., "deux ans" (two years) sounds like "deu-zans".',
-                pronunciationNasal: '<strong>Nasal vowels:</strong> Un, vingt, cent contain typical French nasal vowels, where air passes through both the mouth and nose.',
-                mistakesPluralTitle: 'The \'s\' rule for "Vingt" and "Cent":',
-                mistakesPluralDesc: '<code>quatre-vingts</code> (80) has an \'s\', but <code>quatre-vingt-un</code> (81) does not. The \'s\' is only added when it\'s a multiple and not followed by another number. E.g., <code>deux cents</code> (200) vs <code>deux cent cinquante</code> (250).',
-                mistakesEtTitle: 'When to use "et":',
-                mistakesEtDesc: '"et" (and) is only used for 21, 31, 41, 51, 61, 71. Note that 81 (<code class="bg-gray-200 px-1 rounded">quatre-vingt-un</code>) and 91 (<code class="bg-gray-200 px-1 rounded">quatre-vingt-onze</code>) do not use "et".',
-                mistakesMilleTitle: 'Invariability of "Mille":',
-                mistakesMilleDesc: '<code>mille</code> (1000) never takes an \'s\'. E.g., <code>trois mille</code> (3000). However, <code>million</code> and <code>milliard</code> are nouns and do take an \'s\', e.g., <code>deux millions</code>.',
-                mistakesHyphenTitle: 'Forgetting the hyphen:',
-                mistakesHyphenDesc: 'Compound numbers under 100 almost always require hyphens, e.g., <code>soixante-dix-huit</code> (78). This is a common writing mistake.',
-                mistakesUnTitle: 'Gender/number agreement of "Un":',
-                mistakesUnDesc: 'When "un" is an article modifying a noun, it agrees in gender. E.g., "un livre" (a book) vs "une table" (a table). But in compound numbers, it remains "un", e.g., <code>vingt-et-un</code>.',
-                quizNumbersTitle: 'Numbers Quiz',
-                quizNumbersDesc: 'Write the following number in French:',
-                quizPlaceholder: 'Type your answer here...',
+                tabMistakes: 'Mistakes',
+                rulesDesc: 'Logic changes at 70, 80, 90.',
+                rules70Title: '70-79: Base 60',
+                rules70Desc: '70 = soixante-dix',
+                rules80Title: '80-89: Base 20',
+                rules80Desc: '80 = quatre-vingts',
+                rules90Title: '90-99: 80+10',
+                rules90Desc: '90 = quatre-vingt-dix',
+                grammarHyphen: '<strong>Hyphen:</strong> Use for numbers < 100.',
+                grammarEt: '<strong>"et":</strong> For 21, 31... 71.',
+                grammarPlural: '<strong>Plural \'s\':</strong> For Vingt/Cent multiples.',
+                grammarMille: '<strong>Mille:</strong> Invariable.',
+                pronunciationConsonant: '<strong>Final consonants:</strong> 5, 6, 8, 10.',
+                pronunciationLiaison: '<strong>Liaison:</strong> Before vowels.',
+                pronunciationNasal: '<strong>Nasal:</strong> Un, vingt, cent.',
+                mistakesPluralTitle: '\'s\' rule:',
+                mistakesPluralDesc: '80 yes, 81 no.',
+                mistakesEtTitle: '"et" usage:',
+                mistakesEtDesc: 'Not in 81, 91.',
+                mistakesMilleTitle: '"Mille":',
+                mistakesMilleDesc: 'Never plural.',
+                mistakesHyphenTitle: 'Hyphens:',
+                mistakesHyphenDesc: 'Don\'t forget them.',
+                mistakesUnTitle: '"Un":',
+                mistakesUnDesc: 'Agrees as article.',
+                quizNumbersTitle: 'Number Challenge',
+                quizNumbersDesc: 'Write in French:',
+                quizPlaceholder: 'Type here...',
                 btnCheck: 'Check',
                 btnNext: 'Next',
-                part2Title: 'Part 2: Time & Date (Le Temps et la Date)',
-                timeTitle: 'Telling Time (L\'heure)',
-                timeAsk: 'To ask the time:',
-                timeAnswer: 'To answer, start with "Il est...".',
-                timeOClock: 'On the hour: <code class="bg-gray-200 p-1 rounded">Il est deux heures.</code> (2:00)',
-                timeQuarter: 'Quarter past: <code class="bg-gray-200 p-1 rounded">Il est deux heures et quart.</code> (2:15)',
-                timeHalf: 'Half past: <code class="bg-gray-200 p-1 rounded">Il est deux heures et demie.</code> (2:30)',
-                timeThreeQuarters: 'Quarter to: <code class="bg-gray-200 p-1 rounded">Il est trois heures moins le quart.</code> (2:45, lit. "three o\'clock minus a quarter")',
-                time24h: 'Formal/24-hour clock: Read the numbers directly, e.g., <code class="bg-gray-200 p-1 rounded">Il est quatorze heures quarante-cinq.</code> (14:45)',
-                quizTimeDesc: 'Write the following time in conversational French (e.g., 2:30):',
+                part2Title: 'Part 2: Time & Date',
+                timeTitle: 'Telling Time',
+                timeAsk: 'Ask: Quelle heure est-il ?',
+                timeOClock: 'Hour: Il est deux heures.',
+                timeQuarter: 'Quarter: et quart.',
+                timeHalf: 'Half: et demie.',
+                timeThreeQuarters: 'Quarter to: moins le quart.',
+                time24h: '24h: Read numbers.',
+                quizTimeDesc: 'Write time (e.g. 2:30):',
                 quizTimePlaceholder: 'Il est...',
-                specificTimeTitle: 'Telling the Exact Time (L\'heure exacte)',
-                specificTimeDesc: 'For specific minutes, there are two main ways. The dividing line is the half-hour mark.',
-                specificTimeRule1: '<strong>Minutes 1-30:</strong>',
-                specificTimeRule1Desc: 'The format is <code class="bg-gray-200 p-1 rounded">Il est [hour] heure(s) [minutes].</code> E.g., <code class="bg-gray-200 p-1 rounded">Il est deux heures dix.</code> (2:10)',
-                specificTimeRule2: '<strong>Minutes 31-59:</strong>',
-                specificTimeRule2Desc: 'It\'s common to say "minutes to the next hour". The format is <code class="bg-gray-200 p-1 rounded">Il est [next hour] heure(s) moins [minutes to].</code> E.g., <code class="bg-gray-200 p-1 rounded">Il est trois heures moins vingt.</code> (2:40, lit. "three o\'clock minus twenty")',
-                specificTimeNoon: '<strong>Noon and Midnight:</strong>',
-                specificTimeNoonDesc: '12 PM is <code class="bg-gray-200 p-1 rounded">midi</code>, and 12 AM is <code class="bg-gray-200 p-1 rounded">minuit</code>. E.g., <code class="bg-gray-200 p-1 rounded">Il est midi et quart.</code> (12:15)',
-                specificTimeHalfTitle: '<strong>Half Past (demi / demie):</strong>',
-                specificTimeHalfDesc: 'The expression for half past is <code class="bg-gray-200 p-1 rounded">et demie</code>. <strong>Common Mistake:</strong> <code class="font-mono">demie</code> here agrees with the feminine noun <code class="font-mono">heure</code>, so it ends with <code class="font-mono">-e</code>. However, after <code class="font-mono">midi</code> and <code class="font-mono">minuit</code> (which are masculine), you use <code class="font-mono">demi</code>, e.g., <code class="bg-gray-200 p-1 rounded">Il est midi et demi.</code> (12:30).',
-                quizSpecificTimeDesc: 'Write the following exact time in conversational French:',
-                dateTitle: 'Date & Week (La Date)',
-                daysOfWeek: 'Days of the week (Les jours)',
-                monthsOfYear: 'Months of the year (Les mois)',
-                dateExpressionTitle: 'How to express the date',
-                dateExpressionFormat: 'Format: <code class="bg-gray-200 p-1 rounded">On est le [day] [date] [month].</code>',
-                dateExpressionExample: 'Example: <strong class="text-blue-700">On est le lundi 25 août.</strong> (Today is Monday, August 25th)',
-                dateExpressionNote: 'Note: Days and months are not capitalized in French.',
-                yearTitle: 'Telling the Year (L\'année)',
-                yearDesc: 'In French, years are typically read as a full number. The preposition <code class="bg-gray-200 p-1 rounded">en</code> is used to say "in the year...".',
-                yearExample1: '1995: <code class="bg-gray-200 p-1 rounded">mille neuf cent quatre-vingt-quinze</code>',
-                yearExample2: '2024: <code class="bg-gray-200 p-1 rounded">deux mille vingt-quatre</code>',
-                yearExample3: '1800: <code class="bg-gray-200 p-1 rounded">mille huit cents</code> (Note the \'s\' on <code class="font-mono">cent</code> here)',
-                yearUsage: 'Usage: <code class="bg-gray-200 p-1 rounded">Je suis né en mille neuf cent quatre-vingt-dix.</code> (I was born in 1990)',
-                quizYearDesc: 'Write the following year in French:',
-                seasonsTitle: 'Seasons (Les Saisons)',
-                seasonsPrepositionTitle: 'Prepositions for seasons',
-                seasonsPrepositionSpring: 'For spring, use <code class="bg-gray-200 p-1 rounded">au</code>: au printemps.',
-                seasonsPrepositionOthers: 'For other seasons, use <code class="bg-gray-200 p-1 rounded">en</code>: en été, en automne, en hiver.',
+                specificTimeTitle: 'Exact Time',
+                specificTimeRule1: '1-30 mins',
+                specificTimeRule1Desc: 'Il est [hr] heures [min].',
+                specificTimeRule2: '31-59 mins',
+                specificTimeRule2Desc: 'Il est [next hr] heures moins [min].',
+                specificTimeHalfDesc: 'demie (fem) vs demi (masc).',
+                quizSpecificTimeDesc: 'Practice exact time:',
+                dateTitle: 'Date & Week',
+                daysOfWeek: 'Days',
+                monthsOfYear: 'Months',
+                dateExpressionFormat: 'Format: On est le [Day] [Num] [Month].',
+                dateExpressionExample: 'Ex: On est le lundi 25 août.',
+                yearTitle: 'Year',
+                yearDesc: 'Read as full number.',
+                yearExample1: '1995: mille neuf cent...',
+                yearExample2: '2024: deux mille...',
+                yearExample3: '1800: mille huit cents',
+                quizYearDesc: 'Write year:',
+                seasonsTitle: 'Seasons',
+                seasonsPrepositionTitle: 'Prepositions',
                 feedbackCorrect: 'Correct! 🎉',
-                feedbackIncorrect: 'Incorrect. The correct answer is: ',
-                seasonFeedbackCorrect: 'Excellent! Correct!',
-                seasonFeedbackIncorrect: 'Not quite, the correct answer is ',
-                part3Title: 'Part 3: Idiomatic Expressions & Regional Variations',
-                idiomsTitle: 'Idiomatic Expressions (Expressions idiomatiques)',
-                idiom1Title: '<strong>Chercher midi à quatorze heures:</strong>',
-                idiom1Desc: 'Literally "to look for noon at 2 PM", it means "to overcomplicate things".',
-                idiom2Title: '<strong>Se mettre sur son trente-et-un:</strong>',
-                idiom2Desc: 'Means "to dress up" or "to wear one\'s best clothes".',
-                idiom3Title: '<strong>La semaine des quatre jeudis:</strong>',
-                idiom3Desc: 'Literally "the week of four Thursdays", it means "never" or "when pigs fly".',
-                regionalTitle: 'Regional Variations (Variations régionales)',
-                regionalCanadaTitle: 'Canadian French (Français canadien)',
-                regionalCanadaMeals: '<strong>Meals of the day:</strong> In Québec, breakfast is <code class="bg-gray-200 p-1 rounded">le déjeuner</code>, lunch is <code class="bg-gray-200 p-1 rounded">le dîner</code>, and dinner is <code class="bg-gray-200 p-1 rounded">le souper</code>. This is different from France (<code class="font-mono">petit-déjeuner</code>, <code class="font-mono">déjeuner</code>, <code class="font-mono">dîner</code>).',
-                regionalSwissTitle: 'Swiss & Belgian French (Français de Suisse et de Belgique)',
-                regionalSwissNumbers: '<strong>Numbers:</strong> In parts of Switzerland (and Belgium), the numbers for 70, 80, and 90 are different and more logical: 70 is <code class="bg-gray-200 p-1 rounded">septante</code>, 80 is <code class="bg-gray-200 p-1 rounded">huitante</code> (mainly Swiss) or <code class="bg-gray-200 p-1 rounded">quatre-vingts</code>, and 90 is <code class="bg-gray-200 p-1 rounded">nonante</code>.',
-                copyright: 'Copyright © hugo',
-                contact: 'For help & feedback, contact'
+                feedbackIncorrect: 'Wrong. Answer: ',
+                seasonFeedbackCorrect: 'Great!',
+                seasonFeedbackIncorrect: 'No, it is ',
+                part3Title: 'Part 3: Extras',
+                idiomsTitle: 'Idioms',
+                idiom1Title: 'Chercher midi à 14h',
+                idiom1Desc: 'Complicate things.',
+                idiom2Title: 'Se mettre sur son 31',
+                idiom2Desc: 'Dress up.',
+                idiom3Title: 'La semaine des 4 jeudis',
+                idiom3Desc: 'Never.',
+                regionalTitle: 'Variations',
+                regionalCanadaTitle: 'Canada',
+                regionalCanadaMeals: 'Meals differ.',
+                regionalSwissTitle: 'Swiss/Belgium',
+                regionalSwissNumbers: '70/80/90 logic.',
+                copyright: 'Copyright © learnfr.de ',
+                contact: 'Contact'
             }
         };
 
@@ -598,8 +793,8 @@
         const basicNumbersGrid = document.getElementById('basic-numbers-grid');
         for (let i = 0; i <= 20; i++) {
             const numberCard = document.createElement('div');
-            numberCard.className = 'flex items-center justify-between p-3 bg-white rounded-lg shadow';
-            numberCard.innerHTML = `<span class="font-bold text-indigo-600">${i}</span><span class="text-gray-700">${frenchData.numbers[i]}</span>`;
+            numberCard.className = 'num-card';
+            numberCard.innerHTML = `<span class="block text-2xl font-black text-[var(--c-cyan)]">${i}</span><span class="text-sm font-bold">${frenchData.numbers[i]}</span>`;
             basicNumbersGrid.appendChild(numberCard);
         }
 
@@ -607,12 +802,12 @@
         const tens = [20, 30, 40, 50, 60];
         tens.forEach(num => {
             const numberCard = document.createElement('div');
-            numberCard.className = 'flex items-center justify-between p-3 bg-white rounded-lg shadow';
-            numberCard.innerHTML = `<span class="font-bold text-indigo-600">${num}</span><span class="text-gray-700">${frenchData.numbers[num]}</span>`;
+            numberCard.className = 'num-card';
+            numberCard.innerHTML = `<span class="block text-2xl font-black text-[var(--c-cyan)]">${num}</span><span class="text-sm font-bold">${frenchData.numbers[num]}</span>`;
             tensNumbersGrid.appendChild(numberCard);
         });
 
-        const tabs = document.querySelectorAll('.tab');
+        const tabs = document.querySelectorAll('.neo-tab');
         const tabPanes = document.querySelectorAll('.tab-pane');
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
@@ -623,6 +818,7 @@
             });
         });
         
+        // Quiz Logic (Numbers)
         const practiceNumberEl = document.getElementById('practice-number');
         const practiceInput = document.getElementById('practice-input');
         const checkButton = document.getElementById('check-button');
@@ -674,11 +870,11 @@
             const correctAnswer = numberToWords(currentPracticeNumber).replace(/\s/g, '-');
             if (userAnswer === correctAnswer) {
                 feedbackEl.textContent = translations[currentLanguage].feedbackCorrect;
-                feedbackEl.className = 'mt-4 h-6 text-lg font-semibold text-green-600';
+                feedbackEl.style.color = 'var(--c-green)';
                 practiceInput.disabled = true;
             } else {
                 feedbackEl.textContent = `${translations[currentLanguage].feedbackIncorrect}${correctAnswer.replace(/-/g, ' ')}`;
-                feedbackEl.className = 'mt-4 h-6 text-lg font-semibold text-red-600';
+                feedbackEl.style.color = 'red';
             }
         }
         
@@ -720,10 +916,8 @@
             const userAnswer = timePracticeInput.value.trim().toLowerCase();
             if (userAnswer === currentTimeAnswer) {
                 timeFeedback.textContent = translations[currentLanguage].feedbackCorrect;
-                timeFeedback.className = 'mt-4 h-6 text-lg font-semibold text-green-600';
             } else {
                 timeFeedback.textContent = `${translations[currentLanguage].feedbackIncorrect}${currentTimeAnswer}`;
-                timeFeedback.className = 'mt-4 h-6 text-lg font-semibold text-red-600';
             }
         });
         timeNextButton.addEventListener('click', generateTimePractice);
@@ -738,7 +932,7 @@
 
         function generateSpecificTimePractice() {
             const hours = Math.floor(Math.random() * 12) + 1;
-            const minutes = Math.floor(Math.random() * 59) + 1; // 1-59
+            const minutes = Math.floor(Math.random() * 59) + 1;
             specificTimeQ.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
             
             let answer;
@@ -761,11 +955,9 @@
             const userAnswer = specificTimeInput.value.trim().toLowerCase();
             if (userAnswer === currentSpecificTimeAnswer) {
                 specificTimeFeedback.textContent = translations[currentLanguage].feedbackCorrect;
-                specificTimeFeedback.className = 'mt-4 h-6 text-lg font-semibold text-green-600';
                 specificTimeInput.disabled = true;
             } else {
                 specificTimeFeedback.textContent = `${translations[currentLanguage].feedbackIncorrect}${currentSpecificTimeAnswer}`;
-                specificTimeFeedback.className = 'mt-4 h-6 text-lg font-semibold text-red-600';
             }
         });
         specificTimeNextButton.addEventListener('click', generateSpecificTimePractice);
@@ -781,20 +973,20 @@
         function populateDateAndSeason() {
             daysList.innerHTML = '';
             Object.entries(frenchData.days).forEach(([french, lang]) => {
-                daysList.innerHTML += `<li class="p-1 rounded">${french.charAt(0).toUpperCase() + french.slice(1)} (${lang[currentLanguage]})</li>`;
+                daysList.innerHTML += `<li><span class="text-[var(--c-blue)]">${french}</span> - ${lang[currentLanguage]}</li>`;
             });
 
             monthsList.innerHTML = '';
             Object.entries(frenchData.months).forEach(([french, lang]) => {
-                monthsList.innerHTML += `<li class="p-1 rounded">${french.charAt(0).toUpperCase() + french.slice(1)} (${lang[currentLanguage]})</li>`;
+                monthsList.innerHTML += `<li><span class="text-[var(--c-blue)]">${french}</span> - ${lang[currentLanguage]}</li>`;
             });
 
             seasonsGrid.innerHTML = '';
             Object.entries(frenchData.seasons).forEach(([french, lang]) => {
                 seasonsGrid.innerHTML += `
-                    <div class="bg-white p-4 rounded-lg shadow text-center">
-                        <p class="text-2xl">${lang[currentLanguage]}</p>
-                        <p class="text-yellow-700 font-semibold">${french}</p>
+                    <div class="num-card bg-white">
+                        <p class="text-xl font-black">${lang[currentLanguage]}</p>
+                        <p class="text-yellow-700 font-bold text-sm">${french}</p>
                     </div>
                 `;
             });
@@ -822,11 +1014,9 @@
             const userAnswer = yearPracticeInput.value.trim().toLowerCase().replace(/\s/g, '-').replace(/--/g, '-');
             if (userAnswer === currentYearAnswer) {
                 yearFeedback.textContent = translations[currentLanguage].feedbackCorrect;
-                yearFeedback.className = 'mt-4 h-6 text-lg font-semibold text-green-600';
                 yearPracticeInput.disabled = true;
             } else {
                 yearFeedback.textContent = `${translations[currentLanguage].feedbackIncorrect}${currentYearAnswer.replace(/-/g, ' ')}`;
-                yearFeedback.className = 'mt-4 h-6 text-lg font-semibold text-red-600';
             }
         });
         yearNextButton.addEventListener('click', generateYearPractice);
@@ -855,15 +1045,15 @@
 
             choices.forEach(season => {
                 const button = document.createElement('button');
-                button.className = 'bg-yellow-200 text-yellow-800 font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-colors';
+                button.className = 'neo-btn bg-white text-black border-black px-4 py-1 text-sm hover:bg-[var(--c-pink)]';
                 button.textContent = season;
                 button.onclick = () => {
                     if (season === currentQuestion.answer) {
                         seasonFeedback.textContent = translations[currentLanguage].seasonFeedbackCorrect;
-                        seasonFeedback.className = 'mt-4 h-6 text-lg font-semibold text-green-600';
+                        seasonFeedback.style.color = 'green';
                     } else {
                         seasonFeedback.textContent = `${translations[currentLanguage].seasonFeedbackIncorrect}${currentQuestion.answer}`;
-                        seasonFeedback.className = 'mt-4 h-6 text-lg font-semibold text-red-600';
+                        seasonFeedback.style.color = 'red';
                     }
                 };
                 seasonOptionsContainer.appendChild(button);
@@ -876,7 +1066,7 @@
         });
 
         // ==========================================================
-        // SECTION: 语言切换 (LANGUAGE SWITCHER)
+        // SECTION: 语言切换
         // ==========================================================
         const langZhBtn = document.getElementById('lang-zh');
         const langEnBtn = document.getElementById('lang-en');
@@ -928,6 +1118,17 @@
         generateSpecificTimePractice();
         generateYearPractice();
         setLanguage('zh'); // 默认加载中文
+
+        // Scroll Animation Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
     });
     </script>
 </body>

@@ -3,307 +3,486 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>定价方案 - LinguaX</title>
+    <title>定价方案 - LinguaX Neo</title>
     <meta name="description" content="探索 LinguaX 灵活的个人及家庭会员方案，选择最适合您的法语学习之旅的计划。">
-    <meta name="keywords" content="法语学习定价, LinguaX会员, 家庭套餐, 法语课程价格, Ultra Club">
     
-    <!-- 引入Tailwind CSS -->
+    <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- 引入字体和图标 -->
+    <!-- 引入 Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- 引入 Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Sans:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;700;900&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            /* --- Neo-Brutalism Palette --- */
+            --bg-color: #ffffff;
+            --text-main: #000000;
+            --border-color: #000000;
+            
+            /* 方案主题色 */
+            --c-free: #f3f4f6;      /* 灰 */
+            --c-super: #4ECDC4;     /* 青 (参考图右下) */
+            --c-vip: #9b5de5;       /* 紫 */
+            --c-ultra: #FFE66D;     /* 黄 (参考图左上) */
+            --c-ultra-plus: #FF6B6B; /* 粉 (参考图中间) */
+
+            --border-width: 3px;
+            --shadow-hard: 6px 6px 0px #000000;
+            --shadow-hover: 2px 2px 0px #000000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
         body {
-            font-family: 'Noto Sans', 'Noto Sans SC', sans-serif;
-            background-color: #0c1427;
+            font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            /* 还原参考图的点阵背景 */
+            background-image: radial-gradient(#000 2px, transparent 2px);
+            background-size: 40px 40px;
         }
-        :lang(ar) body {
-            font-family: 'Cairo', sans-serif;
+
+        :lang(ar) body { font-family: 'Cairo', sans-serif; }
+
+        /* --- 几何装饰 (参考图片) --- */
+        .geo-shape {
+            position: absolute;
+            border: var(--border-width) solid black;
+            z-index: -1;
+            animation: float 8s ease-in-out infinite;
         }
-        h1, h2, h3 {
-             font-weight: 900;
+        .geo-circle {
+            border-radius: 50%;
         }
-        .gradient-text {
-            background: linear-gradient(45deg, #38bdf8, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-        }
-        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
-        .modal-content { transition: transform 0.3s ease; }
         
-        .plan-toggle button.active {
-            background-color: #0ea5e9;
-            color: #ffffff;
-            box-shadow: 0 4px 14px 0 rgb(14 165 233 / 39%);
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-10px, -15px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
         }
-        .plan-toggle button {
-            transition: all 0.3s ease;
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
-        /* Dropdown styles - JS will handle visibility */
-        .dropdown-content {
-            max-height: 250px;
-            overflow-y: auto;
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #000;
+            color: #fff;
+            border-top: var(--border-width) solid black;
+            border-bottom: var(--border-width) solid black;
+            transform: rotate(-2deg);
+            width: 105%;
+            margin-left: -2.5%;
+            margin-bottom: 3rem;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            padding: 10px 0;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- 组件样式 --- */
+        .neo-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: var(--border-width) solid black;
+            background: white;
+            box-shadow: 4px 4px 0px black;
+            font-weight: 700;
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+        .neo-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px black;
+        }
+        .neo-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px black;
+        }
+
+        .neo-card {
+            background: white;
+            border: var(--border-width) solid black;
+            box-shadow: var(--shadow-hard);
+            transition: all 0.2s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .neo-card:hover {
+            transform: translate(4px, 4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* 顶部色条 */
+        .card-header-strip {
+            height: 16px;
+            border-bottom: var(--border-width) solid black;
+        }
+
+        /* 切换开关 */
+        .plan-toggle-wrapper {
+            display: inline-flex;
+            background: white;
+            border: var(--border-width) solid black;
+            padding: 4px;
+            box-shadow: var(--shadow-hard);
+        }
+        .toggle-option {
+            padding: 12px 32px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        .toggle-option.active {
+            background: #000;
+            color: #fff;
+            /* border: 2px solid #000; */
+        }
+
+        /* 推荐标签 */
+        .neo-badge {
+            position: absolute;
+            top: 12px;
+            right: -32px;
+            background: #000;
+            color: #fff;
+            padding: 4px 32px;
+            transform: rotate(45deg);
+            font-weight: 900;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            z-index: 10;
+            border-bottom: 2px solid white;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: var(--border-width) solid black;
+            backdrop-filter: blur(8px);
+        }
+        
+        /* Modals */
+        .modal-box {
+            background: white;
+            border: var(--border-width) solid black;
+            box-shadow: 10px 10px 0px black;
         }
     </style>
 </head>
-<body class="bg-slate-900 text-gray-300">
+<body class="min-h-screen flex flex-col relative">
 
-    <header class="bg-slate-900/50 py-4 sticky top-0 z-50">
-        <div class="container mx-auto px-4 sm:px-6 flex justify-between items-center">
-             <a href="#" class="text-2xl sm:text-3xl font-bold tracking-wider gradient-text">
-                <i class="fas fa-language mr-2"></i><span id="brandName-header">LinguaX</span>
+    <!-- 1. 几何背景装饰 (基于上传图片) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- 黄色圆 -->
+        <div class="geo-shape geo-circle w-32 h-32 bg-[var(--c-ultra)] top-20 left-10"></div>
+        <!-- 粉色方块 -->
+        <div class="geo-shape w-40 h-40 bg-[var(--c-ultra-plus)] top-1/2 left-1/4 transform rotate-12" style="animation-delay: 1s;"></div>
+        <!-- 蓝色矩形 -->
+        <div class="geo-shape w-24 h-32 bg-[var(--c-super)] bottom-20 right-10 transform -rotate-6" style="animation-delay: 2s;"></div>
+        <!-- 额外装饰: 三角 -->
+        <svg class="geo-shape w-32 h-32 text-[var(--c-vip)] top-1/3 right-1/4" viewBox="0 0 100 100" style="animation-delay: 3s;">
+            <polygon points="50,10 90,90 10,90" fill="currentColor" stroke="black" stroke-width="3"/>
+        </svg>
+    </div>
+
+    <!-- 2. 导航栏 -->
+    <header class="sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-black text-white flex items-center justify-center border-2 border-black group-hover:bg-[var(--c-ultra)] group-hover:text-black transition-colors">
+                    <i class="ph-bold ph-translate text-2xl"></i>
+                </div>
+                <span class="text-2xl font-black uppercase tracking-tighter" id="brandName-header">LinguaX</span>
             </a>
-            <div class="flex items-center space-x-2 sm:space-x-4">
-                <!-- Region Selector -->
+            
+            <div class="flex items-center gap-3">
+                <!-- 地区 -->
                 <div class="relative">
-                    <button id="region-btn" class="text-xs sm:text-sm font-bold bg-slate-800 border border-slate-700 rounded-full px-3 sm:px-4 py-2 hover:bg-slate-700 transition flex items-center">
-                        <i class="fas fa-map-marker-alt mr-2"></i>
+                    <button id="region-btn" class="neo-btn px-4 py-2 text-sm bg-white hover:bg-gray-100 gap-2 shadow-[2px_2px_0_0_#000]">
+                        <i class="ph-bold ph-map-pin"></i>
                         <span id="current-region-text">中国大陆</span>
-                        <i class="fas fa-chevron-down text-xs ml-2"></i>
+                        <i class="ph-bold ph-caret-down"></i>
                     </button>
-                    <div id="region-dropdown" class="dropdown-content hidden absolute top-full right-0 mt-2 bg-slate-800 border border-slate-700 rounded-md shadow-lg w-56">
-                        <!-- Regions will be populated by JS -->
+                    <div id="region-dropdown" class="hidden absolute top-full right-0 mt-2 w-48 bg-white border-[3px] border-black shadow-[6px_6px_0_0_#000] max-h-64 overflow-y-auto z-50">
+                        <!-- Regions populated by JS -->
                     </div>
                 </div>
-                <!-- Language Toggle -->
-                <button id="lang-toggle-btn" class="text-xs sm:text-sm font-bold bg-slate-800 border border-slate-700 rounded-full px-3 sm:px-4 py-2 hover:bg-slate-700 transition">
-                    <span data-translate="langSwitch">切换英文</span>
+
+                <!-- 语言 -->
+                <button id="lang-toggle-btn" class="neo-btn px-3 py-2 text-sm bg-black text-white hover:bg-[var(--c-ultra)] hover:text-black border-black shadow-[2px_2px_0_0_#000]">
+                    <span data-translate="langSwitch">EN</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <main>
-        <section id="pricing" class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white" data-translate="pricingTitle">选择适合您的方案</h1>
-                    <p class="text-gray-400 mt-4 text-lg max-w-2xl mx-auto" data-translate="pricingSubtitle">我们提供灵活的个人及家庭方案，开启您的专业翻译之旅。</p>
+    <main class="flex-grow relative z-10">
+        
+        <!-- Hero Section -->
+        <section class="py-16 md:py-24 px-6 text-center">
+            <div class="container mx-auto max-w-5xl">
+                <h1 class="text-5xl md:text-7xl font-black uppercase mb-8" data-translate="pricingTitle">选择适合您的方案</h1>
+                
+                <div class="inline-block bg-white border-[3px] border-black p-6 transform rotate-1 shadow-[8px_8px_0_0_#000] mb-16 max-w-2xl mx-auto relative">
+                    <!-- 装饰钉子 -->
+                    <div class="absolute top-2 left-2 w-3 h-3 bg-black rounded-full"></div>
+                    <div class="absolute top-2 right-2 w-3 h-3 bg-black rounded-full"></div>
+                    <div class="absolute bottom-2 left-2 w-3 h-3 bg-black rounded-full"></div>
+                    <div class="absolute bottom-2 right-2 w-3 h-3 bg-black rounded-full"></div>
+                    
+                    <p class="text-lg md:text-xl font-bold text-gray-800" data-translate="pricingSubtitle">我们提供灵活的个人及家庭方案，开启您的专业翻译之旅。</p>
                 </div>
 
-                <!-- 方案切换器 -->
+                <!-- Toggle Switch -->
                 <div class="flex justify-center mb-12">
-                    <div class="plan-toggle bg-slate-800 p-1 rounded-full flex items-center border border-slate-700">
-                        <button id="individual-plan-btn" class="px-4 sm:px-6 py-2 rounded-full text-sm font-bold active" data-translate="individualPlans">个人方案</button>
-                        <button id="family-plan-btn" class="px-4 sm:px-6 py-2 rounded-full text-sm font-bold" data-translate="familyPlans">家庭方案</button>
+                    <div class="plan-toggle-wrapper">
+                        <button id="individual-plan-btn" class="toggle-option active" data-translate="individualPlans">个人方案</button>
+                        <button id="family-plan-btn" class="toggle-option" data-translate="familyPlans">家庭方案</button>
                     </div>
                 </div>
-
-                <!-- 个人方案容器 -->
-                <div id="individual-plans-container">
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                        <!-- 普通会员 -->
-                        <div class="bg-slate-800 rounded-lg p-8 border border-slate-700 flex flex-col transition-transform hover:scale-105 duration-300">
-                            <h3 class="text-2xl font-bold text-white mb-2" data-translate="plan1Title">普通会员</h3>
-                            <p class="text-gray-400 mb-6" data-translate="plan1Subtitle">适合初探法语世界</p>
-                            <div class="text-5xl font-black text-white mb-6" data-price-key="plan1_price" data-translate="plan1Price">免费</div>
-                            <ul class="space-y-4 text-gray-300 mb-8 flex-grow">
-                                <li class="flex items-start"><i class="fas fa-check-circle text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan1Feat1">访问部分入门课程</span></li>
-                                <li class="flex items-start"><i class="fas fa-check-circle text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan1Feat2">基础交互练习</span></li>
-                                <li class="flex items-start text-gray-600"><i class="fas fa-times-circle mr-3 mt-1 shrink-0"></i> <span data-translate="plan1Feat3">访问所有核心课程</span></li>
-                                <li class="flex items-start text-gray-600"><i class="fas fa-times-circle mr-3 mt-1 shrink-0"></i> <span data-translate="plan1Feat4">免广告特权</span></li>
-                                <li class="flex items-start text-gray-600"><i class="fas fa-times-circle mr-3 mt-1 shrink-0"></i> <span data-translate="plan1Feat5">导师一对一反馈</span></li>
-                            </ul>
-                            <div class="mt-auto">
-                                <a href="#" class="open-modal-button w-full text-center bg-slate-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-600 transition duration-300" data-translate="plan1Button">
-                                    立即注册
-                                </a>
-                            </div>
-                        </div>
-            
-                        <!-- 超级会员 (推荐) -->
-                        <div class="bg-slate-800 rounded-lg p-8 border-2 border-sky-500 flex flex-col relative overflow-hidden transition-transform hover:scale-105 duration-300 transform scale-100 xl:scale-105">
-                            <div class="absolute top-0 right-0 bg-sky-500 text-white text-xs font-bold px-6 py-1 transform translate-x-[20%] rotate-45 translate-y-4" data-translate="recommended">推荐</div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-translate="plan2Title">超级会员</h3>
-                            <p class="text-sky-400 mb-6" data-translate="plan2Subtitle">系统化学习最佳选择</p>
-                            <div class="mb-1" data-price-key="plan2_monthly">
-                                <span class="price-value font-black text-white"></span>
-                                <span class="block text-xl font-normal text-gray-400 -mt-2" data-translate="perMonth"></span>
-                            </div>
-                            <p class="text-gray-400 mb-6 text-sm" data-price-key="plan2_annual" data-translate="plan2Annual"></p>
-                            <ul class="space-y-4 text-gray-300 mb-8 flex-grow">
-                                <li class="flex items-start"><i class="fas fa-check-circle text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan2Feat1">访问<strong class="text-white mx-1">所有入门与中级</strong>课程</span></li>
-                                <li class="flex items-start"><i class="fas fa-check-circle text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan2Feat2">全部交互练习题库</span></li>
-                                <li class="flex items-start"><i class="fas fa-check-circle text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan2Feat3"><strong class="text-white mx-1">免除部分广告</strong></span></li>
-                                <li class="flex items-start"><i class="fas fa-check-circle text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan2Feat5">学习社区访问权限</span></li>
-                                <li class="flex items-start text-gray-600"><i class="fas fa-times-circle mr-3 mt-1 shrink-0"></i> <span data-translate="plan2Feat6">导师一对一反馈</span></li>
-                            </ul>
-                             <div class="mt-auto">
-                                <a href="#" class="open-modal-button w-full text-center bg-sky-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-400 transition duration-300 shadow-lg shadow-sky-500/30" data-translate="plan2Button">
-                                    选择方案
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <!-- 大会员 -->
-                        <div class="bg-slate-800 rounded-lg p-8 border border-purple-500 flex flex-col transition-transform hover:scale-105 duration-300 shadow-lg shadow-purple-500/20">
-                            <h3 class="text-2xl font-bold text-white mb-2" data-translate="plan3Title">大会员</h3>
-                            <p class="text-purple-400 font-bold mb-6" data-translate="plan3Subtitle">冲刺专业翻译水平</p>
-                            <div class="mb-1" data-price-key="plan3_monthly">
-                                <span class="price-value font-black text-white"></span>
-                                <span class="block text-xl font-normal text-gray-400 -mt-2" data-translate="perMonth_2"></span>
-                            </div>
-                            <p class="text-gray-400 mb-6 text-sm" data-price-key="plan3_annual" data-translate="plan3Annual"></p>
-                            <ul class="space-y-4 text-gray-300 mb-8 flex-grow">
-                                 <li class="flex items-start"><i class="fas fa-check-circle text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat1">含<strong class="text-white mx-1">超级会员全部权益</strong></span></li>
-                                 <li class="flex items-start"><i class="fas fa-check-circle text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat2"><strong class="text-white mx-1">完全免广告</strong>特权</span></li>
-                                 <li class="flex items-start"><i class="fas fa-check-circle text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat3">访问<strong class="text-white mx-1">所有高级工作坊</strong></span></li>
-                                 <li class="flex items-start"><i class="fas fa-check-circle text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat4">参与真实翻译项目</span></li>
-                                 <li class="flex items-start"><i class="fas fa-check-circle text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat5">导师<strong class="text-white mx-1">一对一作业反馈</strong></span></li>
-                                 <li class="flex items-start"><i class="fas fa-check-circle text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat6">完成<strong class="text-white mx-1">结业证书</strong></span></li>
-                            </ul>
-                            <div class="mt-auto">
-                                <a href="#" class="open-modal-button w-full text-center bg-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-500 transition duration-300 shadow-lg shadow-purple-500/30" data-translate="plan3Button">
-                                    选择方案
-                                </a>
-                            </div>
-                        </div>
-                        
-                         <!-- Ultra会员 (至尊) -->
-                        <div class="bg-black rounded-lg p-8 border-2 border-amber-400 flex flex-col transition-transform hover:scale-105 duration-300 shadow-2xl shadow-amber-500/30 relative">
-                            <div class="absolute top-0 right-0 bg-amber-400 text-black text-xs font-bold px-8 py-1 transform translate-x-1/4 rotate-45 translate-y-4" data-translate="ultimate">至尊</div>
-                            <h3 class="text-2xl font-bold text-amber-300 mb-2" data-translate="plan4Title">Ultra 会员</h3>
-                            <p class="text-amber-400 font-bold mb-6" data-translate="plan4Subtitle">终极学习与人生体验</p>
-                            <div class="mb-1" data-price-key="plan4_annual"><span class="price-value font-black text-white"></span></div>
-                            <p class="text-gray-400 mb-6 text-sm" data-translate="plan4Annual">仅限年付</p>
-                            <ul class="space-y-4 text-gray-300 mb-8 flex-grow">
-                                 <li class="flex items-start"><i class="fas fa-star text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat1">含<strong class="text-white mx-1">大会员全部权益</strong></span></li>
-                                 <li class="flex items-start"><i class="fas fa-star text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat2">一对一<strong class="text-white mx-1">课程定制</strong></span></li>
-                                 <li class="flex items-start"><i class="fas fa-star text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat3"><strong class="text-white mx-1">法国深度游学</strong> (全程费用)</span></li>
-                                 <li class="flex items-start"><i class="fas fa-star text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat4"><strong class="text-white mx-1">DELF/DALF考试</strong>费用全包</span></li>
-                                 <li class="flex items-start"><i class="fas fa-star text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat5">专属学术顾问</span></li>
-                                 <li class="flex items-start"><i class="fas fa-gem text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat6">尊享 <strong class="text-white mx-1">LinguaX Ultra Club</strong> 资格</span></li>
-                            </ul>
-                             <div class="mt-auto">
-                                <div class="mb-6 text-center">
-                                    <a href="https://learnfr.de/linguax/ultraclub" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-gray-400 hover:text-sky-400 transition duration-300" data-translate="learnMoreUltraClub_4">
-                                        点击了解 Ultra Club <i class="fas fa-arrow-right text-xs ml-1"></i>
-                                    </a>
-                                </div>
-                                <a href="#" class="open-modal-button w-full text-center bg-amber-500 text-black font-bold py-3 px-6 rounded-lg hover:bg-amber-400 transition duration-300 shadow-lg shadow-amber-500/40 whitespace-nowrap" data-translate="plan4Button">
-                                    联系定制
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- 家庭方案容器 -->
-                 <div id="family-plans-container" class="hidden">
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                       <!-- 家庭超级会员 -->
-                       <div class="bg-slate-800 rounded-lg p-8 border-2 border-sky-500 flex flex-col relative overflow-hidden transition-transform hover:scale-105 duration-300">
-                           <div class="absolute top-0 right-0 bg-sky-500 text-white text-xs font-bold px-6 py-1 transform translate-x-[20%] rotate-45 translate-y-3.5" data-translate="recommended_fam">推荐</div>
-                           <h3 class="text-2xl font-bold text-white mb-2" data-translate="plan2Title_fam">超级会员 · 家庭版</h3>
-                           <p class="text-sky-400 mb-6" data-translate="plan2Subtitle_fam">全家共享系统化学习</p>
-                           <div class="mb-1" data-price-key="plan2_fam_monthly"><span class="price-value font-black text-white"></span> <span class="block text-xl font-normal text-gray-400 -mt-2" data-translate="perMonth_fam"></span></div>
-                           <p class="text-gray-400 mb-6 text-sm" data-price-key="plan2_fam_annual" data-translate="plan2Annual_fam"></p>
-                           <ul class="space-y-4 text-gray-300 mb-8 flex-grow">
-                               <li class="flex items-start"><i class="fas fa-users text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan2Feat_fam_members">支持最多<strong class="text-white mx-1">3位</strong>家庭成员</span></li>
-                               <li class="flex items-start"><i class="fas fa-check-circle text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan2Feat1_fam">访问<strong class="text-white mx-1">所有入门与中级</strong>课程</span></li>
-                               <li class="flex items-start"><i class="fas fa-check-circle text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan2Feat2_fam">全部交互练习题库</span></li>
-                               <li class="flex items-start"><i class="fas fa-check-circle text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan2Feat3_fam"><strong class="text-white mx-1">免除部分广告</strong></span></li>
-                               <li class="flex items-start"><i class="fas fa-check-circle text-sky-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan2Feat5_fam">学习社区访问权限</span></li>
-                           </ul>
-                            <div class="mt-auto">
-                               <a href="#" class="open-modal-button w-full text-center bg-sky-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-400 transition duration-300 shadow-lg shadow-sky-500/30" data-translate="plan2Button_fam">
-                                   选择方案
-                               </a>
-                           </div>
-                       </div>
-                       
-                       <!-- 家庭大会员 -->
-                       <div class="bg-slate-800 rounded-lg p-8 border border-purple-500 flex flex-col transition-transform hover:scale-105 duration-300 shadow-lg shadow-purple-500/20">
-                           <h3 class="text-2xl font-bold text-white mb-2" data-translate="plan3Title_fam">大会员 · 家庭版</h3>
-                           <p class="text-purple-400 font-bold mb-6" data-translate="plan3Subtitle_fam">全家冲刺专业水平</p>
-                           <div class="mb-1" data-price-key="plan3_fam_monthly"><span class="price-value font-black text-white"></span> <span class="block text-xl font-normal text-gray-400 -mt-2" data-translate="perMonth_2_fam"></span></div>
-                           <p class="text-gray-400 mb-6 text-sm" data-price-key="plan3_fam_annual" data-translate="plan3Annual_fam"></p>
-                           <ul class="space-y-4 text-gray-300 mb-8 flex-grow">
-                                <li class="flex items-start"><i class="fas fa-users text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat_fam_members">支持最多<strong class="text-white mx-1">4位</strong>家庭成员</span></li>
-                                <li class="flex items-start"><i class="fas fa-check-circle text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat1_fam">含<strong class="text-white mx-1">超级会员全部权益</strong></span></li>
-                                <li class="flex items-start"><i class="fas fa-check-circle text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat2_fam"><strong class="text-white mx-1">完全免广告</strong>特权</span></li>
-                                <li class="flex items-start"><i class="fas fa-check-circle text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat3_fam">访问<strong class="text-white mx-1">所有高级工作坊</strong></span></li>
-                                <li class="flex items-start"><i class="fas fa-check-circle text-purple-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan3Feat5_fam">导师<strong class="text-white mx-1">一对一作业反馈</strong> (主账户)</span></li>
-                           </ul>
-                           <div class="mt-auto">
-                               <a href="#" class="open-modal-button w-full text-center bg-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-purple-500 transition duration-300 shadow-lg shadow-purple-500/30" data-translate="plan3Button_fam">
-                                   选择方案
-                               </a>
-                           </div>
-                       </div>
-                       
-                        <!-- 家庭Ultra会员 -->
-                       <div class="bg-black rounded-lg p-8 border-2 border-amber-400 flex flex-col transition-transform hover:scale-105 duration-300 shadow-2xl shadow-amber-500/30 relative">
-                           <div class="absolute top-0 right-0 bg-amber-400 text-black text-xs font-bold px-8 py-1 transform translate-x-1/4 rotate-45 translate-y-4" data-translate="ultimate_fam">至尊</div>
-                           <h3 class="text-2xl font-bold text-amber-300 mb-2" data-translate="plan4Title_fam">Ultra 会员 · 家庭版</h3>
-                           <p class="text-amber-400 font-bold mb-6" data-translate="plan4Subtitle_fam">共享终极学习体验</p>
-                           <div class="mb-1" data-price-key="plan4_fam_annual"><span class="price-value font-black text-white"></span></div>
-                           <p class="text-gray-400 mb-6 text-sm" data-translate="plan4Annual_fam">仅限年付</p>
-                           <ul class="space-y-4 text-gray-300 mb-8 flex-grow">
-                                <li class="flex items-start"><i class="fas fa-users text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat_fam_members">支持最多<strong class="text-white mx-1">5位</strong>家庭成员</span></li>
-                                <li class="flex items-start"><i class="fas fa-star text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat1_fam">含<strong class="text-white mx-1">大会员全部权益</strong> (多人共享)</span></li>
-                                <li class="flex items-start"><i class="fas fa-star text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat2_fam">一对一<strong class="text-white mx-1">课程定制</strong> (主账户)</span></li>
-                                <li class="flex items-start"><i class="fas fa-star text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat3_fam"><strong class="text-white mx-1">法国深度游学</strong> (1人名额)</span></li>
-                                <li class="flex items-start"><i class="fas fa-star text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat4_fam"><strong class="text-white mx-1">DELF/DALF考试</strong>费用 (1人名额)</span></li>
-                                <li class="flex items-start"><i class="fas fa-gem text-amber-400 mr-3 mt-1 shrink-0"></i> <span data-translate="plan4Feat6_fam">尊享 <strong class="text-white mx-1">LinguaX Ultra Club</strong> 资格 (主账户)</span></li>
-                           </ul>
-                           <div class="mt-auto">
-                                <div class="mb-6 text-center">
-                                    <a href="https://learnfr.de/linguax/ultraclub" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-gray-400 hover:text-sky-400 transition duration-300" data-translate="learnMoreUltraClub_7">
-                                        点击了解 Ultra Club <i class="fas fa-arrow-right text-xs ml-1"></i>
-                                    </a>
-                                </div>
-                               <a href="#" class="open-modal-button w-full text-center bg-amber-500 text-black font-bold py-3 px-6 rounded-lg hover:bg-amber-400 transition duration-300 shadow-lg shadow-amber-500/40 whitespace-nowrap" data-translate="plan4Button_fam">
-                                   联系定制
-                               </a>
-                           </div>
-                       </div>
-
-                        <!-- 家庭Ultra+会员 -->
-                        <div class="bg-gradient-to-br from-gray-900 to-black rounded-lg p-8 border-2 border-white flex flex-col transition-transform hover:scale-105 duration-300 shadow-2xl shadow-white/20 relative">
-                            <div class="absolute top-0 right-0 bg-white text-black text-xs font-bold px-8 py-1 transform translate-x-1/4 rotate-45 translate-y-4" data-translate="ultimate_plus_fam">旗舰</div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-translate="plan5Title_fam">Ultra+ 会员 · 家庭版</h3>
-                            <p class="text-gray-300 font-bold mb-6" data-translate="plan5Subtitle_fam">家庭成员共享全部权益</p>
-                            <div class="mb-1" data-price-key="plan5_fam_annual"><span class="price-value font-black text-white"></span></div>
-                            <p class="text-gray-400 mb-6 text-sm" data-translate="plan5Annual_fam">仅限年付 (10%优惠)</p>
-                            <ul class="space-y-4 text-gray-300 mb-8 flex-grow">
-                                 <li class="flex items-start"><i class="fas fa-crown text-white mr-3 mt-1 shrink-0"></i> <span data-translate="plan5Feat_fam_members">支持全部<strong class="text-white mx-1">5位</strong>家庭成员</span></li>
-                                 <li class="flex items-start"><i class="fas fa-crown text-white mr-3 mt-1 shrink-0"></i> <span data-translate="plan5Feat1_fam">每位成员均享<strong class="text-white mx-1">Ultra会员全部权益</strong> (含Ultra Club)</span></li>
-                                 <li class="flex items-start"><i class="fas fa-crown text-white mr-3 mt-1 shrink-0"></i> <span data-translate="plan5Feat2_fam">专属家庭学术顾问</span></li>
-                                 <li class="flex items-start"><i class="fas fa-crown text-white mr-3 mt-1 shrink-0"></i> <span data-translate="plan5Feat3_fam">优先定制家庭游学计划</span></li>
-                            </ul>
-                            <div class="mt-auto">
-                                <div class="mb-6 text-center">
-                                     <a href="https://learnfr.de/linguax/ultraclub" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-gray-400 hover:text-sky-400 transition duration-300" data-translate="learnMoreUltraClub_8">
-                                        点击了解 Ultra Club <i class="fas fa-arrow-right text-xs ml-1"></i>
-                                    </a>
-                                </div>
-                                <a href="#" class="open-modal-button w-full text-center bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition duration-300 shadow-lg shadow-white/30 whitespace-nowrap" data-translate="plan5Button_fam">
-                                    联系定制
-                                </a>
-                            </div>
-                        </div>
-
-                   </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- Why Pay Section -->
-        <section id="why-pay" class="py-16 md:py-20 bg-slate-900/50">
-            <div class="container mx-auto px-6 text-center">
-                 <div class="max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold text-white mb-5" data-translate="whyPayTitle">我们对价值的承诺</h2>
-                    <div class="w-24 h-1.5 bg-sky-500 mb-6 rounded mx-auto"></div>
-                    <p class="text-gray-400 leading-relaxed" data-translate="whyPayDesc1">
-                        我们相信，卓越的教育体验源于持续的投入与打磨。您的付费支持，让我们能够邀请顶级的语言专家和行业译员共同研发课程，不断优化平台技术，并为您提供一个无广告、纯粹的学习环境。我们致力于将每一份投入都转化为您学习道路上实实在在的进步与价值。
+        <!-- 跑马灯 (分割线) -->
+        <div class="marquee-container">
+            <div class="marquee-content">
+                PRICING • PLANS • VALUE • GROWTH • EDUCATION • FUTURE • LINGUAX • PRICING • PLANS • VALUE • GROWTH • EDUCATION • FUTURE •
+            </div>
+        </div>
+
+        <!-- Plans Section -->
+        <section class="pb-24 px-6">
+            <div class="container mx-auto max-w-7xl">
+                
+                <!-- 个人方案 -->
+                <div id="individual-plans-container">
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 text-left">
+                        
+                        <!-- 1. 普通会员 (Free - Gray) -->
+                        <div class="neo-card group">
+                            <div class="card-header-strip bg-gray-800"></div>
+                            <div class="p-8 flex flex-col h-full bg-gray-50">
+                                <div class="mb-4 p-3 bg-white border-2 border-black w-max rounded-full group-hover:bg-gray-200 transition-colors">
+                                    <i class="ph-duotone ph-egg text-3xl text-gray-600"></i>
+                                </div>
+                                <h3 class="text-2xl font-black mb-1" data-translate="plan1Title">普通会员</h3>
+                                <p class="text-sm font-bold text-gray-500 mb-6" data-translate="plan1Subtitle">适合初探法语世界</p>
+                                <div class="text-4xl font-black mb-6" data-price-key="plan1_price" data-translate="plan1Price">免费</div>
+                                <ul class="space-y-3 mb-8 flex-grow text-sm font-medium">
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-green-600 mr-2 text-lg"></i><span data-translate="plan1Feat1">部分入门课程</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-green-600 mr-2 text-lg"></i><span data-translate="plan1Feat2">基础交互练习</span></li>
+                                    <li class="flex items-start text-gray-400 opacity-50"><i class="ph-bold ph-x-square mr-2 text-lg"></i><span data-translate="plan1Feat3">所有核心课程</span></li>
+                                    <li class="flex items-start text-gray-400 opacity-50"><i class="ph-bold ph-x-square mr-2 text-lg"></i><span data-translate="plan1Feat4">免广告特权</span></li>
+                                    <li class="flex items-start text-gray-400 opacity-50"><i class="ph-bold ph-x-square mr-2 text-lg"></i><span data-translate="plan1Feat5">导师一对一反馈</span></li>
+                                </ul>
+                                <button class="neo-btn w-full py-3 bg-white hover:bg-black hover:text-white open-auth-modal" data-translate="plan1Button">立即注册</button>
+                            </div>
+                        </div>
+
+                        <!-- 2. 超级会员 (Super - Cyan) -->
+                        <div class="neo-card group">
+                            <div class="neo-badge bg-[var(--c-super)] text-black border-black" data-translate="recommended">推荐</div>
+                            <div class="card-header-strip bg-[var(--c-super)]"></div>
+                            <div class="p-8 flex flex-col h-full bg-cyan-50">
+                                <div class="mb-4 p-3 bg-white border-2 border-black w-max rounded-full group-hover:bg-[var(--c-super)] transition-colors">
+                                    <i class="ph-duotone ph-rocket-launch text-3xl text-cyan-600 group-hover:text-black"></i>
+                                </div>
+                                <h3 class="text-2xl font-black mb-1" data-translate="plan2Title">超级会员</h3>
+                                <p class="text-sm font-bold text-cyan-700 mb-6" data-translate="plan2Subtitle">系统化学习最佳选择</p>
+                                <div class="mb-1" data-price-key="plan2_monthly">
+                                    <span class="price-value text-4xl font-black"></span>
+                                    <span class="text-sm font-bold text-gray-500" data-translate="perMonth"></span>
+                                </div>
+                                <p class="text-xs font-bold text-gray-500 mb-6" data-price-key="plan2_annual" data-translate="plan2Annual"></p>
+                                <ul class="space-y-3 mb-8 flex-grow text-sm font-medium border-t-2 border-dashed border-gray-300 pt-4">
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-cyan-600 mr-2 text-lg"></i><span data-translate="plan2Feat1">访问所有入门与中级课程</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-cyan-600 mr-2 text-lg"></i><span data-translate="plan2Feat2">全部交互练习题库</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-cyan-600 mr-2 text-lg"></i><span data-translate="plan2Feat3">免除部分广告</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-cyan-600 mr-2 text-lg"></i><span data-translate="plan2Feat5">学习社区访问权限</span></li>
+                                    <li class="flex items-start text-gray-400 opacity-50"><i class="ph-bold ph-x-square mr-2 text-lg"></i><span data-translate="plan2Feat6">导师一对一反馈</span></li>
+                                </ul>
+                                <button class="neo-btn w-full py-3 bg-[var(--c-super)] hover:bg-black hover:text-white border-black open-auth-modal" data-translate="plan2Button">选择方案</button>
+                            </div>
+                        </div>
+
+                        <!-- 3. 大会员 (VIP - Purple) -->
+                        <div class="neo-card group">
+                            <div class="card-header-strip bg-[var(--c-vip)]"></div>
+                            <div class="p-8 flex flex-col h-full bg-purple-50">
+                                <div class="mb-4 p-3 bg-white border-2 border-black w-max rounded-full group-hover:bg-[var(--c-vip)] transition-colors">
+                                    <i class="ph-duotone ph-crown text-3xl text-purple-600 group-hover:text-white"></i>
+                                </div>
+                                <h3 class="text-2xl font-black mb-1" data-translate="plan3Title">大会员</h3>
+                                <p class="text-sm font-bold text-purple-700 mb-6" data-translate="plan3Subtitle">冲刺专业翻译水平</p>
+                                <div class="mb-1" data-price-key="plan3_monthly">
+                                    <span class="price-value text-4xl font-black"></span>
+                                    <span class="text-sm font-bold text-gray-500" data-translate="perMonth_2"></span>
+                                </div>
+                                <p class="text-xs font-bold text-gray-500 mb-6" data-price-key="plan3_annual" data-translate="plan3Annual"></p>
+                                <ul class="space-y-3 mb-8 flex-grow text-sm font-medium border-t-2 border-dashed border-gray-300 pt-4">
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-purple-600 mr-2 text-lg"></i><span data-translate="plan3Feat1">含超级会员全部权益</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-purple-600 mr-2 text-lg"></i><span data-translate="plan3Feat2">完全免广告特权</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-purple-600 mr-2 text-lg"></i><span data-translate="plan3Feat3">访问所有高级工作坊</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-purple-600 mr-2 text-lg"></i><span data-translate="plan3Feat4">参与真实翻译项目</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-purple-600 mr-2 text-lg"></i><span data-translate="plan3Feat5">导师一对一作业反馈</span></li>
+                                </ul>
+                                <button class="neo-btn w-full py-3 bg-[var(--c-vip)] text-white hover:bg-black border-black open-auth-modal" data-translate="plan3Button">选择方案</button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Ultra (Ultra - Yellow) -->
+                        <div class="neo-card group">
+                            <div class="neo-badge bg-[var(--c-ultra)] text-black border-black" data-translate="ultimate">至尊</div>
+                            <div class="card-header-strip bg-[var(--c-ultra)]"></div>
+                            <div class="p-8 flex flex-col h-full bg-black text-white relative overflow-hidden">
+                                <!-- 装饰背景 -->
+                                <div class="absolute top-0 right-0 p-10 opacity-20">
+                                    <i class="ph-fill ph-diamond text-9xl text-[var(--c-ultra)]"></i>
+                                </div>
+                                
+                                <div class="mb-4 p-3 bg-gray-900 border-2 border-[var(--c-ultra)] w-max rounded-full relative z-10">
+                                    <i class="ph-duotone ph-diamond text-3xl text-[var(--c-ultra)]"></i>
+                                </div>
+                                <h3 class="text-2xl font-black mb-1 text-[var(--c-ultra)]" data-translate="plan4Title">Ultra 会员</h3>
+                                <p class="text-sm font-bold text-gray-400 mb-6" data-translate="plan4Subtitle">终极学习与人生体验</p>
+                                <div class="mb-1 relative z-10" data-price-key="plan4_annual"><span class="price-value text-4xl font-black text-white"></span></div>
+                                <p class="text-xs font-bold text-gray-500 mb-6" data-translate="plan4Annual">仅限年付</p>
+                                <ul class="space-y-3 mb-8 flex-grow text-sm font-medium text-gray-300 relative z-10 border-t-2 border-dashed border-gray-700 pt-4">
+                                    <li class="flex items-start"><i class="ph-fill ph-star text-[var(--c-ultra)] mr-2 text-lg"></i><span data-translate="plan4Feat1">含大会员全部权益</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-star text-[var(--c-ultra)] mr-2 text-lg"></i><span data-translate="plan4Feat2">一对一课程定制</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-star text-[var(--c-ultra)] mr-2 text-lg"></i><span data-translate="plan4Feat3">法国深度游学 (全程)</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-star text-[var(--c-ultra)] mr-2 text-lg"></i><span data-translate="plan4Feat4">DELF/DALF考试费全包</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-crown text-[var(--c-ultra)] mr-2 text-lg"></i><span data-translate="plan4Feat6">LinguaX Ultra Club 资格</span></li>
+                                </ul>
+                                <div class="mt-auto relative z-10">
+                                    <a href="https://learnfr.de/linguax/ultraclub" target="_blank" class="block text-center text-xs font-bold text-[var(--c-ultra)] hover:underline mb-4" data-translate="learnMoreUltraClub_4">点击了解 Ultra Club</a>
+                                    <button class="neo-btn w-full py-3 bg-[var(--c-ultra)] text-black hover:bg-white border-white hover:border-black open-auth-modal" data-translate="plan4Button">联系定制</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 家庭方案 (Hidden by default) -->
+                <div id="family-plans-container" class="hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 text-left">
+                        <!-- Fam 1: Super -->
+                        <div class="neo-card group">
+                            <div class="neo-badge bg-[var(--c-super)] text-black border-black" data-translate="recommended_fam">推荐</div>
+                            <div class="card-header-strip bg-[var(--c-super)]"></div>
+                            <div class="p-8 flex flex-col h-full bg-cyan-50">
+                                <h3 class="text-xl font-black mb-1" data-translate="plan2Title_fam">超级会员 · 家庭版</h3>
+                                <p class="text-sm font-bold text-cyan-600 mb-6" data-translate="plan2Subtitle_fam">全家共享系统化学习</p>
+                                <div class="mb-1" data-price-key="plan2_fam_monthly"><span class="price-value text-3xl font-black"></span><span class="text-sm text-gray-500 font-bold" data-translate="perMonth_fam"></span></div>
+                                <p class="text-xs font-bold text-gray-500 mb-6" data-price-key="plan2_fam_annual" data-translate="plan2Annual_fam"></p>
+                                <ul class="space-y-3 mb-8 flex-grow text-sm font-medium border-t-2 border-dashed border-gray-300 pt-4">
+                                    <li class="flex items-start"><i class="ph-bold ph-users text-cyan-600 mr-2"></i><span data-translate="plan2Feat_fam_members">支持最多3位成员</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-cyan-600 mr-2"></i><span data-translate="plan2Feat1_fam">访问所有入门与中级课程</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-cyan-600 mr-2"></i><span data-translate="plan2Feat3_fam">免除部分广告</span></li>
+                                </ul>
+                                <button class="neo-btn w-full py-3 bg-[var(--c-super)] hover:bg-black hover:text-white border-black open-auth-modal" data-translate="plan2Button_fam">选择方案</button>
+                            </div>
+                        </div>
+
+                        <!-- Fam 2: VIP -->
+                        <div class="neo-card group">
+                            <div class="card-header-strip bg-[var(--c-vip)]"></div>
+                            <div class="p-8 flex flex-col h-full bg-purple-50">
+                                <h3 class="text-xl font-black mb-1" data-translate="plan3Title_fam">大会员 · 家庭版</h3>
+                                <p class="text-sm font-bold text-purple-600 mb-6" data-translate="plan3Subtitle_fam">全家冲刺专业水平</p>
+                                <div class="mb-1" data-price-key="plan3_fam_monthly"><span class="price-value text-3xl font-black"></span><span class="text-sm text-gray-500 font-bold" data-translate="perMonth_2_fam"></span></div>
+                                <p class="text-xs font-bold text-gray-500 mb-6" data-price-key="plan3_fam_annual" data-translate="plan3Annual_fam"></p>
+                                <ul class="space-y-3 mb-8 flex-grow text-sm font-medium border-t-2 border-dashed border-gray-300 pt-4">
+                                    <li class="flex items-start"><i class="ph-bold ph-users text-purple-600 mr-2"></i><span data-translate="plan3Feat_fam_members">支持最多4位成员</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-purple-600 mr-2"></i><span data-translate="plan3Feat1_fam">含超级会员全部权益</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-purple-600 mr-2"></i><span data-translate="plan3Feat2_fam">完全免广告特权</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-check-square text-purple-600 mr-2"></i><span data-translate="plan3Feat5_fam">导师反馈(主账户)</span></li>
+                                </ul>
+                                <button class="neo-btn w-full py-3 bg-[var(--c-vip)] text-white hover:bg-black border-black open-auth-modal" data-translate="plan3Button_fam">选择方案</button>
+                            </div>
+                        </div>
+
+                        <!-- Fam 3: Ultra -->
+                        <div class="neo-card group">
+                            <div class="neo-badge bg-[var(--c-ultra)] text-black border-black" data-translate="ultimate_fam">至尊</div>
+                            <div class="card-header-strip bg-[var(--c-ultra)]"></div>
+                            <div class="p-8 flex flex-col h-full bg-black text-white">
+                                <h3 class="text-xl font-black mb-1 text-[var(--c-ultra)]" data-translate="plan4Title_fam">Ultra 会员 · 家庭版</h3>
+                                <p class="text-sm font-bold text-gray-400 mb-6" data-translate="plan4Subtitle_fam">共享终极学习体验</p>
+                                <div class="mb-1" data-price-key="plan4_fam_annual"><span class="price-value text-3xl font-black"></span></div>
+                                <p class="text-xs font-bold text-gray-500 mb-6" data-translate="plan4Annual_fam">仅限年付</p>
+                                <ul class="space-y-3 mb-8 flex-grow text-sm font-medium text-gray-300 border-t-2 border-dashed border-gray-700 pt-4">
+                                    <li class="flex items-start"><i class="ph-bold ph-users text-[var(--c-ultra)] mr-2"></i><span data-translate="plan4Feat_fam_members">支持最多5位成员</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-star text-[var(--c-ultra)] mr-2"></i><span data-translate="plan4Feat1_fam">含大会员权益(共享)</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-star text-[var(--c-ultra)] mr-2"></i><span data-translate="plan4Feat3_fam">法国游学(1人)</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-crown text-[var(--c-ultra)] mr-2"></i><span data-translate="plan4Feat6_fam">Ultra Club(主账户)</span></li>
+                                </ul>
+                                <div class="mt-auto">
+                                    <a href="https://learnfr.de/linguax/ultraclub" target="_blank" class="block text-center text-xs font-bold text-[var(--c-ultra)] hover:underline mb-4" data-translate="learnMoreUltraClub_7">了解 Ultra Club</a>
+                                    <button class="neo-btn w-full py-3 bg-[var(--c-ultra)] text-black border-white hover:bg-white hover:border-black open-auth-modal" data-translate="plan4Button_fam">联系定制</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fam 4: Ultra+ -->
+                        <div class="neo-card group">
+                            <div class="neo-badge bg-[var(--c-ultra-plus)] text-black border-black" data-translate="ultimate_plus_fam">旗舰</div>
+                            <div class="card-header-strip bg-[var(--c-ultra-plus)]"></div>
+                            <div class="p-8 flex flex-col h-full bg-pink-50 border-[var(--c-ultra-plus)]">
+                                <h3 class="text-xl font-black mb-1 text-pink-600" data-translate="plan5Title_fam">Ultra+ 会员 · 家庭版</h3>
+                                <p class="text-sm font-bold text-gray-500 mb-6" data-translate="plan5Subtitle_fam">家庭成员共享全部权益</p>
+                                <div class="mb-1" data-price-key="plan5_fam_annual"><span class="price-value text-3xl font-black text-black"></span></div>
+                                <p class="text-xs font-bold text-gray-500 mb-6" data-translate="plan5Annual_fam">年付 (10%优惠)</p>
+                                <ul class="space-y-3 mb-8 flex-grow text-sm font-medium border-t-2 border-dashed border-gray-300 pt-4">
+                                    <li class="flex items-start"><i class="ph-fill ph-crown text-pink-500 mr-2"></i><span data-translate="plan5Feat_fam_members">5位成员全享Ultra</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-crown text-pink-500 mr-2"></i><span data-translate="plan5Feat1_fam">每位成员均享Ultra Club</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-crown text-pink-500 mr-2"></i><span data-translate="plan5Feat2_fam">专属家庭学术顾问</span></li>
+                                    <li class="flex items-start"><i class="ph-fill ph-crown text-pink-500 mr-2"></i><span data-translate="plan5Feat3_fam">优先家庭游学计划</span></li>
+                                </ul>
+                                <div class="mt-auto">
+                                    <a href="https://learnfr.de/linguax/ultraclub" target="_blank" class="block text-center text-xs font-bold text-pink-600 hover:underline mb-4" data-translate="learnMoreUltraClub_8">了解 Ultra Club</a>
+                                    <button class="neo-btn w-full py-3 bg-[var(--c-ultra-plus)] text-black hover:bg-black hover:text-white border-black open-auth-modal" data-translate="plan5Button_fam">联系定制</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Pay -->
+        <section class="py-16 px-6 bg-white border-t-[3px] border-black">
+            <div class="container mx-auto text-center">
+                 <div class="max-w-3xl mx-auto bg-[#f0fdf4] border-[3px] border-black p-8 shadow-[6px_6px_0_0_#000] transform -rotate-1">
+                    <div class="w-16 h-16 bg-black text-white flex items-center justify-center text-3xl border-2 border-black mx-auto mb-6 rounded-full">
+                        <i class="ph-fill ph-heart"></i>
+                    </div>
+                    <h2 class="text-3xl font-black uppercase mb-4" data-translate="whyPayTitle">我们对价值的承诺</h2>
+                    <p class="text-lg font-bold leading-relaxed text-gray-800" data-translate="whyPayDesc1">
+                        您的付费支持，让我们能够邀请顶级的语言专家和行业译员共同研发课程，不断优化平台技术，并为您提供一个无广告、纯粹的学习环境。我们致力于将每一份投入都转化为您学习道路上实实在在的进步与价值。
                     </p>
                 </div>
             </div>
@@ -311,32 +490,41 @@
 
     </main>
 
-    <footer class="bg-slate-900 text-white py-10">
-        <div class="container mx-auto px-6 text-center">
-            <div class="pt-8 border-t border-slate-800">
-                 <p class="text-gray-500 text-sm mb-2" data-translate="footerBrandInfo">“翻译水平”是 <a href="https://learnfr.de" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition">learnfr.de</a> 倾力打造的旗舰语言学习品牌。</p>
-                <p class="text-gray-500 text-sm" data-translate="footerCopyright">&copy; 2025 LinguaX. All Rights Reserved.</p>
-            </div>
+    <!-- Footer -->
+    <footer class="bg-white border-t-[3px] border-black py-12 text-center relative z-20">
+        <div class="container mx-auto px-6">
+             <p class="text-sm font-bold uppercase mb-2" data-translate="footerBrandInfo">“翻译水平”是 <a href="https://learnfr.de" target="_blank" class="underline decoration-2 decoration-[var(--c-super)] hover:bg-[var(--c-super)]">learnfr.de</a> 倾力打造的旗舰品牌。</p>
+            <p class="text-xs font-mono font-bold text-gray-400" data-translate="footerCopyright">&copy; 2025 LinguaX. All Rights Reserved.</p>
         </div>
     </footer>
 
     <!-- Auth Modal -->
-    <div id="auth-modal" class="modal fixed inset-0 bg-black bg-opacity-70 z-[100] flex items-center justify-center invisible opacity-0">
-        <div class="modal-content bg-slate-800 text-center rounded-lg p-8 max-w-sm w-full mx-4 relative border border-slate-700 shadow-xl transform scale-95">
-            <button id="close-modal-button" class="absolute top-3 right-4 rtl:right-auto rtl:left-4 text-gray-500 hover:text-white text-3xl transition-colors">&times;</button>
-            <i class="fas fa-info-circle text-5xl text-sky-400 mb-5"></i>
-            <h3 class="text-2xl font-bold mb-3 text-white" data-translate="modalTitle">提示</h3>
-            <p class="text-gray-400" data-translate="modalText">目前仅支持内测用户，敬请期待。</p>
+    <div id="auth-modal" class="fixed inset-0 bg-cyan-900/90 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="modal-box p-8 max-w-sm w-full mx-4 relative transform scale-95 transition-transform duration-300">
+            <button id="close-modal-button" class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center border-2 border-black bg-white hover:bg-black hover:text-white transition-colors">
+                <i class="ph-bold ph-x"></i>
+            </button>
+            <div class="text-center">
+                <i class="ph-duotone ph-info text-6xl text-cyan-500 mb-4"></i>
+                <h3 class="text-2xl font-black mb-2 uppercase" data-translate="modalTitle">提示</h3>
+                <p class="font-bold text-gray-600 mb-6" data-translate="modalText">目前仅支持内测用户，敬请期待。</p>
+                <button class="neo-btn w-full py-3 bg-black text-white hover:bg-white hover:text-black" onclick="document.getElementById('auth-modal').classList.add('hidden', 'opacity-0')">OK</button>
+            </div>
         </div>
     </div>
     
     <!-- Region Notice Modal -->
-    <div id="region-notice-modal" class="modal fixed inset-0 bg-black bg-opacity-70 z-[100] flex items-center justify-center invisible opacity-0">
-        <div class="modal-content bg-slate-800 text-center rounded-lg p-8 max-w-sm w-full mx-4 relative border border-slate-700 shadow-xl transform scale-95">
-            <button id="close-region-modal-button" class="absolute top-3 right-4 rtl:right-auto rtl:left-4 text-gray-500 hover:text-white text-3xl transition-colors">&times;</button>
-            <i class="fas fa-globe-americas text-5xl text-sky-400 mb-5"></i>
-            <h3 class="text-2xl font-bold mb-3 text-white" data-translate="regionModalTitle">地区切换提示</h3>
-            <p id="region-modal-text" class="text-gray-400"></p>
+    <div id="region-notice-modal" class="fixed inset-0 bg-yellow-900/90 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="modal-box p-8 max-w-sm w-full mx-4 relative transform scale-95 transition-transform duration-300">
+            <button id="close-region-modal-button" class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center border-2 border-black bg-white hover:bg-black hover:text-white transition-colors">
+                <i class="ph-bold ph-x"></i>
+            </button>
+            <div class="text-center">
+                <i class="ph-duotone ph-globe-hemisphere-west text-6xl text-yellow-500 mb-4"></i>
+                <h3 class="text-2xl font-black mb-2 uppercase" data-translate="regionModalTitle">地区切换</h3>
+                <p id="region-modal-text" class="font-bold text-gray-600 mb-6"></p>
+                <button class="neo-btn w-full py-3 bg-black text-white hover:bg-white hover:text-black" onclick="document.getElementById('region-notice-modal').classList.add('hidden', 'opacity-0')">明白 / Got it</button>
+            </div>
         </div>
     </div>
 
@@ -344,15 +532,20 @@
         // --- DATA ---
         const translations = {
             zh: {
-                langSwitch: "Switch to English",
+                langSwitch: "EN",
                 pricingTitle: "选择适合您的方案",
                 pricingSubtitle: "我们提供灵活的个人及家庭方案，开启您的专业翻译之旅。",
                 individualPlans: "个人方案",
                 familyPlans: "家庭方案",
                 recommended: "推荐",
                 ultimate: "至尊",
+                recommended_fam: "推荐",
+                ultimate_fam: "至尊",
+                ultimate_plus_fam: "旗舰",
                 perMonth: "/ 月",
                 perMonth_2: "/ 月",
+                perMonth_fam: "/ 月",
+                perMonth_2_fam: "/ 月",
                 plan1Title: "普通会员",
                 plan1Subtitle: "适合初探法语世界",
                 plan1Price: "免费",
@@ -365,185 +558,168 @@
                 plan2Title: "超级会员",
                 plan2Subtitle: "系统化学习最佳选择",
                 plan2Annual: "或 %PRICE% / 年 (享7%优惠)",
-                plan2Feat1: "访问<strong class='text-white mx-1'>所有入门与中级</strong>课程",
+                plan2Feat1: "访问所有入门与中级课程",
                 plan2Feat2: "全部交互练习题库",
-                plan2Feat3: "<strong class='text-white mx-1'>免除部分广告</strong>",
+                plan2Feat3: "免除部分广告",
                 plan2Feat5: "学习社区访问权限",
                 plan2Feat6: "导师一对一反馈",
                 plan2Button: "选择方案",
                 plan3Title: "大会员",
                 plan3Subtitle: "冲刺专业翻译水平",
                 plan3Annual: "或 %PRICE% / 年 (享7%优惠)",
-                plan3Feat1: "含<strong class='text-white mx-1'>超级会员全部权益</strong>",
-                plan3Feat2: "<strong class='text-white mx-1'>完全免广告</strong>特权",
-                plan3Feat3: "访问<strong class='text-white mx-1'>所有高级工作坊</strong>",
+                plan3Feat1: "含超级会员全部权益",
+                plan3Feat2: "完全免广告特权",
+                plan3Feat3: "访问所有高级工作坊",
                 plan3Feat4: "参与真实翻译项目",
-                plan3Feat5: "导师<strong class='text-white mx-1'>一对一作业反馈</strong>",
-                plan3Feat6: "完成<strong class='text-white mx-1'>结业证书</strong>",
+                plan3Feat5: "导师一对一作业反馈",
+                plan3Feat6: "完成结业证书",
                 plan3Button: "选择方案",
                 plan4Title: "Ultra 会员",
                 plan4Subtitle: "终极学习与人生体验",
                 plan4Annual: "仅限年付",
-                plan4Feat1: "含<strong class='text-white mx-1'>大会员全部权益</strong>",
-                plan4Feat2: "一对一<strong class='text-white mx-1'>课程定制</strong>",
-                plan4Feat3: "<strong class='text-white mx-1'>法国深度游学</strong> (全程费用)",
-                plan4Feat4: "<strong class='text-white mx-1'>DELF/DALF考试</strong>费用全包",
-                plan4Feat5: "专属学术顾问",
-                plan4Feat6: "尊享 <strong class='text-white mx-1'>LinguaX Ultra Club</strong> 资格",
+                plan4Feat1: "含大会员全部权益",
+                plan4Feat2: "一对一课程定制",
+                plan4Feat3: "法国深度游学 (全程费用)",
+                plan4Feat4: "DELF/DALF考试费用全包",
+                plan4Feat6: "LinguaX Ultra Club 资格",
                 plan4Button: "联系定制",
-                learnMoreUltraClub_4: "点击了解 Ultra Club <i class='fas fa-arrow-right text-xs ml-1'></i>",
-                recommended_fam: "推荐",
-                ultimate_fam: "至尊",
-                ultimate_plus_fam: "旗舰",
-                perMonth_fam: "/ 月",
-                perMonth_2_fam: "/ 月",
+                learnMoreUltraClub_4: "点击了解 Ultra Club",
                 plan2Title_fam: "超级会员 · 家庭版",
                 plan2Subtitle_fam: "全家共享系统化学习",
                 plan2Annual_fam: "或 %PRICE% / 年 (家庭优惠)",
-                plan2Feat_fam_members: "支持最多<strong class='text-white mx-1'>3位</strong>家庭成员",
-                plan2Feat1_fam: "访问<strong class='text-white mx-1'>所有入门与中级</strong>课程",
-                plan2Feat2_fam: "全部交互练习题库",
-                plan2Feat3_fam: "<strong class='text-white mx-1'>免除部分广告</strong>",
-                plan2Feat5_fam: "学习社区访问权限",
+                plan2Feat_fam_members: "支持最多3位家庭成员",
+                plan2Feat1_fam: "访问所有入门与中级课程",
+                plan2Feat3_fam: "免除部分广告",
                 plan2Button_fam: "选择方案",
                 plan3Title_fam: "大会员 · 家庭版",
                 plan3Subtitle_fam: "全家冲刺专业水平",
                 plan3Annual_fam: "或 %PRICE% / 年 (家庭优惠)",
-                plan3Feat_fam_members: "支持最多<strong class='text-white mx-1'>4位</strong>家庭成员",
-                plan3Feat1_fam: "含<strong class='text-white mx-1'>超级会员全部权益</strong>",
-                plan3Feat2_fam: "<strong class='text-white mx-1'>完全免广告</strong>特权",
-                plan3Feat3_fam: "访问<strong class='text-white mx-1'>所有高级工作坊</strong>",
-                plan3Feat5_fam: "导师<strong class='text-white mx-1'>一对一作业反馈</strong> (主账户)",
+                plan3Feat_fam_members: "支持最多4位家庭成员",
+                plan3Feat1_fam: "含超级会员全部权益",
+                plan3Feat2_fam: "完全免广告特权",
+                plan3Feat5_fam: "导师一对一作业反馈 (主账户)",
                 plan3Button_fam: "选择方案",
                 plan4Title_fam: "Ultra 会员 · 家庭版",
                 plan4Subtitle_fam: "共享终极学习体验",
                 plan4Annual_fam: "仅限年付",
-                plan4Feat_fam_members: "支持最多<strong class='text-white mx-1'>5位</strong>家庭成员",
-                plan4Feat1_fam: "含<strong class='text-white mx-1'>大会员全部权益</strong> (多人共享)",
-                plan4Feat2_fam: "一对一<strong class='text-white mx-1'>课程定制</strong> (主账户)",
-                plan4Feat3_fam: "<strong class='text-white mx-1'>法国深度游学</strong> (1人名额)",
-                plan4Feat4_fam: "<strong class='text-white mx-1'>DELF/DALF考试</strong>费用 (1人名额)",
-                plan4Feat6_fam: "尊享 <strong class='text-white mx-1'>LinguaX Ultra Club</strong> 资格 (主账户)",
+                plan4Feat_fam_members: "支持最多5位家庭成员",
+                plan4Feat1_fam: "含大会员全部权益 (多人共享)",
+                plan4Feat3_fam: "法国深度游学 (1人名额)",
+                plan4Feat6_fam: "LinguaX Ultra Club 资格 (主账户)",
                 plan4Button_fam: "联系定制",
-                learnMoreUltraClub_7: "点击了解 Ultra Club <i class='fas fa-arrow-right text-xs ml-1'></i>",
+                learnMoreUltraClub_7: "点击了解 Ultra Club",
                 plan5Title_fam: "Ultra+ 会员 · 家庭版",
                 plan5Subtitle_fam: "家庭成员共享全部权益",
                 plan5Annual_fam: "仅限年付 (10%优惠)",
-                plan5Feat_fam_members: "支持全部<strong class='text-white mx-1'>5位</strong>家庭成员",
-                plan5Feat1_fam: "每位成员均享<strong class='text-white mx-1'>Ultra会员全部权益</strong> (含Ultra Club)",
+                plan5Feat_fam_members: "支持全部5位家庭成员",
+                plan5Feat1_fam: "每位成员均享Ultra Club",
                 plan5Feat2_fam: "专属家庭学术顾问",
                 plan5Feat3_fam: "优先定制家庭游学计划",
                 plan5Button_fam: "联系定制",
-                learnMoreUltraClub_8: "点击了解 Ultra Club <i class='fas fa-arrow-right text-xs ml-1'></i>",
+                learnMoreUltraClub_8: "点击了解 Ultra Club",
                 whyPayTitle: "我们对价值的承诺",
-                whyPayDesc1: "我们相信，卓越的教育体验源于持续的投入与打磨。您的付费支持，让我们能够邀请顶级的语言专家和行业译员共同研发课程，不断优化平台技术，并为您提供一个无广告、纯粹的学习环境。我们致力于将每一份投入都转化为您学习道路上实实在在的进步与价值。",
-                footerBrandInfo: "“翻译水平”是 <a href='https://learnfr.de' target='_blank' rel='noopener noreferrer' class='hover:text-sky-400 transition'>learnfr.de</a> 倾力打造的旗舰语言学习品牌。",
+                whyPayDesc1: "我们相信，卓越的教育体验源于持续的投入与打磨。您的付费支持，让我们能够邀请顶级的语言专家和行业译员共同研发课程，不断优化平台技术，并为您提供一个无广告、纯粹的学习环境。",
+                footerBrandInfo: "“翻译水平”是 learnfr.de 倾力打造的旗舰语言学习品牌。",
                 footerCopyright: "© 2025 LinguaX. All Rights Reserved.",
                 modalTitle: "提示",
                 modalText: "目前仅支持内测用户，敬请期待。",
                 regionModalTitle: "地区切换提示",
-                regionModalText: "您已切换到 <strong class='text-white'>%REGION_NAME%</strong> 定价。请注意，您需要使用当地支持的支付方式完成购买。"
+                regionModalText: "您已切换到 %REGION_NAME% 定价。请注意，您需要使用当地支持的支付方式完成购买。"
             },
             en: {
-                langSwitch: "切换中文",
+                langSwitch: "CN",
                 pricingTitle: "Choose Your Plan",
                 pricingSubtitle: "We offer flexible individual and family plans to start your professional translation journey.",
                 individualPlans: "Individual",
                 familyPlans: "Family",
                 recommended: "Recommended",
                 ultimate: "Ultimate",
-                perMonth: "/ month",
-                perMonth_2: "/ month",
-                plan1Title: "Basic Member",
-                plan1Subtitle: "For exploring the world of French",
-                plan1Price: "Free",
-                plan1Feat1: "Access to some introductory courses",
-                plan1Feat2: "Basic interactive exercises",
-                plan1Feat3: "Access to all core courses",
-                plan1Feat4: "Ad-free experience",
-                plan1Feat5: "One-on-one instructor feedback",
-                plan1Button: "Sign Up Now",
-                plan2Title: "Super Member",
-                plan2Subtitle: "The best choice for systematic learning",
-                plan2Annual: "or %PRICE% / year (7% off)",
-                plan2Feat1: "Access to <strong class='text-white mx-1'>all beginner and intermediate</strong> courses",
-                plan2Feat2: "Full interactive exercise library",
-                plan2Feat3: "<strong class='text-white mx-1'>Partial ad removal</strong>",
-                plan2Feat5: "Learning community access",
-                plan2Feat6: "One-on-one instructor feedback",
-                plan2Button: "Choose Plan",
-                plan3Title: "VIP Member",
-                plan3Subtitle: "For aspiring professional translators",
-                plan3Annual: "or %PRICE% / year (7% off)",
-                plan3Feat1: "Includes <strong class='text-white mx-1'>all Super Member benefits</strong>",
-                plan3Feat2: "<strong class='text-white mx-1'>Completely ad-free</strong> experience",
-                plan3Feat3: "Access to <strong class='text-white mx-1'>all advanced workshops</strong>",
-                plan3Feat4: "Participate in real translation projects",
-                plan3Feat5: "<strong class='text-white mx-1'>One-on-one assignment feedback</strong> from instructors",
-                plan3Feat6: "Receive a <strong class='text-white mx-1'>completion certificate</strong>",
-                plan3Button: "Choose Plan",
-                plan4Title: "Ultra Member",
-                plan4Subtitle: "The ultimate learning and life experience",
-                plan4Annual: "Annual subscription only",
-                plan4Feat1: "Includes <strong class='text-white mx-1'>all VIP Member benefits</strong>",
-                plan4Feat2: "One-on-one <strong class='text-white mx-1'>customized curriculum</strong>",
-                plan4Feat3: "<strong class='text-white mx-1'>Immersive study tour in France</strong> (all expenses covered)",
-                plan4Feat4: "<strong class='text-white mx-1'>DELF/DALF exam fees</strong> fully covered",
-                plan4Feat5: "Dedicated academic advisor",
-                plan4Feat6: "Exclusive <strong class='text-white mx-1'>LinguaX Ultra Club</strong> Membership",
-                plan4Button: "Contact Us",
-                learnMoreUltraClub_4: "Learn about Ultra Club <i class='fas fa-arrow-right text-xs ml-1'></i>",
                 recommended_fam: "Recommended",
                 ultimate_fam: "Ultimate",
                 ultimate_plus_fam: "Flagship",
-                perMonth_fam: "/ month",
-                perMonth_2_fam: "/ month",
-                plan2Title_fam: "Super Member · Family",
-                plan2Subtitle_fam: "Systematic learning for the whole family",
-                plan2Annual_fam: "or %PRICE% / year (Family Offer)",
-                plan2Feat_fam_members: "Supports up to <strong class='text-white mx-1'>3</strong> family members",
-                plan2Feat1_fam: "Access to <strong class='text-white mx-1'>all beginner and intermediate</strong> courses",
-                plan2Feat2_fam: "Full interactive exercise library",
-                plan2Feat3_fam: "<strong class='text-white mx-1'>Partial ad removal</strong>",
-                plan2Feat5_fam: "Learning community access",
-                plan2Button_fam: "Choose Plan",
-                plan3Title_fam: "VIP Member · Family",
-                plan3Subtitle_fam: "Aim for professional level as a family",
-                plan3Annual_fam: "or %PRICE% / year (Family Offer)",
-                plan3Feat_fam_members: "Supports up to <strong class='text-white mx-1'>4</strong> family members",
-                plan3Feat1_fam: "Includes <strong class='text-white mx-1'>all Super Member benefits</strong>",
-                plan3Feat2_fam: "<strong class='text-white mx-1'>Completely ad-free</strong> experience",
-                plan3Feat3_fam: "Access to <strong class='text-white mx-1'>all advanced workshops</strong>",
-                plan3Feat5_fam: "<strong class='text-white mx-1'>One-on-one assignment feedback</strong> (for primary account)",
-                plan3Button_fam: "Choose Plan",
-                plan4Title_fam: "Ultra Member · Family",
-                plan4Subtitle_fam: "Share the ultimate learning experience",
-                plan4Annual_fam: "Annual subscription only",
-                plan4Feat_fam_members: "Supports up to <strong class='text-white mx-1'>5</strong> family members",
-                plan4Feat1_fam: "Includes <strong class='text-white mx-1'>all VIP Member benefits</strong> (shared)",
-                plan4Feat2_fam: "One-on-one <strong class='text-white mx-1'>customized curriculum</strong> (for primary account)",
-                plan4Feat3_fam: "Immersive study tour in France (for 1 person)",
-                plan4Feat4_fam: "DELF/DALF exam fees covered (for 1 person)",
-                plan4Feat6_fam: "Exclusive <strong class='text-white mx-1'>LinguaX Ultra Club</strong> Membership (for primary account)",
-                plan4Button_fam: "Contact Us",
-                learnMoreUltraClub_7: "Learn about Ultra Club <i class='fas fa-arrow-right text-xs ml-1'></i>",
-                plan5Title_fam: "Ultra+ Member · Family",
-                plan5Subtitle_fam: "All members share all benefits",
-                plan5Annual_fam: "Annual subscription only (10% off)",
-                plan5Feat_fam_members: "Supports all <strong class='text-white mx-1'>5</strong> family members",
-                plan5Feat1_fam: "Each member enjoys <strong class='text-white mx-1'>full Ultra Member benefits</strong> (incl. Ultra Club)",
-                plan5Feat2_fam: "Dedicated family academic advisor",
-                plan5Feat3_fam: "Priority family study tour planning",
-                plan5Button_fam: "Contact Us",
-                learnMoreUltraClub_8: "Learn about Ultra Club <i class='fas fa-arrow-right text-xs ml-1'></i>",
-                whyPayTitle: "Our Commitment to Value",
-                whyPayDesc1: "We believe that an exceptional educational experience comes from continuous investment and refinement. Your paid support allows us to collaborate with top language experts and industry translators to develop our curriculum, constantly optimize our platform's technology, and provide you with a pure, ad-free learning environment. We are committed to turning every investment into tangible progress and value on your learning journey.",
-                footerBrandInfo: "\"LinguaX\" is the flagship language learning brand crafted by <a href='https://learnfr.de' target='_blank' rel='noopener noreferrer' class='hover:text-sky-400 transition'>learnfr.de</a>.",
+                perMonth: "/ mo",
+                perMonth_2: "/ mo",
+                perMonth_fam: "/ mo",
+                perMonth_2_fam: "/ mo",
+                plan1Title: "Basic",
+                plan1Subtitle: "For beginners",
+                plan1Price: "Free",
+                plan1Feat1: "Access introductory courses",
+                plan1Feat2: "Basic interactive exercises",
+                plan1Feat3: "Access core courses",
+                plan1Feat4: "Ad-free",
+                plan1Feat5: "Instructor feedback",
+                plan1Button: "Sign Up",
+                plan2Title: "Super",
+                plan2Subtitle: "Best for systematic learning",
+                plan2Annual: "or %PRICE% / yr (7% off)",
+                plan2Feat1: "Access beginner & intermediate",
+                plan2Feat2: "All interactive exercises",
+                plan2Feat3: "Partial ad removal",
+                plan2Feat5: "Community access",
+                plan2Feat6: "Instructor feedback",
+                plan2Button: "Choose",
+                plan3Title: "VIP",
+                plan3Subtitle: "For aspiring pros",
+                plan3Annual: "or %PRICE% / yr (7% off)",
+                plan3Feat1: "All Super benefits",
+                plan3Feat2: "Completely ad-free",
+                plan3Feat3: "All advanced workshops",
+                plan3Feat4: "Real projects",
+                plan3Feat5: "1-on-1 feedback",
+                plan3Feat6: "Certificate",
+                plan3Button: "Choose",
+                plan4Title: "Ultra",
+                plan4Subtitle: "Ultimate experience",
+                plan4Annual: "Annual only",
+                plan4Feat1: "All VIP benefits",
+                plan4Feat2: "Custom curriculum",
+                plan4Feat3: "France Study Tour (Full)",
+                plan4Feat4: "Exam fees covered",
+                plan4Feat6: "Ultra Club Access",
+                plan4Button: "Contact",
+                learnMoreUltraClub_4: "Learn about Ultra Club",
+                plan2Title_fam: "Super · Family",
+                plan2Subtitle_fam: "Systematic learning for family",
+                plan2Annual_fam: "or %PRICE% / yr",
+                plan2Feat_fam_members: "Up to 3 members",
+                plan2Feat1_fam: "Access all courses",
+                plan2Feat3_fam: "Partial ad removal",
+                plan2Button_fam: "Choose",
+                plan3Title_fam: "VIP · Family",
+                plan3Subtitle_fam: "Pro level for family",
+                plan3Annual_fam: "or %PRICE% / yr",
+                plan3Feat_fam_members: "Up to 4 members",
+                plan3Feat1_fam: "All Super benefits",
+                plan3Feat2_fam: "Completely ad-free",
+                plan3Feat5_fam: "1-on-1 feedback (Primary)",
+                plan3Button_fam: "Choose",
+                plan4Title_fam: "Ultra · Family",
+                plan4Subtitle_fam: "Ultimate shared experience",
+                plan4Annual_fam: "Annual only",
+                plan4Feat_fam_members: "Up to 5 members",
+                plan4Feat1_fam: "All VIP benefits (Shared)",
+                plan4Feat3_fam: "France Tour (1 person)",
+                plan4Feat6_fam: "Ultra Club (Primary)",
+                plan4Button_fam: "Contact",
+                learnMoreUltraClub_7: "Learn about Ultra Club",
+                plan5Title_fam: "Ultra+ · Family",
+                plan5Subtitle_fam: "All benefits shared",
+                plan5Annual_fam: "Annual only (10% off)",
+                plan5Feat_fam_members: "5 members all Ultra",
+                plan5Feat1_fam: "Everyone gets Ultra Club",
+                plan5Feat2_fam: "Family Advisor",
+                plan5Feat3_fam: "Priority Tour Planning",
+                plan5Button_fam: "Contact",
+                learnMoreUltraClub_8: "Learn about Ultra Club",
+                whyPayTitle: "Our Commitment",
+                whyPayDesc1: "Your support enables us to collaborate with top language experts and provide a pure, ad-free learning environment.",
+                footerBrandInfo: "LinguaX is the flagship brand by learnfr.de.",
                 footerCopyright: "© 2025 LinguaX. All Rights Reserved.",
                 modalTitle: "Notice",
-                modalText: "Currently available for internal beta users only. Stay tuned.",
-                regionModalTitle: "Region Change Notice",
-                regionModalText: "You have switched to <strong class='text-white'>%REGION_NAME%</strong> pricing. Please note that a local payment method is required for purchase."
+                modalText: "Beta users only. Stay tuned.",
+                regionModalTitle: "Region Change",
+                regionModalText: "Switched to %REGION_NAME% pricing. Local payment required."
             }
         };
 
@@ -558,19 +734,15 @@
         };
 
         const regionalData = {
-            'CN': { name: '中国大陆', name_en: 'China Mainland', currency: '¥', multiplier: 1 },
-            'HK': { name: '中国香港', name_en: 'Hong Kong SAR', currency: 'HK$', multiplier: 1.1 },
-            'MO': { name: '中国澳门', name_en: 'Macao SAR', currency: 'MOP$', multiplier: 1.1 },
+            'CN': { name: '中国大陆', name_en: 'China', currency: '¥', multiplier: 1 },
+            'HK': { name: '中国香港', name_en: 'Hong Kong', currency: 'HK$', multiplier: 1.1 },
+            'MO': { name: '中国澳门', name_en: 'Macao', currency: 'MOP$', multiplier: 1.1 },
             'TW': { name: '中国台湾', name_en: 'Taiwan', currency: 'NT$', multiplier: 4.5 },
-            'US': { name: 'United States', name_en: 'United States', currency: '$', multiplier: 0.16 },
-            'EU': { name: 'European Union', name_en: 'European Union', currency: '€', multiplier: 0.15 },
-            'GB': { name: 'United Kingdom', name_en: 'United Kingdom', currency: '£', multiplier: 0.13 },
+            'US': { name: 'United States', name_en: 'USA', currency: '$', multiplier: 0.16 },
+            'EU': { name: 'European Union', name_en: 'EU', currency: '€', multiplier: 0.15 },
+            'GB': { name: 'United Kingdom', name_en: 'UK', currency: '£', multiplier: 0.13 },
             'JP': { name: '日本', name_en: 'Japan', currency: '¥', multiplier: 23 },
-            'KR': { name: '대한민국', name_en: 'South Korea', currency: '₩', multiplier: 220 },
-            'RU': { name: 'Россия', name_en: 'Russia', currency: '₽', multiplier: 12 },
-            'IN': { name: 'India', name_en: 'India', currency: '₹', multiplier: 12 },
-            'TR': { name: 'Türkiye', name_en: 'Türkiye', currency: '₺', multiplier: 4.5 },
-            'AR': { name: 'Argentina', name_en: 'Argentina', currency: 'ARS', multiplier: 130 },
+            'KR': { name: '대한민국', name_en: 'Korea', currency: '₩', multiplier: 220 },
         };
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -578,7 +750,6 @@
             let currentRegion = 'CN';
             let calculatedPrices = {};
 
-            const brandHeader = document.getElementById('brandName-header');
             const individualBtn = document.getElementById('individual-plan-btn');
             const familyBtn = document.getElementById('family-plan-btn');
             const individualContainer = document.getElementById('individual-plans-container');
@@ -588,11 +759,12 @@
             const regionDropdown = document.getElementById('region-dropdown');
             const currentRegionText = document.getElementById('current-region-text');
             
+            // Modals
             const authModal = document.getElementById('auth-modal');
             const regionNoticeModal = document.getElementById('region-notice-modal');
 
             function formatPrice(value, currency) {
-                 if (currency === '¥' || currency === 'NT$' || currency === '₩' || currency === '₽') {
+                 if (currency === '¥' || currency === 'NT$' || currency === '₩') {
                     return currency + Math.round(value).toLocaleString();
                  }
                  return currency + value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -612,7 +784,8 @@
                 const regionInfo = regionalData[currentRegion];
                 
                 document.documentElement.lang = lang;
-                brandHeader.textContent = lang === 'zh' ? '翻译水平' : 'LinguaX';
+                
+                // Translate all elements
                 document.querySelectorAll('[data-translate]').forEach(element => {
                     const key = element.getAttribute('data-translate');
                     if (translations[lang] && translations[lang][key]) {
@@ -620,6 +793,7 @@
                     }
                 });
 
+                // Update Prices
                 document.querySelectorAll('[data-price-key]').forEach(el => {
                     const key = el.getAttribute('data-price-key');
                     if (key === 'plan1_price') return;
@@ -634,16 +808,6 @@
                         el.innerHTML = textTemplate.replace('%PRICE%', priceValue);
                     } else if (priceSpan) {
                         priceSpan.textContent = priceValue;
-                        priceSpan.classList.remove('text-5xl', 'text-4xl', 'text-3xl', 'text-2xl');
-                        if (priceValue.length > 15) {
-                            priceSpan.classList.add('text-2xl');
-                        } else if (priceValue.length > 12) {
-                            priceSpan.classList.add('text-3xl');
-                        } else if (priceValue.length > 9) {
-                            priceSpan.classList.add('text-4xl');
-                        } else {
-                            priceSpan.classList.add('text-5xl');
-                        }
                     }
                 });
                 
@@ -654,15 +818,11 @@
                 regionDropdown.innerHTML = '';
                 for (const code in regionalData) {
                     const region = regionalData[code];
-                    const link = document.createElement('a');
-                    link.href = '#';
-                    link.className = 'region-option block px-4 py-2 text-sm hover:bg-slate-700';
+                    const link = document.createElement('button');
+                    link.className = 'block w-full text-left px-4 py-3 hover:bg-[var(--c-ultra)] font-bold text-sm border-b border-black last:border-0 transition-colors';
                     link.dataset.region = code;
                     link.textContent = currentLang === 'zh' ? region.name : region.name_en;
-                    regionDropdown.appendChild(link);
-                }
-                 document.querySelectorAll('.region-option').forEach(option => {
-                    option.addEventListener('click', function(e) {
+                    link.addEventListener('click', function(e) {
                         e.preventDefault();
                         const newRegion = this.dataset.region;
                         if (newRegion !== currentRegion) {
@@ -674,7 +834,8 @@
                         }
                         regionDropdown.classList.add('hidden');
                     });
-                });
+                    regionDropdown.appendChild(link);
+                }
             }
             
             function changeLanguage(lang){
@@ -683,41 +844,36 @@
                  renderUI();
             }
 
-            function setupModal(modalId, openButtonsClass, closeButtonId) {
-                const modal = document.getElementById(modalId);
-                const openButtons = document.querySelectorAll(openButtonsClass);
-                const closeButton = document.getElementById(closeButtonId);
-                
-                const open = () => {
-                    modal.classList.remove('invisible', 'opacity-0');
-                    modal.querySelector('.modal-content').classList.remove('scale-95');
-                };
-                const close = () => {
-                    modal.classList.add('opacity-0');
-                    modal.querySelector('.modal-content').classList.add('scale-95');
-                    setTimeout(() => { modal.classList.add('invisible'); }, 300);
-                };
-                
-                if (openButtons.length > 0) {
-                    openButtons.forEach(button => button.addEventListener('click', (e) => { e.preventDefault(); open(); }));
-                }
-                if(closeButton) closeButton.addEventListener('click', close);
-                modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-                return open;
-            }
-
-            const openAuthModal = setupModal('auth-modal', '.open-modal-button', 'close-modal-button');
-            const openRegionModal = setupModal('region-notice-modal', null, 'close-region-modal-button');
-
+            // Modal Handling
             function openRegionNoticeModal(regionName) {
                 const modalTextElement = document.getElementById('region-modal-text');
                 const textTemplate = translations[currentLang].regionModalText;
-                const finalText = textTemplate.replace('%REGION_NAME%', `<strong class='text-white'>${regionName}</strong>`);
-                if (modalTextElement) {
-                   modalTextElement.innerHTML = finalText;
-                }
-                openRegionModal();
+                const finalText = textTemplate.replace('%REGION_NAME%', regionName);
+                if (modalTextElement) modalTextElement.innerHTML = finalText;
+                
+                const modal = document.getElementById('region-notice-modal');
+                modal.classList.remove('hidden');
+                setTimeout(() => modal.classList.remove('opacity-0'), 10);
+                modal.querySelector('.modal-box').classList.remove('scale-95');
             }
+
+            // Auth Modal Triggers
+            document.querySelectorAll('.open-auth-modal').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    authModal.classList.remove('hidden');
+                    setTimeout(() => authModal.classList.remove('opacity-0'), 10);
+                    authModal.querySelector('.modal-box').classList.remove('scale-95');
+                });
+            });
+
+            // Close Modals
+            [authModal, regionNoticeModal].forEach(modal => {
+                modal.querySelector('button[id^="close"]').addEventListener('click', () => {
+                    modal.classList.add('opacity-0');
+                    modal.querySelector('.modal-box').classList.add('scale-95');
+                    setTimeout(() => modal.classList.add('hidden'), 300);
+                });
+            });
 
             // --- INITIAL SETUP & EVENT LISTENERS ---
             populateRegions();
@@ -757,4 +913,3 @@
     </script>
 </body>
 </html>
-
