@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法语学习导航 - Bold Edition</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Phosphor Icons (精致图标库) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* --- 大胆冲突配色 (Neo-Brutalism Palette) --- */
+            --bg-color: #ffffff;
+            --text-main: #000000;
+            --border-color: #000000;
+            
+            /* 强烈的装饰色 */
+            --color-accent-1: #FF6B6B; /* 热粉红 */
+            --color-accent-2: #4ECDC4; /* 青色 */
+            --color-accent-3: #FFE66D; /* 亮黄 */
+            --color-accent-4: #1A535C; /* 深青 */
+            --color-accent-5: #FF9F1C; /* 橙色 */
+            --color-purple: #9b5de5;
+            --color-pink: #f15bb5;
+            --color-yellow: #fee440;
+            --color-blue: #00bbf9;
+            --color-green: #00f5d4;
+
+            --card-shadow: 8px 8px 0px #000000;
+            --card-shadow-hover: 0px 0px 0px #000000;
+            --btn-shadow: 4px 4px 0px #000000;
+            --border-width: 3px;
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            /* 背景网格纹理 */
+            background-image: radial-gradient(#000 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* --- 动画定义 --- */
+
+        /* 1. 浮动背景元素 */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .floating-shape {
+            position: absolute;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        /* 2. 标题流动光效 */
+        @keyframes shine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .title-gradient {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #FFE66D, #FF6B6B);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shine 5s ease infinite;
+        }
+
+        /* 3. 卡片入场 (交错) */
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .card-enter {
+            opacity: 0; /* 初始隐藏，由JS添加动画类 */
+            animation-fill-mode: forwards;
+        }
+
+        /* 4. 模态框弹跳 */
+        @keyframes modalPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .modal-content-animate {
+            animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* --- 组件样式 --- */
+
+        /* 粗野主义卡片 */
+        .neo-card {
+            background: white;
+            border: var(--border-width) solid black;
+            box-shadow: var(--card-shadow);
+            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .neo-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: -1;
+        }
+
+        /* 卡片悬停效果 - 炫酷的“按下”感 */
+        .neo-card:hover {
+            transform: translate(8px, 8px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        /* 悬停时图标动一下 */
+        .neo-card:hover .card-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* 装饰性彩色条纹 */
+        .card-accent-strip {
+            height: 12px;
+            width: 100%;
+            border-bottom: var(--border-width) solid black;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* 按钮样式 */
+        .neo-btn {
+            background: #fff;
+            border: 2px solid black;
+            box-shadow: var(--btn-shadow);
+            font-weight: bold;
+            transition: all 0.1s;
+        }
+        .neo-btn:hover {
+            background: #000;
+            color: #fff;
+            box-shadow: 2px 2px 0px #000; /* 稍微收缩 */
+            transform: translate(2px, 2px);
+        }
+        .neo-btn:active {
+            box-shadow: 0px 0px 0px #000;
+            transform: translate(4px, 4px);
+        }
+
+        /* 旗舰卡片特殊样式 */
+        .card-flagship {
+            background-color: #f0fdf4;
+        }
+        .card-flagship .card-accent-strip {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--color-green),
+                var(--color-green) 10px,
+                #000 10px,
+                #000 12px
+            );
+        }
+
+        /* 图标容器 */
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background: white;
+            transition: transform 0.3s ease;
+        }
+
+        /* 模态框 */
+        .modal-bg {
+            background-color: rgba(255, 214, 10, 0.9); /* 鲜艳的黄色遮罩 */
+            backdrop-filter: blur(4px);
+        }
+        
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-left: 2px solid black;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+            border: 2px solid white;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-pink);
+        }
+
+        /* 实用工具类 */
+        .text-stroke {
+            -webkit-text-stroke: 1px black;
+            color: white;
+            font-weight: 900;
+        }
+        
+        /* Footer Link Hover */
+        .footer-link:hover {
+            background-color: black;
+            color: white;
+            padding: 0 4px;
+            transform: skew(-5deg);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- 背景装饰几何体 (Parallax Elements) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- 圆 -->
+        <div class="floating-shape absolute top-20 left-10 w-24 h-24 rounded-full border-4 border-black bg-yellow-300" style="animation-delay: 0s; left: 5%;"></div>
+        <!-- 三角 -->
+        <svg class="floating-shape absolute top-1/3 right-10 w-32 h-32 text-pink-500" viewBox="0 0 100 100" style="animation-delay: 1s; right: 8%;">
+            <polygon points="50,10 90,90 10,90" fill="currentColor" stroke="black" stroke-width="3" />
+        </svg>
+        <!-- 方块 -->
+        <div class="floating-shape absolute bottom-20 left-20 w-16 h-16 border-4 border-black bg-blue-400 rotate-12" style="animation-delay: 2s; left: 15%;"></div>
+        <!-- 波浪线 -->
+        <svg class="floating-shape absolute bottom-1/3 right-1/3 w-40 h-20 text-green-400" style="animation-delay: 3s;">
+            <path d="M10,10 Q50,50 90,10" fill="none" stroke="black" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <!-- 十字 -->
+        <div class="floating-shape absolute top-40 right-40 text-6xl font-black text-purple-500" style="animation-delay: 4s; opacity: 0.5;">+</div>
+    </div>
+
+    <!-- 右上角控件 -->
+    <div class="fixed top-6 right-6 z-50 flex gap-4">
+        <!-- 语言切换 -->
+        <div class="relative group" id="lang-dropdown-container">
+            <button id="lang-dropdown-btn" class="neo-btn py-2 px-4 rounded-none flex items-center gap-2 bg-white">
+                <i class="ph-bold ph-globe text-xl"></i>
+                <span id="current-lang-text" class="font-bold uppercase">中文</span>
+                <i class="ph-bold ph-caret-down"></i>
+            </button>
+            <!-- 下拉菜单 -->
+            <div id="lang-dropdown-menu" class="hidden absolute right-0 top-full mt-2 w-32 border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <a href="#" class="block px-4 py-3 font-bold hover:bg-black hover:text-white transition-colors" data-lang="zh">中文</a>
+                <a href="#" class="block px-4 py-3 font-bold hover:bg-black hover:text-white transition-colors" data-lang="en">English</a>
+                <a href="#" class="block px-4 py-3 font-bold hover:bg-black hover:text-white transition-colors" data-lang="es">Español</a>
+            </div>
+        </div>
+
+        <!-- 主题切换 (虽然主要请求是白色，保留功能但样式化为装饰性开关) -->
+        <button id="theme-toggle-btn" class="neo-btn p-2 rounded-full w-10 h-10 flex items-center justify-center bg-black text-white border-white hover:bg-yellow-400 hover:text-black hover:border-black transition-colors">
+            <i id="theme-icon-sun" class="ph-fill ph-sun text-xl"></i>
+            <i id="theme-icon-moon" class="ph-fill ph-moon text-xl hidden"></i>
+        </button>
+    </div>
+
+    <!-- 主容器 -->
+    <div class="container mx-auto px-4 py-12 md:py-24 z-10 relative">
+
+        <!-- Header -->
+        <header class="text-center mb-20">
+            <div class="inline-block relative mb-4">
+                <!-- 标题背后的装饰色块 -->
+                <div class="absolute -inset-2 bg-black transform -rotate-2 opacity-10"></div>
+                <h1 id="main-title" class="relative text-6xl md:text-8xl font-black tracking-tighter uppercase title-gradient drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                    法语学习导航
+                </h1>
+            </div>
+            <p id="main-subtitle" class="mt-6 text-xl md:text-2xl font-bold bg-black text-white inline-block px-4 py-1 transform rotate-1 shadow-[4px_4px_0px_#FF6B6B]">
+                开启您的法语探索之旅
+            </p>
+        </header>
+
+        <!-- 卡片网格 -->
+        <main>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 px-2">
+                
+                <!-- LinguaX 旗舰卡片 -->
+                <a href="https://learnfr.de/linguax" target="_blank" rel="noopener noreferrer" class="neo-card card-flagship rounded-xl p-8 block group card-enter" style="animation-delay: 0.1s;">
+                    <div class="card-accent-strip"></div>
+                    <!-- Badge -->
+                    <div class="absolute top-6 right-0 bg-black text-white text-xs font-bold px-3 py-1 transform translate-x-2 rotate-3 shadow-[-2px_2px_0px_#00f5d4]" id="card-linguax-badge">旗舰</div>
+                    
+                    <div class="icon-box bg-purple-200 text-purple-700 group-hover:bg-purple-500 group-hover:text-white border-black card-icon">
+                        <i class="ph-duotone ph-crown text-4xl"></i>
+                    </div>
+                    
+                    <h2 id="card-linguax-title" class="text-2xl font-black mb-3 group-hover:text-purple-600 transition-colors">LinguaX 旗舰官网</h2>
+                    <p id="card-linguax-desc" class="font-medium text-gray-700 leading-relaxed">我们全新的专业法语培训与翻译教学平台，探索系统化的学习路径与精英会员体系。</p>
+                    
+                    <div class="mt-6 flex items-center text-sm font-bold uppercase tracking-wide">
+                        <span>Go Now</span>
+                        <i class="ph-bold ph-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- 法国巡礼 -->
+                <a href="https://learnfr.de/france" class="neo-card rounded-xl p-8 block group card-enter" style="animation-delay: 0.2s;">
+                    <div class="card-accent-strip bg-blue-500"></div>
+                    <div class="icon-box bg-blue-100 text-blue-600 border-black card-icon">
+                        <i class="ph-duotone ph-flag text-4xl"></i>
+                    </div>
+                    <h2 id="card1-title" class="text-2xl font-black mb-3">法国巡礼</h2>
+                    <p id="card1-desc" class="font-medium text-gray-700">探索法国的文化、历史和地理。从巴黎的浪漫到普罗旺斯的阳光，带您领略法兰西的独特魅力。</p>
+                </a>
+
+                <!-- 天气表达 -->
+                <a href="https://learnfr.de/temps" class="neo-card rounded-xl p-8 block group card-enter" style="animation-delay: 0.3s;">
+                    <div class="card-accent-strip bg-yellow-400"></div>
+                    <div class="icon-box bg-yellow-100 text-yellow-600 border-black card-icon">
+                        <i class="ph-duotone ph-sun-horizon text-4xl"></i>
+                    </div>
+                    <h2 id="card2-title" class="text-2xl font-black mb-3">天气表达</h2>
+                    <p id="card2-desc" class="font-medium text-gray-700">学习如何用法语谈论天气，从“阳光明媚”到“倾盆大雨”，掌握日常对话的核心词汇。</p>
+                </a>
+
+                <!-- 数字 -->
+                <a href="https://learnfr.de/number" class="neo-card rounded-xl p-8 block group card-enter" style="animation-delay: 0.4s;">
+                    <div class="card-accent-strip bg-orange-500"></div>
+                    <div class="icon-box bg-orange-100 text-orange-600 border-black card-icon">
+                        <i class="ph-duotone ph-number-circle-five text-4xl"></i>
+                    </div>
+                    <h2 id="card3-title" class="text-2xl font-black mb-3">关于数字的一切</h2>
+                    <p id="card3-desc" class="font-medium text-gray-700">全面掌握法语数字的听说读写，无论是购物、报时还是描述年份，都能轻松应对。</p>
+                </a>
+
+                <!-- 商店 -->
+                <a href="https://learnfr.de/magasin" class="neo-card rounded-xl p-8 block group card-enter" style="animation-delay: 0.5s;">
+                    <div class="card-accent-strip bg-green-400"></div>
+                    <div class="icon-box bg-green-100 text-green-600 border-black card-icon">
+                        <i class="ph-duotone ph-storefront text-4xl"></i>
+                    </div>
+                    <h2 id="card4-title" class="text-2xl font-black mb-3">认识各种商店</h2>
+                    <p id="card4-desc" class="font-medium text-gray-700">从面包店到书店，学习不同商店的法语名称，让您在法国购物时充满自信。</p>
+                </a>
+
+                <!-- 课文学习 (Modal Trigger) -->
+                <div id="textbook-card" class="neo-card rounded-xl p-8 cursor-pointer group card-enter" style="animation-delay: 0.6s;">
+                    <div class="card-accent-strip bg-pink-500"></div>
+                    <div class="icon-box bg-pink-100 text-pink-600 border-black card-icon">
+                        <i class="ph-duotone ph-book-open-text text-4xl"></i>
+                    </div>
+                    <h2 id="card-textbook-title" class="text-2xl font-black mb-3">课文学习</h2>
+                    <p id="card-textbook-desc" class="font-medium text-gray-700">阅读课文原文与中文翻译，深入理解文章内容，提升阅读与翻译能力。</p>
+                </div>
+
+                <!-- 文化 -->
+                <div id="civilization-card" class="neo-card rounded-xl p-8 cursor-pointer group card-enter" style="animation-delay: 0.7s;">
+                    <div class="card-accent-strip bg-red-500"></div>
+                    <div class="icon-box bg-red-100 text-red-600 border-black card-icon">
+                        <i class="ph-duotone ph-columns text-4xl"></i>
+                    </div>
+                    <h2 id="card5-title" class="text-2xl font-black mb-3">法国文化</h2>
+                    <p id="card5-desc" class="font-medium text-gray-700">深入了解法国的社会、艺术和生活方式。点击查看不同主题。</p>
+                </div>
+
+                <!-- App -->
+                <a href="https://learnfr.de/app/mainpage" target="_blank" rel="noopener noreferrer" class="neo-card rounded-xl p-8 block group card-enter" style="animation-delay: 0.8s;">
+                    <div class="card-accent-strip bg-indigo-500"></div>
+                    <div class="icon-box bg-indigo-100 text-indigo-600 border-black card-icon">
+                        <i class="ph-duotone ph-device-mobile-camera text-4xl"></i>
+                    </div>
+                    <h2 id="card-app-title" class="text-2xl font-black mb-3">Français APP</h2>
+                    <p id="card-app-desc" class="font-medium text-gray-700">结合主动回忆与AI技术，重塑您的法语单词记忆方式，打造个性化、高效率的学习体验。</p>
+                </a>
+
+                <!-- 期待 -->
+                <div class="neo-card rounded-xl p-8 flex flex-col justify-center items-center border-dashed border-4 border-gray-300 shadow-none hover:shadow-none hover:transform-none hover:border-black hover:bg-gray-50 transition-colors card-enter" style="animation-delay: 0.9s;">
+                    <i class="ph-duotone ph-rocket-launch text-6xl text-gray-400 mb-4 animate-pulse"></i>
+                    <h2 id="card6-title" class="text-2xl font-black mb-2 text-gray-500">更多敬请期待</h2>
+                    <p id="card6-desc" class="text-center text-gray-400 font-medium">新的学习板块正在精心准备中...</p>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-24 mb-12 z-10">
+            <div class="inline-flex flex-wrap justify-center items-center gap-4 md:gap-8 text-sm font-bold uppercase tracking-widest border-2 border-black bg-white p-4 shadow-[4px_4px_0px_0px_#000]">
+                <a href="https://learnfr.de/about/" target="_blank" class="footer-link transition-transform" id="footer-link-about">关于</a>
+                <span class="text-black">/</span>
+                <a href="#" class="footer-link transition-transform" id="footer-link-support">技术支持</a>
+                <span class="text-black">/</span>
+                <a href="#" class="footer-link transition-transform" id="footer-link-join">加入我们</a>
+                <span class="text-black">/</span>
+                <a href="mailto:help@745520.xyz" class="footer-link transition-transform" id="footer-link-feedback">反馈与建议</a>
+            </div>
+            <p id="footer-text" class="mt-6 font-mono font-bold text-gray-500">&copy; 2025 Hugo. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- 模态框结构 (重构) -->
+    
+    <!-- Civilization Modal -->
+    <div id="civilization-modal" class="modal fixed inset-0 modal-bg flex justify-center items-center z-50 opacity-0 invisible transition-all duration-300">
+        <div class="bg-white border-4 border-black shadow-[16px_16px_0px_rgba(0,0,0,1)] p-0 w-11/12 max-w-md relative transform scale-95 transition-transform duration-300" id="civi-modal-content">
+            <!-- Header -->
+            <div class="bg-red-500 p-4 border-b-4 border-black flex justify-between items-center">
+                <h3 id="modal-title" class="text-2xl font-black text-white uppercase">文化主题</h3>
+                <button class="close-modal-btn text-black hover:text-white transition-colors bg-white hover:bg-black border-2 border-black rounded-none w-8 h-8 flex items-center justify-center font-bold">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+            </div>
+            <!-- Body -->
+            <div id="modal-buttons-container" class="p-6 space-y-3 max-h-[60vh] overflow-y-auto">
+                <!-- Buttons injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Textbook Modal -->
+    <div id="textbook-modal" class="modal fixed inset-0 modal-bg flex justify-center items-center z-50 opacity-0 invisible transition-all duration-300">
+        <div class="bg-white border-4 border-black shadow-[16px_16px_0px_rgba(0,0,0,1)] p-0 w-11/12 max-w-md relative transform scale-95 transition-transform duration-300" id="textbook-modal-content">
+            <div class="bg-pink-500 p-4 border-b-4 border-black flex justify-between items-center">
+                <h3 id="modal-title-textbook" class="text-2xl font-black text-white uppercase">课文主题</h3>
+                <button class="close-modal-btn text-black hover:text-white transition-colors bg-white hover:bg-black border-2 border-black rounded-none w-8 h-8 flex items-center justify-center font-bold">
+                    <i class="ph-bold ph-x"></i>
+                </button>
+            </div>
+            <div id="textbook-modal-buttons-container" class="p-6 space-y-3 max-h-[60vh] overflow-y-auto"></div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="info-modal" class="modal fixed inset-0 modal-bg flex justify-center items-center z-50 opacity-0 invisible transition-all duration-300">
+        <div class="bg-white border-4 border-black shadow-[16px_16px_0px_rgba(0,0,0,1)] p-8 w-11/12 max-w-sm text-center relative transform scale-95 transition-transform duration-300" id="info-modal-content">
+            <div class="mb-4 flex justify-center">
+                <i class="ph-duotone ph-info text-6xl text-blue-500"></i>
+            </div>
+            <h3 id="info-modal-title" class="text-2xl font-black mb-4 uppercase">通知</h3>
+            <p id="info-modal-text" class="mb-8 font-medium text-lg"></p>
+            <button class="close-modal-btn neo-btn py-2 px-8 rounded-none bg-black text-white border-black hover:bg-white hover:text-black w-full">
+                关闭 / CLOSE
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 触发入场动画
+            const cards = document.querySelectorAll('.card-enter');
+            cards.forEach((card, index) => {
+                card.style.animation = `slideUpFade 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 0.1}s forwards`;
+            });
+
+            // 数据定义
+            const civilizationTopics = [
+                { textKey: 'topic_civi11_cours', href: 'https://learnfr.de/civilization/civi11/cours/' },
+                { textKey: 'topic_civi11_exercices', href: 'https://learnfr.de/civilization/civi11/exercices/' },
+                { textKey: 'topic_art', href: null },
+                { textKey: 'topic_cinema', href: null },
+                { textKey: 'topic_music', href: null },
+            ];
+            const textbookTopics = [
+                { textKey: 'lesson_11', href: 'https://learnfr.de/text/c11/' },
+                { textKey: 'lesson_coming_soon', href: null },
+                { textKey: 'lesson_coming_soon', href: null },
+            ];
+
+            const translations = {
+                zh: {'main-title':'法语学习导航','main-subtitle':'开启您的法语探索之旅','card-linguax-badge':'旗舰','card-linguax-title':'LinguaX 旗舰官网','card-linguax-desc':'我们全新的专业法语培训与翻译教学平台，探索系统化的学习路径与精英会员体系。','card1-title':'法国巡礼','card1-desc':'探索法国的文化、历史和地理。从巴黎的浪漫到普罗旺斯的阳光...','card2-title':'天气表达','card2-desc':'学习如何用法语谈论天气，从“阳光明媚”到“倾盆大雨”...','card3-title':'关于数字的一切','card3-desc':'全面掌握法语数字的听说读写，无论是购物、报时...','card4-title':'认识各种商店','card4-desc':'从面包店到书店，学习不同商店的法语名称...','card-textbook-title':'课文学习','card-textbook-desc':'阅读课文原文与中文翻译，深入理解文章内容。','card5-title':'法国文化','card5-desc':'深入了解法国的社会、艺术和生活方式...','card-app-title':'Français APP','card-app-desc':'结合主动回忆与AI技术，重塑您的法语单词记忆方式。','card6-title':'更多敬请期待','card6-desc':'新的学习板块正在精心准备中...','footer-text':'&copy; 2025 Hugo. All Rights Reserved.','current-lang-text':'中文','modal-title':'文化主题','topic_civi11_cours':'Civi11课','topic_civi11_exercices':'Civi11练习','topic_art':'敬请期待','topic_cinema':'敬请期待','topic_music':'敬请期待','modal-title-textbook':'课文主题', 'lesson_11': '第11课', 'lesson_coming_soon': '敬请期待','footer-link-about':'关于','footer-link-support':'技术支持','footer-link-join':'加入我们','footer-link-feedback':'反馈与建议','info-modal-title':'通知','info-gemini':'由Gemini驱动','info-coming-soon':'敬请期待'},
+                en: {'main-title':'French Navigator','main-subtitle':'Start your journey of French exploration','card-linguax-badge':'Flagship','card-linguax-title':'LinguaX Official','card-linguax-desc':'Professional French training and translation teaching platform.','card1-title':'Tour of France','card1-desc':'Explore the culture, history, and geography of France...','card2-title':'Weather Talk','card2-desc':'Learn how to talk about the weather in French...','card3-title':'Numbers 101','card3-desc':'Master the reading, writing, and speaking of French numbers...','card4-title':'French Shops','card4-desc':'From bakeries to bookstores, learn French names...','card-textbook-title':'Textbook Study','card-textbook-desc':'Read original texts with translations.','card5-title':'Civilization','card5-desc':'Dive deep into French society, arts, and lifestyle...','card-app-title':'Français APP','card-app-desc':'Reshape your vocabulary memorization with active recall.','card6-title':'Coming Soon','card6-desc':'New learning modules are being prepared...','footer-text':'&copy; 2025 Hugo. All Rights Reserved.','current-lang-text':'English','modal-title':'Civilization Topics','topic_civi11_cours':'Civi Lesson 11','topic_civi11_exercices':'Civi Exercises','topic_art':'Coming Soon','topic_cinema':'Coming Soon','topic_music':'Coming Soon','modal-title-textbook':'Textbook Topics', 'lesson_11': 'Lesson 11', 'lesson_coming_soon': 'Coming Soon','footer-link-about':'About','footer-link-support':'Support','footer-link-join':'Join Us','footer-link-feedback':'Feedback','info-modal-title':'Notification','info-gemini':'Powered by Gemini','info-coming-soon':'Coming Soon'},
+                es: {'main-title':'Navegador Francés','main-subtitle':'Comienza tu viaje de exploración','card-linguax-badge':'Insignia','card-linguax-title':'Sitio Oficial LinguaX','card-linguax-desc':'Plataforma de formación profesional en francés.','card1-title':'Tour de Francia','card1-desc':'Explora la cultura, historia y geografía...','card2-title':'El Tiempo','card2-desc':'Aprende a hablar sobre el tiempo en francés...','card3-title':'Números','card3-desc':'Domina la lectura, escritura y pronunciación...','card4-title':'Tiendas','card4-desc':'Desde panaderías hasta librerías...','card-textbook-title':'Textos','card-textbook-desc':'Lee textos originales con traducciones.','card5-title':'Civilización','card5-desc':'Profundiza en la sociedad y las artes...','card-app-title':'Français APP','card-app-desc':'Remodela tu memorización de vocabulario.','card6-title':'Próximamente','card6-desc':'Nuevos módulos en preparación...','footer-text':'&copy; 2025 Hugo. All Rights Reserved.','current-lang-text':'Español','modal-title':'Temas','topic_civi11_cours':'Lección 11','topic_civi11_exercices':'Ejercicios 11','topic_art':'Próximamente','topic_cinema':'Próximamente','topic_music':'Próximamente','modal-title-textbook':'Temas de Libros', 'lesson_11': 'Lección 11', 'lesson_coming_soon': 'Próximamente','footer-link-about':'Sobre','footer-link-support':'Soporte','footer-link-join':'Únete','footer-link-feedback':'Sugerencias','info-modal-title':'Notificación','info-gemini':'Por Gemini','info-coming-soon':'Próximamente'}
+            };
+
+            // 语言切换逻辑
+            const langDropdownContainer = document.getElementById('lang-dropdown-container');
+            const langDropdownBtn = document.getElementById('lang-dropdown-btn');
+            const langDropdownMenu = document.getElementById('lang-dropdown-menu');
+            let currentLanguage = 'zh';
+
+            // 生成按钮的通用函数
+            function createButton(topic, langData) {
+                if (topic.href) {
+                    const a = document.createElement('a');
+                    a.href = topic.href;
+                    a.target = '_blank';
+                    a.className = 'neo-btn block w-full text-left p-4 border-2 border-black bg-yellow-200 hover:bg-black hover:text-white font-bold transition-all flex justify-between items-center group';
+                    a.innerHTML = `
+                        <span>${langData[topic.textKey] || topic.textKey}</span>
+                        <i class="ph-bold ph-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    `;
+                    return a;
+                } else {
+                    const btn = document.createElement('button');
+                    btn.className = 'block w-full text-left p-4 border-2 border-gray-300 bg-gray-100 text-gray-400 font-bold cursor-not-allowed';
+                    btn.textContent = langData[topic.textKey] || topic.textKey;
+                    btn.disabled = true;
+                    return btn;
+                }
+            }
+
+            function renderModalButtons() {
+                const modalButtonsContainer = document.getElementById('modal-buttons-container');
+                modalButtonsContainer.innerHTML = '';
+                const langData = translations[currentLanguage];
+                civilizationTopics.forEach(topic => modalButtonsContainer.appendChild(createButton(topic, langData)));
+            }
+            
+            function renderTextbookModalButtons() {
+                const tbContainer = document.getElementById('textbook-modal-buttons-container');
+                tbContainer.innerHTML = '';
+                const langData = translations[currentLanguage];
+                textbookTopics.forEach(topic => tbContainer.appendChild(createButton(topic, langData)));
+            }
+
+            function updateText(lang) {
+                currentLanguage = lang;
+                const langData = translations[lang];
+                for (const id in langData) {
+                    const element = document.getElementById(id);
+                    if (element) element.innerHTML = langData[id];
+                }
+                renderModalButtons();
+                renderTextbookModalButtons();
+            }
+
+            // 下拉菜单交互
+            langDropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langDropdownMenu.classList.toggle('hidden');
+            });
+            document.addEventListener('click', () => langDropdownMenu.classList.add('hidden'));
+            langDropdownMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    e.preventDefault();
+                    updateText(e.target.getAttribute('data-lang'));
+                }
+            });
+
+            // 模态框逻辑
+            function openModal(modalId, contentId) {
+                const modal = document.getElementById(modalId);
+                const content = document.getElementById(contentId);
+                modal.classList.remove('opacity-0', 'invisible');
+                content.classList.add('modal-content-animate');
+                // 动画结束后移除类以便下次触发
+                setTimeout(() => content.classList.remove('modal-content-animate'), 500);
+            }
+
+            document.getElementById('civilization-card').addEventListener('click', () => openModal('civilization-modal', 'civi-modal-content'));
+            document.getElementById('textbook-card').addEventListener('click', () => openModal('textbook-modal', 'textbook-modal-content'));
+
+            // Info Modal
+            const infoModal = document.getElementById('info-modal');
+            const infoContent = document.getElementById('info-modal-content');
+            function showInfoModal(textKey) {
+                document.getElementById('info-modal-text').textContent = translations[currentLanguage][textKey];
+                openModal('info-modal', 'info-modal-content');
+            }
+            document.getElementById('footer-link-support').addEventListener('click', (e) => { e.preventDefault(); showInfoModal('info-gemini'); });
+            document.getElementById('footer-link-join').addEventListener('click', (e) => { e.preventDefault(); showInfoModal('info-coming-soon'); });
+
+            // Close Modals
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal || e.target.closest('.close-modal-btn')) {
+                        modal.classList.add('opacity-0', 'invisible');
+                    }
+                });
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') document.querySelectorAll('.modal').forEach(m => m.classList.add('opacity-0', 'invisible'));
+            });
+
+            // Theme Toggle (装饰性)
+            const themeBtn = document.getElementById('theme-toggle-btn');
+            const sun = document.getElementById('theme-icon-sun');
+            const moon = document.getElementById('theme-icon-moon');
+            let isDark = false;
+            themeBtn.addEventListener('click', () => {
+                isDark = !isDark;
+                sun.classList.toggle('hidden');
+                moon.classList.toggle('hidden');
+                // 简单反转滤镜模拟深色模式，保持设计感
+                document.documentElement.style.filter = isDark ? 'invert(1) hue-rotate(180deg)' : 'none';
+            });
+
+            // Init
+            updateText(currentLanguage);
+        });
+    </script>
+</body>
+</html>

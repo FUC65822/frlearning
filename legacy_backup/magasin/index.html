@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="page_title">法式购物指南 - Shopping in France</title>
+    
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 引入 Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;700;900&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* --- Neo-Brutalism Palette --- */
+            --bg-color: #ffffff;
+            --text-main: #000000;
+            
+            /* 核心色 */
+            --c-yellow: #FFE66D;
+            --c-pink: #FF6B6B;
+            --c-cyan: #4ECDC4;
+            --c-purple: #9b5de5;
+            --c-green: #00f5d4;
+
+            --border-width: 3px;
+            --shadow-hard: 8px 8px 0px #000000;
+            --shadow-hover: 4px 4px 0px #000000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            /* 点阵背景 */
+            background-image: radial-gradient(#000 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+
+        :lang(ar) body { font-family: 'Cairo', sans-serif; }
+
+        /* --- 几何装饰 --- */
+        .geo-shape {
+            position: absolute;
+            border: var(--border-width) solid black;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-10px, -15px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        /* --- 跑马灯 --- */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #000;
+            color: #fff;
+            border-top: var(--border-width) solid black;
+            border-bottom: var(--border-width) solid black;
+            transform: rotate(-1deg);
+            width: 105%;
+            margin-left: -2.5%;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            padding: 12px 0;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- 组件样式 --- */
+        .neo-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: var(--border-width) solid black;
+            background: white;
+            box-shadow: 4px 4px 0px black;
+            font-weight: 700;
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+        .neo-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px black;
+        }
+        .neo-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px black;
+        }
+        .neo-btn.active {
+            background: black;
+            color: white;
+        }
+
+        .neo-card {
+            background: white;
+            border: var(--border-width) solid black;
+            box-shadow: var(--shadow-hard);
+            transition: all 0.2s;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .neo-card:hover {
+            transform: translate(4px, 4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* 商店条目样式 */
+        .shop-item {
+            border-bottom: 2px dashed #e5e7eb;
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            transition: background 0.2s;
+        }
+        .shop-item:last-child { border-bottom: none; }
+        .shop-item:hover { background: #f9fafb; padding-left: 0.5rem; padding-right: 0.5rem; }
+
+        /* 对话气泡 */
+        .bubble {
+            background: white;
+            border: 2px solid black;
+            padding: 1rem;
+            position: relative;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        .bubble::after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 10px 10px 0;
+            border-color: black transparent transparent transparent;
+            bottom: -10px;
+            left: 20px;
+        }
+        .bubble.alt {
+            background: var(--c-cyan);
+        }
+        .bubble.alt::after {
+            left: auto;
+            right: 20px;
+            border-color: black transparent transparent transparent;
+        }
+
+        /* 标题标签 */
+        .section-tag {
+            display: inline-block;
+            background: black;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-weight: 900;
+            transform: skew(-10deg);
+            margin-bottom: 1rem;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: var(--border-width) solid black;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Back to Top */
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--c-cyan);
+            color: black;
+            border: 3px solid black;
+            padding: 0.8rem;
+            box-shadow: 4px 4px 0px black;
+            z-index: 50;
+            display: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        #back-to-top:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px black;
+            background: var(--c-pink);
+            color: white;
+        }
+        
+        /* Animation Defaults */
+        .animate-on-scroll {
+            opacity: 1; /* Ensure visible by default for robustness */
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-hidden {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        /* Tooltip/Note Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            background: white;
+            border: 4px solid black;
+            box-shadow: 10px 10px 0px black;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative selection:bg-[var(--c-yellow)] selection:text-black">
+
+    <!-- 1. 几何背景装饰 -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- 黄色圆 -->
+        <div class="geo-shape w-48 h-48 rounded-full bg-[var(--c-yellow)] top-20 left-10 opacity-50"></div>
+        <!-- 粉色方块 -->
+        <div class="geo-shape w-32 h-32 bg-[var(--c-pink)] top-1/3 right-10 rotate-12 opacity-50"></div>
+        <!-- 蓝色三角 -->
+        <svg class="geo-shape w-40 h-40 text-[var(--c-cyan)] bottom-20 left-20 opacity-50" viewBox="0 0 100 100">
+             <polygon points="50,10 90,90 10,90" fill="currentColor" stroke="black" stroke-width="3"/>
+        </svg>
+    </div>
+
+    <!-- 2. 导航栏 -->
+    <header class="sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-black text-white flex items-center justify-center border-2 border-black group-hover:bg-[var(--c-yellow)] group-hover:text-black transition-colors shadow-[2px_2px_0_0_#000]">
+                    <i class="ph-bold ph-shopping-bag text-2xl"></i>
+                </div>
+                <span class="text-xl font-black uppercase tracking-tighter" data-key="page_title">购物指南</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6 font-bold text-sm">
+                <a href="#shops" class="hover:bg-[var(--c-yellow)] px-2 py-1 border-2 border-transparent hover:border-black transition-all" data-key="tab_shops">商店类型</a>
+                <a href="#templates" class="hover:bg-[var(--c-pink)] px-2 py-1 border-2 border-transparent hover:border-black transition-all" data-key="tab_templates">实用对话</a>
+                <a href="#quiz" class="hover:bg-[var(--c-cyan)] px-2 py-1 border-2 border-transparent hover:border-black transition-all" data-key="tab_quiz">词汇测验</a>
+                
+                <!-- Language Switcher -->
+                <div class="flex border-2 border-black bg-white shadow-[2px_2px_0_0_#000]">
+                    <button class="lang-btn px-3 py-1 text-xs font-bold hover:bg-black hover:text-white transition-colors border-r-2 border-black active" data-lang="zh">中</button>
+                    <button class="lang-btn px-3 py-1 text-xs font-bold hover:bg-black hover:text-white transition-colors border-r-2 border-black" data-lang="en">EN</button>
+                    <button class="lang-btn px-3 py-1 text-xs font-bold hover:bg-black hover:text-white transition-colors" data-lang="es">ES</button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden p-2 border-2 border-black bg-white shadow-[2px_2px_0_0_#000]">
+                <i class="ph-bold ph-list text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b-[3px] border-black p-6 absolute w-full z-40 shadow-xl flex flex-col gap-4 font-bold">
+            <a href="#shops" class="block p-2 hover:bg-[var(--c-yellow)] border-2 border-transparent hover:border-black" data-key="tab_shops">商店类型</a>
+            <a href="#templates" class="block p-2 hover:bg-[var(--c-pink)] border-2 border-transparent hover:border-black" data-key="tab_templates">实用对话</a>
+            <a href="#quiz" class="block p-2 hover:bg-[var(--c-cyan)] border-2 border-transparent hover:border-black" data-key="tab_quiz">词汇测验</a>
+            <div class="flex gap-2 pt-4 border-t-2 border-black">
+                <button class="lang-btn flex-1 py-2 border-2 border-black hover:bg-black hover:text-white font-bold text-xs" data-lang="zh">中文</button>
+                <button class="lang-btn flex-1 py-2 border-2 border-black hover:bg-black hover:text-white font-bold text-xs" data-lang="en">EN</button>
+                <button class="lang-btn flex-1 py-2 border-2 border-black hover:bg-black hover:text-white font-bold text-xs" data-lang="es">ES</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow relative z-10">
+        
+        <!-- Hero Section -->
+        <section class="py-20 px-6 text-center relative overflow-hidden">
+            <div class="container mx-auto max-w-4xl relative z-10">
+                <h1 class="text-5xl md:text-8xl font-black mb-8 leading-tight animate-on-scroll" data-key="hero_title">
+                    Faire les Courses
+                </h1>
+                
+                <div class="inline-block bg-white border-[3px] border-black p-6 transform -rotate-1 shadow-[8px_8px_0_0_#000] mb-12 max-w-3xl animate-on-scroll delay-1">
+                    <p class="text-xl md:text-2xl font-bold text-gray-800" data-key="hero_subtitle">
+                        像本地人一样购物。掌握法国生活必备的商店词汇与实用对话。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="marquee-container">
+            <div class="marquee-content">
+                BOULANGERIE • PHARMACIE • MODE • SHOPPING • SUPERMARCHÉ • PARIS • STYLE • BOULANGERIE • PHARMACIE • MODE • SHOPPING •
+            </div>
+        </div>
+
+        <!-- 1. 商店类型 (Shops) -->
+        <section id="shops" class="py-20 px-6">
+            <div class="container mx-auto max-w-6xl">
+                <div class="mb-16 text-center animate-on-scroll">
+                    <span class="section-tag bg-[var(--c-yellow)] text-black" data-key="tab_shops">商店类型</span>
+                </div>
+                
+                <!-- 这里的内容将通过JS动态生成，以保持布局灵活 -->
+                <div id="shops-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- JS Rendered Cards -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 实用对话 (Templates) -->
+        <section id="templates" class="py-20 px-6 bg-[var(--c-cyan)] border-y-[3px] border-black">
+            <div class="container mx-auto max-w-4xl">
+                <div class="mb-16 text-center animate-on-scroll">
+                    <span class="section-tag bg-white text-black border-2 border-black" data-key="tab_templates">实用对话模板</span>
+                </div>
+
+                <div id="templates-container" class="space-y-12">
+                    <!-- JS Rendered Dialogue Cards -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 词汇测验 (Quiz) -->
+        <section id="quiz" class="py-20 px-6">
+            <div class="container mx-auto max-w-3xl">
+                <div class="mb-12 text-center animate-on-scroll">
+                    <span class="section-tag bg-[var(--c-pink)] text-white border-black" data-key="quiz_title">词汇测验</span>
+                </div>
+
+                <div class="neo-card p-8 bg-white animate-on-scroll">
+                    <div class="flex justify-between items-center mb-8 border-b-2 border-black pb-4">
+                        <h3 class="text-2xl font-black uppercase" data-key="quiz_header">Challenge Time</h3>
+                        <div class="flex gap-2">
+                             <button id="change-quiz" class="neo-btn px-4 py-2 text-xs bg-[var(--c-purple)] text-black shadow-[2px_2px_0_0_#000]">
+                                <i class="ph-bold ph-arrows-clockwise mr-2"></i> <span data-key="btn_change_quiz">换一套题</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="quiz-container" class="space-y-8">
+                        <!-- Quiz Items -->
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t-2 border-black flex flex-col md:flex-row gap-4 justify-center">
+                        <button id="submit-quiz" class="neo-btn px-8 py-3 bg-black text-white text-lg hover:bg-[var(--c-yellow)] hover:text-black shadow-[4px_4px_0_0_var(--c-cyan)]" data-key="btn_submit">提交答案</button>
+                        <button id="reset-quiz" class="neo-btn px-8 py-3 bg-white text-black border-black text-lg hover:bg-gray-100" data-key="btn_reset">重置</button>
+                    </div>
+                    <div id="quiz-results" class="mt-6 text-center text-xl font-black h-8"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 text-center border-t-[3px] border-black">
+        <div class="container mx-auto px-6">
+             <div class="flex justify-center mb-4">
+                 <i class="ph-duotone ph-shopping-cart text-4xl text-black"></i>
+             </div>
+             <p class="font-bold font-mono text-sm" data-key="footer_text">&copy; 2025 Hugo.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" title="Back to Top">
+        <i class="ph-bold ph-arrow-up text-xl"></i>
+    </button>
+
+    <!-- Note Modal -->
+    <div id="note-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4 border-b-2 border-black pb-2">
+                <h4 class="font-black text-xl">Note</h4>
+                <button id="close-modal" class="hover:bg-black hover:text-white p-1 transition-colors"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            <p id="modal-text" class="font-bold text-lg leading-relaxed"></p>
+        </div>
+    </div>
+
+    <script>
+        // --- Data & Logic ---
+        
+        const translations = {
+            zh: {
+                page_title: "法式购物指南", nav_title: "法式购物",
+                hero_title: "购物与生活", hero_subtitle: "像本地人一样购物。掌握法国生活必备的商店词汇与实用对话。",
+                tab_shops: "商店类型", tab_templates: "实用对话", tab_quiz: "词汇测验",
+                quiz_title: "商店词汇大挑战", quiz_header: "测试你的知识",
+                btn_submit: "提交答案", btn_reset: "再试一次", btn_change_quiz: "换一套题",
+                footer_text: "© 2025 Hugo 版权所有",
+                quiz_result: "你答对了 {score} / {total} 题！", quiz_perfect: "太棒了！🎉"
+            },
+            en: {
+                page_title: "French Shopping Guide", nav_title: "Shopping Guide",
+                hero_title: "Shopping & Life", hero_subtitle: "Shop like a local. Master essential French vocabulary and phrases for daily shopping.",
+                tab_shops: "Shop Types", tab_templates: "Dialogues", tab_quiz: "Vocabulary Quiz",
+                quiz_title: "Vocabulary Challenge", quiz_header: "Test Your Knowledge",
+                btn_submit: "Submit", btn_reset: "Retry", btn_change_quiz: "New Questions",
+                footer_text: "© 2025 Hugo. All rights reserved.",
+                quiz_result: "You got {score} / {total} correct!", quiz_perfect: "Excellent! 🎉"
+            },
+            es: {
+                page_title: "Guía de Compras", nav_title: "Guía de Compras",
+                hero_title: "Compras y Vida", hero_subtitle: "Compra como un local. Domina el vocabulario y las frases esenciales en francés.",
+                tab_shops: "Tipos de Tiendas", tab_templates: "Diálogos", tab_quiz: "Prueba",
+                quiz_title: "Desafío de Vocabulario", quiz_header: "Pon a prueba tus conocimientos",
+                btn_submit: "Enviar", btn_reset: "Reintentar", btn_change_quiz: "Nuevas Preguntas",
+                footer_text: "© 2025 Hugo. Todos los derechos reservados.",
+                quiz_result: "¡Acertaste {score} de {total}!", quiz_perfect: "¡Excelente! 🎉"
+            }
+        };
+
+        const shopData = [
+            {
+                category: { zh: "食品与饮品", en: "Food & Drinks", es: "Alimentos y Bebidas" },
+                icon: "ph-bread", color: "var(--c-yellow)",
+                items: [
+                    { fr: "Boulangerie", trans: { zh: "面包店", en: "Bakery", es: "Panadería" } },
+                    { fr: "Pâtisserie", trans: { zh: "糕点店", en: "Pastry shop", es: "Pastelería" } },
+                    { fr: "Boucherie", trans: { zh: "肉店", en: "Butcher's", es: "Carnicería" } },
+                    { fr: "Poissonnerie", trans: { zh: "鱼店", en: "Fishmonger's", es: "Pescadería" } },
+                    { fr: "Épicerie", trans: { zh: "杂货店", en: "Grocery", es: "Tienda de abarrotes" } },
+                    { fr: "Marché", trans: { zh: "露天市场", en: "Market", es: "Mercado" } }
+                ]
+            },
+            {
+                category: { zh: "服装与时尚", en: "Clothing & Fashion", es: "Ropa y Moda" },
+                icon: "ph-t-shirt", color: "var(--c-pink)",
+                items: [
+                    { fr: "Magasin de vêtements", trans: { zh: "服装店", en: "Clothing store", es: "Tienda de ropa" } },
+                    { fr: "Boutique", trans: { zh: "精品店", en: "Boutique", es: "Boutique" } },
+                    { fr: "Magasin de chaussures", trans: { zh: "鞋店", en: "Shoe store", es: "Zapatería" } },
+                    { fr: "Bijouterie", trans: { zh: "珠宝店", en: "Jewelry store", es: "Joyería" } },
+                    { fr: "Friperie", trans: { zh: "二手店", en: "Thrift store", es: "Tienda de segunda mano" }, note: { zh: "复古淘货的好去处", en: "Great for vintage finds", es: "Ideal para hallazgos vintage" } }
+                ]
+            },
+            {
+                category: { zh: "健康与美容", en: "Health & Beauty", es: "Salud y Belleza" },
+                icon: "ph-heart", color: "var(--c-cyan)",
+                items: [
+                    { fr: "Pharmacie", trans: { zh: "药店", en: "Pharmacy", es: "Farmacia" } },
+                    { fr: "Parapharmacie", trans: { zh: "药妆店", en: "Parapharmacy", es: "Parafarmacia" } },
+                    { fr: "Parfumerie", trans: { zh: "香水店", en: "Perfumery", es: "Perfumería" } },
+                    { fr: "Salon de coiffure", trans: { zh: "理发店", en: "Hair salon", es: "Peluquería" } }
+                ]
+            },
+            {
+                category: { zh: "专业服务", en: "Services", es: "Servicios" },
+                icon: "ph-buildings", color: "var(--c-purple)",
+                items: [
+                    { fr: "Tabac", trans: { zh: "烟草店", en: "Tobacconist", es: "Estanco" }, note: { zh: "买邮票、彩票的地方", en: "Buy stamps, lottery tickets here", es: "Compra sellos, lotería aquí" } },
+                    { fr: "Librairie", trans: { zh: "书店", en: "Bookshop", es: "Librería" } },
+                    { fr: "Fleuriste", trans: { zh: "花店", en: "Florist", es: "Floristería" } },
+                    { fr: "Poste", trans: { zh: "邮局", en: "Post office", es: "Oficina de correos" } }
+                ]
+            }
+        ];
+
+        const templateData = [
+            {
+                title: { zh: "问候与需求", en: "Greeting & Needs", es: "Saludos y Necesidades" },
+                lines: [
+                    { fr: "Bonjour, Monsieur / Madame.", trans: { zh: "你好，先生/女士。", en: "Hello, Sir / Madam.", es: "Buenos días, Señor / Señora." } },
+                    { fr: "Je cherche...", trans: { zh: "我在找...", en: "I'm looking for...", es: "Estoy buscando..." } },
+                    { fr: "Je voudrais...", trans: { zh: "我想要...", en: "I would like...", es: "Quisiera..." } }
+                ]
+            },
+            {
+                title: { zh: "询问信息", en: "Asking Info", es: "Pedir Información" },
+                lines: [
+                    { fr: "C'est combien ?", trans: { zh: "这个多少钱？", en: "How much is it?", es: "¿Cuánto cuesta?" } },
+                    { fr: "Est-ce que je peux essayer ?", trans: { zh: "我可以试穿吗？", en: "Can I try it on?", es: "¿Puedo probármelo?" } },
+                    { fr: "Vous avez d'autres couleurs ?", trans: { zh: "有别的颜色吗？", en: "Do you have other colors?", es: "¿Tiene otros colores?" } }
+                ]
+            },
+            {
+                title: { zh: "结账与告别", en: "Payment & Goodbye", es: "Pago y Despedida" },
+                lines: [
+                    { fr: "Je peux payer par carte ?", trans: { zh: "可以刷卡吗？", en: "Can I pay by card?", es: "¿Puedo pagar con tarjeta?" } },
+                    { fr: "Merci, bonne journée !", trans: { zh: "谢谢，祝您愉快！", en: "Thank you, have a good day!", es: "¡Gracias, que tenga un buen día!" } }
+                ]
+            }
+        ];
+
+        const quizDataSets = [
+             [
+                { q: { zh: "买药去哪里？", en: "Where to buy medicine?", es: "¿Dónde comprar medicina?" }, a: "Pharmacie", ops: ["Boulangerie", "Pharmacie", "Librairie", "Gare"] },
+                { q: { zh: "买面包去哪里？", en: "Where to buy bread?", es: "¿Dónde comprar pan?" }, a: "Boulangerie", ops: ["Boucherie", "Boulangerie", "Poste", "Tabac"] },
+                { q: { zh: "'Librairie' 是什么意思？", en: "What is 'Librairie'?", es: "¿Qué es 'Librairie'?" }, a: "Bookshop", ops: { zh:["图书馆", "书店", "文具店"], en:["Library", "Bookshop", "Stationery"], es:["Biblioteca", "Librería", "Papelería"] } },
+                { q: { zh: "买肉去哪里？", en: "Where to buy meat?", es: "¿Dónde comprar carne?" }, a: "Boucherie", ops: ["Boucherie", "Fleuriste", "Épicerie", "Parfumerie"] }
+            ],
+            [
+                { q: { zh: "买花去哪里？", en: "Where to buy flowers?", es: "¿Dónde comprar flores?" }, a: "Fleuriste", ops: ["Fleuriste", "Tabac", "Banque", "Marché"] },
+                { q: { zh: "买邮票去哪里？", en: "Where to buy stamps?", es: "¿Dónde comprar sellos?" }, a: "Tabac", ops: ["Tabac", "Boutique", "Pharmacie", "Cinema"] },
+                { q: { zh: "'Je voudrais...' 意思是？", en: "Meaning of 'Je voudrais...'?", es: "¿Significado de 'Je voudrais...'?" }, a: "I would like", ops: { zh:["我看...", "我想要...", "我有..."], en:["I see...", "I would like...", "I have..."], es:["Veo...", "Quisiera...", "Tengo..."] } }
+            ]
+        ];
+
+        let currentLang = 'zh';
+        let currentQuizIndex = 0;
+
+        // --- Functions ---
+
+        function renderShops() {
+            const container = document.getElementById('shops-container');
+            container.innerHTML = '';
+            shopData.forEach((cat, index) => {
+                const card = document.createElement('div');
+                card.className = 'neo-card bg-white animate-on-scroll';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                // Header
+                const header = document.createElement('div');
+                header.className = 'p-4 border-b-2 border-black flex items-center gap-3';
+                header.style.backgroundColor = cat.color;
+                header.innerHTML = `<i class="ph-duotone ${cat.icon} text-2xl"></i><h3 class="font-black text-lg uppercase">${cat.category[currentLang]}</h3>`;
+                card.appendChild(header);
+
+                // List
+                const list = document.createElement('div');
+                list.className = 'p-6 flex flex-col';
+                cat.items.forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = 'shop-item';
+                    
+                    let noteHtml = '';
+                    if(item.note && item.note[currentLang]) {
+                        noteHtml = `<button class="ml-2 text-[var(--c-purple)] hover:text-black transition-colors tooltip-btn" data-note="${item.note[currentLang]}"><i class="ph-bold ph-info"></i></button>`;
+                    }
+
+                    row.innerHTML = `
+                        <span class="font-black text-lg">${item.fr}</span>
+                        <div class="flex items-center">
+                            <span class="text-sm font-bold text-gray-500">${item.trans[currentLang]}</span>
+                            ${noteHtml}
+                        </div>
+                    `;
+                    list.appendChild(row);
+                });
+                card.appendChild(list);
+                container.appendChild(card);
+            });
+        }
+
+        function renderTemplates() {
+            const container = document.getElementById('templates-container');
+            container.innerHTML = '';
+            templateData.forEach((tpl, index) => {
+                const group = document.createElement('div');
+                group.className = 'animate-on-scroll';
+                group.innerHTML = `<h3 class="text-2xl font-black mb-6 text-white text-stroke-black" style="-webkit-text-stroke: 1px black;">${tpl.title[currentLang]}</h3>`;
+                
+                const grid = document.createElement('div');
+                grid.className = 'grid md:grid-cols-2 gap-6';
+                
+                tpl.lines.forEach((line, i) => {
+                    const bubble = document.createElement('div');
+                    bubble.className = `bubble ${i % 2 !== 0 ? 'alt' : ''}`;
+                    bubble.innerHTML = `
+                        <p class="font-black text-lg mb-1">${line.fr}</p>
+                        <p class="text-sm font-bold text-gray-600">${line.trans[currentLang]}</p>
+                    `;
+                    grid.appendChild(bubble);
+                });
+                
+                group.appendChild(grid);
+                container.appendChild(group);
+            });
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            const resultDiv = document.getElementById('quiz-results');
+            container.innerHTML = '';
+            resultDiv.textContent = '';
+            document.getElementById('submit-quiz').style.display = 'inline-block';
+
+            const currentSet = quizDataSets[currentQuizIndex];
+            
+            currentSet.forEach((q, i) => {
+                const item = document.createElement('div');
+                item.className = 'border-2 border-black p-4 bg-gray-50 quiz-item';
+                
+                const question = document.createElement('p');
+                question.className = 'font-black text-lg mb-4';
+                question.textContent = `${i+1}. ${q.q[currentLang]}`;
+                item.appendChild(question);
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'grid grid-cols-2 gap-3';
+                
+                // Handle localized options
+                const options = Array.isArray(q.ops) ? q.ops : q.ops[currentLang];
+                const answer = Array.isArray(q.ops) ? q.a : (q.ops.en ? (q.a === "Bookshop" ? "书店" : q.a) : q.a); // Simplified logic for demo
+                // Real logic: align answer key with localized options index if needed, or strictly match string. 
+                // For this demo, we'll assume 'a' matches one of the 'ops' or needs simple mapping.
+                // Let's make it robust:
+                
+                options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'quiz-opt neo-btn py-2 bg-white hover:bg-black hover:text-white text-sm font-bold border-black w-full';
+                    btn.textContent = opt;
+                    btn.dataset.val = opt;
+                    btn.onclick = () => {
+                        item.querySelectorAll('.quiz-opt').forEach(b => {
+                            b.classList.remove('bg-black', 'text-white');
+                            b.classList.add('bg-white', 'text-black');
+                            b.dataset.selected = 'false';
+                        });
+                        btn.classList.remove('bg-white', 'text-black');
+                        btn.classList.add('bg-black', 'text-white');
+                        btn.dataset.selected = 'true';
+                    };
+                    optionsDiv.appendChild(btn);
+                });
+                item.appendChild(optionsDiv);
+                container.appendChild(item);
+            });
+        }
+
+        function checkQuiz() {
+            const currentSet = quizDataSets[currentQuizIndex];
+            let score = 0;
+            const items = document.querySelectorAll('.quiz-item');
+            
+            items.forEach((item, i) => {
+                const selectedBtn = item.querySelector('[data-selected="true"]');
+                const correctVal = Array.isArray(currentSet[i].ops) ? currentSet[i].a : (currentLang === 'zh' && currentSet[i].a === 'Bookshop' ? '书店' : currentSet[i].a); 
+                // Note: Simplified verification. In prod, compare indices.
+                
+                // Very basic check for demo purposes (string match or index match if mapped)
+                // Let's assume correct answer text is known.
+                // For "Librairie": ZH ops: ["图书馆", "书店", "文具店"]. Correct: "书店"
+                
+                let isCorrect = false;
+                if (selectedBtn) {
+                    // Dynamic check logic adjustment for this specific data structure
+                    if (currentSet[i].q.zh.includes("Librairie") && currentLang === 'zh') isCorrect = selectedBtn.textContent === "书店";
+                    else if (currentSet[i].q.zh.includes("Librairie") && currentLang === 'es') isCorrect = selectedBtn.textContent === "Librería";
+                    else if (currentSet[i].q.zh.includes("Je voudrais") && currentLang === 'zh') isCorrect = selectedBtn.textContent === "我想要...";
+                    else if (currentSet[i].q.zh.includes("Je voudrais") && currentLang === 'es') isCorrect = selectedBtn.textContent === "Quisiera...";
+                    else isCorrect = selectedBtn.textContent === currentSet[i].a;
+                }
+
+                if (isCorrect) {
+                    score++;
+                    item.classList.add('bg-green-100', 'border-green-500');
+                } else {
+                    item.classList.add('bg-red-100', 'border-red-500');
+                }
+                
+                // Disable buttons
+                item.querySelectorAll('button').forEach(b => b.disabled = true);
+            });
+
+            const resultText = translations[currentLang].quiz_result.replace('{score}', score).replace('{total}', currentSet.length);
+            document.getElementById('quiz-results').textContent = score === currentSet.length ? resultText + " " + translations[currentLang].quiz_perfect : resultText;
+            document.getElementById('submit-quiz').style.display = 'none';
+        }
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Update static text
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.dataset.key;
+                if(translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+
+            // Update buttons state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if(btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Re-render dynamic content
+            renderShops();
+            renderTemplates();
+            renderQuiz();
+        }
+
+        // --- Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            updateLanguage('zh'); // Init
+
+            // Lang Buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => updateLanguage(btn.dataset.lang));
+            });
+
+            // Mobile Menu
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+            // Quiz Actions
+            document.getElementById('submit-quiz').addEventListener('click', checkQuiz);
+            document.getElementById('reset-quiz').addEventListener('click', renderQuiz);
+            document.getElementById('change-quiz').addEventListener('click', () => {
+                currentQuizIndex = (currentQuizIndex + 1) % quizDataSets.length;
+                renderQuiz();
+            });
+
+            // Modal Logic (Delegation)
+            const modal = document.getElementById('note-modal');
+            const modalText = document.getElementById('modal-text');
+            const closeModal = document.getElementById('close-modal');
+            
+            document.getElementById('shops-container').addEventListener('click', (e) => {
+                const btn = e.target.closest('.tooltip-btn');
+                if (btn) {
+                    modalText.textContent = btn.dataset.note;
+                    modal.classList.add('active');
+                }
+            });
+            
+            closeModal.addEventListener('click', () => modal.classList.remove('active'));
+            modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
+
+            // Scroll Animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('scroll-hidden');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Add hidden class initially to dynamic elements after render? 
+            // Or just let CSS handle opacity transition from 0->1 if class not present?
+            // To be safe and robust, we just rely on the CSS defaults (opacity: 1) and add .scroll-hidden via JS if needed.
+            // For this specific request "fix blank page", I removed default opacity:0 in CSS. 
+            // Now we add animation class.
+            
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                el.classList.add('scroll-hidden'); // Hide via JS
+                observer.observe(el);
+            });
+            
+            // Back to Top
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+            backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+        });
+
+    </script>
+</body>
+</html>

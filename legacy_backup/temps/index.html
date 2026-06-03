@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法语天气学习 - Apprendre le temps en français</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Google Fonts字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* 玻璃拟态效果 */
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a8a8a8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+        .quiz-nav-btn.active {
+            background-color: #3b82f6; /* bg-blue-600 */
+            color: white;
+        }
+        /* 隐藏 quiz-navigation 的水平滚动条，但保留滚动功能 */
+        #quiz-navigation::-webkit-scrollbar {
+            display: none;
+        }
+        #quiz-navigation {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 页面容器 -->
+    <div class="container mx-auto p-4 md:p-6 max-w-6xl">
+
+        <!-- 头部导航栏 -->
+        <header class="sticky top-4 z-50 mb-8">
+            <div class="glassmorphism rounded-full shadow-lg px-4 sm:px-6 py-3 flex justify-between items-center">
+                <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-700">Le Temps en Français</h1>
+                <nav class="hidden md:flex space-x-2">
+                    <a href="#home" class="px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-white/50 rounded-full transition-all duration-300">首页</a>
+                    <a href="#weather" class="px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-white/50 rounded-full transition-all duration-300">天气词汇</a>
+                    <a href="#expressions" class="px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-white/50 rounded-full transition-all duration-300">天气表达</a>
+                    <a href="#quiz" class="px-4 py-2 text-gray-600 hover:text-blue-600 hover:bg-white/50 rounded-full transition-all duration-300">小测验</a>
+                </nav>
+                 <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-white/50 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+             <!-- 移动端菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden mt-2 glassmorphism rounded-xl shadow-lg">
+                <a href="#home" class="block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-white/50 rounded-t-xl transition-all duration-300 mobile-nav-link">首页</a>
+                <a href="#weather" class="block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-white/50 transition-all duration-300 mobile-nav-link">天气词汇</a>
+                <a href="#expressions" class="block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-white/50 transition-all duration-300 mobile-nav-link">天气表达</a>
+                <a href="#quiz" class="block px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-white/50 rounded-b-xl transition-all duration-300 mobile-nav-link">小测验</a>
+            </div>
+        </header>
+
+        <main>
+            <!-- 英雄区域 -->
+            <section id="home" class="text-center p-8 md:p-12 mb-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl shadow-2xl text-white">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Apprendre le temps en français</h2>
+                <p class="text-base sm:text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">学习法语天气词汇，掌握日常天气表达，提升法语交流能力</p>
+            </section>
+
+            <!-- 天气词汇分类 -->
+            <section id="weather" class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-8 text-gray-700">天气词汇分类</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- 词汇卡片 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">晴朗天气 (Le temps ensoleillé)</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Le soleil</span> <span class="text-gray-500">- 太阳</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Ensoleillé</span> <span class="text-gray-500">- 阳光充足的</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Il fait beau / superbe</span> <span class="text-gray-500">- 天气很好</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Le ciel est dégagé / clair</span> <span class="text-gray-500">- 天空无云/晴朗</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Un grand soleil / franc soleil</span> <span class="text-gray-500">- 阳光灿烂</span></li>
+                        </ul>
+                    </div>
+                     <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">多云天气 (Le temps nuageux)</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Un nuage</span> <span class="text-gray-500">- 云</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Nuageux</span> <span class="text-gray-500">- 多云的</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Le ciel est nuageux / couvert</span> <span class="text-gray-500">- 天空多云/阴天</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Il y a des nuages</span> <span class="text-gray-500">- 有云</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Les éclaircies</span> <span class="text-gray-500">- 晴天间隙</span></li>
+                        </ul>
+                    </div>
+                     <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">雨天 (Le temps pluvieux)</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">La pluie</span> <span class="text-gray-500">- 雨</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Il pleut</span> <span class="text-gray-500">- 下雨了</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">La bruine / Le crachin</span> <span class="text-gray-500">- 毛毛雨</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Une averse / une ondée</span> <span class="text-gray-500">- 阵雨</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Il pleut à verse / des cordes</span> <span class="text-gray-500">- 倾盆大雨</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Une pluie battante</span> <span class="text-gray-500">- 暴雨</span></li>
+                        </ul>
+                    </div>
+                     <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">风 (Le vent)</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Le vent</span> <span class="text-gray-500">- 风</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Une brise (légère)</span> <span class="text-gray-500">- (轻)微风</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Une rafale de vent</span> <span class="text-gray-500">- 一阵狂风</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Un coup de vent</span> <span class="text-gray-500">- 大风</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Une tempête</span> <span class="text-gray-500">- 暴风雨</span></li>
+                        </ul>
+                    </div>
+                     <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">寒冷天气与冬季现象</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Il fait froid</span> <span class="text-gray-500">- 天气冷</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">La neige / Il neige</span> <span class="text-gray-500">- 雪 / 下雪了</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Le gel / Il gèle</span> <span class="text-gray-500">- 霜 / 结冰了</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Le verglas</span> <span class="text-gray-500">- 路面薄冰</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">La grêle / Il grêle</span> <span class="text-gray-500">- 冰雹 / 下冰雹了</span></li>
+                        </ul>
+                    </div>
+                     <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">炎热天气 (Le temps chaud)</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Il fait chaud</span> <span class="text-gray-500">- 天气热</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">La chaleur</span> <span class="text-gray-500">- 炎热</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">La canicule</span> <span class="text-gray-500">- 酷暑</span></li>
+                            <li class="flex justify-between"><span class="font-semibold text-gray-700">Un temps lourd / étouffant</span> <span class="text-gray-500">- 闷热的天气</span></li>
+                        </ul>
+                    </div>
+                     <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h4 class="text-xl font-semibold text-blue-600 mb-4 border-b pb-2">风暴与其他天气现象</h4>
+                        <ul class="space-y-2">
+                             <li class="flex justify-between"><span class="font-semibold text-gray-700">Un orage</span> <span class="text-gray-500">- 雷雨</span></li>
+                             <li class="flex justify-between"><span class="font-semibold text-gray-700">Un éclair</span> <span class="text-gray-500">- 闪电</span></li>
+                             <li class="flex justify-between"><span class="font-semibold text-gray-700">Le tonnerre / Il tonne</span> <span class="text-gray-500">- 雷声 / 打雷了</span></li>
+                             <li class="flex justify-between"><span class="font-semibold text-gray-700">Le brouillard / La brume</span> <span class="text-gray-500">- 雾 / 薄雾</span></li>
+                             <li class="flex justify-between"><span class="font-semibold text-gray-700">Un arc-en-ciel</span> <span class="text-gray-500">- 彩虹</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 天气表达 -->
+            <section id="expressions" class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-8 text-gray-700">谈论天气的具体表达</h3>
+                <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                    <!-- 表达卡片 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h4 class="text-xl font-semibold text-blue-600 mb-4">通用问句</h4>
+                        <div class="space-y-3">
+                            <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-400">
+                                <p class="font-semibold text-gray-800 italic">Quel temps fait-il aujourd'hui ?</p>
+                                <p class="text-gray-600">今天天气怎么样？</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-400">
+                                <p class="font-semibold text-gray-800 italic">Quelle est la météo pour demain ?</p>
+                                <p class="text-gray-600">明天天气预报怎么说？</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h4 class="text-xl font-semibold text-green-600 mb-4">晴朗天气</h4>
+                        <div class="space-y-3">
+                            <div class="p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+                                <p class="font-semibold text-gray-800 italic">Il fait beau. / Il y a du soleil.</p>
+                                <p class="text-gray-600">天气很好。/ 有太阳。</p>
+                            </div>
+                             <div class="p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+                                <p class="font-semibold text-gray-800 italic">Il fait un soleil de plomb.</p>
+                                <p class="text-gray-600">烈日当头。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h4 class="text-xl font-semibold text-red-600 mb-4">雨天</h4>
+                        <div class="space-y-3">
+                            <div class="p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
+                                <p class="font-semibold text-gray-800 italic">Il pleut des cordes.</p>
+                                <p class="text-gray-600">下倾盆大雨。</p>
+                            </div>
+                            <div class="p-4 bg-red-50 rounded-lg border-l-4 border-red-400">
+                                <p class="font-semibold text-gray-800 italic">N'oublie pas ton parapluie, il va pleuvoir.</p>
+                                <p class="text-gray-600">别忘了带伞，要下雨了。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-lg">
+                        <h4 class="text-xl font-semibold text-purple-600 mb-4">寒冷天气</h4>
+                        <div class="space-y-3">
+                            <div class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-400">
+                                <p class="font-semibold text-gray-800 italic">Il fait un froid de canard.</p>
+                                <p class="text-gray-600">天气非常冷。</p>
+                            </div>
+                            <div class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-400">
+                                <p class="font-semibold text-gray-800 italic">Attention, il y a du verglas sur la route.</p>
+                                <p class="text-gray-600">小心，路上有薄冰。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 小测验 -->
+            <section id="quiz" class="mb-12">
+                <h3 class="text-3xl font-bold text-center mb-8 text-gray-700">法语天气词汇小测验</h3>
+                <div class="bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg">
+                    <!-- 测验切换按钮 -->
+                    <div id="quiz-navigation" class="flex items-center mb-6 border-b pb-4 overflow-x-auto">
+                        <button class="quiz-nav-btn px-5 py-2 font-semibold rounded-full transition-colors duration-300 whitespace-nowrap" data-quiz-index="0">测验 1</button>
+                        <button class="quiz-nav-btn px-5 py-2 font-semibold rounded-full transition-colors duration-300 ml-2 sm:ml-4 whitespace-nowrap" data-quiz-index="1">测验 2</button>
+                        <button class="quiz-nav-btn px-5 py-2 font-semibold rounded-full transition-colors duration-300 ml-2 sm:ml-4 whitespace-nowrap" data-quiz-index="2">测验 3</button>
+                    </div>
+                    
+                    <!-- 测验题目容器 -->
+                    <div id="quiz-container" class="space-y-8">
+                        <!-- JS会在这里动态生成题目 -->
+                    </div>
+
+                    <!-- 提交和结果 -->
+                    <div class="text-center pt-8 mt-8 border-t">
+                        <button id="submit-quiz-btn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 transform hover:scale-105">
+                            提交答案
+                        </button>
+                        <div id="quiz-result" class="mt-6 text-lg font-semibold"></div>
+                        <button id="show-answers-btn" class="hidden mt-4 bg-gray-200 text-gray-700 py-2 px-6 rounded-full hover:bg-gray-300 transition">
+                            查看标准答案
+                        </button>
+                        <div id="answers-section" class="hidden mt-6 text-left p-4 sm:p-6 bg-gray-50 rounded-lg space-y-4">
+                            <!-- JS会在这里动态生成答案解析 -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="text-center py-8 text-gray-500">
+            <p>&copy; 2025 Hugo. 保留所有权利。</p>
+            <p>Apprendre le temps en français - 学习法语天气词汇</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- 移动端菜单切换 ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 点击移动端导航链接后关闭菜单
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+
+        // --- 测验数据 ---
+        const quizData = [
+            // 测验 1: 基础词汇
+            {
+                title: "测验 1: 基础词汇",
+                questions: [
+                    {
+                        type: 'mcq', // Multiple Choice Question
+                        question: '1. "Le ciel est couvert." 描述的是哪种天气？',
+                        options: ['晴空万里', '阴天，天空布满云', '有雷雨', '有雾'],
+                        answer: '阴天，天空布满云'
+                    },
+                    {
+                        type: 'mcq',
+                        question: '2. "La bruine" 是指什么类型的雨?',
+                        options: ['暴雨', '阵雨', '毛毛雨', '雷阵雨'],
+                        answer: '毛毛雨'
+                    },
+                    {
+                        type: 'translation',
+                        question: '3. 请将 "出太阳" 翻译成法语。',
+                        answer: 'le soleil'
+                    },
+                    {
+                        type: 'translation',
+                        question: '4. 请将 "Il fait chaud" 翻译成中文。',
+                        answer: '天气热'
+                    }
+                ]
+            },
+            // 测验 2: 进阶词汇与表达
+            {
+                title: "测验 2: 进阶词汇与表达",
+                questions: [
+                    {
+                        type: 'mcq',
+                        question: '1. 如果天气预报说 "Attention au verglas", 你应该特别小心什么？',
+                        options: ['强风', '路面结的薄冰', '浓雾', '酷暑'],
+                        answer: '路面结的薄冰'
+                    },
+                    {
+                        type: 'mcq',
+                        question: '2. "Une rafale de vent" 是什么意思？',
+                        options: ['微风', '一阵狂风', '龙卷风', '暖风'],
+                        answer: '一阵狂风'
+                    },
+                    {
+                        type: 'translation',
+                        question: '3. 请将 "闪电" 翻译成法语。',
+                        answer: 'un éclair'
+                    },
+                    {
+                        type: 'translation',
+                        question: '4. 请将 "Le temps est orageux" 翻译成中文。',
+                        answer: ['天气是雷雨天', '有雷雨']
+                    }
+                ]
+            },
+            // 测验 3: 综合与习语
+            {
+                title: "测验 3: 综合与习语",
+                questions: [
+                    {
+                        type: 'mcq',
+                        question: '1. 句子 "Il fait un soleil de plomb." 是什么意思？',
+                        options: ['天气阴沉', '烈日当头', '下毛毛雨', '有风'],
+                        answer: '烈日当头'
+                    },
+                    {
+                        type: 'mcq',
+                        question: '2. 当法国人说 "Il pleut des cordes", 他们指的是什么情况？',
+                        options: ['小雨', '晴天', '冰雹', '倾盆大雨'],
+                        answer: '倾盆大雨'
+                    },
+                    {
+                        type: 'mcq',
+                        question: '3. 表达 "Il fait un froid de canard" 形容天气如何？',
+                        options: ['有点凉', '温暖', '非常冷', '闷热'],
+                        answer: '非常冷'
+                    },
+                    {
+                        type: 'translation',
+                        question: '4. 请将 "明天会下雪" 翻译成法语。',
+                        answer: ['il va neiger demain', 'il neigera demain']
+                    }
+                ]
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let userAnswers = {};
+
+        const quizContainer = document.getElementById('quiz-container');
+        const quizNavButtons = document.querySelectorAll('.quiz-nav-btn');
+        const submitBtn = document.getElementById('submit-quiz-btn');
+        const resultDiv = document.getElementById('quiz-result');
+        const showAnswersBtn = document.getElementById('show-answers-btn');
+        const answersSection = document.getElementById('answers-section');
+
+        // --- 函数定义 ---
+
+        function loadQuiz(index) {
+            currentQuizIndex = index;
+            userAnswers = {};
+            quizContainer.innerHTML = ''; // 清空容器
+
+            const quiz = quizData[index];
+            quiz.questions.forEach((q, qIndex) => {
+                const questionId = `q${qIndex}`;
+                let questionHTML = `<div class="quiz-question space-y-3">`;
+                questionHTML += `<p class="font-medium">${q.question}</p>`;
+
+                if (q.type === 'mcq') {
+                    questionHTML += `<div class="grid sm:grid-cols-2 gap-3" data-question-id="${questionId}">`;
+                    q.options.forEach(option => {
+                        questionHTML += `<button class="quiz-option text-left p-3 border rounded-lg hover:bg-blue-50 transition-colors">${option}</button>`;
+                    });
+                    questionHTML += `</div>`;
+                } else if (q.type === 'translation') {
+                    questionHTML += `<textarea id="${questionId}" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none transition" placeholder="请输入你的答案..."></textarea>`;
+                }
+                questionHTML += `</div>`;
+                quizContainer.innerHTML += questionHTML;
+            });
+
+            // 更新导航按钮样式
+            quizNavButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (parseInt(btn.dataset.quizIndex) === index) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // 重置结果区域
+            resetResultArea();
+            addOptionListeners();
+        }
+
+        function addOptionListeners() {
+            const optionGroups = quizContainer.querySelectorAll('.grid[data-question-id]');
+            optionGroups.forEach(group => {
+                const questionId = group.dataset.questionId;
+                const options = group.querySelectorAll('.quiz-option');
+                options.forEach(option => {
+                    option.addEventListener('click', () => {
+                        options.forEach(opt => opt.classList.remove('bg-blue-500', 'text-white', 'border-blue-500'));
+                        option.classList.add('bg-blue-500', 'text-white', 'border-blue-500');
+                        userAnswers[questionId] = option.textContent;
+                    });
+                });
+            });
+        }
+
+        function resetResultArea() {
+            resultDiv.innerHTML = '';
+            resultDiv.className = 'mt-6 text-lg font-semibold'; // 恢复默认class
+            answersSection.classList.add('hidden');
+            showAnswersBtn.classList.add('hidden');
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        function handleSubmit() {
+            let score = 0;
+            const quiz = quizData[currentQuizIndex];
+            const total = quiz.questions.length;
+
+            quiz.questions.forEach((q, qIndex) => {
+                const questionId = `q${qIndex}`;
+                let isCorrect = false;
+
+                if (q.type === 'mcq') {
+                    if (userAnswers[questionId] && userAnswers[questionId] === q.answer) {
+                        isCorrect = true;
+                    }
+                } else if (q.type === 'translation') {
+                    const userInputEl = document.getElementById(questionId);
+                    if (userInputEl) {
+                        const userInput = userInputEl.value.toLowerCase().trim();
+                        if (Array.isArray(q.answer)) {
+                            if (q.answer.some(ans => userInput.includes(ans.toLowerCase()))) {
+                                isCorrect = true;
+                            }
+                        } else {
+                            if (userInput.includes(q.answer.toLowerCase())) {
+                                isCorrect = true;
+                            }
+                        }
+                    }
+                }
+                if (isCorrect) score++;
+            });
+
+            // 显示结果
+            const percentage = Math.round((score / total) * 100);
+            let feedback = '';
+            if (percentage === 100) feedback = '太棒了，全部正确！🎉';
+            else if (percentage >= 75) feedback = '做得很好！';
+            else if (percentage >= 50) feedback = '不错，继续努力！';
+            else feedback = '别灰心，再试一次！';
+            
+            resultDiv.innerHTML = `你答对了 ${score} / ${total} 题 (${percentage}%) - ${feedback}`;
+            resultDiv.classList.add('p-4', 'rounded-lg');
+
+            if(percentage === 100){
+                resultDiv.classList.add('bg-green-100', 'text-green-800');
+            } else {
+                resultDiv.classList.add('bg-yellow-100', 'text-yellow-800');
+            }
+
+            showAnswersBtn.classList.remove('hidden');
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        }
+
+        function handleShowAnswers() {
+            const quiz = quizData[currentQuizIndex];
+            let answersHTML = `<h4 class="text-lg font-bold">标准答案解析</h4>`;
+            quiz.questions.forEach(q => {
+                const answerText = Array.isArray(q.answer) ? q.answer.join(' / ') : q.answer;
+                answersHTML += `<p><strong>${q.question}</strong><br><span class="text-blue-600 font-semibold">${answerText}</span></p>`;
+            });
+            answersSection.innerHTML = answersHTML;
+            answersSection.classList.remove('hidden');
+            showAnswersBtn.classList.add('hidden');
+        }
+
+        // --- 事件监听 ---
+        
+        quizNavButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = parseInt(e.target.dataset.quizIndex);
+                loadQuiz(index);
+            });
+        });
+
+        submitBtn.addEventListener('click', handleSubmit);
+        showAnswersBtn.addEventListener('click', handleShowAnswers);
+
+        // --- 初始加载 ---
+        window.addEventListener('DOMContentLoaded', () => {
+            loadQuiz(0);
+        });
+
+    </script>
+</body>
+</html>
