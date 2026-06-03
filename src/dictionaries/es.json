@@ -87,7 +87,9 @@
         "title": "Conocer Francia",
         "desc": "Aprende sobre la historia, geografía, monumentos y datos curiosos de Francia."
       }
-    ]
+    ],
+    "introTitle": "Principiante Absoluto",
+    "introDesc": "Un curso introductorio nuevo para dar el primer paso."
   },
   "features": {
     "title": "Más que cursos, un puente hacia el mundo francófono",
@@ -3539,5 +3541,72 @@
       "repere_franco_6": "Repères Francophonie",
       "footer_text": "© 2025 hugo. Tous droits réservés."
     }
+  },
+  "intro": {
+    "title": "Curso Introductorio",
+    "desc": "Un camino inmersivo diseñado para principiantes.",
+    "timeline": [
+      {
+        "title": "Lección 1: Alfabeto y Pronunciación",
+        "desc": "Domina las 26 letras y reglas básicas."
+      },
+      {
+        "title": "Lección 2: Reglas especiales de pronunciación",
+        "desc": "Domina la liaison, elisión, consonantes finales mudas y la letra H."
+      },
+      {
+        "title": "Lección 3: Números 1-20",
+        "desc": "Aprende los números para la vida diaria."
+      },
+      {
+        "title": "Lección 4: Verbos Esenciales",
+        "desc": "Domina el uso de être y avoir."
+      }
+    ],
+    "start": "Empezar",
+    "lesson1": {
+      "title": "Lección 1: Alfabeto y Fonética",
+      "desc": "Haga clic en un símbolo fonético a continuación para aprender las reglas de pronunciación y escuchar francés auténtico.",
+      "tabs": {
+        "vowel": "Vocales (Voyelles)",
+        "semiVowel": "Semivocales (Semi-voyelles)",
+        "consonant": "Consonantes (Consonnes)",
+        "nasal": "Vocales Nasales (Voyelles nasales)"
+      },
+      "rules": "Pronunciación y Ortografía",
+      "spellAndExamples": "Ortografía y Ejemplos",
+      "playTTS": "Reproducir pronunciación en francés",
+      "back": "Volver al curso",
+      "practice": {
+        "cta": "Estoy listo, empezar práctica ➔",
+        "title": "Prueba de audición fonética",
+        "desc": "Escucha la palabra y selecciona el símbolo fonético que contiene",
+        "questionOf": "Pregunta {x} / {y}",
+        "playAudio": "Haz clic para reproducir la pronunciación",
+        "correct": "¡Genial!",
+        "incorrect": "¡Uy, inténtalo de nuevo!",
+        "next": "Siguiente ➔",
+        "finishTitle": "¡Práctica completada!",
+        "finishDesc": "Tu puntuación: {score} / {total}",
+        "restart": "Reiniciar desafío",
+        "hide": "Ocultar práctica",
+        "menuTitle": "Seleccionar modo de práctica",
+        "set1": "Set 1: Vocales básicas",
+        "set2": "Set 2: Vocales avanzadas y nasales",
+        "set3": "Set 3: Consonantes básicas",
+        "set4": "Set 4: Consonantes y semivocales",
+        "set5": "Set 5: Desafío completo",
+        "randomMode": "🎲 Desafío Aleatorio",
+        "backToMenu": "Volver al menú",
+        "wordWas": "Palabra de ejemplo:"
+      }
+    },
+    "lesson2": {
+      "title": "Lección 2: Reglas especiales de pronunciación",
+      "desc": "El francés suena como una hermosa canción gracias a estos hábitos de pronunciación y reglas de enlace.",
+      "back": "Volver",
+      "playTTS": "Reproducir audio"
+    },
+    "soon": "Próximamente"
   }
 }

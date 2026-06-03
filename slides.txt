@@ -1,0 +1,88 @@
+--- slide1.xml ---
+15 个元音： [a] 、 [i] 、 [e] 、 [ε] 、 [u] 、 [o] 、 [ ɔ ] 、 [y] 、 [ ø ] 、 [ œ ] 、 [ ə ] 、 [ ɛ ̃ ] 、 [ œ ̃ ] 、 [ ã ] 、 [ ɔ ̃ ] 17 个辅音： [p] 、 [b] 、 [t] 、 [d] 、 [k] 、 [g] 、 [f] 、 [v] 、 [s] 、 [z] 、 [ ʃ ] 、 [ ʒ ] 、 [l] 、 [m] 、 [n] 、 [ ɲ ] 、 [r] 3 个半元音： [j] 、 [ ɥ ] 、 [w] 元音字母： a, e, i, o, u, y
+--- slide2.xml ---
+【i】口腔开口度极小，舌尖紧抵下齿，唇形扁平，嘴角用力向两边拉， 与汉语拼音中的 i 相似，但口腔开口部位的肌肉更加紧张。 常见拼写方式：                    例词： i                                il, si, lire, riz î                                île, d îner ï                                naïf, mais, égo ïste y                                type, style, cycle
+--- slide3.xml ---
+【 e 】舌尖紧抵下齿，唇形扁平，开口度略大于  [i] ，嘴角向两边拉。发音与汉语拼音中的  ei  相似，但开口度更小，并且口型保持不变。 常见拼写方式：                      例词： é                                  é t é , d é sol é , b é b é er  在词末                          aller, r é p é ter, pr é f é rer ez  在词末                          t é l é phonez, lisez, nez es  在少数单音节词中                les, des, mes ed  或  eds  在词末                   pied, assieds 什么是单音节词：一般来说，一个单词有几个发音的元音，就有几个音节。 如： qui [ki]  有一个音节， Pascal [pas-kal]  有两个音节。
+--- slide4.xml ---
+【 ε 】开口度大于【 e 】，舌尖平抵下齿，舌前部略微隆起。注意保持口型稳定，尤其不要与汉语拼音的  ai  混淆。 常见拼写方式：                      例词： è                                 m è re, p è re, fr è re ê                                  ê tre, t ê te, b ê te ë                                 No ë l e  在闭音节中                       merci, sel, veste, belle ai, a î                            aimer, faire, mais ei                               Seine, seize et,  ê t, ect  在词末                paquet, ticket, for ê t, respect
+--- slide5.xml ---
+【 a 】舌头放平，嘴自然张开，口型略微紧张。 常见拼写方式：                      例词： a                                papa    date    ma    ami à                                à       là â                                 P â ques  p â te    g â teau “e + mm  或  nn” 在词中               femme    é videmment 开音节：读音中以元音音素结尾的音节：如  qui [ki] 闭音节：读音中以辅音音素结尾的音节：如  Pascal [pas-kal]
+--- slide6.xml ---
+音符（ les accents ） 法语有四种音符，只出现在元音字母上面。元音字母（ a, e, i, o, u, y ） 尖音符（ accent aigu ）是最常见的音符，只出现在字母  e  上面，如： t é l é phoner,  é crire 顿音符（ accent grave ）出现在字母  a 、 e 、 u  上面，如： là, m è re, o ù 开音符可以区分： - a （动词  avoir  的变位）和  à （介词） - la （冠词）和  là （副词） - ou （连词）和  o ù （疑问副词）
+--- slide7.xml ---
+长音符（ accent circonflexe ）出现在除  y  以外的其他元音字母上，如： â ge,  ê tre, s û r 分音符（ tr é ma ）用于分开两个元音字母，表示它们分别发音，如： na ï f, No ë l 另外，还有一种书写符号，即出现在字母  c  下面的软音符（ c é dille ）。 ç   在字母  a 、 o  和  u  前面读  [s] ，如： fran ç ais, gar ç on 。
+--- slide8.xml ---
+【 p 】双唇紧闭形成阻碍，气流突然从口腔冲出，形成爆破音。声带不振动，类似于汉语拼音中的  b 。在元音前部送气，在音节末或与  l 、 r  构成辅音群时送气，此时发音同英语中的  p （ people ）。 常见拼写方式：                      例词： p                                pas, paix,  é tape, place pp                               appel, nappe, grippe
+--- slide9.xml ---
+【 b 】发音方式基本同  [p] ，但发音时声带振动，并只有极少量的气流冲出口腔。 常见拼写方式：                      例词： b                                belle, bas, b é b é bb                               abb é
+--- slide10.xml ---
+词末辅音字母一般不发音： 1 ）法语辅音字母在词末时一般不发音。如： mais [m ɛ ] 2 ）但辅音字母  q,c,l,r,f 以及  ct  在词尾时，一般要发音。 如： sac [sak] vif [vif] sel [s ɛ l] mur [my ʁ ]
+--- slide11.xml ---
+【 t 】 1 ）舌尖抵上齿形成阻塞，气流突然从口腔冲出，声带不振动，类似于汉语拼音的  d 。在元音前不送气。 2 ）在音节末或与  l 、 r  构成辅音群时送气，此时发音同英语中的  t （ tea ）。 常见拼写方式：                      例词： t                                t ê te, table, type, ma î tre tt                               atterrir, dette, patte th                              th é t  在少数词词末          net d  在联诵时                 quand il
+--- slide12.xml ---
+【 d 】发音方式基本同  [t] ，但发音时声带振动，并只有极少量的气流冲出口腔。 常见拼写方式：                      例词： d                                date, madame, drame dd                               addition dh                               adh é rer d  在少数词词末                     Madrid, David
+--- slide13.xml ---
+省音（ l’ é lision ）： 元音字母与元音省音 少数以元音字母结尾的单音节词，常和下一词的词首元音 （包括哑音  h  后的元音）合读成一个音节，而省去词末的元音字母。 这种现象被称为省音，省去的元音字母用省文撇  ’  代替。如： ce + est = c’est 九个以  e  结尾的单音节词  ce 、 de 、 je 、 le 、 me 、 ne 、 que 、 se 、 te  都遵循这一规则。 此外， la 、 si 、 jusque 、 lorsque 、 presque 、 puisque  也有省音现象。 la +  é tudiante = l’ é tudiante si + il = s’il
+--- slide14.xml ---
+【 k 】 1 ）舌面抬起抵住硬腭后部形成阻塞，气流突然从口腔冲出，形成爆破音。类似于汉语拼音中的  g ，在元音前不送气。 2 ）在音节末或与  l 、 r  构成辅音群时送气，此时发音同英语中的  k （ cake ）。 \ 常见拼写方式：                      例词： c  或  cc  在  a, o, u  之前            caf é , caisse, Cuba c  在辅音字母之前                   cl é , cravate k, ck                             kilo, ticket qu                                qui, quel, disque c  或  q  在词末                      sac, lac, parc, coq, cinq cc  在  e, i  前读  [ks]              succ è s, accent, accident x  读  [ks]                         taxi,texte,excuser
+--- slide15.xml ---
+联诵（ la liaison ）： 在同一节奏组中，如果前面一个词的词末是不发音的辅音字母，而后面一个词以元音字母或者哑音  h  开头，一般来说前一词的词末辅音字母要与后一词的词首元音合成一个音节，这种现象称之为联诵。如： les  É tats-Unis [le-ze-ta-zy-ni] un homme 连音： 前一个单词的词尾辅音或元音与后一个单词的词首元音连在一起读。 Il est artiste [i-l ɛ -tar-tist] 区别： 词尾字母原来不发音，发了音，叫联诵； 原来发了音，连在一起读，叫连音。
+--- slide16.xml ---
+【 g 】发音方式同【 k 】，但声带必须振动，并只有极少量的气流冲出口腔。 常见拼写方式：                      例词： g  在  a, o, u  或辅音字母前          gare, goutte, figure g  在少数词的词末                   zigzag gu  在  e, i, y  之前                 guerre, guide, Guy c  在少数词中                       second
+--- slide17.xml ---
+字母  h ： 法语字母  h  在单独从中不发音，但  h  在词首时有哑音  h  和嘘音  h  之分。 当词首是哑音  h  的时候，前面的词和它之间可以有省音或联诵。如： l’heure [l œ r ] nous habitons 当词首是嘘音  h  时，前面的词和它之间不可以有省音或者联诵。如： le h é ros trois h é ros 在字典中，凡是嘘音  h  开头的词条前均标有  “*”  号。
+--- slide18.xml ---
+【 u 】舌尽量后缩，双唇突出呈圆形，口型紧闭。与汉语拼音中的  u  相似，但唇部肌肉更加紧张。 常见拼写方式：                      例词： ou, o ù , o û                        vous, o ù , go û t aou, ao û                          ao û t 个别外来语中                       foot, clown
+--- slide19.xml ---
+【 o 】舌略向后缩，双唇突出，口型很圆，开口度非常小。 常见拼写方式：                      例词： o  在词末开音节中                   m é tro, v é lo, mot o  在  [z]  前                        rose, chose, oser ô                                allô, drôle, côt é eau                              beau, cadeau, bureau au                               aussi, autre, chaud
+--- slide20.xml ---
+【 ɔ 】舌略向后缩，双唇突出基本呈圆形，开口度较大。 常见拼写方式：                      例词： o  在大多数词中                     robe, porte, comme d'accord                          d'accord, votre um  在词末读  [ ɔ m]                  forum, album
+--- slide21.xml ---
+【 y 】舌位、开口度和肌肉紧张度与元音  [i]  相接近，但双唇突出，绷紧成圆形。发音与汉语拼音   ü   相似，但唇部肌肉更紧张。 常见拼写方式：                      例词： u,  û                              Lucie, tu, but, fl û te
+--- slide22.xml ---
+【 ø 】舌尖和开口度与元音  e  相同，双唇突出呈圆形，肌肉较紧张。 常见拼写方式：                      例词： eu, oeu  在词末开音节中             jeu, feu, deux, v œ u eu  在  [z] [t] [d]  音前             serveuse, neutre, jeudi e û                                 je û ne
+--- slide23.xml ---
+【 œ 】舌位和开口度与元音【 ε 】相同，只是双唇突出呈圆形，肌肉较轻松。 常见拼写方式：                      例词： eu, oeu  在多数情况下               leur, fleur, s œ ur, c œ ur oe  在个别词中                       oeil ueil  在  c  或  g  后读  [ œ j]           accueil, orgueil 在个别外来语中                      club, t-shirt
+--- slide24.xml ---
+【 ə 】舌位和开口度与元音  [ε]  相近，肌肉较放松，双唇突出呈圆形。发音时无需用力。 常见拼写方式：                      例词： e  在少数单音节词词末               le, te, de 两个辅音  + e +  辅音                mercredi, gouvernement, entreprise e  在词首开音节中                   Beno î t, demi, menu ai  在  faire  的某些变位中           faisons, satisfaisant on  在个别词中                      monsieur
+--- slide25.xml ---
+【 ɥ 】发音部位和开口度与  [y]  基本相同，但发音短促，肌肉更紧张，气流通道狭窄，气流通过时产生摩擦。 常见拼写方式：                      例词： u +  元音                           huit, suave, juin
+--- slide26.xml ---
+【 w 】发音部位和开口度与  [u]  基本相同，但发音短促，肌肉更紧张，气流通道狭窄，气流通过时产生摩擦。 常见拼写方式：                      例词： ou +  元音                          louer, oui, douane w  在外来语中                       week-end oi, o î , oy  读  [wa]                moi, toi, bo î te oe, o ê   读  [wa]                    moelle, po ê le oin  读  [wε ̃ ]                      point, moins, soin
+--- slide27.xml ---
+【 f 】上门齿顶住下唇内侧，气流通过唇齿之间的缝隙摩擦而出，形成摩擦音。 常见拼写方式：                      例词： f                                fille, faire, fr è re, flamme ff                               effet, difficile, offre f  在多数词词末                     vif, chef, sauf ph                               physique, photo
+--- slide28.xml ---
+【 v 】发音方式基本相同  [f] ，但声带振动，并且气流在唇齿之间稍需停留后再擦出。不要把【 v 】发成汉语拼音中的  u 。注意找到唇齿之间的发音点，并且发音要有气流冲出。 常见拼写方式：                      例词： v                                voir, veste, vivre w  在少数词中                       wagon f  在联诵时                         neuf heures
+--- slide29.xml ---
+【 s 】舌尖抵下齿，上下齿靠近，舌面前部与上颚形成缝隙，气流通过缝隙时发生摩擦。 常见拼写方式：                      例词： s  不在两个元音字母之间             si, penser, veste, Seine ss                               poisson, classe c  或者  sc  在  i, e, y  前             cin é ma, cycle ç                                 fran ç ais, le ç on x  在少数词中                       dix, six
+--- slide30.xml ---
+【 z 】发音方式基本相同【 s 】，但声带振动。 常见拼写方式：                      例词： z                                gaz, douze, z é ro s  在两个元音字母之间               bise, visage s  在联诵时                         les amies x  在联诵时                         dix ans
+--- slide31.xml ---
+【 ʃ 】舌尖抬向上齿龈稍后部分，与上颚之间形成缝隙，双唇略向前突出呈圆形，气流通过牙齿时形成摩擦。 常见拼写方式：                      例词： ch                               Chine, chaise sh                               shampoing sch                              sch é ma
+--- slide32.xml ---
+【 ʒ 】发音方式基本同【 ʃ 】，但声带振动。不要发成汉语拼音中的  r （日），注意在振动声带的同时发好摩擦音。 常见拼写方式：                      例词： j                                je, joli, jour g  在  i, e, y  前                   gilet, geste, gymnase ge  在  a, o  前                     mangeais, mangeons
+--- slide33.xml ---
+四个鼻化元音： 【 ã 】   【 ɔ ̃ 】   【 œ ̃ 】   【 ɛ ̃ 】 鼻化元音： 鼻化元音由元音字母加  n  或  m  构成。一般情况下，鼻化元音后面不能有元音字母，也不能有字母  m  或  n 。 由元音字母加  m  构成的鼻化元音一般出现在字母  p 、 b  前或者词末；由元音字母加  n  构成的鼻化元音一般出现在其他辅音字母前或词末。
+--- slide34.xml ---
+【 ɛ ̃ 】发音部位与【 ε 】相同，但气流从口腔和鼻腔冲出，构成鼻音。 常见拼写方式：                      例词： in, im                           vin, impossible yn, ym                           syndicat, sympathique ain, aim                         pain, faim ein, eim                         plein, Reims
+--- slide35.xml ---
+【 œ ̃ 】发音部位与【 oe 】相同，但气流从口腔或鼻腔冲出，构成鼻音。 常见拼写方式：                      例词： un                               aucun, brun, lundi um                               humble um  在少数词词末                    parfum eun  在个别词中                     à jeun 在现代法语中，圆唇鼻化元音【 œ ̃ 】有逐步被【 ɛ ̃ 】替代的趋势。由于两者之间区别已很不明显，着重体会即可。 —— 《北外法语》 p59
+--- slide36.xml ---
+【 ã 】发音部位与  [a]  相近，但舌尖略向后缩，开口度稍大，气流从口腔或鼻腔冲出，构成鼻音。 常见拼写方式：                      例词： an, am                           dans, chanter, lampe, chambre en, em                           enfant, lent, temps, ensemble en + n  在词首                     enneiger em + m  在词首                     emm é nager, emmener
+--- slide37.xml ---
+【 ɔ ̃ 】舌尖离开下齿，舌略向后缩，口型与  [o]  相同，气流从口腔和鼻腔冲出，构成鼻音。 常见拼写方式：                      例词： on                               mon, ton, bonjour om                               tomber, pompe, nom
+--- slide38.xml ---
+【 j 】发音部位和开口度与  [i]  相同，但发音更短促，肌肉更紧张，气流通道狭窄，气流通过时产生摩擦。 常见发音方式：                      例词： i  或  y  在元音前                     hier, vieil, fa ï ence “ 元音  + il” 在词末                   travail, conseil, fauteuil, oeil 元音  + ill +  元音字母               travailler, bouteille, feuille “ 辅音  + ill +  元音 ” 读  [ij]         gentille, famille, fille “oy +  元音 ” 读  [waj]                voyelle, moyen “ay, ey +  元音字母 ” 读  [εj]         crayon, asseyez-vous
+--- slide39.xml ---
+【 l 】舌尖抵上齿龈形成阻塞。发音时声带振动，气流从抬起的舌尖两侧出来，同时放下舌尖。 常见拼写方式：                      例词： l, ll                            lire, ville, mille l  在词末                          il, fil
+--- slide40.xml ---
+【 m 】双唇紧闭，软腭下降形成阻塞，气流从紧闭的双唇中冲出。 常见拼写方式：                      例词： m, mm                            madame, m è re, pomme
+--- slide41.xml ---
+【 n 】舌尖抵上齿龈，软腭下降形成阻塞，气流同时从鼻腔和口腔冲出，同时放下舌尖。 常见拼写方式：                      例词： n, nn                            nous, niveau mn                               automne, condamner
+--- slide42.xml ---
+【 ɲ 】舌尖抵上齿龈，软腭下降，舌面抬起，紧贴硬腭形成阻塞。 常见拼写方式：                      例词： gn                               montagne, campagne
+--- slide43.xml ---
+【 r 】舌尖抵下齿，舌后部略微抬起，气流通过时小舌震动，声带也振动。发音时关键要放松喉咙，让气流通过时产生小舌振动。 常见拼写方式：                      例词： r, rr, rh                        rue, verre r  在词末                          voir, finir
+--- slide44.xml ---
+【 r 】舌尖抵下齿，舌后部略微抬起，气流通过时小舌震动，声带也振动。发音时关键要放松喉咙，让气流通过时产生小舌振动。 常见拼写方式：                      例词： r, rr, rh                        rue, verre r  在词末                          voir, finir

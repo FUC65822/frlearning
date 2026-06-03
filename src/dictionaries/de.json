@@ -87,7 +87,9 @@
         "title": "Frankreich kennenlernen",
         "desc": "Erfahren Sie mehr über die Geschichte, Geografie, Sehenswürdigkeiten und lustige Fakten von Frankreich."
       }
-    ]
+    ],
+    "introTitle": "Absoluter Anfänger",
+    "introDesc": "Ein brandneuer Einführungskurs, um den ersten Schritt zu machen."
   },
   "features": {
     "title": "Mehr als nur Kurse – eine Brücke zur frankophonen Welt",
@@ -3539,5 +3541,72 @@
         }
       ]
     }
+  },
+  "intro": {
+    "title": "Einführungskurs",
+    "desc": "Ein immersiver Startweg für absolute Anfänger.",
+    "timeline": [
+      {
+        "title": "Lektion 1: Alphabet & Aussprache",
+        "desc": "Meistern Sie die 26 Buchstaben und Grundregeln."
+      },
+      {
+        "title": "Lektion 2: Besondere Ausspracheregeln",
+        "desc": "Meistern Sie Liaison, Elision, stumme Endkonsonanten und den Buchstaben H."
+      },
+      {
+        "title": "Lektion 3: Zahlen 1-20",
+        "desc": "Lernen Sie die Zahlen für den Alltag."
+      },
+      {
+        "title": "Lektion 4: Wichtige Verben",
+        "desc": "Meistern Sie die Verwendung von être und avoir."
+      }
+    ],
+    "start": "Starten",
+    "lesson1": {
+      "title": "Lektion 1: Alphabet & Phonetik",
+      "desc": "Klicken Sie auf ein phonetisches Symbol unten, um die Ausspracheregeln zu lernen und authentisches Französisch zu hören.",
+      "tabs": {
+        "vowel": "Vokale (Voyelles)",
+        "semiVowel": "Halbvokale (Semi-voyelles)",
+        "consonant": "Konsonanten (Consonnes)",
+        "nasal": "Nasalvokale (Voyelles nasales)"
+      },
+      "rules": "Aussprache & Rechtschreibung",
+      "spellAndExamples": "Rechtschreibung & Beispiele",
+      "playTTS": "Französische Aussprache abspielen",
+      "back": "Zurück zum Kurs",
+      "practice": {
+        "cta": "Ich bin bereit, Übung starten ➔",
+        "title": "Phonetik-Hörtest",
+        "desc": "Hören Sie sich das Wort an und wählen Sie das phonetische Symbol aus, das es enthält",
+        "questionOf": "Frage {x} / {y}",
+        "playAudio": "Klicken, um die Aussprache abzuspielen",
+        "correct": "Klasse!",
+        "incorrect": "Hoppla, versuch es nochmal!",
+        "next": "Weiter ➔",
+        "finishTitle": "Übung abgeschlossen!",
+        "finishDesc": "Dein Ergebnis: {score} / {total}",
+        "restart": "Neustart",
+        "hide": "Übung ausblenden",
+        "menuTitle": "Übungsmodus auswählen",
+        "set1": "Set 1: Grundvokale",
+        "set2": "Set 2: Erweiterte & Nasalvokale",
+        "set3": "Set 3: Grundkonsonanten",
+        "set4": "Set 4: Konsonanten & Halbvokale",
+        "set5": "Set 5: Umfassende Herausforderung",
+        "randomMode": "🎲 Zufällige Herausforderung",
+        "backToMenu": "Zurück zum Menü",
+        "wordWas": "Beispielwort:"
+      }
+    },
+    "lesson2": {
+      "title": "Lektion 2: Besondere Ausspracheregeln",
+      "desc": "Französisch klingt wie ein schönes Lied dank dieser besonderen Aussprachegewohnheiten und Bindungsregeln.",
+      "back": "Zurück",
+      "playTTS": "Audio abspielen"
+    },
+    "soon": "Demnächst"
   }
 }

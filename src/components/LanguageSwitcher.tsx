@@ -12,6 +12,9 @@ export default function LanguageSwitcher({ currentLang, noticeText }: { currentL
 
   const switchLanguage = (locale: string) => {
     if (locale === currentLang) return;
+    if (typeof window !== "undefined") {
+      localStorage.setItem("frlearning_lang", locale);
+    }
     const newPath = pathname.replace(`/${currentLang}`, `/${locale}`);
     router.push(newPath);
     setIsOpen(false);
@@ -32,7 +35,7 @@ export default function LanguageSwitcher({ currentLang, noticeText }: { currentL
         className="inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-stone-200 hover:text-emerald-900"
       >
         <Globe className="h-4 w-4" />
-        {languageNames[currentLang]}
+        <span>{languageNames[currentLang]}</span>
       </button>
 
       {isOpen && (

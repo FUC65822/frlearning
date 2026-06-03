@@ -19,6 +19,7 @@ import {
   Lock,
   Mail,
   MessageSquareText,
+  PlayCircle,
   Smartphone,
   Users,
   X,
@@ -57,8 +58,7 @@ export default function HomeClient({ dict, lang }: { dict: Dictionary, lang: str
   ];
 
   const resources = [
-    { title: dict.resources.items[0].title, desc: dict.resources.items[0].desc, href: "https://learnfr.de/linguax", icon: GraduationCap },
-    { title: dict.resources.items[1].title, desc: dict.resources.items[1].desc, href: "https://learnfr.de/app/mainpage", icon: Smartphone },
+    { title: dict.resources.introTitle, desc: dict.resources.introDesc, href: `/${lang}/intro`, icon: PlayCircle },
     { title: dict.resources.items[2].title, desc: dict.resources.items[2].desc, href: `/${lang}/temps`, icon: MessageSquareText },
     { title: dict.resources.items[3].title, desc: dict.resources.items[3].desc, href: `/${lang}/number`, icon: FileText },
     { title: dict.resources.items[4].title, desc: dict.resources.items[4].desc, href: `/${lang}/magasin`, icon: BookOpen },
@@ -70,7 +70,7 @@ export default function HomeClient({ dict, lang }: { dict: Dictionary, lang: str
   return (
     <main className="min-h-screen bg-stone-50 text-neutral-950 selection:bg-emerald-200 selection:text-neutral-950">
       <header className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50/95 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:px-8">
+        <div className="mx-auto flex h-20 max-w-[96rem] items-center justify-between px-5 md:px-8">
           <Link href={`/${lang}`} className="flex items-center gap-3" aria-label={dict.nav.home}>
             <span className="flex h-10 w-10 items-center justify-center rounded-md bg-neutral-950 text-stone-50">
               <BookOpen className="h-5 w-5" aria-hidden="true" />
@@ -104,7 +104,7 @@ export default function HomeClient({ dict, lang }: { dict: Dictionary, lang: str
       </header>
 
       <section className="relative overflow-hidden border-b border-stone-200 bg-stone-100">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="mx-auto grid max-w-[96rem] items-center gap-12 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-[0.92fr_1.08fr]">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -175,7 +175,7 @@ export default function HomeClient({ dict, lang }: { dict: Dictionary, lang: str
       </section>
 
       <section id="solutions" className="bg-white py-20 md:py-24">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="mx-auto max-w-[96rem] px-5 md:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-normal text-emerald-900">{dict.solutions.tag}</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-normal md:text-5xl">{dict.solutions.title}</h2>
@@ -197,7 +197,7 @@ export default function HomeClient({ dict, lang }: { dict: Dictionary, lang: str
       </section>
 
       <section className="border-y border-stone-200 bg-neutral-950 py-20 text-white md:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-8 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="mx-auto grid max-w-[96rem] gap-12 px-5 md:px-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-normal text-amber-300">{dict.method.tag}</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-normal md:text-5xl">{dict.method.title}</h2>
@@ -214,7 +214,7 @@ export default function HomeClient({ dict, lang }: { dict: Dictionary, lang: str
       </section>
 
       <section id="resources" className="bg-stone-50 py-20 md:py-24">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="mx-auto max-w-[96rem] px-5 md:px-8">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-normal text-emerald-900">{dict.resources.tag}</p>
@@ -223,13 +223,6 @@ export default function HomeClient({ dict, lang }: { dict: Dictionary, lang: str
                 {dict.resources.desc}
               </p>
             </div>
-            <button
-              onClick={() => setActiveModal("text")}
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-stone-300 bg-white px-5 font-semibold text-neutral-950 transition-colors hover:border-emerald-900 hover:text-emerald-900"
-            >
-              {dict.resources.btn}
-              <ChevronRight className="h-5 w-5" aria-hidden="true" />
-            </button>
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -250,23 +243,12 @@ export default function HomeClient({ dict, lang }: { dict: Dictionary, lang: str
               </a>
             ))}
 
-            <button
-              onClick={() => setActiveModal("civi")}
-              className="group rounded-md border border-stone-200 bg-white p-6 text-left shadow-sm transition-all hover:-translate-y-1 hover:border-emerald-900 hover:shadow-xl hover:shadow-neutral-950/10"
-            >
-              <div className="flex items-start justify-between gap-5">
-                <Columns className="h-8 w-8 text-emerald-900" aria-hidden="true" />
-                <ArrowRight className="h-5 w-5 text-neutral-400 transition-transform group-hover:translate-x-1 group-hover:text-emerald-900" aria-hidden="true" />
-              </div>
-              <h3 className="mt-6 text-xl font-semibold">{dict.resources.civiTitle}</h3>
-              <p className="mt-3 leading-7 text-neutral-600">{dict.resources.civiDesc}</p>
-            </button>
           </div>
         </div>
       </section>
 
       <section className="bg-white py-20 md:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 md:px-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mx-auto grid max-w-[96rem] gap-10 px-5 md:px-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-md border border-stone-200 bg-stone-50 p-8">
             <Globe className="h-9 w-9 text-emerald-900" aria-hidden="true" />
             <h2 className="mt-6 text-3xl font-semibold tracking-normal">{dict.features.title}</h2>
@@ -296,7 +278,7 @@ export default function HomeClient({ dict, lang }: { dict: Dictionary, lang: str
       </section>
 
       <footer id="contact" className="border-t border-stone-200 bg-stone-100">
-        <div className="mx-auto max-w-7xl px-5 py-14 md:px-8">
+        <div className="mx-auto max-w-[96rem] px-5 py-14 md:px-8">
           <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
             <div>
               <div className="flex items-center gap-3">
@@ -323,11 +305,7 @@ export default function HomeClient({ dict, lang }: { dict: Dictionary, lang: str
                     {dict.nav.resources}
                   </a>
                 </li>
-                <li>
-                  <button className="hover:text-emerald-900" onClick={() => setActiveModal("civi")}>
-                    {dict.resources.civiTitle}
-                  </button>
-                </li>
+
               </ul>
             </div>
 

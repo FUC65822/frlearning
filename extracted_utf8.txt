@@ -1,0 +1,127 @@
+﻿
+--- slide1.xml ---
+15 涓厓闊筹細 [a] 銆?[i] 銆?[e] 銆?[蔚] 銆?[u] 銆?[o] 銆?[ 蓴 ] 銆?[y] 銆?[ 酶 ] 銆?[ 艙 ] 銆?[ 蓹 ] 銆?[ 蓻 虄 ] 銆?[ 艙 虄 ] 銆?[ 茫 ] 銆?[ 蓴 虄 ] 17 涓緟闊筹細 [p] 銆?[b] 銆?[t] 銆?[d] 銆?[k] 銆?[g] 銆?[f] 銆?[v] 銆?[s] 銆?[z] 銆?[ 蕛 ] 銆?[ 蕭 ] 銆?[l] 銆?[m] 銆?[n] 銆?[ 刹 ] 銆?[r] 3 涓崐鍏冮煶锛?[j] 銆?[ 丧 ] 銆?[w] 鍏冮煶瀛楁瘝锛?a, e, i, o, u, y
+
+--- slide2.xml ---
+銆恑銆戝彛鑵斿紑鍙ｅ害鏋佸皬锛岃垖灏栫揣鎶典笅榻匡紝鍞囧舰鎵佸钩锛屽槾瑙掔敤鍔涘悜涓よ竟鎷夛紝 涓庢眽璇嫾闊充腑鐨?i 鐩镐技锛屼絾鍙ｈ厰寮€鍙ｉ儴浣嶇殑鑲岃倝鏇村姞绱у紶銆?甯歌鎷煎啓鏂瑰紡锛?                   渚嬭瘝锛?i                                il, si, lire, riz 卯                                卯le, d 卯ner 茂                                na茂f, mais, 茅go 茂ste y                                type, style, cycle
+
+--- slide3.xml ---
+銆?e 銆戣垖灏栫揣鎶典笅榻匡紝鍞囧舰鎵佸钩锛屽紑鍙ｅ害鐣ュぇ浜? [i] 锛屽槾瑙掑悜涓よ竟鎷夈€傚彂闊充笌姹夎鎷奸煶涓殑  ei  鐩镐技锛屼絾寮€鍙ｅ害鏇村皬锛屽苟涓斿彛鍨嬩繚鎸佷笉鍙樸€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?茅                                  茅 t 茅 , d 茅 sol 茅 , b 茅 b 茅 er  鍦ㄨ瘝鏈?                         aller, r 茅 p 茅 ter, pr 茅 f 茅 rer ez  鍦ㄨ瘝鏈?                         t 茅 l 茅 phonez, lisez, nez es  鍦ㄥ皯鏁板崟闊宠妭璇嶄腑                les, des, mes ed  鎴? eds  鍦ㄨ瘝鏈?                  pied, assieds 浠€涔堟槸鍗曢煶鑺傝瘝锛氫竴鑸潵璇达紝涓€涓崟璇嶆湁鍑犱釜鍙戦煶鐨勫厓闊筹紝灏辨湁鍑犱釜闊宠妭銆?濡傦細 qui [ki]  鏈変竴涓煶鑺傦紝 Pascal [pas-kal]  鏈変袱涓煶鑺傘€?
+--- slide4.xml ---
+銆?蔚 銆戝紑鍙ｅ害澶т簬銆?e 銆戯紝鑸屽皷骞虫姷涓嬮娇锛岃垖鍓嶉儴鐣ュ井闅嗚捣銆傛敞鎰忎繚鎸佸彛鍨嬬ǔ瀹氾紝灏ゅ叾涓嶈涓庢眽璇嫾闊崇殑  ai  娣锋穯銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?猫                                 m 猫 re, p 猫 re, fr 猫 re 锚                                  锚 tre, t 锚 te, b 锚 te 毛                                 No 毛 l e  鍦ㄩ棴闊宠妭涓?                      merci, sel, veste, belle ai, a 卯                            aimer, faire, mais ei                               Seine, seize et,  锚 t, ect  鍦ㄨ瘝鏈?               paquet, ticket, for 锚 t, respect
+
+--- slide5.xml ---
+銆?a 銆戣垖澶存斁骞筹紝鍢磋嚜鐒跺紶寮€锛屽彛鍨嬬暐寰揣寮犮€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?a                                papa    date    ma    ami 脿                                脿       l脿 芒                                 P 芒 ques  p 芒 te    g 芒 teau 鈥渆 + mm  鎴? nn鈥?鍦ㄨ瘝涓?              femme    茅 videmment 寮€闊宠妭锛氳闊充腑浠ュ厓闊抽煶绱犵粨灏剧殑闊宠妭锛氬  qui [ki] 闂煶鑺傦細璇婚煶涓互杈呴煶闊崇礌缁撳熬鐨勯煶鑺傦細濡? Pascal [pas-kal]
+
+--- slide6.xml ---
+闊崇锛?les accents 锛?娉曡鏈夊洓绉嶉煶绗︼紝鍙嚭鐜板湪鍏冮煶瀛楁瘝涓婇潰銆傚厓闊冲瓧姣嶏紙 a, e, i, o, u, y 锛?灏栭煶绗︼紙 accent aigu 锛夋槸鏈€甯歌鐨勯煶绗︼紝鍙嚭鐜板湪瀛楁瘝  e  涓婇潰锛屽锛?t 茅 l 茅 phoner,  茅 crire 椤块煶绗︼紙 accent grave 锛夊嚭鐜板湪瀛楁瘝  a 銆?e 銆?u  涓婇潰锛屽锛?l脿, m 猫 re, o 霉 寮€闊崇鍙互鍖哄垎锛?- a 锛堝姩璇? avoir  鐨勫彉浣嶏級鍜? 脿 锛堜粙璇嶏級 - la 锛堝啝璇嶏級鍜? l脿 锛堝壇璇嶏級 - ou 锛堣繛璇嶏級鍜? o 霉 锛堢枒闂壇璇嶏級
+
+--- slide7.xml ---
+闀块煶绗︼紙 accent circonflexe 锛夊嚭鐜板湪闄? y  浠ュ鐨勫叾浠栧厓闊冲瓧姣嶄笂锛屽锛?芒 ge,  锚 tre, s 没 r 鍒嗛煶绗︼紙 tr 茅 ma 锛夌敤浜庡垎寮€涓や釜鍏冮煶瀛楁瘝锛岃〃绀哄畠浠垎鍒彂闊筹紝濡傦細 na 茂 f, No 毛 l 鍙﹀锛岃繕鏈変竴绉嶄功鍐欑鍙凤紝鍗冲嚭鐜板湪瀛楁瘝  c  涓嬮潰鐨勮蒋闊崇锛?c 茅 dille 锛夈€?莽   鍦ㄥ瓧姣? a 銆?o  鍜? u  鍓嶉潰璇? [s] 锛屽锛?fran 莽 ais, gar 莽 on 銆?
+--- slide8.xml ---
+銆?p 銆戝弻鍞囩揣闂舰鎴愰樆纰嶏紝姘旀祦绐佺劧浠庡彛鑵斿啿鍑猴紝褰㈡垚鐖嗙牬闊炽€傚０甯︿笉鎸姩锛岀被浼间簬姹夎鎷奸煶涓殑  b 銆傚湪鍏冮煶鍓嶉儴閫佹皵锛屽湪闊宠妭鏈垨涓? l 銆?r  鏋勬垚杈呴煶缇ゆ椂閫佹皵锛屾鏃跺彂闊冲悓鑻辫涓殑  p 锛?people 锛夈€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?p                                pas, paix,  茅 tape, place pp                               appel, nappe, grippe
+
+--- slide9.xml ---
+銆?b 銆戝彂闊虫柟寮忓熀鏈悓  [p] 锛屼絾鍙戦煶鏃跺０甯︽尟鍔紝骞跺彧鏈夋瀬灏戦噺鐨勬皵娴佸啿鍑哄彛鑵斻€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?b                                belle, bas, b 茅 b 茅 bb                               abb 茅
+
+--- slide10.xml ---
+璇嶆湯杈呴煶瀛楁瘝涓€鑸笉鍙戦煶锛?1 锛夋硶璇緟闊冲瓧姣嶅湪璇嶆湯鏃朵竴鑸笉鍙戦煶銆傚锛?mais [m 蓻 ] 2 锛変絾杈呴煶瀛楁瘝  q,c,l,r,f 浠ュ強  ct  鍦ㄨ瘝灏炬椂锛屼竴鑸鍙戦煶銆?濡傦細 sac [sak] vif [vif] sel [s 蓻 l] mur [my 蕘 ]
+
+--- slide11.xml ---
+銆?t 銆?1 锛夎垖灏栨姷涓婇娇褰㈡垚闃诲锛屾皵娴佺獊鐒朵粠鍙ｈ厰鍐插嚭锛屽０甯︿笉鎸姩锛岀被浼间簬姹夎鎷奸煶鐨? d 銆傚湪鍏冮煶鍓嶄笉閫佹皵銆?2 锛夊湪闊宠妭鏈垨涓? l 銆?r  鏋勬垚杈呴煶缇ゆ椂閫佹皵锛屾鏃跺彂闊冲悓鑻辫涓殑  t 锛?tea 锛夈€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?t                                t 锚 te, table, type, ma 卯 tre tt                               atterrir, dette, patte th                              th 茅 t  鍦ㄥ皯鏁拌瘝璇嶆湯          net d  鍦ㄨ仈璇垫椂                 quand il
+
+--- slide12.xml ---
+銆?d 銆戝彂闊虫柟寮忓熀鏈悓  [t] 锛屼絾鍙戦煶鏃跺０甯︽尟鍔紝骞跺彧鏈夋瀬灏戦噺鐨勬皵娴佸啿鍑哄彛鑵斻€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?d                                date, madame, drame dd                               addition dh                               adh 茅 rer d  鍦ㄥ皯鏁拌瘝璇嶆湯                     Madrid, David
+
+--- slide13.xml ---
+鐪侀煶锛?l鈥?茅 lision 锛夛細 鍏冮煶瀛楁瘝涓庡厓闊崇渷闊?灏戞暟浠ュ厓闊冲瓧姣嶇粨灏剧殑鍗曢煶鑺傝瘝锛屽父鍜屼笅涓€璇嶇殑璇嶉鍏冮煶 锛堝寘鎷搼闊? h  鍚庣殑鍏冮煶锛夊悎璇绘垚涓€涓煶鑺傦紝鑰岀渷鍘昏瘝鏈殑鍏冮煶瀛楁瘝銆?杩欑鐜拌薄琚О涓虹渷闊筹紝鐪佸幓鐨勫厓闊冲瓧姣嶇敤鐪佹枃鎾? 鈥? 浠ｆ浛銆傚锛?ce + est = c鈥檈st 涔濅釜浠? e  缁撳熬鐨勫崟闊宠妭璇? ce 銆?de 銆?je 銆?le 銆?me 銆?ne 銆?que 銆?se 銆?te  閮介伒寰繖涓€瑙勫垯銆?姝ゅ锛?la 銆?si 銆?jusque 銆?lorsque 銆?presque 銆?puisque  涔熸湁鐪侀煶鐜拌薄銆?la +  茅 tudiante = l鈥?茅 tudiante si + il = s鈥檌l
+
+--- slide14.xml ---
+銆?k 銆?1 锛夎垖闈㈡姮璧锋姷浣忕‖鑵悗閮ㄥ舰鎴愰樆濉烇紝姘旀祦绐佺劧浠庡彛鑵斿啿鍑猴紝褰㈡垚鐖嗙牬闊炽€傜被浼间簬姹夎鎷奸煶涓殑  g 锛屽湪鍏冮煶鍓嶄笉閫佹皵銆?2 锛夊湪闊宠妭鏈垨涓? l 銆?r  鏋勬垚杈呴煶缇ゆ椂閫佹皵锛屾鏃跺彂闊冲悓鑻辫涓殑  k 锛?cake 锛夈€?\ 甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?c  鎴? cc  鍦? a, o, u  涔嬪墠            caf 茅 , caisse, Cuba c  鍦ㄨ緟闊冲瓧姣嶄箣鍓?                  cl 茅 , cravate k, ck                             kilo, ticket qu                                qui, quel, disque c  鎴? q  鍦ㄨ瘝鏈?                     sac, lac, parc, coq, cinq cc  鍦? e, i  鍓嶈  [ks]              succ 猫 s, accent, accident x  璇? [ks]                         taxi,texte,excuser
+
+--- slide15.xml ---
+鑱旇锛?la liaison 锛夛細 鍦ㄥ悓涓€鑺傚缁勪腑锛屽鏋滃墠闈竴涓瘝鐨勮瘝鏈槸涓嶅彂闊崇殑杈呴煶瀛楁瘝锛岃€屽悗闈竴涓瘝浠ュ厓闊冲瓧姣嶆垨鑰呭搼闊? h  寮€澶达紝涓€鑸潵璇村墠涓€璇嶇殑璇嶆湯杈呴煶瀛楁瘝瑕佷笌鍚庝竴璇嶇殑璇嶉鍏冮煶鍚堟垚涓€涓煶鑺傦紝杩欑鐜拌薄绉颁箣涓鸿仈璇点€傚锛?les  脡 tats-Unis [le-ze-ta-zy-ni] un homme 杩為煶锛?鍓嶄竴涓崟璇嶇殑璇嶅熬杈呴煶鎴栧厓闊充笌鍚庝竴涓崟璇嶇殑璇嶉鍏冮煶杩炲湪涓€璧疯銆?Il est artiste [i-l 蓻 -tar-tist] 鍖哄埆锛?璇嶅熬瀛楁瘝鍘熸潵涓嶅彂闊筹紝鍙戜簡闊筹紝鍙仈璇碉紱 鍘熸潵鍙戜簡闊筹紝杩炲湪涓€璧疯锛屽彨杩為煶銆?
+--- slide16.xml ---
+銆?g 銆戝彂闊虫柟寮忓悓銆?k 銆戯紝浣嗗０甯﹀繀椤绘尟鍔紝骞跺彧鏈夋瀬灏戦噺鐨勬皵娴佸啿鍑哄彛鑵斻€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?g  鍦? a, o, u  鎴栬緟闊冲瓧姣嶅墠          gare, goutte, figure g  鍦ㄥ皯鏁拌瘝鐨勮瘝鏈?                  zigzag gu  鍦? e, i, y  涔嬪墠                 guerre, guide, Guy c  鍦ㄥ皯鏁拌瘝涓?                      second
+
+--- slide17.xml ---
+瀛楁瘝  h 锛?娉曡瀛楁瘝  h  鍦ㄥ崟鐙粠涓笉鍙戦煶锛屼絾  h  鍦ㄨ瘝棣栨椂鏈夊搼闊? h  鍜屽槝闊? h  涔嬪垎銆?褰撹瘝棣栨槸鍝戦煶  h  鐨勬椂鍊欙紝鍓嶉潰鐨勮瘝鍜屽畠涔嬮棿鍙互鏈夌渷闊虫垨鑱旇銆傚锛?l鈥檋eure [l 艙 r ] nous habitons 褰撹瘝棣栨槸鍢橀煶  h  鏃讹紝鍓嶉潰鐨勮瘝鍜屽畠涔嬮棿涓嶅彲浠ユ湁鐪侀煶鎴栬€呰仈璇点€傚锛?le h 茅 ros trois h 茅 ros 鍦ㄥ瓧鍏镐腑锛屽嚒鏄槝闊? h  寮€澶寸殑璇嶆潯鍓嶅潎鏍囨湁  鈥?鈥? 鍙枫€?
+--- slide18.xml ---
+銆?u 銆戣垖灏介噺鍚庣缉锛屽弻鍞囩獊鍑哄憟鍦嗗舰锛屽彛鍨嬬揣闂€備笌姹夎鎷奸煶涓殑  u  鐩镐技锛屼絾鍞囬儴鑲岃倝鏇村姞绱у紶銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?ou, o 霉 , o 没                        vous, o 霉 , go 没 t aou, ao 没                          ao 没 t 涓埆澶栨潵璇腑                       foot, clown
+
+--- slide19.xml ---
+銆?o 銆戣垖鐣ュ悜鍚庣缉锛屽弻鍞囩獊鍑猴紝鍙ｅ瀷寰堝渾锛屽紑鍙ｅ害闈炲父灏忋€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?o  鍦ㄨ瘝鏈紑闊宠妭涓?                  m 茅 tro, v 茅 lo, mot o  鍦? [z]  鍓?                       rose, chose, oser 么                                all么, dr么le, c么t 茅 eau                              beau, cadeau, bureau au                               aussi, autre, chaud
+
+--- slide20.xml ---
+銆?蓴 銆戣垖鐣ュ悜鍚庣缉锛屽弻鍞囩獊鍑哄熀鏈憟鍦嗗舰锛屽紑鍙ｅ害杈冨ぇ銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?o  鍦ㄥぇ澶氭暟璇嶄腑                     robe, porte, comme d'accord                          d'accord, votre um  鍦ㄨ瘝鏈  [ 蓴 m]                  forum, album
+
+--- slide21.xml ---
+銆?y 銆戣垖浣嶃€佸紑鍙ｅ害鍜岃倢鑲夌揣寮犲害涓庡厓闊? [i]  鐩告帴杩戯紝浣嗗弻鍞囩獊鍑猴紝缁风揣鎴愬渾褰€傚彂闊充笌姹夎鎷奸煶   眉   鐩镐技锛屼絾鍞囬儴鑲岃倝鏇寸揣寮犮€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?u,  没                              Lucie, tu, but, fl 没 te
+
+--- slide22.xml ---
+銆?酶 銆戣垖灏栧拰寮€鍙ｅ害涓庡厓闊? e  鐩稿悓锛屽弻鍞囩獊鍑哄憟鍦嗗舰锛岃倢鑲夎緝绱у紶銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?eu, oeu  鍦ㄨ瘝鏈紑闊宠妭涓?            jeu, feu, deux, v 艙 u eu  鍦? [z] [t] [d]  闊冲墠             serveuse, neutre, jeudi e 没                                 je 没 ne
+
+--- slide23.xml ---
+銆?艙 銆戣垖浣嶅拰寮€鍙ｅ害涓庡厓闊炽€?蔚 銆戠浉鍚岋紝鍙槸鍙屽攪绐佸嚭鍛堝渾褰紝鑲岃倝杈冭交鏉俱€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?eu, oeu  鍦ㄥ鏁版儏鍐典笅               leur, fleur, s 艙 ur, c 艙 ur oe  鍦ㄤ釜鍒瘝涓?                      oeil ueil  鍦? c  鎴? g  鍚庤  [ 艙 j]           accueil, orgueil 鍦ㄤ釜鍒鏉ヨ涓?                     club, t-shirt
+
+--- slide24.xml ---
+銆?蓹 銆戣垖浣嶅拰寮€鍙ｅ害涓庡厓闊? [蔚]  鐩歌繎锛岃倢鑲夎緝鏀炬澗锛屽弻鍞囩獊鍑哄憟鍦嗗舰銆傚彂闊虫椂鏃犻渶鐢ㄥ姏銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?e  鍦ㄥ皯鏁板崟闊宠妭璇嶈瘝鏈?              le, te, de 涓や釜杈呴煶  + e +  杈呴煶                mercredi, gouvernement, entreprise e  鍦ㄨ瘝棣栧紑闊宠妭涓?                  Beno 卯 t, demi, menu ai  鍦? faire  鐨勬煇浜涘彉浣嶄腑           faisons, satisfaisant on  鍦ㄤ釜鍒瘝涓?                     monsieur
+
+--- slide25.xml ---
+銆?丧 銆戝彂闊抽儴浣嶅拰寮€鍙ｅ害涓? [y]  鍩烘湰鐩稿悓锛屼絾鍙戦煶鐭績锛岃倢鑲夋洿绱у紶锛屾皵娴侀€氶亾鐙獎锛屾皵娴侀€氳繃鏃朵骇鐢熸懇鎿︺€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?u +  鍏冮煶                           huit, suave, juin
+
+--- slide26.xml ---
+銆?w 銆戝彂闊抽儴浣嶅拰寮€鍙ｅ害涓? [u]  鍩烘湰鐩稿悓锛屼絾鍙戦煶鐭績锛岃倢鑲夋洿绱у紶锛屾皵娴侀€氶亾鐙獎锛屾皵娴侀€氳繃鏃朵骇鐢熸懇鎿︺€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?ou +  鍏冮煶                          louer, oui, douane w  鍦ㄥ鏉ヨ涓?                      week-end oi, o 卯 , oy  璇? [wa]                moi, toi, bo 卯 te oe, o 锚   璇? [wa]                    moelle, po 锚 le oin  璇? [w蔚 虄 ]                      point, moins, soin
+
+--- slide27.xml ---
+銆?f 銆戜笂闂ㄩ娇椤朵綇涓嬪攪鍐呬晶锛屾皵娴侀€氳繃鍞囬娇涔嬮棿鐨勭紳闅欐懇鎿﹁€屽嚭锛屽舰鎴愭懇鎿﹂煶銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?f                                fille, faire, fr 猫 re, flamme ff                               effet, difficile, offre f  鍦ㄥ鏁拌瘝璇嶆湯                     vif, chef, sauf ph                               physique, photo
+
+--- slide28.xml ---
+銆?v 銆戝彂闊虫柟寮忓熀鏈浉鍚? [f] 锛屼絾澹板甫鎸姩锛屽苟涓旀皵娴佸湪鍞囬娇涔嬮棿绋嶉渶鍋滅暀鍚庡啀鎿﹀嚭銆備笉瑕佹妸銆?v 銆戝彂鎴愭眽璇嫾闊充腑鐨? u 銆傛敞鎰忔壘鍒板攪榻夸箣闂寸殑鍙戦煶鐐癸紝骞朵笖鍙戦煶瑕佹湁姘旀祦鍐插嚭銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?v                                voir, veste, vivre w  鍦ㄥ皯鏁拌瘝涓?                      wagon f  鍦ㄨ仈璇垫椂                         neuf heures
+
+--- slide29.xml ---
+銆?s 銆戣垖灏栨姷涓嬮娇锛屼笂涓嬮娇闈犺繎锛岃垖闈㈠墠閮ㄤ笌涓婇褰㈡垚缂濋殭锛屾皵娴侀€氳繃缂濋殭鏃跺彂鐢熸懇鎿︺€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?s  涓嶅湪涓や釜鍏冮煶瀛楁瘝涔嬮棿             si, penser, veste, Seine ss                               poisson, classe c  鎴栬€? sc  鍦? i, e, y  鍓?            cin 茅 ma, cycle 莽                                 fran 莽 ais, le 莽 on x  鍦ㄥ皯鏁拌瘝涓?                      dix, six
+
+--- slide30.xml ---
+銆?z 銆戝彂闊虫柟寮忓熀鏈浉鍚屻€?s 銆戯紝浣嗗０甯︽尟鍔ㄣ€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?z                                gaz, douze, z 茅 ro s  鍦ㄤ袱涓厓闊冲瓧姣嶄箣闂?              bise, visage s  鍦ㄨ仈璇垫椂                         les amies x  鍦ㄨ仈璇垫椂                         dix ans
+
+--- slide31.xml ---
+銆?蕛 銆戣垖灏栨姮鍚戜笂榻块緢绋嶅悗閮ㄥ垎锛屼笌涓婇涔嬮棿褰㈡垚缂濋殭锛屽弻鍞囩暐鍚戝墠绐佸嚭鍛堝渾褰紝姘旀祦閫氳繃鐗欓娇鏃跺舰鎴愭懇鎿︺€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?ch                               Chine, chaise sh                               shampoing sch                              sch 茅 ma
+
+--- slide32.xml ---
+銆?蕭 銆戝彂闊虫柟寮忓熀鏈悓銆?蕛 銆戯紝浣嗗０甯︽尟鍔ㄣ€備笉瑕佸彂鎴愭眽璇嫾闊充腑鐨? r 锛堟棩锛夛紝娉ㄦ剰鍦ㄦ尟鍔ㄥ０甯︾殑鍚屾椂鍙戝ソ鎽╂摝闊炽€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?j                                je, joli, jour g  鍦? i, e, y  鍓?                  gilet, geste, gymnase ge  鍦? a, o  鍓?                    mangeais, mangeons
+
+--- slide33.xml ---
+鍥涗釜榧诲寲鍏冮煶锛?銆?茫 銆?  銆?蓴 虄 銆?  銆?艙 虄 銆?  銆?蓻 虄 銆?榧诲寲鍏冮煶锛?榧诲寲鍏冮煶鐢卞厓闊冲瓧姣嶅姞  n  鎴? m  鏋勬垚銆備竴鑸儏鍐典笅锛岄蓟鍖栧厓闊冲悗闈笉鑳芥湁鍏冮煶瀛楁瘝锛屼篃涓嶈兘鏈夊瓧姣? m  鎴? n 銆?鐢卞厓闊冲瓧姣嶅姞  m  鏋勬垚鐨勯蓟鍖栧厓闊充竴鑸嚭鐜板湪瀛楁瘝  p 銆?b  鍓嶆垨鑰呰瘝鏈紱鐢卞厓闊冲瓧姣嶅姞  n  鏋勬垚鐨勯蓟鍖栧厓闊充竴鑸嚭鐜板湪鍏朵粬杈呴煶瀛楁瘝鍓嶆垨璇嶆湯銆?
+--- slide34.xml ---
+銆?蓻 虄 銆戝彂闊抽儴浣嶄笌銆?蔚 銆戠浉鍚岋紝浣嗘皵娴佷粠鍙ｈ厰鍜岄蓟鑵斿啿鍑猴紝鏋勬垚榧婚煶銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?in, im                           vin, impossible yn, ym                           syndicat, sympathique ain, aim                         pain, faim ein, eim                         plein, Reims
+
+--- slide35.xml ---
+銆?艙 虄 銆戝彂闊抽儴浣嶄笌銆?oe 銆戠浉鍚岋紝浣嗘皵娴佷粠鍙ｈ厰鎴栭蓟鑵斿啿鍑猴紝鏋勬垚榧婚煶銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?un                               aucun, brun, lundi um                               humble um  鍦ㄥ皯鏁拌瘝璇嶆湯                    parfum eun  鍦ㄤ釜鍒瘝涓?                    脿 jeun 鍦ㄧ幇浠ｆ硶璇腑锛屽渾鍞囬蓟鍖栧厓闊炽€?艙 虄 銆戞湁閫愭琚€?蓻 虄 銆戞浛浠ｇ殑瓒嬪娍銆傜敱浜庝袱鑰呬箣闂村尯鍒凡寰堜笉鏄庢樉锛岀潃閲嶄綋浼氬嵆鍙€?鈥斺€?銆婂寳澶栨硶璇€?p59
+
+--- slide36.xml ---
+銆?茫 銆戝彂闊抽儴浣嶄笌  [a]  鐩歌繎锛屼絾鑸屽皷鐣ュ悜鍚庣缉锛屽紑鍙ｅ害绋嶅ぇ锛屾皵娴佷粠鍙ｈ厰鎴栭蓟鑵斿啿鍑猴紝鏋勬垚榧婚煶銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?an, am                           dans, chanter, lampe, chambre en, em                           enfant, lent, temps, ensemble en + n  鍦ㄨ瘝棣?                    enneiger em + m  鍦ㄨ瘝棣?                    emm 茅 nager, emmener
+
+--- slide37.xml ---
+銆?蓴 虄 銆戣垖灏栫寮€涓嬮娇锛岃垖鐣ュ悜鍚庣缉锛屽彛鍨嬩笌  [o]  鐩稿悓锛屾皵娴佷粠鍙ｈ厰鍜岄蓟鑵斿啿鍑猴紝鏋勬垚榧婚煶銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?on                               mon, ton, bonjour om                               tomber, pompe, nom
+
+--- slide38.xml ---
+銆?j 銆戝彂闊抽儴浣嶅拰寮€鍙ｅ害涓? [i]  鐩稿悓锛屼絾鍙戦煶鏇寸煭淇冿紝鑲岃倝鏇寸揣寮狅紝姘旀祦閫氶亾鐙獎锛屾皵娴侀€氳繃鏃朵骇鐢熸懇鎿︺€?甯歌鍙戦煶鏂瑰紡锛?                     渚嬭瘝锛?i  鎴? y  鍦ㄥ厓闊冲墠                     hier, vieil, fa 茂 ence 鈥?鍏冮煶  + il鈥?鍦ㄨ瘝鏈?                  travail, conseil, fauteuil, oeil 鍏冮煶  + ill +  鍏冮煶瀛楁瘝               travailler, bouteille, feuille 鈥?杈呴煶  + ill +  鍏冮煶 鈥?璇? [ij]         gentille, famille, fille 鈥渙y +  鍏冮煶 鈥?璇? [waj]                voyelle, moyen 鈥渁y, ey +  鍏冮煶瀛楁瘝 鈥?璇? [蔚j]         crayon, asseyez-vous
+
+--- slide39.xml ---
+銆?l 銆戣垖灏栨姷涓婇娇榫堝舰鎴愰樆濉炪€傚彂闊虫椂澹板甫鎸姩锛屾皵娴佷粠鎶捣鐨勮垖灏栦袱渚у嚭鏉ワ紝鍚屾椂鏀句笅鑸屽皷銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?l, ll                            lire, ville, mille l  鍦ㄨ瘝鏈?                         il, fil
+
+--- slide40.xml ---
+銆?m 銆戝弻鍞囩揣闂紝杞叚涓嬮檷褰㈡垚闃诲锛屾皵娴佷粠绱ч棴鐨勫弻鍞囦腑鍐插嚭銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?m, mm                            madame, m 猫 re, pomme
+
+--- slide41.xml ---
+銆?n 銆戣垖灏栨姷涓婇娇榫堬紝杞叚涓嬮檷褰㈡垚闃诲锛屾皵娴佸悓鏃朵粠榧昏厰鍜屽彛鑵斿啿鍑猴紝鍚屾椂鏀句笅鑸屽皷銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?n, nn                            nous, niveau mn                               automne, condamner
+
+--- slide42.xml ---
+銆?刹 銆戣垖灏栨姷涓婇娇榫堬紝杞叚涓嬮檷锛岃垖闈㈡姮璧凤紝绱ц创纭叚褰㈡垚闃诲銆?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?gn                               montagne, campagne
+
+--- slide43.xml ---
+銆?r 銆戣垖灏栨姷涓嬮娇锛岃垖鍚庨儴鐣ュ井鎶捣锛屾皵娴侀€氳繃鏃跺皬鑸岄渿鍔紝澹板甫涔熸尟鍔ㄣ€傚彂闊虫椂鍏抽敭瑕佹斁鏉惧枆鍜欙紝璁╂皵娴侀€氳繃鏃朵骇鐢熷皬鑸屾尟鍔ㄣ€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?r, rr, rh                        rue, verre r  鍦ㄨ瘝鏈?                         voir, finir
+
+--- slide44.xml ---
+銆?r 銆戣垖灏栨姷涓嬮娇锛岃垖鍚庨儴鐣ュ井鎶捣锛屾皵娴侀€氳繃鏃跺皬鑸岄渿鍔紝澹板甫涔熸尟鍔ㄣ€傚彂闊虫椂鍏抽敭瑕佹斁鏉惧枆鍜欙紝璁╂皵娴侀€氳繃鏃朵骇鐢熷皬鑸屾尟鍔ㄣ€?甯歌鎷煎啓鏂瑰紡锛?                     渚嬭瘝锛?r, rr, rh                        rue, verre r  鍦ㄨ瘝鏈?                         voir, finir

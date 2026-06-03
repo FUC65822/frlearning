@@ -87,7 +87,9 @@
         "title": "Discover France",
         "desc": "Learn about the history, geography, landmarks, and fun facts of France."
       }
-    ]
+    ],
+    "introTitle": "Absolute Beginner",
+    "introDesc": "A brand new introductory course for beginners to take their first step."
   },
   "features": {
     "title": "More Than Courses, A Bridge to the French World",
@@ -3539,5 +3541,72 @@
       "repere_franco_6": "Repères Francophonie",
       "footer_text": "© 2025 hugo. Tous droits réservés."
     }
+  },
+  "intro": {
+    "title": "Introductory Course",
+    "desc": "An immersive starter path designed for absolute beginners.",
+    "timeline": [
+      {
+        "title": "Lesson 1: Alphabet & Phonics",
+        "desc": "Master the 26 letters and core pronunciation rules."
+      },
+      {
+        "title": "Lesson 2: Special Pronunciation Rules",
+        "desc": "Master liaison, elision, silent final consonants, and the letter H."
+      },
+      {
+        "title": "Lesson 3: Numbers 1-20",
+        "desc": "Learn basic number expressions for daily life."
+      },
+      {
+        "title": "Lesson 4: Essential Verbs",
+        "desc": "Master the basic usage of être (to be) and avoir (to have)."
+      }
+    ],
+    "start": "Start Learning",
+    "lesson1": {
+      "title": "Lesson 1: Alphabet & Phonics",
+      "desc": "Click a phonetic symbol below to learn pronunciation rules and listen to authentic French.",
+      "tabs": {
+        "vowel": "Vowels (Voyelles)",
+        "semiVowel": "Semi-vowels (Semi-voyelles)",
+        "consonant": "Consonants (Consonnes)",
+        "nasal": "Nasal Vowels (Voyelles nasales)"
+      },
+      "rules": "Pronunciation & Spelling",
+      "spellAndExamples": "Spelling & Examples",
+      "playTTS": "Play French pronunciation",
+      "back": "Back to Course",
+      "practice": {
+        "cta": "I'm ready, start practice ➔",
+        "title": "Phonetics Listening Quiz",
+        "desc": "Listen to the word and select the core phonetic symbol it contains",
+        "questionOf": "Question {x} / {y}",
+        "playAudio": "Click to play pronunciation",
+        "correct": "Awesome!",
+        "incorrect": "Oops, try again!",
+        "next": "Next ➔",
+        "finishTitle": "Practice Completed!",
+        "finishDesc": "Your score: {score} / {total}",
+        "restart": "Restart Challenge",
+        "hide": "Hide Practice",
+        "menuTitle": "Select Practice Mode",
+        "set1": "Set 1: Basic Vowels",
+        "set2": "Set 2: Advanced & Nasal Vowels",
+        "set3": "Set 3: Basic Consonants",
+        "set4": "Set 4: Consonants & Semi-vowels",
+        "set5": "Set 5: Comprehensive Challenge",
+        "randomMode": "🎲 Random Challenge",
+        "backToMenu": "Back to Menu",
+        "wordWas": "Example word:"
+      }
+    },
+    "lesson2": {
+      "title": "Lesson 2: Special Pronunciation Rules",
+      "desc": "French sounds like a beautiful song because of these special pronunciation habits and linking rules.",
+      "back": "Back to Timeline",
+      "playTTS": "Play audio"
+    },
+    "soon": "Coming Soon"
   }
 }

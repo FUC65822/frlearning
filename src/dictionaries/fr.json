@@ -87,7 +87,9 @@
         "title": "Connaître la France",
         "desc": "Découvrez l'histoire, la géographie, les monuments et des faits amusants sur la France."
       }
-    ]
+    ],
+    "introTitle": "Grand Débutant",
+    "introDesc": "Un tout nouveau cours d'introduction pour faire le premier pas."
   },
   "features": {
     "title": "Plus que des cours, un pont vers le monde francophone",
@@ -3539,5 +3541,72 @@
         }
       ]
     }
+  },
+  "intro": {
+    "title": "Cours d'Introduction",
+    "desc": "Un parcours immersif conçu pour les grands débutants.",
+    "timeline": [
+      {
+        "title": "Leçon 1 : Alphabet et Prononciation",
+        "desc": "Maîtrisez les 26 lettres et les règles de base."
+      },
+      {
+        "title": "Leçon 2 : Règles de prononciation",
+        "desc": "Maîtrisez la liaison, l'élision, les consonnes finales muettes et la lettre H."
+      },
+      {
+        "title": "Leçon 3 : Les Nombres 1-20",
+        "desc": "Apprenez les nombres pour la vie quotidienne."
+      },
+      {
+        "title": "Leçon 4 : Verbes Essentiels",
+        "desc": "Maîtrisez l'utilisation de être et avoir."
+      }
+    ],
+    "start": "Commencer",
+    "lesson1": {
+      "title": "Leçon 1 : Alphabet et Phonétique",
+      "desc": "Cliquez sur un symbole phonétique ci-dessous pour apprendre les règles de prononciation et écouter le français authentique.",
+      "tabs": {
+        "vowel": "Voyelles",
+        "semiVowel": "Semi-voyelles",
+        "consonant": "Consonnes",
+        "nasal": "Voyelles nasales"
+      },
+      "rules": "Prononciation et Orthographe",
+      "spellAndExamples": "Orthographe et Exemples",
+      "playTTS": "Écouter la prononciation",
+      "back": "Retour au cours",
+      "practice": {
+        "cta": "Je suis prêt(e), commencer l'exercice ➔",
+        "title": "Quiz d'écoute phonétique",
+        "desc": "Écoutez le mot et sélectionnez le symbole phonétique principal qu'il contient",
+        "questionOf": "Question {x} / {y}",
+        "playAudio": "Cliquez pour écouter la prononciation",
+        "correct": "Super !",
+        "incorrect": "Oups, réessayez !",
+        "next": "Suivant ➔",
+        "finishTitle": "Exercice terminé !",
+        "finishDesc": "Votre score : {score} / {total}",
+        "restart": "Recommencer",
+        "hide": "Masquer l'exercice",
+        "menuTitle": "Sélectionner le mode",
+        "set1": "Série 1 : Voyelles de base",
+        "set2": "Série 2 : Voyelles avancées et nasales",
+        "set3": "Série 3 : Consonnes de base",
+        "set4": "Série 4 : Consonnes et semi-voyelles",
+        "set5": "Série 5 : Défi complet",
+        "randomMode": "🎲 Défi Aléatoire",
+        "backToMenu": "Retour au menu",
+        "wordWas": "Mot exemple :"
+      }
+    },
+    "lesson2": {
+      "title": "Leçon 2 : Règles spéciales de prononciation",
+      "desc": "Le français ressemble à une belle chanson grâce à ces habitudes de prononciation et règles de liaison.",
+      "back": "Retour",
+      "playTTS": "Écouter"
+    },
+    "soon": "À venir"
   }
 }
