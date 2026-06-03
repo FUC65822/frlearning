@@ -1,0 +1,3618 @@
+{
+  "common": {
+    "aiTranslationNotice": "部分内容由AI自动翻译，可能不准确",
+    "language": "语言",
+    "close": "关闭"
+  },
+  "nav": {
+    "home": "FrLearning 首页",
+    "solutions": "解决方案",
+    "resources": "学习资源",
+    "contact": "联系我们",
+    "viewEntry": "查看入口"
+  },
+  "hero": {
+    "tag": "面向个人与团队的现代法语学习体系",
+    "title1": "探索、学习、精通：",
+    "title2": "您的专属法语进阶指南",
+    "desc": "我们聚合优质系统课程、沉浸式文化体验与智能数字化工具，为个人探索者与企业团队提供从零基础到流畅表达的一站式法语学习解决方案。",
+    "primaryBtn": "了解服务能力",
+    "secondaryBtn": "进入学习资源",
+    "metrics": {
+      "m1": "学习模块",
+      "m2": "语言入口",
+      "m3": "在线访问"
+    },
+    "featureTitle": "全景式学习生态",
+    "featureDesc": "打破碎片化学习瓶颈，以清晰的逻辑串联知识点，让每一次点击都有收获。"
+  },
+  "solutions": {
+    "tag": "Solutions",
+    "title": "精准匹配，满足多元学习需求",
+    "desc": "无论您是出于兴趣、职场进阶还是海外生活准备，我们精心构建的体系化课程与实用模块，都能助您高效达成目标。",
+    "items": [
+      {
+        "title": "企业法语培训",
+        "desc": "围绕团队岗位、沟通场景和文化背景设计学习路径，适合跨境业务、留学服务和内部培训。"
+      },
+      {
+        "title": "系统化自学路径",
+        "desc": "从数字、天气、商店表达延伸到课文阅读和文明主题，帮助学习者稳定推进。"
+      },
+      {
+        "title": "文化理解支持",
+        "desc": "把语言学习与法国社会、艺术、地理和生活方式结合起来，让表达更自然。"
+      }
+    ]
+  },
+  "method": {
+    "tag": "Method",
+    "title": "从语言基础到文化表达，形成连续学习链路",
+    "items": [
+      "面向真实沟通场景组织内容",
+      "兼顾语言基础与法国文化理解",
+      "适合个人自学与团队培训部署",
+      "构建无缝衔接的数字化学习生态"
+    ]
+  },
+  "resources": {
+    "tag": "Resources",
+    "title": "清晰入口，连接现有学习资产",
+    "desc": "探索我们丰富的学习资源库，包含专业平台、移动应用、主题课程以及实用法语表达，全方位助力您的法语学习之旅。",
+    "btn": "课文主题",
+    "civiTitle": "法国文明主题",
+    "civiDesc": "进入社会、艺术和生活方式相关内容",
+    "items": [
+      {
+        "title": "LinguaX 官方平台",
+        "desc": "专业法语训练与翻译教学入口"
+      },
+      {
+        "title": "Français APP",
+        "desc": "主动回忆驱动的词汇学习体验"
+      },
+      {
+        "title": "天气表达",
+        "desc": "掌握日常天气对话所需词汇"
+      },
+      {
+        "title": "数字学习",
+        "desc": "练习法语数字听说读写"
+      },
+      {
+        "title": "商店词汇",
+        "desc": "认识不同商店和购物场景表达"
+      },
+      {
+        "title": "认识法国",
+        "desc": "了解法国的历史、地理、景点与趣闻。"
+      }
+    ],
+    "introTitle": "零基础入门",
+    "introDesc": "面向新手的全新法语启蒙课程，轻松迈出第一步"
+  },
+  "features": {
+    "title": "不仅是课程，更是通往法语世界的桥梁",
+    "desc": "我们相信语言学习不应止步于语法与词汇的堆砌。通过将严谨的教学体系与丰富的法兰西文化深度结合，我们为您提供真正沉浸式的学习体验。",
+    "f1Title": "陪伴式成长轨迹",
+    "f1Desc": "从发音启蒙到高阶阅读，覆盖全层级的结构化内容设计，陪伴您学习的每一个阶段。",
+    "f2Title": "高效的知识管理",
+    "f2Desc": "科学归类的专题模块与智能复习工具无缝衔接，让记忆更牢固、应用更自如。",
+    "f3Title": "原汁原味的语境沉浸",
+    "f3Desc": "所有练习与表达均根植于真实的法国社会文化背景与生活场景，让您的法语沟通更地道、更自信。"
+  },
+  "footer": {
+    "desc": "现代法语学习资源与教学工具平台，服务系统化学习、文化理解和实用表达训练。",
+    "nav": "快速导航",
+    "contact": "联系支持"
+  },
+  "modal": {
+    "civiTitle": "法国文明主题",
+    "textTitle": "课文学习主题",
+    "civiLink": "Civi11 课程",
+    "textLink": "第 11 课",
+    "soon": "更多内容筹备中"
+  },
+  "subPages": {
+    "common": {
+      "backHome": "返回首页",
+      "submit": "提交答案",
+      "tryAgain": "再试一次",
+      "check": "检查",
+      "next": "下一题",
+      "showAnswers": "查看解析",
+      "hideAnswers": "隐藏解析",
+      "perfect": "🎉 完美！全部正确！",
+      "score": "得分",
+      "correct": "正确",
+      "wrong": "错误",
+      "listen": "朗读",
+      "privacyLink": "隐私政策",
+      "termsLink": "服务条款"
+    },
+    "temps": {
+      "title": "天气表达 (Le temps)",
+      "desc": "学习法语天气词汇，掌握日常天气表达，提升法语交流能力。",
+      "categories": {
+        "title": "天气词汇分类",
+        "sunny": "晴朗天气",
+        "cloudy": "多云天气",
+        "rainy": "雨天",
+        "items": {
+          "sun": "太阳",
+          "sunny": "阳光充足的",
+          "fine": "天气很好",
+          "cloud": "云",
+          "cloudy": "多云的",
+          "hasClouds": "有云",
+          "rain": "雨",
+          "raining": "下雨了",
+          "shower": "阵雨"
+        }
+      },
+      "expressions": {
+        "title": "谈论天气的具体表达",
+        "q1": "今天天气怎么样？",
+        "q2": "天气非常冷。"
+      },
+      "quiz": {
+        "title": "词汇挑战",
+        "q1": "测验 1: 基础词汇",
+        "q2": "测验 2: 进阶词汇与表达",
+        "q3": "测验 3: 综合与习语",
+        "questions": [
+          [
+            {
+              "type": "mcq",
+              "q": "1. \"Le ciel est couvert.\" 描述的是哪种天气？",
+              "ops": [
+                "晴空万里",
+                "阴天，天空布满云",
+                "有雷雨",
+                "有雾"
+              ],
+              "a": "阴天，天空布满云"
+            },
+            {
+              "type": "mcq",
+              "q": "2. \"La bruine\" 是指什么类型的雨?",
+              "ops": [
+                "暴雨",
+                "阵雨",
+                "毛毛雨",
+                "雷阵雨"
+              ],
+              "a": "毛毛雨"
+            },
+            {
+              "type": "translation",
+              "q": "3. 请将 \"出太阳\" 翻译成法语。",
+              "a": [
+                "le soleil",
+                "il y a du soleil",
+                "il fait soleil"
+              ]
+            },
+            {
+              "type": "translation",
+              "q": "4. 请将 \"Il fait chaud\" 翻译成中文。",
+              "a": [
+                "天气热",
+                "热",
+                "很热"
+              ]
+            }
+          ],
+          [
+            {
+              "type": "mcq",
+              "q": "1. 如果天气预报说 \"Attention au verglas\", 你应该特别小心什么？",
+              "ops": [
+                "强风",
+                "路面结的薄冰",
+                "浓雾",
+                "酷暑"
+              ],
+              "a": "路面结的薄冰"
+            },
+            {
+              "type": "mcq",
+              "q": "2. \"Une rafale de vent\" 是什么意思？",
+              "ops": [
+                "微风",
+                "一阵狂风",
+                "龙卷风",
+                "暖风"
+              ],
+              "a": "一阵狂风"
+            },
+            {
+              "type": "translation",
+              "q": "3. 请将 \"闪电\" 翻译成法语。",
+              "a": [
+                "un éclair",
+                "éclair",
+                "des éclairs"
+              ]
+            },
+            {
+              "type": "translation",
+              "q": "4. 请将 \"Le temps est orageux\" 翻译成中文。",
+              "a": [
+                "天气是雷雨天",
+                "有雷雨",
+                "雷阵雨",
+                "雷暴"
+              ]
+            }
+          ],
+          [
+            {
+              "type": "mcq",
+              "q": "1. 句子 \"Il fait un soleil de plomb.\" 是什么意思？",
+              "ops": [
+                "天气阴沉",
+                "烈日当头",
+                "下毛毛雨",
+                "有风"
+              ],
+              "a": "烈日当头"
+            },
+            {
+              "type": "mcq",
+              "q": "2. 当法国人说 \"Il pleut des cordes\", 他们指的是什么情况？",
+              "ops": [
+                "小雨",
+                "晴天",
+                "冰雹",
+                "倾盆大雨"
+              ],
+              "a": "倾盆大雨"
+            },
+            {
+              "type": "mcq",
+              "q": "3. 表达 \"Il fait un froid de canard\" 形容天气如何？",
+              "ops": [
+                "有点凉",
+                "温暖",
+                "非常冷",
+                "闷热"
+              ],
+              "a": "非常冷"
+            },
+            {
+              "type": "translation",
+              "q": "4. 请将 \"明天会下雪\" 翻译成法语。",
+              "a": [
+                "il va neiger demain",
+                "il neigera demain"
+              ]
+            }
+          ]
+        ]
+      }
+    },
+    "number": {
+      "title": "关于数字的一切 (Les Nombres)",
+      "desc": "全面掌握法语数字的听说读写，无论是购物、报时还是描述年份，都能轻松应对。",
+      "structTitle": "法语数字结构",
+      "basic": "基础数字 (0-20)",
+      "special": "特殊规则：70, 80, 90",
+      "s70": {
+        "t": "70-79 (基于60)",
+        "d": "60 + (10-19)。例如 70 是 soixante-dix，71 是 soixante et onze。"
+      },
+      "s80": {
+        "t": "80-89 (基于20)",
+        "d": "4个20。例如 80 是 quatre-vingts，81 是 quatre-vingt-un (注意没有s和et)。"
+      },
+      "s90": {
+        "t": "90-99 (80加法)",
+        "d": "80 + (10-19)。例如 90 是 quatre-vingt-dix，91 是 quatre-vingt-onze。"
+      },
+      "quizTitle": "数字挑战测验",
+      "placeholder": "输入法语拼写...",
+      "timeDate": "时间与日期",
+      "days": "星期 (Les Jours)",
+      "months": "月份 (Les Mois)",
+      "seasons": "季节 (Les Saisons)",
+      "daysList": [
+        "星期一",
+        "星期二",
+        "星期三",
+        "星期四",
+        "星期五",
+        "星期六",
+        "星期日"
+      ],
+      "monthsList": [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月"
+      ],
+      "seasonsList": [
+        {
+          "fr": "le printemps",
+          "zh": "春",
+          "p": "au printemps"
+        },
+        {
+          "fr": "l'été",
+          "zh": "夏",
+          "p": "en été"
+        },
+        {
+          "fr": "l'automne",
+          "zh": "秋",
+          "p": "en automne"
+        },
+        {
+          "fr": "l'hiver",
+          "zh": "冬",
+          "p": "en hiver"
+        }
+      ]
+    },
+    "magasin": {
+      "title": "购物指南 (Faire les Courses)",
+      "desc": "像本地人一样购物。掌握法国生活必备的商店词汇与实用对话。",
+      "shopType": "商店类型",
+      "shops": [
+        {
+          "cat": "食品与饮品",
+          "items": [
+            {
+              "fr": "Boulangerie",
+              "zh": "面包店"
+            },
+            {
+              "fr": "Pâtisserie",
+              "zh": "糕点店"
+            },
+            {
+              "fr": "Boucherie",
+              "zh": "肉店"
+            },
+            {
+              "fr": "Poissonnerie",
+              "zh": "鱼店"
+            },
+            {
+              "fr": "Épicerie",
+              "zh": "杂货店"
+            },
+            {
+              "fr": "Marché",
+              "zh": "露天市场"
+            }
+          ]
+        },
+        {
+          "cat": "服装与时尚",
+          "items": [
+            {
+              "fr": "Magasin de vêtements",
+              "zh": "服装店"
+            },
+            {
+              "fr": "Boutique",
+              "zh": "精品店"
+            },
+            {
+              "fr": "Magasin de chaussures",
+              "zh": "鞋店"
+            },
+            {
+              "fr": "Bijouterie",
+              "zh": "珠宝店"
+            },
+            {
+              "fr": "Friperie",
+              "zh": "二手店",
+              "note": "复古淘货的好去处"
+            }
+          ]
+        },
+        {
+          "cat": "健康与美容",
+          "items": [
+            {
+              "fr": "Pharmacie",
+              "zh": "药店"
+            },
+            {
+              "fr": "Parapharmacie",
+              "zh": "药妆店"
+            },
+            {
+              "fr": "Parfumerie",
+              "zh": "香水店"
+            },
+            {
+              "fr": "Salon de coiffure",
+              "zh": "理发店"
+            }
+          ]
+        },
+        {
+          "cat": "专业服务",
+          "items": [
+            {
+              "fr": "Tabac",
+              "zh": "烟草店",
+              "note": "买邮票、彩票的地方"
+            },
+            {
+              "fr": "Librairie",
+              "zh": "书店"
+            },
+            {
+              "fr": "Fleuriste",
+              "zh": "花店"
+            },
+            {
+              "fr": "Poste",
+              "zh": "邮局"
+            }
+          ]
+        }
+      ],
+      "dialogue": "实用对话",
+      "templates": [
+        {
+          "t": "问候与需求",
+          "lines": [
+            {
+              "fr": "Bonjour, Monsieur / Madame.",
+              "zh": "你好，先生/女士。"
+            },
+            {
+              "fr": "Je cherche...",
+              "zh": "我在找..."
+            },
+            {
+              "fr": "Je voudrais...",
+              "zh": "我想要..."
+            }
+          ]
+        },
+        {
+          "t": "询问信息",
+          "lines": [
+            {
+              "fr": "C'est combien ?",
+              "zh": "这个多少钱？"
+            },
+            {
+              "fr": "Est-ce que je peux essayer ?",
+              "zh": "我可以试穿吗？"
+            },
+            {
+              "fr": "Vous avez d'autres couleurs ?",
+              "zh": "有别的颜色吗？"
+            }
+          ]
+        },
+        {
+          "t": "结账与告别",
+          "lines": [
+            {
+              "fr": "Je peux payer par carte ?",
+              "zh": "可以刷卡吗？"
+            },
+            {
+              "fr": "Merci, bonne journée !",
+              "zh": "谢谢，祝您愉快！"
+            }
+          ]
+        }
+      ],
+      "quizTitle": "词汇挑战",
+      "refresh": "换一套题",
+      "quizzes": [
+        [
+          {
+            "q": "买药去哪里？",
+            "a": "Pharmacie",
+            "ops": [
+              "Boulangerie",
+              "Pharmacie",
+              "Librairie",
+              "Gare"
+            ]
+          },
+          {
+            "q": "买面包去哪里？",
+            "a": "Boulangerie",
+            "ops": [
+              "Boucherie",
+              "Boulangerie",
+              "Poste",
+              "Tabac"
+            ]
+          },
+          {
+            "q": "'Librairie' 是什么意思？",
+            "a": "书店",
+            "ops": [
+              "图书馆",
+              "书店",
+              "文具店",
+              "杂货店"
+            ]
+          },
+          {
+            "q": "买肉去哪里？",
+            "a": "Boucherie",
+            "ops": [
+              "Boucherie",
+              "Fleuriste",
+              "Épicerie",
+              "Parfumerie"
+            ]
+          }
+        ],
+        [
+          {
+            "q": "买花去哪里？",
+            "a": "Fleuriste",
+            "ops": [
+              "Fleuriste",
+              "Tabac",
+              "Banque",
+              "Marché"
+            ]
+          },
+          {
+            "q": "买邮票去哪里？",
+            "a": "Tabac",
+            "ops": [
+              "Tabac",
+              "Boutique",
+              "Pharmacie",
+              "Cinema"
+            ]
+          },
+          {
+            "q": "'Je voudrais...' 意思是？",
+            "a": "我想要...",
+            "ops": [
+              "我看...",
+              "我想要...",
+              "我有...",
+              "请问..."
+            ]
+          }
+        ]
+      ]
+    },
+    "civilization": {
+      "title": "法国文化：第 11 课",
+      "subtitle": "La Civilisation Française",
+      "topic": "La Gastronomie Française",
+      "content": "Le repas gastronomique des Français est une pratique sociale coutumière destinée à célébrer les moments les plus importants de la vie des individus et des groupes.",
+      "translationTag": "中文翻译：",
+      "translation": "法国的美食大餐是一项传统的社会实践，旨在庆祝个人或群体生活中最重要的时刻。"
+    },
+    "text": {
+      "title": "法语课文：第 11 课",
+      "subtitle": "French & Chinese Texts",
+      "p1": "01 SYMBOLES DE LA FRANCE",
+      "p1s1_fr": "1. C'est un des plus beaux musées du monde où se trouvent la Joconde, la Vénus de Milo et la Victoire de Samothrace.",
+      "p1s1_trans": "这是世界上最美的博物馆之一，收藏着《蒙娜丽莎》《米洛的维纳斯》和《萨莫色雷斯的胜利女神》。",
+      "p1s2_fr": "2. C'est une femme créatrice qui a émancipé les femmes dans leur style vestimentaire et dont la marque est connue dans le monde entier.",
+      "p1s2_trans": "她是一位女性设计师，通过服装风格解放了女性，其品牌享誉全球。",
+      "p1s3_fr": "3. C'est un écrivain qui a obtenu le prix Nobel de littérature de 2008. Il est passionné de l'Afrique, de l'Asie et de l'Amérique latine.",
+      "p1s3_trans": "他是一位获得2008年诺贝尔文学奖的作家，对非洲、亚洲和拉丁美洲充满热情。",
+      "p2": "02 T'ES PAS COMME NOUS !",
+      "p2_bgTitle": "背景介绍：",
+      "p2_bg": "故事发生在20世纪60年代。奥马尔出生在法国，父母是来自阿尔及利亚的移民。和许多像他们一样的家庭一样，他们住在里昂附近的一个贫民窟\"沙巴\"。与其他人不同，奥马尔热衷于法国文化，学习非常努力。但他的聪明才智和勤奋却引起了同学的嫉妒……",
+      "frTitle": "Français",
+      "transTitle": "中文翻译",
+      "p2s1_fr": "Dès que nous avons pénétré dans la salle, je me suis installé au premier rang, juste sous le nez du maître. Celui qui était là avant n'a pas demandé son reste. Il est allé droit au fond occuper ma place désormais vacante.",
+      "p2s1_trans": "一进教室，我就坐在前排，正对着老师的脸。原本坐在这里的人二话不说就走了，径直去后面占了我现在的空位。",
+      "p2s2_fr": "Le maître m'a jeté un regard surpris. Je le comprends. Je vais lui montrer que je peux être parmi les plus obéissants, parmi ceux qui tiennent leur carnet du jour proprement, parmi ceux dont les mains et les ongles ne laissent pas filtrer la moindre trace de crasse, parmi les plus actifs en cours.",
+      "p2s2_trans": "老师惊讶地看着我。我明白他的意思。我要向他证明，我可以是最守纪律的学生之一，可以是笔记写得最整洁的人之一，可以是手和指甲一点污渍都没有、上课最积极的人之一。",
+      "p2s3_fr": "« Nous sommes tous descendants de Vercingétorix !\n– Oui, maître !\n– Notre pays, la France, a une superficie de...\n– Oui, maître ! »",
+      "p2s3_trans": "「我们都是韦辛格托利克斯的后代！\n——是的，老师！\n——我们的国家，法国，面积是……\n——是的，老师！」",
+      "authorTitle": "作者介绍",
+      "authorDesc": "Azouz Begag, né le 5 février 1957 à Lyon, est un homme politique, écrivain et chercheur français en économie et sociologie. Il est chargé de recherche du CNRS à l’université Paris IV."
+    },
+    "france": {
+      "title": "探索法兰西 (Tour de France)",
+      "desc": "欢迎来到法兰西，一片承载着千年历史、孕育了无数思想与艺术，并将精致生活融入日常的土地。",
+      "historyTitle": "历史沿革",
+      "history": [
+        {
+          "period": "高卢与罗马",
+          "desc": "古代法国被称为高卢，居住着凯尔特人。公元前1世纪被罗马征服，罗马文化深刻影响了该地区的语言（拉丁语演变为法语）和法律。"
+        },
+        {
+          "period": "法兰克王国与中世纪",
+          "desc": "罗马帝国衰落后，日耳曼的法兰克人建立了王国，查理曼大帝时期达到鼎盛。此后，法国进入了漫长的封建时代，王权与教权、贵族斗争不断。"
+        },
+        {
+          "period": "绝对君主制与启蒙运动",
+          "desc": "路易十四时期，法国君主专制达到顶峰，凡尔赛宫成为欧洲的中心。18世纪，伏尔泰、卢梭等思想家引领的启蒙运动，为后来的革命奠定了思想基础。"
+        },
+        {
+          "period": "法国大革命与拿破仑时代",
+          "desc": "1789年，攻占巴士底狱标志着大革命的开始，《人权宣言》宣告了“自由、平等、博爱”的原则。随后，拿破仑的崛起和法兰西第一帝国，将法国的影响力带到了整个欧洲。"
+        },
+        {
+          "period": "近现代",
+          "desc": "经历两次世界大战的洗礼和殖民帝国的解体，法国在战后重建中成为欧洲一体化的重要推动者，并发展为今天的法兰西第五共和国。"
+        }
+      ],
+      "geoTitle": "风光与地理",
+      "geoDesc": "法国因其国土形似六边形而被称为“L'Hexagone”。每一寸土地都讲述着不同的故事，其自然景观是画家调色板上最丰富的色彩。",
+      "scenery": [
+        {
+          "title": "阿尔卑斯山",
+          "desc": "西欧的屋脊，拥有欧洲最高峰勃朗峰。冬季，这里是世界顶级的滑雪天堂；夏季，则变身为徒步和登山爱好者的乐园，碧绿的湖泊点缀其间。"
+        },
+        {
+          "title": "普罗旺斯",
+          "desc": "这里不仅有无边的薰衣草花海，还有金色的向日葵田、古老的石头城和充满艺术气息的小镇，是梵高等艺术家寻找灵感的地方。"
+        },
+        {
+          "title": "蔚蓝海岸",
+          "desc": "地中海最璀璨的一段，以其湛蓝的海水、温暖的阳光和奢华的度假城市（如尼斯、戛纳）闻名于世，是电影节和名流的聚集地。"
+        },
+        {
+          "title": "卢瓦尔河谷",
+          "desc": "法国的“皇家花园”，数百座宏伟的城堡和庄园如珍珠般散落在卢瓦尔河两岸，见证了法国王室的辉煌历史。"
+        }
+      ],
+      "landmarksTitle": "不朽的地标",
+      "landmarks": [
+        {
+          "title": "埃菲尔铁塔",
+          "desc": "为1889年世界博览会而建的铁塔，最初备受争议，如今已成为巴黎乃至整个法国无可争议的象征，代表着工业时代的创新精神。"
+        },
+        {
+          "title": "卢浮宫",
+          "desc": "从昔日的皇家宫殿到今日的艺术圣殿，卢浮宫收藏了跨越千年的艺术杰作。贝聿铭设计的玻璃金字塔入口，更让古老与现代在此完美交融。"
+        },
+        {
+          "title": "凯旋门",
+          "desc": "雄踞于香榭丽舍大街的尽头，为纪念拿破仑军队的赫赫战功而建。其下方的无名烈士墓，燃烧着永不熄灭的火焰，寄托着民族的哀思。"
+        },
+        {
+          "title": "巴黎圣母院",
+          "desc": "哥特式建筑的杰出典范，因维克多·雨果的同名小说而闻名世界。它不仅是宗教中心，更是巴黎历史的见证者。"
+        }
+      ],
+      "funFactsTitle": "趣味知识问答",
+      "funFacts": [
+        {
+          "q": "世界上参观人数最多的博物馆是哪个？",
+          "a": "是位于巴黎的卢浮宫！"
+        },
+        {
+          "q": "法国有多少种奶酪？",
+          "a": "据说超过1500种！戴高乐将军曾感叹：“你怎么治理一个有246种奶酪的国家？”"
+        },
+        {
+          "q": "哪项著名的自行车赛起源于法国？",
+          "a": "环法自行车赛（Le Tour de France），是世界上最著名的公路自行车赛。"
+        }
+      ]
+    },
+    "privacy": {
+      "title": "隐私政策",
+      "lastUpdated": "最后更新时间：2026年6月",
+      "p1Title": "1. 信息收集",
+      "p1Desc": "我们目前不主动收集用户的个人身份信息。作为纯静态前端应用，所有的学习进度（如测验得分）仅存储在您的本地浏览器中。",
+      "p2Title": "2. Cookie与本地存储",
+      "p2Desc": "为了保证网站正常运行和记录您的偏好（如语言设置），我们会使用必要的本地存储机制。",
+      "p3Title": "3. 联系我们",
+      "p3Desc": "如有任何疑问，请联系我们：support@learnfr.de"
+    },
+    "terms": {
+      "title": "服务条款",
+      "lastUpdated": "最后更新时间：2026年6月",
+      "p1Title": "1. 接受条款",
+      "p1Desc": "使用本网站即表示您同意本条款。我们保留随时修改条款的权利。",
+      "p2Title": "2. 知识产权",
+      "p2Desc": "本网站上的所有课程内容、设计和代码均归我们所有，未经许可不得用于商业目的。",
+      "p3Title": "3. 免责声明",
+      "p3Desc": "我们将尽力保证内容的准确性，但对因使用本网站内容而造成的任何损失不承担法律责任。部分内容由AI翻译辅助生成，可能存在不准确之处。"
+    },
+    "text_c12": {
+      "title": "课文阅读 S12",
+      "subtitle": "一个人的自由止于另一个人的自由之始",
+      "s1Title": "她打电话太大声：警察将她赶下火车",
+      "s1P1": "上周末，在美国的一列火车上，一名年轻女子在长达15个小时的旅程中一直大声地打电话，在其他乘客投诉后，她被警察“请”下了火车。",
+      "s1P2": "这名年轻女子在一列从洛杉矶开往西雅图的火车上被拦下。在整个旅途中，尽管已经听得不耐烦的乘客们提出了抗议，她依旧在手机上进行着“热情”的交谈。",
+      "s1P3": "“她似乎讲电话的声音很大，时间很长，这让其他乘客觉得难以忍受”，一位铁路公司的员工指出。",
+      "s1P4": "这趟火车于前一天晚上10点从当地出发，在下午时分即将抵达目的地时，司机最终决定报警。于是火车停了下来，这名年轻女子被赶下了火车。",
+      "s1P5": "这位“不守规矩”的乘客没有被铁路公司起诉。",
+      "s2Title": "这太可耻了！",
+      "s2P1": "里尔，2013年5月24日",
+      "s2P2": "我坐着轮椅，但我非常独立。我做全职工作，经常出门……也经常旅行。我跟您说这些是为了让您明白，我的身体状况并不能阻止我像普通人一样生活，除非当我需要预订火车票的时候！",
+      "s2P3": "在法国国营铁路公司（SNCF）的网站上，残疾人预订系统从来都用不了。通过电话，则必须拨打一个付费号码……而且我至少要花一个小时才能订到我想要的票！",
+      "s2P4": "剩下的选择就是去售票窗口了。上周一，我冒着雨去了火车站，想预订去伦敦度假的票。一个小时过去了，我仍然没有拿到我的里尔-伦敦车票。售票员不得不四处求助，并且不停地重复说：“您理解一下，这是我们车站第一次为欧洲之星的残疾旅客办理预订业务！”",
+      "s2P5": "我投诉你们的预订系统以及你们员工缺乏培训。你们为自己的服务做广告，却不能平等地对待每一个人？你们不感到羞耻吗？",
+      "s2P6": "我的耐心已经到了极限：我受够了为了一张小小的车票而浪费时间等待。你们强加给我的这些复杂程序是一种侮辱，它提醒我，你们并没有把我当作一个普通的顾客！",
+      "s2P7": "我打算将这封信传播到所有我能发布的地方，希望你们的服务最终能有所改变。"
+    },
+    "about": {
+      "title": "关于我们",
+      "hero_title": "重塑法语学习的艺术",
+      "hero_subtitle": "我们探索语言的深度，构筑连接文化与思想的桥梁。",
+      "mission_tag": "我们的使命",
+      "mission_title": "回归语言的本质",
+      "mission_text": "在 LearnFR.de，我们致力于打破传统语言学习的桎梏。我们创造的是一个充满美学、智慧与乐趣的沉浸式环境，让每一位学习者不仅能自信地运用法语，更能深刻领悟其背后的文化精髓。",
+      "philosophy_tag": "我们的理念",
+      "philosophy_title": "智慧、沉浸、卓越",
+      "philosophy_text": "我们坚信，最高效的学习源于最深刻的理解与共鸣。课程设计围绕“实用”与“启发”的核心，融合前沿的认知科学与AI技术，为您雕琢专属的学习路径，点燃您内在的求知火焰。",
+      "story_tag": "我们的故事",
+      "story_title": "一位创造者的初心",
+      "story_text": "LearnFR.de 源自一个纯粹的愿景：法语学习能否成为一场优雅而高效的探索之旅？创始人 Hugo，一位对法语充满热忱的开发者，决心将这份热爱与精湛的技术相结合，从零开始，精心打造一个为极致学习体验而生的平台。这趟旅程始于热爱，也将因坚持而绽放光芒。",
+      "cta_title": "开启您的法语探索之旅",
+      "cta_subtitle": "即刻启程，体验一场前所未有的语言盛宴。",
+      "cta_button": "即刻开始"
+    },
+    "pt": {
+      "title": "文档访问",
+      "doc": "访问演讲稿",
+      "original": "访问原始文档",
+      "qa": "访问 Q&A 文档",
+      "desc": "内部参考资料链接"
+    },
+    "app_mainpage": {
+      "page_title": "Français APP - Neo Edition",
+      "nav_features": "功能介绍",
+      "nav_get_app": "获取App",
+      "hero_badge": "AI 驱动 • 主动回忆",
+      "hero_title": "重塑法语记忆",
+      "hero_subtitle": "告别枯燥背诵。结合主动回忆与AI技术，为你打造个性化、高效率的词汇学习体验。",
+      "hero_btn_download": "下载安卓版",
+      "hero_btn_learn": "了解更多",
+      "features_title": "核心功能",
+      "feature1_title": "主动回忆",
+      "feature1_desc": "告别假装“已记住”。我们采用“先想后看”模式，强制大脑主动提取信息。这比被动浏览有效得多，确保你真正掌握每一个单词。",
+      "feature2_title": "详尽卡片",
+      "feature2_desc": "每一个单词都配有清晰的音标、纯正的发音和全面的释义。点击喇叭即可跟读，助你掌握最地道的法语发音。",
+      "feature3_title": "学习总结",
+      "feature3_desc": "每次学习结束后，一份清晰的总结报告会呈现在你眼前。无论是新学单词还是复习情况，所有数据一目了然，让进步清晰可见。",
+      "feature4_title": "由你定义",
+      "feature4_desc": "强大的自定义功能。轻松导入自己的词书，选择不同的显示设置，打造最适合你个人学习习惯的专属工具。",
+      "feature5_title": "自定义 AI 引擎",
+      "feature5_desc": "开放 API 接口。接入你自己的大语言模型服务，获得独一无二、完全由你掌控的智能学习体验。",
+      "feature5_note": "* 开发中功能",
+      "download_title": "准备好开始了吗？",
+      "download_subtitle": "立即下载，体验前所未有的单词学习方式。",
+      "download_button": "免费获取安卓版"
+    },
+    "linguax": {
+      "brandName": "翻译水平",
+      "navFeatures": "教学特色",
+      "navInstructors": "师资团队",
+      "navCourses": "课程体系",
+      "navPricing": "定价体系",
+      "navJourney": "学习路径",
+      "navFAQ": "常见问题",
+      "navContact": "免费咨询",
+      "navFeatures_m": "教学特色",
+      "navInstructors_m": "师资团队",
+      "navCourses_m": "课程体系",
+      "navPricing_m": "定价体系",
+      "navJourney_m": "学习路径",
+      "navFAQ_m": "常见问题",
+      "navContact_m": "免费咨询",
+      "heroTitle1": "不止于言，",
+      "heroTitle2": "精于译",
+      "heroSubtitle": "我们专注于法语教学与翻译实践，帮助您将语言能力转化为真正的专业技能。",
+      "heroButton": "了解我们的课程",
+      "heroExploreBtn": "探索更多",
+      "marqueeText": "翻译 • 口译 • 教育 • 法语 • 掌握 • 技能 • 职业 • 翻译 • 口译 • 教育 • 法语 • 掌握 • 技能 • 职业 •",
+      "featuresTitle": "教学特色",
+      "feature1Title": "资深师资团队",
+      "feature1Desc": "所有教师均具备多年海外教学经验和一线翻译实战背景。",
+      "feature2Title": "实战导向课程",
+      "feature2Desc": "课程设计紧扣实际翻译工作需求，涵盖商务、法律、文学等多个领域。",
+      "feature3Title": "个性化学习体验",
+      "feature3Desc": "我们的平台会根据您的学习进度和掌握情况，智能推荐学习内容。",
+      "instructorsTitle": "精英师资",
+      "tagPhD": "语言学博士",
+      "tagCATTI": "CATTI 一级译员",
+      "tagExpert": "法律专家",
+      "instructor1Title": "学术派专家",
+      "instructor1Subtitle": "深耕语言教学",
+      "instructor1Desc": "拥有海外知名学府语言学背景与多年教学经验。",
+      "instructor2Title": "实战派译员",
+      "instructor2Subtitle": "一线翻译经验",
+      "instructor2Desc": "具备国际认证的专业译员资格，拥有丰富的口笔译实战经验。",
+      "instructor3Title": "行业领域专家",
+      "instructor3Subtitle": "专注特定领域",
+      "instructor3Desc": "来自专业领域的一线专家，精通特定行业的法语应用。",
+      "coursesTitle": "核心课程",
+      "course1Title": "零基础<br>法语入门",
+      "course1Desc": "专为初学者设计，系统学习发音、语法和日常对话。",
+      "courseButton": "立即咨询",
+      "course2Title": "中级商务<br>翻译",
+      "course2Desc": "聚焦商务场景，学习合同、邮件、报告的翻译技巧。",
+      "courseButton_2": "立即咨询",
+      "course3Title": "高级翻译<br>工作坊",
+      "course3Desc": "面向高阶学习者，挑战同声传译与文学翻译等高难度领域。",
+      "courseButton_3": "立即咨询",
+      "pricingTitle": "会员计划",
+      "pricingDesc": "我们提供多种灵活的会员方案以满足您的不同需求。",
+      "pricingButton": "查看方案",
+      "journeyTitle": "成长路径",
+      "journey1Stage": "阶段一",
+      "journey1Title": "语言基础夯实",
+      "journey1Desc": "从语音、词汇到核心语法，构建坚实的法语大厦地基。",
+      "journey2Stage": "阶段二",
+      "journey2Title": "翻译思维建立",
+      "journey2Desc": "学习中法语言差异与转换技巧，培养精准的翻译逻辑。",
+      "journey3Stage": "阶段三",
+      "journey3Title": "专项领域突破",
+      "journey3Desc": "深入商务、法律或文学等特定领域，掌握专业术语。",
+      "journey4Stage": "阶段四",
+      "journey4Title": "高级实战模拟",
+      "journey4Desc": "参与真实项目，挑战同传、交传等高难度任务。",
+      "faqTitle": "常见问题",
+      "faq1q": "我是零基础，可以报名吗？",
+      "faq1a": "当然可以！我们的“零基础法语入门”课程就是专为没有任何法语基础的学员设计的。",
+      "faq2q": "学习模式是怎样的？",
+      "faq2a": "我们的平台提供系统化的在线课程，您可以根据自己的节奏随时随地通过App或网站进行学习。",
+      "faq3q": "可以回顾内容吗？",
+      "faq3a": "是的，一旦购买课程，您可以在有效期内无限次回顾所有的课程视频和学习资料。",
+      "ctaTitle": "准备好了吗？",
+      "ctaSubtitle": "无论您是初学者还是希望成为专业译员，我们都有适合您的课程。",
+      "ctaButton": "获取免费咨询",
+      "footerBrandInfo": "“翻译水平” by LearnFr.de",
+      "footerCopyright": "© 2025 翻译水平有限公司",
+      "modalTitle": "提示",
+      "modalText": "目前仅支持内测用户，敬请期待。",
+      "modalClose": "关闭"
+    },
+    "civi11_cours": {
+      "page_title": "Les Grandes Régions Francophones",
+      "nav_title": "Francophonie",
+      "nav_maghreb": "Maghreb",
+      "nav_proche_orient": "Proche-Orient",
+      "nav_afrique": "Afrique",
+      "nav_ocean_indien": "Océan Indien",
+      "nav_ameriques": "Amériques",
+      "nav_pacifique": "Pacifique",
+      "nav_asie": "Asie",
+      "nav_amerique_nord": "Amérique du Nord",
+      "nav_europe": "Europe",
+      "mobile_nav_maghreb": "Le Maghreb",
+      "mobile_nav_proche_orient": "Le Proche-Orient",
+      "mobile_nav_afrique": "L'Afrique subsaharienne",
+      "mobile_nav_ocean_indien": "L'Océan Indien",
+      "mobile_nav_antilles": "Les Antilles et la Guyane",
+      "mobile_nav_pacifique": "Le Pacifique",
+      "mobile_nav_asie": "L'Asie du Sud-Est",
+      "mobile_nav_amerique_nord": "L'Amérique du Nord",
+      "mobile_nav_europe": "L'Europe",
+      "header_title": "11. LES GRANDES RÉGIONS FRANCOPHONES",
+      "header_subtitle": "探索世界各地主要的法语区",
+      "maghreb_title": "11.1 LE MAGHREB",
+      "alger_caption": "Alger.",
+      "maghreb_p1": "Le Maghreb, situé au nord-ouest de l'Afrique, est une région riche en histoire, en culture et en paysages. Son nom provient de l'arabe et signifie « le Couchant », car c'est là que le soleil se couche. En berbère, le Maghreb est appelé \"Tamazgha\", qui signifie \"Terre des hommes libres\".",
+      "maghreb_h3_1": "Les pays du Maghreb :",
+      "maghreb_li_1": "L'Algérie",
+      "maghreb_li_2": "Le Maroc",
+      "maghreb_li_3": "La Tunisie",
+      "maghreb_p2": "Ces trois pays, souvent appelés l'Afrique du Nord, ont une histoire commune, marquée par leur colonisation par la France au XIXe et au XXe siècle. Cependant, ces pays sont très anciens et ont une histoire longue et fascinante, notamment avec les vestiges de Carthage, une ancienne civilisation méditerranéenne puissante. Saint-Augustin, l'un des pères du christianisme occidental, est originaire de la région.",
+      "maghreb_h3_2": "Caractéristiques géographiques du Maghreb :",
+      "maghreb_li_4": "Le Maghreb est une terre où se rencontrent la mer et le désert.",
+      "maghreb_li_5": "La chaîne de montagnes l'Atlas traverse la région sur plus de 2000 kilomètres. Ces montagnes sont très hautes, et le point culminant est à 4000 mètres d'altitude.",
+      "maghreb_li_6": "Le Sahara, qui couvre une grande partie du Maghreb, est le plus grand désert du monde avec une superficie de 2 millions de km².",
+      "maghreb_h3_3": "Démographie:",
+      "maghreb_li_7": "Le Maghreb compte une population d'environ 84 millions d'habitants.",
+      "maghreb_li_8": "Les grandes villes comme Alger (7,7 millions d'habitants), Casablanca (4,2 millions d'habitants), Tunis (2,6 millions d'habitants) et Rabat (2,1 millions d'habitants) sont des centres urbains importants.",
+      "maghreb_h3_4": "Langue et culture:",
+      "maghreb_p3": "L'arabe littéral est la langue officielle dans tous les pays du Maghreb, mais il existe aussi des parlers arabes maghrébins influencés par la langue berbère.",
+      "maghreb_p4": "Le français est largement utilisé dans les affaires, l'administration et l'enseignement. Il reste également une langue importante dans le domaine littéraire. Par exemple, des écrivains comme Albert Camus (Algérie), Tahar Ben Jelloun (Maroc) et Amin Maalouf (Liban) écrivent en français.",
+      "maghreb_h4_1": "Le raï :",
+      "maghreb_p5": "La musique populaire du Maghreb est le raï, qui est né en Algérie. Ce genre musical a été mondialement popularisé par l'artiste Khaled en 1992.",
+      "maghreb_p6": "Le raï est une musique qui mêle des textes poétiques et des thèmes quotidiens. Aujourd'hui, le raï a évolué pour inclure des influences comme le RnB et le rap.",
+      "orient_title": "11.2 LE PROCHE-ORIENT",
+      "beyrouth_caption": "Beyrouth, capitale du Liban.",
+      "orient_p1": "Le Proche-Orient est une région située autour de la mer Méditerranée, allant de la Turquie jusqu'à la Libye. Cette région est une croisée des chemins entre l'Europe, l'Asie et l'Afrique, et elle est liée à la Francophonie à travers l'histoire, la politique et la culture.",
+      "orient_h3_1": "Histoire du Proche-Orient:",
+      "orient_li_1": "Le Proche-Orient a joué un rôle central pendant les croisades, entre le XIe et le XIIIe siècle, quand les rois de France ont participé à la lutte pour contrôler les lieux saints chrétiens en Terre Sainte.",
+      "orient_li_2": "En 1536, Soliman le Magnifique, sultan de l'Empire Ottoman, a reconnu la France comme protecteur des chrétiens orientaux et des Lieux saints.",
+      "orient_li_3": "Le Proche-Orient a aussi été marqué par l'influence de la France, notamment après la colonisation française dans des pays comme la Syrie et le Liban au XXe siècle.",
+      "suez_caption": "Inauguration du Canal de Suez, 17 novembre 1869.",
+      "orient_h3_2": "La politique et la diplomatie française :",
+      "orient_p2": "François Ier, roi de France au XVIe siècle, a déjà signé des accords avec l'Empire Ottoman. La politique de la France envers le monde arabo-musulman a continué avec Napoléon Bonaparte, qui a mené l'expédition d'Égypte.",
+      "orient_p3": "Un des actes les plus importants de la diplomatie française a été la construction du Canal de Suez par Ferdinand de Lesseps, un ingénieur français, en 1869.",
+      "orient_h3_3": "Culture et langue :",
+      "orient_p4": "Aujourd'hui, le français reste une langue importante dans des pays comme le Liban et Israël. De nombreux écrivains et artistes de la région, comme Albert Cossery (Égypte) et Edmond Jabès (Tunisie), créent dans cette langue.",
+      "orient_p5": "Des institutions culturelles, comme l'Université Saint-Joseph à Beyrouth et la bibliothèque d'Alexandrie, témoignent de l'influence de la culture française dans la région.",
+      "afrique_title": "11.3 L'AFRIQUE SUBSAHARIENNE",
+      "afrique_p1": "On divise souvent l'Afrique subsaharienne en trois zones :",
+      "afrique_li_1": "<b>L'Afrique de l'Ouest:</b> Mauritanie, Sénégal, Guinée, Côte d'Ivoire, Mali, Niger, Burkina Faso, Togo et Bénin.",
+      "afrique_li_2": "<b>L'Afrique centrale:</b> Cameroun, Gabon, Congo, République centrafricaine, Tchad.",
+      "afrique_li_3": "<b>La région des Grands Lacs:</b> autour des lacs Tanganyika, Kivu et Victoria. Elle comprend le Burundi, la République démocratique du Congo (RDC) et le Rwanda.",
+      "afrique_h3_1": "1. L'histoire",
+      "afrique_p2": "Avant la colonisation, ces pays étaient organisés en empires et royaumes:",
+      "afrique_li_4": "L'empire du Ghana (du Niger à la Mauritanie)",
+      "afrique_li_5": "L'empire du Mali (Burkina Faso, Mali, Mauritanie, Guinée)",
+      "afrique_li_6": "L'empire du Songhaï",
+      "afrique_li_7": "L'état du Kanem (Cameroun, Centrafrique, Tchad)",
+      "afrique_li_8": "Les royaumes du Kongo (Congo, RDC, Angola), du Rwanda et du Burundi.",
+      "afrique_p3": "Au XIXe siècle, pendant la colonisation, les frontières ont changé. En 1885, la Conférence de Berlin a décidé de nouvelles limites, très différentes des anciennes.",
+      "afrique_h3_2": "2. Les langues",
+      "afrique_p4": "Pendant la colonisation, le français est devenu la langue officielle, mais on parle aussi beaucoup de langues locales:",
+      "afrique_li_9": "<b>Langues bantoues:</b> bambara (Mali, Burkina Faso, Côte d'Ivoire), peul, wolof, malinké, sango (Centrafrique), fang (Gabon), bassa, éwondo et bamiléké (Cameroun).",
+      "afrique_li_10": "<b>Langues sahéliennes:</b> haoussa (Niger, Mali).",
+      "afrique_li_10_extra": "En RDC, il y a quatre langues nationales: lingala, ciluba, kikongo et swahili. Le swahili est aussi utilisé pour le commerce dans les pays des Grands Lacs et en Afrique de l'Est.",
+      "afrique_h3_3": "3. La population et les villes",
+      "afrique_p6": "L'Afrique subsaharienne a une population très jeune et en forte augmentation (+3% par an). Beaucoup de personnes vivent dans les villes :",
+      "afrique_li_11": "Abidjan (3,6 millions)",
+      "afrique_li_12": "Bamako (1,3 million)",
+      "afrique_li_13": "Brazzaville (1,2 million)",
+      "afrique_li_14": "Conakry (1,3 million)",
+      "afrique_li_15": "Dakar (1,1 million)",
+      "afrique_li_16": "Kinshasa (10 millions)",
+      "afrique_li_17": "Niamey (1 million)",
+      "afrique_li_18": "Ouagadougou (1,5 million)",
+      "afrique_li_19": "Yaoundé (1,4 million)",
+      "afrique_h3_4": "4. Les difficultés",
+      "afrique_li_20": "<b>Politique:</b> certains pays connaissent la paix (Sénégal), mais d'autres ont des conflits ethniques (Rwanda) ou religieux (Centrafrique).",
+      "afrique_li_21": "<b>Économie:</b> malgré une croissance importante (3 à 5% selon les pays), beaucoup dépendent de l'aide internationale.",
+      "afrique_li_22": "<b>Santé:</b> problèmes de malnutrition, risques alimentaires dans les villes, maladies comme le SIDA ou le virus Ebola.",
+      "afrique_h3_5": "5. Quelques proverbes africains",
+      "afrique_li_23": "« Le bœuf ne se vante pas de sa force devant l'éléphant. »",
+      "afrique_li_24": "« La chèvre broute là où elle est attachée. »",
+      "afrique_li_25": "« Un œil est meilleur témoin que deux oreilles. »",
+      "afrique_li_26": "« Ce n'est pas dans ma bouche que tu vas manger mon piment. »",
+      "afrique_li_27": "« Que celui qui n'a pas traversé ne se moque pas de celui qui s'est noyé. »",
+      "indien_title": "11.4 L'OCÉAN INDIEN",
+      "indien_caption": "Scène de rue, Port-Louis, île Maurice.",
+      "indien_p1": "Les pays et territoires francophones de l'océan Indien sont les Comores, Madagascar, l'île Maurice, Mayotte, La Réunion et les Seychelles. Ce sont des îles, souvent volcaniques, avec un climat chaud et des paysages magnifiques. Elles attirent beaucoup de touristes.",
+      "indien_h3_1": "1. Les îles et leurs statuts",
+      "indien_li_1": "<b>Indépendantes:</b> Madagascar (une des plus grandes îles du monde), l'île Maurice, les Comores, les Seychelles.",
+      "indien_li_2": "<b>Françaises:</b> La Réunion (département d'outre-mer) et Mayotte (département et région).",
+      "indien_h3_2": "2. Image touristique",
+      "indien_p2": "Ces îles font rêver: soleil, mer bleue, plages de sable fin, cocotiers...",
+      "indien_li_3": "<b>Seychelles:</b> archipel avec de superbes plages, corail, tortues géantes et plantes exotiques.",
+      "indien_li_4": "<b>Île Maurice:</b> protégée par une barrière de corail. Connue pour ses paysages comme Chamarel (Terre des 7 couleurs), le jardin de Pamplemousses ou l'île aux Cerfs.",
+      "indien_li_5": "<b>La Réunion:</b> paysages volcaniques impressionnants (Piton des Neiges, Piton de la Fournaise), montagnes, ravines profondes. Très appréciée des randonneurs.",
+      "indien_h3_3": "3. Saveurs et parfums",
+      "indien_p3": "Ces îles produisent des plantes utilisées pour les parfums et la cuisine: ylang-ylang, vanille, citronnelle, cannelle, girofle, vétiver.",
+      "indien_h3_4": "4. Traditions et rituels",
+      "indien_p4": "Chaque île a ses traditions :",
+      "indien_li_6": "<b>Comores:</b> grand mariage, fête qui dure un mois.",
+      "indien_li_7": "<b>Mayotte:</b> petites maisons appelées bangas pour les adolescents.",
+      "indien_li_8": "<b>Seychelles:</b> contes populaires avec le personnage « Soungula », malin et ingénieux.",
+      "indien_li_9": "<b>Madagascar:</b> cérémonie famadihana, où l'on sort les ancêtres de leur tombe pour les honorer.",
+      "indien_h3_5": "5. Le séga",
+      "indien_p5": "Le séga est une danse et une musique très populaires à La Réunion, aux Seychelles et à l'île Maurice. Elle vient des esclaves. On danse avec des mouvements du bassin.",
+      "indien_p6": "Aujourd'hui, le séga se mélange avec d'autres musiques: reggae (seggae), reggaemuffin (seggaemuffin), rap ou hip-hop.",
+      "repere_franco_1": "Repères Francophonie",
+      "antilles_title": "11.5 LES ANTILLES FRANÇAISES ET LA GUYANE",
+      "antilles_caption1": "Plantation de canne à sucre, en Guadeloupe.",
+      "antilles_p1": "On appelle francophonie des Amériques la région qui comprend Haïti, les Antilles françaises et la Guyane. Les Antilles françaises sont des îles dans la mer des Caraïbes. La Guyane se trouve en Amérique du Sud.",
+      "antilles_h3_1": "1. Les Antilles françaises",
+      "antilles_p2": "Les îles principales sont: Guadeloupe, Martinique, La Désirade, Marie-Galante, Les Saintes et Saint-Martin. Elles appartiennent à la France et sont des départements et régions d'outre-mer.",
+      "antilles_p3": "Autrefois, ces îles étaient connues pour les pirates et les aventuriers. Aujourd'hui, elles sont célèbres pour leurs paysages :",
+      "antilles_li_1": "Montagne Pelée (Martinique) et volcan de La Soufrière (Guadeloupe)",
+      "antilles_li_2": "Plages comme Grande Anse des Salines ou Marie-Galante",
+      "antilles_li_3": "Récifs de corail, forêts tropicales, charmants villages créoles",
+      "antilles_p4": "Elles attirent beaucoup de touristes, ce qui rapporte de l'argent. L'économie est aussi agricole:",
+      "antilles_li_4": "Banane (première exportation)",
+      "antilles_li_5": "Rhum agricole",
+      "antilles_li_6": "Canne à sucre",
+      "antilles_li_7": "Ananas",
+      "antilles_caption2": "Centre spatial à Kourou, en Guyane.",
+      "antilles_h3_2": "2. La Guyane française",
+      "antilles_p5": "La Guyane est un département français. Elle est couverte à 98% de forêts tropicales. Il y a un parc national et six réserves naturelles.",
+      "antilles_p6": "La Guyane est aussi connue pour le Centre spatial de Kourou, d'où partent les fusées européennes Ariane.",
+      "antilles_h3_3": "3. Haïti",
+      "antilles_p7": "Haïti est le seul pays francophone indépendant des Caraïbes. En 1804, après une révolte des esclaves menée par Toussaint Louverture, Haïti est devenu indépendant.",
+      "antilles_p8": "Haïti a une culture très riche:",
+      "antilles_li_8": "<b>Littérature:</b> Dany Laferrière, René Depestre, Jean Métellus",
+      "antilles_li_9": "<b>Peinture:</b> styles naïf et vaudou",
+      "antilles_li_10": "<b>Musique:</b> kompa, zouk, merengue, hip-hop, ragga, reggae (avec Ti-Jack)",
+      "antilles_li_11": "<b>Cinéma:</b> réalisateur Raoul Peck",
+      "repere_franco_2": "Repères Francophonie",
+      "pacifique_title": "11.6 DE LA NOUVELLE-CALEDONIE A LA POLYNESIE FRANÇAISE",
+      "pacifique_caption": "Le centre culturel de Tjibaou, à Nouméa, en Nouvelle-Calédonie.",
+      "pacifique_p1": "Il y a 4 612 kilomètres entre Nouméa (capitale de la Nouvelle-Calédonie) et Papeete (capitale de la Polynésie française).",
+      "pacifique_p2": "Ces îles se trouvent dans le Pacifique, entre l'Australie, la Nouvelle-Zélande et la Papouasie-Nouvelle-Guinée. Elles comprennent aussi le Vanuatu et Wallis-et-Futuna.",
+      "pacifique_h3_1": "1. Des paysages de rêve",
+      "pacifique_p3": "Ces îles, comme Tahiti, les îles Marquises ou les îles Loyauté, sont connues pour leurs volcans, leur végétation tropicale et leurs lagons protégés par des barrières de corail. Les vents doux, appelés alizés, rendent le climat agréable.",
+      "pacifique_h3_2": "2. Différents statuts politiques",
+      "pacifique_li_1": "<b>Vanuatu:</b> pays indépendant",
+      "pacifique_li_2": "<b>Nouvelle-Calédonie:</b> collectivité française avec beaucoup d'autonomie",
+      "pacifique_li_3": "<b>Polynésie française et Wallis-et-Futuna:</b> collectivités françaises, avec plus d'autonomie pour la Polynésie",
+      "pacifique_h3_3": "3. Les richesses et l'économie",
+      "pacifique_p4": "Ces îles ont une grande zone maritime (6,5 millions de km²) avec beaucoup de ressources.",
+      "pacifique_li_4": "<b>Nouvelle-Calédonie:</b> nickel (3e producteur mondial)",
+      "pacifique_li_5": "<b>Vanuatu:</b> manganèse, or, cuivre, chrome, plomb",
+      "pacifique_li_6": "<b>Polynésie française:</b> tourisme, perles, vanille",
+      "pacifique_h3_4": "4. Les cultures locales",
+      "pacifique_p5": "<b>Culture ma'ohi (Polynésie):</b> musique, sculpture, tatouage, danse",
+      "pacifique_p6": "<b>Culture kanak (Nouvelle-Calédonie):</b> architecture (centre culturel Tjibaou), sculpture, danse pilou, littérature",
+      "pacifique_p7": "La Polynésie a inspiré des artistes célèbres comme Gauguin et Matisse.",
+      "pacifique_h3_5": "5. Le kava au Vanuatu",
+      "pacifique_p8": "Au Vanuatu, on boit le kava lors de cérémonies traditionnelles pour communiquer avec les ancêtres. C'est une boisson préparée avec une plante, qui donne une sensation de calme et de détente. Aujourd'hui, le kava est aussi exporté et utilisé contre le stress et l'anxiété.",
+      "repere_franco_3": "Repères Francophonie",
+      "asie_title": "11.7 L'ASIE DU SUD-EST",
+      "asie_caption1": "Vieux quartier à Hanoi, au Vietnam",
+      "asie_p1": "L'Asie du Sud-Est est composée de plusieurs pays comme le Vietnam, le Cambodge et le Laos. Ces pays ont tous une histoire liée à la colonisation française sous l'appellation d'Indochine française, et aujourd'hui, ils font partie de la Francophonie asiatique.",
+      "asie_h3_1": "L'Indochine française :",
+      "asie_li_1": "L'Indochine française était composée du Vietnam, du Cambodge et du Laos.",
+      "asie_li_2": "Le protectorat français sur ces pays a duré de 1860 à 1954, année des accords de Genève qui ont mis fin à la colonisation.",
+      "asie_li_3": "<b>Histoire littéraire:</b> Cette région a été largement représentée dans la littérature française par des écrivains comme Pierre Loti, André Malraux et Marguerite Duras.",
+      "asie_li_4": "Les temples d'Angkor au Cambodge, les rues de Hanoi au Vietnam et la Baie d'Halong sont des sites touristiques très connus, qui témoignent de l'influence du passé colonial.",
+      "asie_caption2": "Indochine, film de Regis Wargner avec Catherine Deneuve.",
+      "asie_h3_2": "La situation actuelle:",
+      "asie_p2": "Aujourd'hui, ces pays sont indépendants et ont leur propre culture, mais le français reste utilisé dans certains secteurs comme l'éducation et les affaires.",
+      "asie_p3": "Le Laos et le Vietnam sont des républiques socialistes, tandis que le Cambodge est une monarchie parlementaire.",
+      "asie_p4": "Le français est encore une langue enseignée dans des écoles et universités prestigieuses comme l'École française d'Extrême-Orient, fondée en 1900, qui a contribué à la conservation de l'art khmer au Cambodge et à la restauration des temples d'Angkor.",
+      "asie_h3_3": "Les relations actuelles :",
+      "asie_p5": "En plus de leur passé commun avec la France, ces pays participent à la Francophonie par leurs universités, leur culture et des projets de coopération régionale.",
+      "asie_p6": "Hanoi (Vietnam), Phnom Penh (Cambodge), et Vientiane (Laos) sont des villes où le français joue encore un rôle important dans la culture et l'éducation.",
+      "repere_franco_4": "Repères Francophonie",
+      "nord_amerique_title": "11.8 L'AMÉRIQUE DU NORD",
+      "nord_amerique_caption": "La ville de Montréal en automne.",
+      "nord_amerique_p1": "L'Amérique du Nord a une grande zone d'influence francophone qui comprend le Québec, une partie de l'Ontario, le Nouveau-Brunswick, ainsi que des régions aux États-Unis comme la Louisiane.",
+      "nord_amerique_h3_1": "Le Québec:",
+      "nord_amerique_p2": "Le Québec est la principale région francophone en Amérique du Nord, avec une population de 7,2 millions d'habitants. La ville de Montréal est la deuxième ville francophone la plus peuplée du monde après Paris.",
+      "nord_amerique_p3": "Le français est la langue officielle du Québec et est largement utilisé dans tous les domaines : administration, éducation, et médias.",
+      "nord_amerique_p4": "La Loi 101 (adoptée en 1977) protège la langue française au Québec, garantissant son usage dans la vie publique et privée.",
+      "nord_amerique_h3_2": "Les autres régions francophones:",
+      "nord_amerique_p5": "Le Nouveau-Brunswick est la seule province canadienne officiellement bilingue. Environ 250 000 personnes parlent français dans cette province, principalement dans les régions autour de Moncton et Dieppe.",
+      "nord_amerique_p6": "L'Ontario possède une importante communauté francophone, avec des services offerts en français dans les grandes villes comme Ottawa et Toronto.",
+      "nord_amerique_p7": "<b>Louisiane:</b> Les Cajuns de Louisiane, descendants des Acadiens, parlent toujours le français. La Louisiane a une riche culture franco-américaine et est célèbre pour sa musique, notamment le jazz qui a vu le jour à La Nouvelle-Orléans.",
+      "nord_amerique_h3_3": "Culture francophone en Amérique du Nord:",
+      "nord_amerique_p8": "Le Québec est aussi connu pour ses artistes et écrivains, comme Michel Tremblay, Céline Dion, et Xavier Dolan. Le cinéma québécois est reconnu mondialement, notamment grâce à des réalisateurs comme Denys Arcand et Jean-Marc Vallée.",
+      "nord_amerique_p9": "La musique est également très présente avec des artistes comme Zachary Richard (Louisiane), Coeur de Pirate (Québec) et le jazz de La Nouvelle-Orléans.",
+      "repere_franco_5": "Repères Francophonie",
+      "europe_title": "11.9 L'EUROPE",
+      "europe_caption": "Le Palais des Nations, à Genève.",
+      "europe_p1": "L'Europe francophone est composée de plusieurs pays et régions, principalement autour de la France, et comprend des zones comme la Belgique, le Luxembourg, la Suisse, et des régions en Italie (le Val d'Aoste).",
+      "europe_h3_1": "Les principaux pays francophones d'Europe:",
+      "europe_li_1": "<b>Belgique:</b> Environ 4,2 millions de francophones, principalement en Wallonie et à Bruxelles, où le français est l'une des langues officielles.",
+      "europe_li_2": "<b>Suisse:</b> La Suisse est un pays multilingue, et le français est parlé dans des régions comme le canton de Genève, le canton de Vaud, et le canton de Neuchâtel. Il y a environ 3,6 millions de francophones en Suisse.",
+      "europe_li_3": "<b>Luxembourg:</b> Le français est une langue officielle au Luxembourg, où environ 450 000 personnes parlent français.",
+      "europe_li_4": "<b>Italie:</b> Le Val d'Aoste, une région autonome, parle également français.",
+      "europe_h3_2": "Caractéristiques culturelles et économiques :",
+      "europe_p2": "Les pays francophones européens sont des acteurs importants de l'économie mondiale, notamment dans des domaines comme la banque, les assurances, et les industries pharmaceutiques.",
+      "europe_p3": "Des villes comme Bruxelles, Genève et Lausanne sont des centres de décisions internationales, abritant des institutions comme l'ONU, la Croix-Rouge, et l'UE.",
+      "europe_h3_3": "Tourisme et littérature :",
+      "europe_p4": "La Suisse et la Belgique attirent des touristes grâce à leurs lacs, leurs montagnes et leurs stations de ski. Les littératures francophones européennes sont très riches, avec des écrivains célèbres comme Georges Simenon (Belgique), Jacques Chessex (Suisse) et Henri Michaux (Belgique).",
+      "europe_h3_4": "Variations linguistiques:",
+      "europe_p5": "En Suisse et Belgique, on utilise des termes différents pour désigner certains nombres: par exemple, <strong>septante</strong> pour 70, <strong>huitante</strong> pour 80, et <strong>nonante</strong> pour 90.",
+      "europe_p6": "En Belgique, des mots comme <em>astruc</em> (avalé de travers) ou <em>babèle</em> (bavarder) illustrent les différences de vocabulaire avec la France.",
+      "repere_franco_6": "Repères Francophonie",
+      "footer_text": "© 2025 hugo. Tous droits réservés."
+    },
+    "civi11_exercices": {
+      "title": "法语区练习",
+      "quiz": [
+        {
+          "id": "maghreb",
+          "title": "11.1 LE MAGHREB",
+          "title_zh": "11.1 马格里布",
+          "sections": [
+            {
+              "title": "Compréhension globale",
+              "title_zh": "整体理解",
+              "questions": [
+                {
+                  "q": "1. Quelle est la signification du nom << Maghreb >> ?",
+                  "q_zh": "1. “Maghreb”这个名字是什么意思？",
+                  "o": [
+                    "Le soleil levant",
+                    "La terre des hommes libres",
+                    "Le Couchant",
+                    "La mer"
+                  ],
+                  "o_zh": [
+                    "日出之地",
+                    "自由人的土地",
+                    "日落之地",
+                    "大海"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "2. Quels sont les trois pays qui composent le Maghreb ?",
+                  "q_zh": "2. 组成马格里布的是哪三个国家？",
+                  "o": [
+                    "Algérie, Tunisie, Égypte",
+                    "Algérie, Maroc, Tunisie",
+                    "Maroc, Libye, Algérie",
+                    "Libye, Égypte, Tunisie"
+                  ],
+                  "o_zh": [
+                    "阿尔及利亚、突尼斯、埃及",
+                    "阿尔及利亚、摩洛哥、突尼斯",
+                    "摩洛哥、利比亚、阿尔及利亚",
+                    "利比亚、埃及、突尼斯"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "3. Quel est le rôle du français dans les pays du Maghreb ?",
+                  "q_zh": "3. 法语在马格里布国家扮演什么角色？",
+                  "o": [
+                    "Il est la langue officielle",
+                    "Il est utilisé dans les affaires et l'éducation",
+                    "Il est la seule langue parlée",
+                    "Il est uniquement utilisé dans le cinéma"
+                  ],
+                  "o_zh": [
+                    "它是官方语言",
+                    "它被用于商业和教育",
+                    "它是唯一使用的语言",
+                    "它只在电影中使用"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "4. Quel est le lien entre la région du Maghreb et le christianisme occidental ?",
+                  "q_zh": "4. 马格里布地区与西方基督教有什么联系？",
+                  "o": [
+                    "La naissance du christianisme",
+                    "Le Christianisme est venu d'Algérie",
+                    "Saint-Augustin est originaire du Maghreb",
+                    "Le Maghreb est un lieu de pèlerinage chrétien"
+                  ],
+                  "o_zh": [
+                    "基督教的诞生",
+                    "基督教来自阿尔及利亚",
+                    "圣奥古斯丁来自马格里布",
+                    "马格里布是基督教的朝圣地"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "5. Qu'est-ce que le raï ?",
+                  "q_zh": "5. “Raï”是什么？",
+                  "o": [
+                    "Une danse populaire",
+                    "Une forme de musique traditionnelle",
+                    "Une langue parlée au Maghreb",
+                    "Un plat typique du Maghreb"
+                  ],
+                  "o_zh": [
+                    "一种流行舞蹈",
+                    "一种传统音乐形式",
+                    "马格里布地区的一种语言",
+                    "马格里布的一种特色菜"
+                  ],
+                  "a": 1
+                }
+              ]
+            },
+            {
+              "title": "Compréhension détaillée",
+              "title_zh": "细节理解",
+              "questions": [
+                {
+                  "q": "1. Quelle chaîne de montagnes traverse le Maghreb sur plus de 2000 km ?",
+                  "q_zh": "1. 哪条山脉横贯马格里布超过2000公里？",
+                  "o": [
+                    "Les Alpes",
+                    "Le Mont Atlas",
+                    "La chaîne de l'Atlas",
+                    "Les Pyrénées"
+                  ],
+                  "o_zh": [
+                    "阿尔卑斯山脉",
+                    "阿特拉斯山",
+                    "阿特拉斯山脉",
+                    "比利牛斯山脉"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "2. Quelles grandes villes sont mentionnées dans le texte comme étant importantes dans le Maghreb ?",
+                  "q_zh": "2. 文中提到了哪些马格里布的重要大城市？",
+                  "o": [
+                    "Tunis, Alger, Rabat, Casablanca",
+                    "Rabat, Casablanca, Le Caire, Marrakech",
+                    "Alger, Tunis, Marseille, Casablanca",
+                    "Tunis, Rabat, Paris, Marrakech"
+                  ],
+                  "o_zh": [
+                    "突尼斯、阿尔及尔、拉巴特、卡萨布兰卡",
+                    "拉巴特、卡萨布兰卡、开罗、马拉喀什",
+                    "阿尔及尔、突尼斯、马赛、卡萨布兰卡",
+                    "突尼斯、拉巴特、巴黎、马拉喀什"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "3. De quel pays est originaire le chanteur Khaled ?",
+                  "q_zh": "3. 歌手Khaled来自哪个国家？",
+                  "o": [
+                    "Maroc",
+                    "Algérie",
+                    "Tunisie",
+                    "Libye"
+                  ],
+                  "o_zh": [
+                    "摩洛哥",
+                    "阿尔及利亚",
+                    "突尼斯",
+                    "利比亚"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "4. Quel est le rôle du Sahara dans l'économie du Maghreb ?",
+                  "q_zh": "4. 撒哈拉沙漠在马格里布经济中扮演什么角色？",
+                  "o": [
+                    "Il est une source de pétrole et de gaz",
+                    "Il est un site touristique uniquement",
+                    "Il est utilisé pour l'agriculture",
+                    "Il est lié à la culture musicale"
+                  ],
+                  "o_zh": [
+                    "它是石油和天然气的来源",
+                    "它只是一个旅游景点",
+                    "它被用于农业",
+                    "它与音乐文化有关"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Pourquoi le français est-il important dans la culture littéraire du Maghreb ?",
+                  "q_zh": "5. 为什么法语在马格里布的文学文化中很重要？",
+                  "o": [
+                    "Il est la langue de la création littéraire",
+                    "Il est la langue des religions",
+                    "Il est parlé uniquement par les écrivains",
+                    "Il est utilisé pour la poésie seulement"
+                  ],
+                  "o_zh": [
+                    "它是文学创作的语言",
+                    "它是宗教的语言",
+                    "它只被作家使用",
+                    "它只用于诗歌"
+                  ],
+                  "a": 0
+                }
+              ]
+            },
+            {
+              "title": "Vocabulaire",
+              "title_zh": "词汇",
+              "questions": [
+                {
+                  "q": "1. Que signifie le mot \"raï\" ?",
+                  "q_zh": "1. “raï”这个词是什么意思？",
+                  "o": [
+                    "Un type de danse",
+                    "Une musique traditionnelle",
+                    "Une personne",
+                    "Un style de peinture"
+                  ],
+                  "o_zh": [
+                    "一种舞蹈",
+                    "一种传统音乐",
+                    "一个人",
+                    "一种绘画风格"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "2. Complétez la phrase: Le Maghreb est une région entre la ______ et le désert.",
+                  "q_zh": "2. 填空：马格里布是位于 ______ 和沙漠之间的一个地区。",
+                  "o": [
+                    "Mer",
+                    "Forêt",
+                    "Montagne",
+                    "Ville"
+                  ],
+                  "o_zh": [
+                    "大海",
+                    "森林",
+                    "山脉",
+                    "城市"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                },
+                {
+                  "q": "3. Reliez les expressions avec leur signification:",
+                  "q_zh": "3. 将表达与其含义连接起来：",
+                  "type": "match",
+                  "items": [
+                    "A. Tamazgha",
+                    "B. Maghreb",
+                    "C. Raï"
+                  ],
+                  "items_zh": [
+                    "A. Tamazgha",
+                    "B. Maghreb",
+                    "C. Raï"
+                  ],
+                  "matches": [
+                    "1) Le Couchant",
+                    "2) Terre des hommes libres",
+                    "3) Musique populaire"
+                  ],
+                  "matches_zh": [
+                    "1) 日落之地",
+                    "2) 自由人的土地",
+                    "3) 流行音乐"
+                  ],
+                  "a": [
+                    1,
+                    0,
+                    2
+                  ]
+                },
+                {
+                  "q": "4. Vrai/Faux: Le français est la langue officielle dans les pays du Maghreb.",
+                  "q_zh": "4. 正确/错误：法语是马格里布国家的官方语言。",
+                  "type": "tf",
+                  "a": false
+                },
+                {
+                  "q": "5. Quel mot désigne l'action d'influencer une culture de manière importante ?",
+                  "q_zh": "5. 哪个词指对一种文化产生重要影响的行为？",
+                  "o": [
+                    "Coloniser",
+                    "Civiliser",
+                    "Influencer",
+                    "Arabiser"
+                  ],
+                  "o_zh": [
+                    "殖民",
+                    "使文明",
+                    "影响",
+                    "阿拉伯化"
+                  ],
+                  "a": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "proche-orient",
+          "title": "11.2 LE PROCHE-ORIENT",
+          "title_zh": "11.2 近东地区",
+          "sections": [
+            {
+              "title": "Compréhension globale",
+              "title_zh": "整体理解",
+              "questions": [
+                {
+                  "q": "1. Quelles sont les régions principales du Proche-Orient mentionnées dans le texte ?",
+                  "q_zh": "1. 文中提到的近东主要地区有哪些？",
+                  "o": [
+                    "La Turquie, le Liban, Israël",
+                    "L'Égypte, le Maroc, la Syrie",
+                    "L'Iran, la Turquie, la Syrie",
+                    "Le Liban, Israël, la Libye"
+                  ],
+                  "o_zh": [
+                    "土耳其、黎巴嫩、以色列",
+                    "埃及、摩洛哥、叙利亚",
+                    "伊朗、土耳其、叙利亚",
+                    "黎巴嫩、以色列、利比亚"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Qu'est-ce qui lie la France aux pays du Proche-Orient ?",
+                  "q_zh": "2. 是什么将法国与近东国家联系起来？",
+                  "o": [
+                    "L'histoire des croisades",
+                    "L'exportation de pétrole",
+                    "La diplomatie économique",
+                    "La colonisation uniquement"
+                  ],
+                  "o_zh": [
+                    "十字军东征的历史",
+                    "石油出口",
+                    "经济外交",
+                    "仅仅是殖民"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "3. Quel est le rôle du français dans la culture du Proche-Orient ?",
+                  "q_zh": "3. 法语在近东文化中扮演什么角色？",
+                  "o": [
+                    "Il est une langue officielle dans tous les pays",
+                    "Il est la langue de l'administration",
+                    "Il est une langue culturelle, dans les universités et institutions",
+                    "Il est réservé aux gouvernements"
+                  ],
+                  "o_zh": [
+                    "它是所有国家的官方语言",
+                    "它是行政语言",
+                    "它是一种文化语言，用于大学和机构",
+                    "它仅供政府使用"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "4. Quelle est la principale raison de la présence du français au Proche-Orient ?",
+                  "q_zh": "4. 法语在近东存在的主要原因是什么？",
+                  "o": [
+                    "Les accords commerciaux avec la France",
+                    "L'influence historique de la France",
+                    "Le tourisme",
+                    "La coopération militaire"
+                  ],
+                  "o_zh": [
+                    "与法国的贸易协定",
+                    "法国的历史影响",
+                    "旅游业",
+                    "军事合作"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "5. Quel écrivain est mentionné comme ayant contribué à la littérature du Proche-Orient ?",
+                  "q_zh": "5. 哪位作家被提及为近东文学做出了贡献？",
+                  "o": [
+                    "Albert Memmi",
+                    "Gabriel García Márquez",
+                    "Dany Laferrière",
+                    "Pierre Loti"
+                  ],
+                  "o_zh": [
+                    "阿尔贝·梅米",
+                    "加夫列尔·加西亚·马尔克斯",
+                    "丹尼·拉费里埃",
+                    "皮埃尔·洛蒂"
+                  ],
+                  "a": 3
+                }
+              ]
+            },
+            {
+              "title": "Compréhension détaillée",
+              "title_zh": "细节理解",
+              "questions": [
+                {
+                  "q": "1. Qui a été reconnu comme protecteur des chrétiens par l'Empire Ottoman ?",
+                  "q_zh": "1. 谁被奥斯曼帝国承认为基督徒的保护者？",
+                  "o": [
+                    "François Ier",
+                    "Napoléon Bonaparte",
+                    "Louis XIV",
+                    "Soliman le Magnifique"
+                  ],
+                  "o_zh": [
+                    "弗朗索瓦一世",
+                    "拿破仑·波拿巴",
+                    "路易十四",
+                    "苏莱曼大帝"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Quel événement a marqué la diplomatie de la France au Proche-Orient au XIXe siècle ?",
+                  "q_zh": "2. 19世纪法国在近东的外交标志性事件是什么？",
+                  "o": [
+                    "La création du Canal de Suez",
+                    "La guerre des Croisades",
+                    "Le début des croisades en 1096",
+                    "L'indépendance des États arabes"
+                  ],
+                  "o_zh": [
+                    "苏伊士运河的开凿",
+                    "十字军战争",
+                    "1096年十字军东征开始",
+                    "阿拉伯国家的独立"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "3. Quel rôle joue le français dans les pays du Proche-Orient aujourd'hui ?",
+                  "q_zh": "3. 今天法语在近东国家扮演什么角色？",
+                  "o": [
+                    "Il est une langue scolaire uniquement",
+                    "Il est une langue pour les affaires et la diplomatie",
+                    "Il est une langue religieuse",
+                    "Il est uniquement utilisé dans le cinéma"
+                  ],
+                  "o_zh": [
+                    "它只是一种学校语言",
+                    "它是一种用于商业和外交的语言",
+                    "它是一种宗教语言",
+                    "它只在电影中使用"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "4. Quelle grande université francophone est située au Liban ?",
+                  "q_zh": "4. 哪所著名的法语大学位于黎巴嫩？",
+                  "o": [
+                    "Université de Damas",
+                    "Université Saint-Joseph à Beyrouth",
+                    "Université de Bagdad",
+                    "Université du Caire"
+                  ],
+                  "o_zh": [
+                    "大马士革大学",
+                    "贝鲁特圣约瑟夫大学",
+                    "巴格达大学",
+                    "开罗大学"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "5. Quel rôle a joué la France dans les arts et la culture du Proche-Orient ?",
+                  "q_zh": "5. 法国在近东的艺术和文化中扮演了什么角色？",
+                  "o": [
+                    "Elle a développé une politique de diplomatie culturelle",
+                    "Elle a financé des musées uniquement",
+                    "Elle a interdit l'usage de la langue arabe",
+                    "Elle a introduit la musique moderne"
+                  ],
+                  "o_zh": [
+                    "它发展了文化外交政策",
+                    "它只资助了博物馆",
+                    "它禁止使用阿拉伯语",
+                    "它引入了现代音乐"
+                  ],
+                  "a": 0
+                }
+              ]
+            },
+            {
+              "title": "Vocabulaire",
+              "title_zh": "词汇",
+              "questions": [
+                {
+                  "q": "1. Complétez la phrase: La France a joué un rôle important pendant les ______ dans le Proche-Orient.",
+                  "q_zh": "1. 填空：法国在近东的______期间扮演了重要角色。",
+                  "o": [
+                    "Croisades",
+                    "Guerres mondiales",
+                    "Révolutions",
+                    "Accords commerciaux"
+                  ],
+                  "o_zh": [
+                    "十字军东征",
+                    "世界大战",
+                    "革命",
+                    "贸易协定"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                },
+                {
+                  "q": "2. Que signifie le mot « protecteur >> dans ce contexte ?",
+                  "q_zh": "2. 在这种情况下，“保护者”这个词是什么意思？",
+                  "o": [
+                    "Celui qui défend les intérêts",
+                    "Celui qui occupe un pays",
+                    "Celui qui attaque un autre pays",
+                    "Celui qui exporte des produits"
+                  ],
+                  "o_zh": [
+                    "捍卫利益的人",
+                    "占领一个国家的人",
+                    "攻击另一个国家的人",
+                    "出口产品的人"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "3. Vrai/Faux: Le français est principalement utilisé au Proche-Orient dans les affaires et la culture.",
+                  "q_zh": "3. 正确/错误：在近东，法语主要用于商业和文化领域。",
+                  "type": "tf",
+                  "a": true
+                },
+                {
+                  "q": "4. Reliez les expressions avec leur signification:",
+                  "q_zh": "4. 将表达与其含义连接起来：",
+                  "type": "match",
+                  "items": [
+                    "A. Diplomatie",
+                    "B. Croisades",
+                    "C. Université Saint-Joseph"
+                  ],
+                  "items_zh": [
+                    "A. 外交",
+                    "B. 十字军东征",
+                    "C. 圣约瑟夫大学"
+                  ],
+                  "matches": [
+                    "1) Stratégie pour protéger des intérêts",
+                    "2) Conflit pour les lieux saints",
+                    "3) Un centre de savoir au Liban"
+                  ],
+                  "matches_zh": [
+                    "1) 保护利益的策略",
+                    "2) 为圣地而发生的冲突",
+                    "3) 黎巴嫩的一个知识中心"
+                  ],
+                  "a": [
+                    0,
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "q": "5. Quel mot désigne un accord entre deux pays pour se protéger ?",
+                  "q_zh": "5. 哪个词指两国为互相保护而达成的协议？",
+                  "o": [
+                    "Alliance",
+                    "Traité",
+                    "Diplomatie",
+                    "Croisade"
+                  ],
+                  "o_zh": [
+                    "联盟",
+                    "条约",
+                    "外交",
+                    "十字军东征"
+                  ],
+                  "a": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "afrique-subsaharienne",
+          "title": "11.3 L'AFRIQUE SUBSAHARIENNE",
+          "title_zh": "11.3 撒哈拉以南非洲",
+          "sections": [
+            {
+              "title": "Compréhension globale",
+              "title_zh": "整体理解",
+              "questions": [
+                {
+                  "q": "1. Combien de zones sont identifiées dans l'Afrique subsaharienne ?",
+                  "q_zh": "1. 在撒哈拉以南非洲确定了多少个区域？",
+                  "o": [
+                    "Deux",
+                    "Trois",
+                    "Quatre",
+                    "Cinq"
+                  ],
+                  "o_zh": [
+                    "两个",
+                    "三个",
+                    "四个",
+                    "五个"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "2. Quelle est la principale langue utilisée en Afrique subsaharienne ?",
+                  "q_zh": "2. 撒哈拉以南非洲使用的主要语言是什么？",
+                  "o": [
+                    "L'arabe",
+                    "Le français",
+                    "L'anglais",
+                    "Le swahili"
+                  ],
+                  "o_zh": [
+                    "阿拉伯语",
+                    "法语",
+                    "英语",
+                    "斯瓦希里语"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "3. Quels sont les pays de l'Afrique subsaharienne mentionnés dans le texte ?",
+                  "q_zh": "3. 文中提到了哪些撒哈拉以南非洲国家？",
+                  "o": [
+                    "Afrique du Sud, Zambie, Nigeria",
+                    "Cameroun, Sénégal, Mali",
+                    "Niger, Algérie, Tunisie",
+                    "Rwanda, Libye, Tchad"
+                  ],
+                  "o_zh": [
+                    "南非、赞比亚、尼日利亚",
+                    "喀麦隆、塞内加尔、马里",
+                    "尼日尔、阿尔及利亚、突尼斯",
+                    "卢旺达、利比亚、乍得"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "4. Qu'est-ce qui est mentionné comme étant une caractéristique importante de l'Afrique subsaharienne ?",
+                  "q_zh": "4. 文中提到撒哈拉以南非洲的一个重要特征是什么？",
+                  "o": [
+                    "Une forte croissance démographique",
+                    "Une grande stabilité politique",
+                    "Un faible taux de chômage",
+                    "Une grande quantité de ressources naturelles"
+                  ],
+                  "o_zh": [
+                    "强劲的人口增长",
+                    "高度的政治稳定",
+                    "低失业率",
+                    "大量的自然资源"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Quel est le défi majeur de l'Afrique subsaharienne aujourd'hui ?",
+                  "q_zh": "5. 今天撒哈拉以南非洲面临的主要挑战是什么？",
+                  "o": [
+                    "L'influence coloniale",
+                    "La croissance démographique",
+                    "La pauvreté",
+                    "L'industrialisation"
+                  ],
+                  "o_zh": [
+                    "殖民影响",
+                    "人口增长",
+                    "贫困",
+                    "工业化"
+                  ],
+                  "a": 1
+                }
+              ]
+            },
+            {
+              "title": "Compréhension détaillée",
+              "title_zh": "细节理解",
+              "questions": [
+                {
+                  "q": "1. Quelle est la population estimée de Kinshasa ?",
+                  "q_zh": "1. 金沙萨的估计人口是多少？",
+                  "o": [
+                    "10 millions d'habitants",
+                    "3,6 millions d'habitants",
+                    "1,5 million d'habitants",
+                    "6 millions d'habitants"
+                  ],
+                  "o_zh": [
+                    "1000万居民",
+                    "360万居民",
+                    "150万居民",
+                    "600万居民"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Quelle est la cause principale des conflits en Afrique subsaharienne ?",
+                  "q_zh": "2. 撒哈拉以南非洲冲突的主要原因是什么？",
+                  "o": [
+                    "L'accès aux ressources naturelles",
+                    "Les tensions religieuses et ethniques",
+                    "La pauvreté",
+                    "La pollution"
+                  ],
+                  "o_zh": [
+                    "对自然资源的获取",
+                    "宗教和种族紧张关系",
+                    "贫困",
+                    "污染"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "3. Vrai/Faux: Les pays d'Afrique subsaharienne sont tous indépendants.",
+                  "q_zh": "3. 正确/错误：撒哈拉以南非洲的国家都是独立的。",
+                  "type": "tf",
+                  "a": true
+                },
+                {
+                  "q": "4. Quelle langue est la plus parlée dans les Grands Lacs (République Démocratique du Congo, Rwanda, Burundi)?",
+                  "q_zh": "4. 在大湖区（刚果民主共和国、卢旺达、布隆迪）最常用的语言是什么？",
+                  "o": [
+                    "Le lingala",
+                    "Le français",
+                    "Le haoussa",
+                    "Le swahili"
+                  ],
+                  "o_zh": [
+                    "林加拉语",
+                    "法语",
+                    "豪萨语",
+                    "斯瓦希里语"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "5. Que signifie l'expression \"fragilité politique\" ?",
+                  "q_zh": "5. “政治脆弱性”这个表达是什么意思？",
+                  "o": [
+                    "Un gouvernement stable",
+                    "La capacité d'un pays à gérer la croissance économique",
+                    "La difficulté d'un pays à maintenir l'ordre et l'unité",
+                    "Le nombre élevé de guerres"
+                  ],
+                  "o_zh": [
+                    "一个稳定的政府",
+                    "一个国家管理经济增长的能力",
+                    "一个国家维持秩序和统一的困难",
+                    "大量的战争"
+                  ],
+                  "a": 2
+                }
+              ]
+            },
+            {
+              "title": "Vocabulaire",
+              "title_zh": "词汇",
+              "questions": [
+                {
+                  "q": "1. Complétez la phrase: L'Afrique subsaharienne connaît une forte ______ de sa population.",
+                  "q_zh": "1. 填空：撒哈拉以南非洲的人口正在经历强劲的______。",
+                  "o": [
+                    "Croissance",
+                    "Réduction",
+                    "Diminution",
+                    "Stabilisation"
+                  ],
+                  "o_zh": [
+                    "增长",
+                    "减少",
+                    "下降",
+                    "稳定"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                },
+                {
+                  "q": "2. Vrai/Faux: Le swahili est une langue de communication dans l'Afrique de l'Ouest.",
+                  "q_zh": "2. 正确/错误：斯瓦希里语是西非的一种交流语言。",
+                  "type": "tf",
+                  "a": false
+                },
+                {
+                  "q": "3. Reliez les mots à leur signification :",
+                  "q_zh": "3. 将词语与其含义连接起来：",
+                  "type": "match",
+                  "items": [
+                    "A. SIDA",
+                    "B. Croissance",
+                    "C. Haoussa"
+                  ],
+                  "items_zh": [
+                    "A. 艾滋病",
+                    "B. 增长",
+                    "C. 豪萨语"
+                  ],
+                  "matches": [
+                    "1) Maladie infectieuse",
+                    "2) Augmentation de la population",
+                    "3) Langue parlée au Niger"
+                  ],
+                  "matches_zh": [
+                    "1) 传染病",
+                    "2) 人口增加",
+                    "3) 在尼日尔使用的语言"
+                  ],
+                  "a": [
+                    0,
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "q": "4. Quel terme désigne une maladie contagieuse qui affecte l'Afrique subsaharienne?",
+                  "q_zh": "4. 哪个术语指影响撒哈拉以南非洲的一种传染病？",
+                  "o": [
+                    "Le choléra",
+                    "Le SIDA",
+                    "La tuberculose",
+                    "Le cancer"
+                  ],
+                  "o_zh": [
+                    "霍乱",
+                    "艾滋病",
+                    "结核病",
+                    "癌症"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "5. Quel mot désigne la manière dont un pays organise sa politique et ses institutions?",
+                  "q_zh": "5. 哪个词指一个国家组织其政治和机构的方式？",
+                  "o": [
+                    "Gouvernement",
+                    "Démocratie",
+                    "Économie",
+                    "Politique"
+                  ],
+                  "o_zh": [
+                    "政府",
+                    "民主",
+                    "经济",
+                    "政治"
+                  ],
+                  "a": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ocean-indien",
+          "title": "11.4 L'OCÉAN INDIEN",
+          "title_zh": "11.4 印度洋地区",
+          "sections": [
+            {
+              "title": "Compréhension globale",
+              "title_zh": "整体理解",
+              "questions": [
+                {
+                  "q": "1. Quelles îles de l'océan Indien sont mentionnées dans le texte ?",
+                  "q_zh": "1. 文中提到了哪些印度洋岛屿？",
+                  "o": [
+                    "La Réunion, Madagascar, Les Seychelles",
+                    "Madagascar, Malte, Les Comores",
+                    "Mayotte, La Réunion, La Mauricie",
+                    "Les Comores, Maldives, île Maurice"
+                  ],
+                  "o_zh": [
+                    "留尼汪、马达加斯加、塞舌尔",
+                    "马达加斯加、马耳他、科摩罗",
+                    "马约特、留尼汪、毛里求斯",
+                    "科摩罗、马尔代夫、毛里求斯岛"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Quelle est la caractéristique commune de ces îles ?",
+                  "q_zh": "2. 这些岛屿的共同特征是什么？",
+                  "o": [
+                    "Elles sont toutes volcaniques",
+                    "Elles sont toutes des départements français",
+                    "Elles sont toutes indépendantes",
+                    "Elles ont un climat désertique"
+                  ],
+                  "o_zh": [
+                    "它们都是火山岛",
+                    "它们都是法国的省",
+                    "它们都是独立的",
+                    "它们有沙漠气候"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "3. Quel produit est principalement exporté de l'île de La Réunion ?",
+                  "q_zh": "3. 留尼汪岛主要出口什么产品？",
+                  "o": [
+                    "Vanille et ylang-ylang",
+                    "Banane et sucre",
+                    "Café et cacao",
+                    "Pêche et poisson"
+                  ],
+                  "o_zh": [
+                    "香草和依兰",
+                    "香蕉和糖",
+                    "咖啡和可可",
+                    "渔业和鱼"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "4. Quelles îles de l'océan Indien ont le statut de département français ?",
+                  "q_zh": "4. 哪些印度洋岛屿具有法国省的地位？",
+                  "o": [
+                    "Les Seychelles et Madagascar",
+                    "La Réunion et Mayotte",
+                    "Comores et Mayotte",
+                    "Maurice et Réunion"
+                  ],
+                  "o_zh": [
+                    "塞舌尔和马达加斯加",
+                    "留尼汪和马约特",
+                    "科摩罗和马约特",
+                    "毛里求斯和留尼汪"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "5. Que représente la Polynésie française dans l'imaginaire collectif ?",
+                  "q_zh": "5. 法属波利尼西亚在集体想象中代表什么？",
+                  "o": [
+                    "Une île de grands volcans",
+                    "Des plages de sable fin et des paysages tropicaux",
+                    "Un centre économique majeur",
+                    "Un désert avec peu de population"
+                  ],
+                  "o_zh": [
+                    "一个有大火山的岛屿",
+                    "细腻的沙滩和热带风光",
+                    "一个主要的经济中心",
+                    "一个人口稀少的沙漠"
+                  ],
+                  "a": 1
+                }
+              ]
+            },
+            {
+              "title": "Compréhension détaillée",
+              "title_zh": "细节理解",
+              "questions": [
+                {
+                  "q": "1. Quelle est la principale activité économique des îles de l'océan Indien ?",
+                  "q_zh": "1. 印度洋岛屿的主要经济活动是什么？",
+                  "o": [
+                    "Le tourisme",
+                    "L'agriculture et l'industrie",
+                    "La pêche",
+                    "L'extraction de minéraux"
+                  ],
+                  "o_zh": [
+                    "旅游业",
+                    "农业和工业",
+                    "渔业",
+                    "矿产开采"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Quel est le rôle du kava au Vanuatu ?",
+                  "q_zh": "2. 卡瓦在瓦努阿图的作用是什么？",
+                  "o": [
+                    "Un produit médicinal utilisé pour soigner les maladies",
+                    "Un aliment essentiel pour la population",
+                    "Une boisson rituelle utilisée pour la paix et l'amitié",
+                    "Un parfum utilisé dans les cérémonies religieuses"
+                  ],
+                  "o_zh": [
+                    "一种用于治疗疾病的药用产品",
+                    "一种对人口至关重要的食物",
+                    "一种用于和平与友谊的仪式性饮料",
+                    "一种在宗教仪式中使用的香水"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "3. Quelle est la principale culture traditionnelle de la Polynésie française ?",
+                  "q_zh": "3. 法属波利尼西亚的主要传统文化是什么？",
+                  "o": [
+                    "Le maïs",
+                    "La culture ma'ohi",
+                    "Le riz",
+                    "L'huile de coco"
+                  ],
+                  "o_zh": [
+                    "玉米",
+                    "毛利文化",
+                    "大米",
+                    "椰子油"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "4. Pourquoi les îles de l'océan Indien sont-elles synonymes de tourisme?",
+                  "q_zh": "4. 为什么印度洋岛屿是旅游的代名词？",
+                  "o": [
+                    "Elles sont riches en ressources naturelles",
+                    "Leur climat et paysages attirent de nombreux touristes",
+                    "Elles sont des centres industriels",
+                    "Elles sont connues pour leur rôle militaire stratégique"
+                  ],
+                  "o_zh": [
+                    "它们富含自然资源",
+                    "它们的气候和风景吸引了众多游客",
+                    "它们是工业中心",
+                    "它们以其战略军事作用而闻名"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "5. Quel est l'élément principal qui caractérise le paysage de La Réunion ?",
+                  "q_zh": "5. 构成留尼汪风景的主要元素是什么？",
+                  "o": [
+                    "Ses montagnes volcaniques",
+                    "Ses plages de sable noir",
+                    "Ses plaines agricoles",
+                    "Ses forêts tropicales denses"
+                  ],
+                  "o_zh": [
+                    "它的火山山脉",
+                    "它的黑沙滩",
+                    "它的农业平原",
+                    "它的茂密热带雨林"
+                  ],
+                  "a": 0
+                }
+              ]
+            },
+            {
+              "title": "Vocabulaire",
+              "title_zh": "词汇",
+              "questions": [
+                {
+                  "q": "1. Complétez la phrase: Les îles de l'océan Indien sont principalement connues pour leurs ______ magnifiques.",
+                  "q_zh": "1. 填空：印度洋岛屿主要以其壮丽的______而闻名。",
+                  "o": [
+                    "Plages",
+                    "Déserts",
+                    "Montagnes",
+                    "Forêts"
+                  ],
+                  "o_zh": [
+                    "海滩",
+                    "沙漠",
+                    "山脉",
+                    "森林"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                },
+                {
+                  "q": "2. Vrai/Faux: Le kava est utilisé pour ses propriétés médicinales uniquement.",
+                  "q_zh": "2. 正确/错误：卡瓦仅因其药用特性而被使用。",
+                  "type": "tf",
+                  "a": false
+                },
+                {
+                  "q": "3. Reliez les termes à leur définition:",
+                  "q_zh": "3. 将术语与其定义连接起来：",
+                  "type": "match",
+                  "items": [
+                    "A. Kava",
+                    "B. Séga",
+                    "C. Polynésie"
+                  ],
+                  "items_zh": [
+                    "A. 卡瓦",
+                    "B. 塞加舞",
+                    "C. 波利尼西亚"
+                  ],
+                  "matches": [
+                    "1) Une boisson rituelle",
+                    "2) Un type de danse",
+                    "3) Une île volcanique"
+                  ],
+                  "matches_zh": [
+                    "1) 一种仪式性饮料",
+                    "2) 一种舞蹈",
+                    "3) 一个火山岛"
+                  ],
+                  "a": [
+                    0,
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "q": "4. Quel mot décrit un produit que l'on vend ou exporte?",
+                  "q_zh": "4. 哪个词描述了销售或出口的产品？",
+                  "o": [
+                    "Ressource",
+                    "Exportation",
+                    "Importation",
+                    "Produit agricole"
+                  ],
+                  "o_zh": [
+                    "资源",
+                    "出口",
+                    "进口",
+                    "农产品"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "5. Vrai/Faux: La Réunion est principalement connue pour son activité agricole.",
+                  "q_zh": "5. 正确/错误：留尼汪主要以其农业活动而闻名。",
+                  "type": "tf",
+                  "a": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "antilles-guyane",
+          "title": "11.5 LES ANTILLES FRANÇAISES ET LA GUYANE",
+          "title_zh": "11.5 法属安的列斯群岛和圭亚那",
+          "sections": [
+            {
+              "title": "Compréhension globale",
+              "title_zh": "整体理解",
+              "questions": [
+                {
+                  "q": "1. Quels pays composent les Antilles françaises ?",
+                  "q_zh": "1. 哪些国家组成了法属安的列斯群岛？",
+                  "o": [
+                    "Haïti et la Martinique",
+                    "La Guadeloupe, La Martinique, Saint-Martin",
+                    "La Réunion et la Martinique",
+                    "Guadeloupe, Martinique, Guyane"
+                  ],
+                  "o_zh": [
+                    "海地和马提尼克",
+                    "瓜德罗普、马提尼克、圣马丁",
+                    "留尼汪和马提尼克",
+                    "瓜德罗普、马提尼克、圭亚那"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "2. Quel produit agricole est le plus important dans l'économie des Antilles françaises ?",
+                  "q_zh": "2. 在法属安的列斯群岛的经济中，哪种农产品最重要？",
+                  "o": [
+                    "Le riz",
+                    "Le sucre de canne",
+                    "La banane",
+                    "Le café"
+                  ],
+                  "o_zh": [
+                    "大米",
+                    "甘蔗",
+                    "香蕉",
+                    "咖啡"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "3. Quel est le statut politique de la Guyane ?",
+                  "q_zh": "3. 圭亚那的政治地位是什么？",
+                  "o": [
+                    "Un territoire autonome",
+                    "Un département français d'outre-mer",
+                    "Un pays indépendant",
+                    "Une région indépendante"
+                  ],
+                  "o_zh": [
+                    "一个自治领土",
+                    "一个法国海外省",
+                    "一个独立的国家",
+                    "一个独立的地区"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "4. Qu'est-ce qui caractérise particulièrement Haïti ?",
+                  "q_zh": "4. 海地有什么特别之处？",
+                  "o": [
+                    "Son indépendance depuis 1804",
+                    "Son statut de département français",
+                    "Sa relation avec la France uniquement",
+                    "Sa culture asiatique"
+                  ],
+                  "o_zh": [
+                    "自1804年以来一直独立",
+                    "其法国省的地位",
+                    "仅与法国的关系",
+                    "其亚洲文化"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Pourquoi la Guyane est-elle importante sur le plan spatial ?",
+                  "q_zh": "5. 为什么圭亚那在航天领域很重要？",
+                  "o": [
+                    "Parce qu'elle a une base de lancement pour fusées",
+                    "Parce qu'elle a une grande réserve de pétrole",
+                    "Parce qu'elle est un site archéologique majeur",
+                    "Parce qu'elle est la première productrice de café"
+                  ],
+                  "o_zh": [
+                    "因为它有一个火箭发射基地",
+                    "因为它有大量的石油储备",
+                    "因为它是一个重要的考古遗址",
+                    "因为它是咖啡的第一大生产国"
+                  ],
+                  "a": 0
+                }
+              ]
+            },
+            {
+              "title": "Compréhension détaillée",
+              "title_zh": "细节理解",
+              "questions": [
+                {
+                  "q": "1. Quel est l'un des produits agricoles les plus exportés des Antilles françaises ?",
+                  "q_zh": "1. 法属安的列斯群岛出口最多的农产品之一是什么？",
+                  "o": [
+                    "Le cacao",
+                    "La banane",
+                    "Le riz",
+                    "Le coton"
+                  ],
+                  "o_zh": [
+                    "可可",
+                    "香蕉",
+                    "大米",
+                    "棉花"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "2. Quelle est la principale activité économique de la Guyane ?",
+                  "q_zh": "2. 圭亚那的主要经济活动是什么？",
+                  "o": [
+                    "L'agriculture",
+                    "Le tourisme",
+                    "L'industrie aérospatiale",
+                    "La pêche"
+                  ],
+                  "o_zh": [
+                    "农业",
+                    "旅游业",
+                    "航空航天工业",
+                    "渔业"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "3. Vrai/Faux: Haïti a obtenu son indépendance après une révolte des esclaves.",
+                  "q_zh": "3. 正确/错误：海地是在奴隶起义后获得独立的。",
+                  "type": "tf",
+                  "a": true
+                },
+                {
+                  "q": "4. Quelle est la particularité de la Guyane en termes de biodiversité ?",
+                  "q_zh": "4. 圭亚那在生物多样性方面有什么特点？",
+                  "o": [
+                    "Elle a des déserts",
+                    "Elle est recouverte à 98% de forêts tropicales",
+                    "Elle est principalement une zone montagneuse",
+                    "Elle a peu de diversité végétale"
+                  ],
+                  "o_zh": [
+                    "它有沙漠",
+                    "它98%的面积被热带雨林覆盖",
+                    "它主要是一个山区",
+                    "它的植物多样性很少"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "5. Quel est le rôle des écrivains haïtiens dans la culture mondiale ?",
+                  "q_zh": "5. 海地作家在世界文化中的作用是什么？",
+                  "o": [
+                    "Ils sont connus pour leur musique",
+                    "Ils ont une grande influence en littérature, comme Dany Laferrière",
+                    "Ils sont principalement des cinéastes",
+                    "Ils sont surtout des artistes peintres"
+                  ],
+                  "o_zh": [
+                    "他们以音乐闻名",
+                    "他们在文学界有很大影响力，例如丹尼·拉费里埃",
+                    "他们主要是电影制作人",
+                    "他们主要是画家"
+                  ],
+                  "a": 1
+                }
+              ]
+            },
+            {
+              "title": "Vocabulaire",
+              "title_zh": "词汇",
+              "questions": [
+                {
+                  "q": "1. Complétez la phrase: Haïti est le premier pays à obtenir son indépendance après ______.",
+                  "q_zh": "1. 填空：海地是在______之后第一个获得独立的国家。",
+                  "o": [
+                    "Une révolte des esclaves",
+                    "L'invasion d'un pays étranger",
+                    "Une guerre avec les États-Unis",
+                    "Une colonisation européenne"
+                  ],
+                  "o_zh": [
+                    "一场奴隶起义",
+                    "外国入侵",
+                    "与美国的战争",
+                    "欧洲殖民"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                },
+                {
+                  "q": "2. Vrai/Faux: La Guyane est célèbre pour ses forêts tropicales.",
+                  "q_zh": "2. 正确/错误：圭亚那以其热带雨林而闻名。",
+                  "type": "tf",
+                  "a": true
+                },
+                {
+                  "q": "3. Reliez les termes aux bonnes définitions:",
+                  "q_zh": "3. 将术语与正确的定义连接起来：",
+                  "type": "match",
+                  "items": [
+                    "A. Guyane",
+                    "B. Haïti",
+                    "C. Guadeloupe"
+                  ],
+                  "items_zh": [
+                    "A. 圭亚那",
+                    "B. 海地",
+                    "C. 瓜德罗普"
+                  ],
+                  "matches": [
+                    "1) Base spatiale",
+                    "2) Premier pays indépendant des Caraïbes",
+                    "3) Département français"
+                  ],
+                  "matches_zh": [
+                    "1) 航天基地",
+                    "2) 加勒比地区第一个独立的国家",
+                    "3) 法国的一个省"
+                  ],
+                  "a": [
+                    0,
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "q": "4. Quel mot désigne un espace naturel protégé ?",
+                  "q_zh": "4. 哪个词指一个受保护的自然区域？",
+                  "o": [
+                    "Réserve",
+                    "Forêt",
+                    "Jardin",
+                    "Lieu touristique"
+                  ],
+                  "o_zh": [
+                    "保护区",
+                    "森林",
+                    "花园",
+                    "旅游景点"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Complétez la phrase: La Guyane est un département ______ d'outre-mer.",
+                  "q_zh": "5. 填空：圭亚那是一个______海外省。",
+                  "o": [
+                    "Français",
+                    "Autonome",
+                    "Indépendant",
+                    "Étranger"
+                  ],
+                  "o_zh": [
+                    "法国",
+                    "自治",
+                    "独立",
+                    "外国"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "nouvelle-caledonie-polynesie",
+          "title": "11.6 DE LA NOUVELLE-CALÉDONIE À LA POLYNÉSIE FRANÇAISE",
+          "title_zh": "11.6 从新喀里多尼亚到法属波利尼西亚",
+          "sections": [
+            {
+              "title": "Compréhension globale",
+              "title_zh": "整体理解",
+              "questions": [
+                {
+                  "q": "1. Quel est le statut politique de la Nouvelle-Calédonie ?",
+                  "q_zh": "1. 新喀里多尼亚的政治地位是什么？",
+                  "o": [
+                    "Département français d'outre-mer",
+                    "Pays indépendant",
+                    "Collectivité d'outre-mer avec une large autonomie",
+                    "Région autonome de l'Australie"
+                  ],
+                  "o_zh": [
+                    "法国海外省",
+                    "独立国家",
+                    "拥有广泛自治权的海外集体",
+                    "澳大利亚的自治区"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "2. Quelle est la principale ressource naturelle de la Nouvelle-Calédonie ?",
+                  "q_zh": "2. 新喀里多尼亚的主要自然资源是什么？",
+                  "o": [
+                    "Nickel",
+                    "Diamants",
+                    "Pétrole",
+                    "Cacao"
+                  ],
+                  "o_zh": [
+                    "镍",
+                    "钻石",
+                    "石油",
+                    "可可"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "3. Quelles îles sont considérées comme un groupe d'îles perdues entre l'Australie et la Papouasie-Nouvelle-Guinée ?",
+                  "q_zh": "3. 哪些岛屿被认为是澳大利亚和巴布亚新几内亚之间的一组失落岛屿？",
+                  "o": [
+                    "Les îles Marquises",
+                    "La Polynésie française et la Nouvelle-Calédonie",
+                    "Les îles des États-Unis",
+                    "Les îles Malouines"
+                  ],
+                  "o_zh": [
+                    "马克萨斯群岛",
+                    "法属波利尼西亚和新喀里多尼亚",
+                    "美国的岛屿",
+                    "马尔维纳斯群岛"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "4. Quel est le produit principal de la Polynésie française ?",
+                  "q_zh": "4. 法属波利尼西亚的主要产品是什么？",
+                  "o": [
+                    "Perles et vanille",
+                    "Riz et sucre",
+                    "Café et cacao",
+                    "Pêche et pétrole"
+                  ],
+                  "o_zh": [
+                    "珍珠和香草",
+                    "大米和糖",
+                    "咖啡和可可",
+                    "渔业和石油"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Quelles cultures sont importantes en Nouvelle-Calédonie ?",
+                  "q_zh": "5. 在新喀里多尼亚，哪些文化是重要的？",
+                  "o": [
+                    "La culture kanake",
+                    "La culture ma'ohi",
+                    "La culture asiatique",
+                    "La culture européenne"
+                  ],
+                  "o_zh": [
+                    "卡纳克文化",
+                    "毛利文化",
+                    "亚洲文化",
+                    "欧洲文化"
+                  ],
+                  "a": 0
+                }
+              ]
+            },
+            {
+              "title": "Compréhension détaillée",
+              "title_zh": "细节理解",
+              "questions": [
+                {
+                  "q": "1. Quelle est la superficie maritime des îles francophones du Pacifique ?",
+                  "q_zh": "1. 太平洋法语岛屿的海洋面积是多少？",
+                  "o": [
+                    "6,5 millions de km²",
+                    "10 millions de km²",
+                    "5 millions de km²",
+                    "1 million de km²"
+                  ],
+                  "o_zh": [
+                    "650万平方公里",
+                    "1000万平方公里",
+                    "500万平方公里",
+                    "100万平方公里"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Quel est l'élément culturel majeur de la Nouvelle-Calédonie ?",
+                  "q_zh": "2. 新喀里多尼亚的主要文化元素是什么？",
+                  "o": [
+                    "La culture kanake, l'architecture et la danse",
+                    "L'art chinois et la cuisine",
+                    "La peinture et le cinéma",
+                    "Le théâtre et la littérature"
+                  ],
+                  "o_zh": [
+                    "卡纳克文化、建筑和舞蹈",
+                    "中国艺术和美食",
+                    "绘画和电影",
+                    "戏剧和文学"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "3. Vrai/Faux: Le Vanuatu est un État indépendant.",
+                  "q_zh": "3. 正确/错误：瓦努阿图是一个独立的国家。",
+                  "type": "tf",
+                  "a": true
+                },
+                {
+                  "q": "4. Quel est le rôle du nickel dans l'économie de la Nouvelle-Calédonie ?",
+                  "q_zh": "4. 镍在新喀里多尼亚经济中的作用是什么？",
+                  "o": [
+                    "C'est la principale exportation",
+                    "Il est utilisé pour produire des aliments",
+                    "Il est utilisé uniquement pour les bijoux",
+                    "Il est une ressource touristique"
+                  ],
+                  "o_zh": [
+                    "它是主要出口产品",
+                    "它用于生产食品",
+                    "它仅用于珠宝",
+                    "它是一种旅游资源"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Vrai/Faux: La Polynésie française est connue pour ses grands volcans et ses lagons protégés.",
+                  "q_zh": "5. 正确/错误：法属波利尼西亚以其大火山和受保护的泻湖而闻名。",
+                  "type": "tf",
+                  "a": true
+                }
+              ]
+            },
+            {
+              "title": "Vocabulaire",
+              "title_zh": "词汇",
+              "questions": [
+                {
+                  "q": "1. Complétez la phrase: La culture ma'ohi est connue pour ______.",
+                  "q_zh": "1. 填空：毛利文化以其______而闻名。",
+                  "o": [
+                    "La danse, la sculpture et les tatouages",
+                    "Le chant et les peintures",
+                    "La pêche et l'agriculture",
+                    "La musique traditionnelle"
+                  ],
+                  "o_zh": [
+                    "舞蹈、雕塑和纹身",
+                    "歌唱和绘画",
+                    "渔业和农业",
+                    "传统音乐"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                },
+                {
+                  "q": "2. Vrai/Faux: Le Vanuatu est une île indépendante du Pacifique.",
+                  "q_zh": "2. 正确/错误：瓦努阿图是太平洋上的一个独立岛屿。",
+                  "type": "tf",
+                  "a": true
+                },
+                {
+                  "q": "3. Reliez les termes à leur signification :",
+                  "q_zh": "3. 将术语与其含义连接起来：",
+                  "type": "match",
+                  "items": [
+                    "A. Polynésie",
+                    "B. Nouvelle-Calédonie",
+                    "C. Nickel"
+                  ],
+                  "items_zh": [
+                    "A. 波利尼西亚",
+                    "B. 新喀里多尼亚",
+                    "C. 镍"
+                  ],
+                  "matches": [
+                    "1) Les îles de la culture ma'ohi",
+                    "2) Îles au statut d'autonomie",
+                    "3) Ressource importante de la Nouvelle-Calédonie"
+                  ],
+                  "matches_zh": [
+                    "1) 毛利文化的岛屿",
+                    "2) 拥有自治地位的岛屿",
+                    "3) 新喀里多尼亚的重要资源"
+                  ],
+                  "a": [
+                    0,
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "q": "4. Quel mot désigne une région éloignée avec une autonomie politique ?",
+                  "q_zh": "4. 哪个词指一个拥有政治自治权的偏远地区？",
+                  "o": [
+                    "Collectivité",
+                    "Département",
+                    "Pays indépendant",
+                    "Région agricole"
+                  ],
+                  "o_zh": [
+                    "集体",
+                    "省",
+                    "独立国家",
+                    "农业区"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Complétez la phrase: La Nouvelle-Calédonie est le troisième producteur mondial de ______.",
+                  "q_zh": "5. 填空：新喀里多尼亚是世界第三大______生产国。",
+                  "o": [
+                    "Nickel",
+                    "Café",
+                    "Coton",
+                    "Riz"
+                  ],
+                  "o_zh": [
+                    "镍",
+                    "咖啡",
+                    "棉花",
+                    "大米"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "asie-sud-est",
+          "title": "11.7 L'ASIE DU SUD-EST",
+          "title_zh": "11.7 东南亚",
+          "sections": [
+            {
+              "title": "Compréhension globale",
+              "title_zh": "整体理解",
+              "questions": [
+                {
+                  "q": "1. Quels pays composent l'Asie du Sud-Est francophone mentionnés dans le texte ?",
+                  "q_zh": "1. 文中提到的东南亚法语国家有哪些？",
+                  "o": [
+                    "Vietnam, Cambodge, Laos",
+                    "Vietnam, Thaïlande, Chine",
+                    "Cambodge, Laos, Malaisie",
+                    "Indonésie, Laos, Thaïlande"
+                  ],
+                  "o_zh": [
+                    "越南、柬埔寨、老挝",
+                    "越南、泰国、中国",
+                    "柬埔寨、老挝、马来西亚",
+                    "印度尼西亚、老挝、泰国"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Quel était le nom de la région pendant la colonisation française ?",
+                  "q_zh": "2. 在法国殖民时期，该地区的名字是什么？",
+                  "o": [
+                    "Indochine française",
+                    "Asie française",
+                    "Indochine européenne",
+                    "Union indochinoise"
+                  ],
+                  "o_zh": [
+                    "法属印度支那",
+                    "法属亚洲",
+                    "欧属印度支那",
+                    "印度支那联盟"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "3. Quelle est la principale raison pour laquelle le français est encore parlé en Asie du Sud-Est?",
+                  "q_zh": "3. 为什么东南亚仍在使用法语的主要原因是什么？",
+                  "o": [
+                    "Les pays sont toujours sous domination française",
+                    "Le français est une langue principale dans ces pays",
+                    "L'histoire coloniale française et les relations culturelles",
+                    "Il est parlé uniquement dans les écoles"
+                  ],
+                  "o_zh": [
+                    "这些国家仍处于法国统治之下",
+                    "法语是这些国家的主要语言",
+                    "法国的殖民历史和文化关系",
+                    "它只在学校里使用"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "4. Quels sont les écrivains français célèbres associés à l'Indochine ?",
+                  "q_zh": "4. 哪些著名的法国作家与印度支那有关？",
+                  "o": [
+                    "Pierre Loti, André Malraux, Marguerite Duras",
+                    "Victor Hugo, Albert Camus, Simone de Beauvoir",
+                    "Jean-Paul Sartre, Claude Monet, Frédéric Chopin",
+                    "Gustave Flaubert, Jules Verne, Marcel Proust"
+                  ],
+                  "o_zh": [
+                    "皮埃尔·洛蒂、安德烈·马尔罗、玛格丽特·杜拉斯",
+                    "维克多·雨果、阿尔贝·加缪、西蒙·德·波伏娃",
+                    "让-保罗·萨特、克洛德·莫奈、弗雷德里克·肖邦",
+                    "古斯塔夫·福楼拜、儒勒·凡尔纳、马塞尔·普鲁斯特"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Quelle influence a eu la France sur l'urbanisme de ces pays ?",
+                  "q_zh": "5. 法国对这些国家的城市规划有何影响？",
+                  "o": [
+                    "Elle a imposé des lois de la circulation",
+                    "Elle a construit des infrastructures modernes comme des ponts et des routes",
+                    "Elle a introduit des designs architecturaux européens",
+                    "Elle a détruit toutes les anciennes structures"
+                  ],
+                  "o_zh": [
+                    "它强制实施了交通法规",
+                    "它建造了像桥梁和道路这样的现代化基础设施",
+                    "它引入了欧洲建筑设计",
+                    "它摧毁了所有旧建筑"
+                  ],
+                  "a": 2
+                }
+              ]
+            },
+            {
+              "title": "Compréhension détaillée",
+              "title_zh": "细节理解",
+              "questions": [
+                {
+                  "q": "1. Quand l'Indochine française a-t-elle cessé d'exister?",
+                  "q_zh": "1. 法属印度支那何时不复存在？",
+                  "o": [
+                    "En 1945",
+                    "En 1954",
+                    "En 1960",
+                    "En 1975"
+                  ],
+                  "o_zh": [
+                    "1945年",
+                    "1954年",
+                    "1960年",
+                    "1975年"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "2. Quel événement historique a marqué la fin de la colonisation française en Asie du Sud-Est ?",
+                  "q_zh": "2. 哪个历史事件标志着法国在东南亚殖民统治的结束？",
+                  "o": [
+                    "La guerre du Vietnam",
+                    "Les accords de Genève",
+                    "La bataille de Dien Bien Phu",
+                    "La création de l'ONU"
+                  ],
+                  "o_zh": [
+                    "越南战争",
+                    "日内瓦协议",
+                    "奠边府战役",
+                    "联合国的成立"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "3. Vrai/Faux: Le français est la langue officielle au Vietnam, au Cambodge et au Laos.",
+                  "q_zh": "3. 正确/错误：法语是越南、柬埔寨和老挝的官方语言。",
+                  "type": "tf",
+                  "a": false
+                },
+                {
+                  "q": "4. Pourquoi les écrivains comme Pierre Loti et André Malraux sont-ils associés à l'Indochine ?",
+                  "q_zh": "4. 为什么像皮埃尔·洛蒂和安德烈·马尔罗这样的作家与印度支那有关？",
+                  "o": [
+                    "Parce qu'ils ont vécu et écrit sur leurs expériences en Asie du Sud-Est",
+                    "Parce qu'ils étaient des politiciens en Indochine",
+                    "Parce qu'ils ont été des résistants contre la France coloniale",
+                    "Parce qu'ils ont fondé des écoles de langue française en Asie"
+                  ],
+                  "o_zh": [
+                    "因为他们曾在东南亚生活并写作了关于他们的经历",
+                    "因为他们是印度支那的政治家",
+                    "因为他们是反抗法国殖民的抵抗者",
+                    "因为他们在亚洲建立了法语学校"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Quelle est la principale fonction de l'École française d'Extrême-Orient, fondée en 1900 ?",
+                  "q_zh": "5. 成立于1900年的法国远东学院的主要职能是什么？",
+                  "o": [
+                    "Enseigner la langue vietnamienne",
+                    "Étudier et préserver les civilisations asiatiques",
+                    "Former des militaires pour la colonisation",
+                    "Créer des relations commerciales avec l'Asie"
+                  ],
+                  "o_zh": [
+                    "教授越南语",
+                    "研究和保护亚洲文明",
+                    "为殖民统治培养军事人员",
+                    "与亚洲建立商业关系"
+                  ],
+                  "a": 1
+                }
+              ]
+            },
+            {
+              "title": "Vocabulaire",
+              "title_zh": "词汇",
+              "questions": [
+                {
+                  "q": "1. Que signifie le terme << protectorat >>> dans ce contexte ?",
+                  "q_zh": "1. 在这种情况下，“保护国”这个词是什么意思？",
+                  "o": [
+                    "Un territoire sous la protection d'une autre nation",
+                    "Un territoire totalement indépendant",
+                    "Un territoire dévasté par la guerre",
+                    "Un territoire sans gouvernement"
+                  ],
+                  "o_zh": [
+                    "一个受另一个国家保护的领土",
+                    "一个完全独立的领土",
+                    "一个被战争摧毁的领土",
+                    "一个没有政府的领土"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Vrai/Faux: Le terme \"Indochine\" désigne une région regroupant uniquement le Vietnam.",
+                  "q_zh": "2. 正确/错误：“印度支那”一词仅指越南地区。",
+                  "type": "tf",
+                  "a": false
+                },
+                {
+                  "q": "3. Reliez les termes à leur définition:",
+                  "q_zh": "3. 将术语与其定义连接起来：",
+                  "type": "match",
+                  "items": [
+                    "A. Indochine",
+                    "B. Pierre Loti",
+                    "C. Francophonie"
+                  ],
+                  "items_zh": [
+                    "A. 印度支那",
+                    "B. 皮埃尔·洛蒂",
+                    "C. 法语圈"
+                  ],
+                  "matches": [
+                    "1) Ancienne colonie française",
+                    "2) Écrivain ayant écrit sur ses voyages en Asie",
+                    "3) La langue française partagée par plusieurs pays"
+                  ],
+                  "matches_zh": [
+                    "1) 前法国殖民地",
+                    "2) 写过关于亚洲旅行的作家",
+                    "3) 多个国家共享的法语"
+                  ],
+                  "a": [
+                    0,
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "q": "4. Complétez la phrase: Les écrivains français ont contribué à ______ l'histoire coloniale de l'Indochine.",
+                  "q_zh": "4. 填空：法国作家为______印度支那的殖民历史做出了贡献。",
+                  "o": [
+                    "Réécrire",
+                    "Oublier",
+                    "Ignorer",
+                    "Renier"
+                  ],
+                  "o_zh": [
+                    "重写",
+                    "忘记",
+                    "忽略",
+                    "否认"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                },
+                {
+                  "q": "5. Quel terme désigne la période où un pays était sous domination française ?",
+                  "q_zh": "5. 哪个术语指一个国家处于法国统治下的时期？",
+                  "o": [
+                    "Colonisation",
+                    "Décolonisation",
+                    "Indépendance",
+                    "Révolution"
+                  ],
+                  "o_zh": [
+                    "殖民化",
+                    "非殖民化",
+                    "独立",
+                    "革命"
+                  ],
+                  "a": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "amerique-du-nord",
+          "title": "11.8 L'AMÉRIQUE DU NORD",
+          "title_zh": "11.8 北美",
+          "sections": [
+            {
+              "title": "Compréhension globale",
+              "title_zh": "整体理解",
+              "questions": [
+                {
+                  "q": "1. Quels sont les principaux territoires francophones de l'Amérique du Nord mentionnés dans le texte ?",
+                  "q_zh": "1. 文中提到的北美主要法语区有哪些？",
+                  "o": [
+                    "Québec, Ontario, Louisiane",
+                    "Québec, Mexique, Louisiane",
+                    "États-Unis, Québec, Ontario",
+                    "Ontario, Louisiane, Haïti"
+                  ],
+                  "o_zh": [
+                    "魁北克、安大略、路易斯安那",
+                    "魁北克、墨西哥、路易斯安那",
+                    "美国、魁北克、安大略",
+                    "安大略、路易斯安那、海地"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Quelle est la situation linguistique au Québec ?",
+                  "q_zh": "2. 魁北克的语言状况如何？",
+                  "o": [
+                    "Le français est la langue officielle",
+                    "L'anglais est la langue officielle",
+                    "Le français et l'anglais sont utilisés à parts égales",
+                    "Il n'y a pas de langue officielle"
+                  ],
+                  "o_zh": [
+                    "法语是官方语言",
+                    "英语是官方语言",
+                    "法语和英语被平等使用",
+                    "没有官方语言"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "3. Quel est le rôle de la Loi 101 au Québec ?",
+                  "q_zh": "3. 魁北克的101法案有什么作用？",
+                  "o": [
+                    "Elle interdit l'utilisation de l'anglais",
+                    "Elle protège l'usage du français dans la vie publique",
+                    "Elle impose l'anglais dans les écoles",
+                    "Elle encourage l'utilisation du français uniquement dans les maisons"
+                  ],
+                  "o_zh": [
+                    "它禁止使用英语",
+                    "它保护法语在公共生活中的使用",
+                    "它在学校强制使用英语",
+                    "它鼓励只在家里使用法语"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "4. Quelle est la principale région francophone aux États-Unis ?",
+                  "q_zh": "4. 美国主要的法语区是哪个？",
+                  "o": [
+                    "La Louisiane",
+                    "Le Maine",
+                    "La Floride",
+                    "La Californie"
+                  ],
+                  "o_zh": [
+                    "路易斯安那州",
+                    "缅因州",
+                    "佛罗里达州",
+                    "加利福尼亚州"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Quel genre musical est lié à la Louisiane et a des racines françaises ?",
+                  "q_zh": "5. 哪种音乐类型与路易斯安那有关并有法国根源？",
+                  "o": [
+                    "Jazz",
+                    "Country",
+                    "Blues",
+                    "Hip-hop"
+                  ],
+                  "o_zh": [
+                    "爵士乐",
+                    "乡村音乐",
+                    "蓝调",
+                    "嘻哈"
+                  ],
+                  "a": 0
+                }
+              ]
+            },
+            {
+              "title": "Compréhension détaillée",
+              "title_zh": "细节理解",
+              "questions": [
+                {
+                  "q": "1. Quel est le statut linguistique du Nouveau-Brunswick ?",
+                  "q_zh": "1. 新不伦瑞克省的语言地位是什么？",
+                  "o": [
+                    "Il est officiellement bilingue",
+                    "Il utilise uniquement l'anglais",
+                    "Il utilise uniquement le français",
+                    "Il est une province où l'anglais est plus parlé"
+                  ],
+                  "o_zh": [
+                    "它是官方双语区",
+                    "它只使用英语",
+                    "它只使用法语",
+                    "它是一个英语使用更多的省份"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Vrai/Faux: Le français est largement parlé au Manitoba.",
+                  "q_zh": "2. 正确/错误：法语在马尼托巴省被广泛使用。",
+                  "type": "tf",
+                  "a": false
+                },
+                {
+                  "q": "3. Quelles grandes villes sont mentionnées dans le texte comme étant francophones en Amérique du Nord ?",
+                  "q_zh": "3. 文中提到了哪些北美法语城市？",
+                  "o": [
+                    "Montréal, Ottawa, Québec, La Nouvelle-Orléans",
+                    "Montréal, Toronto, New York",
+                    "Montréal, Boston, San Francisco",
+                    "Montréal, Chicago, Vancouver"
+                  ],
+                  "o_zh": [
+                    "蒙特利尔、渥たわ、魁北克市、新奥尔良",
+                    "蒙特利尔、多伦多、纽约",
+                    "蒙特利尔、波士顿、旧金山",
+                    "蒙特利尔、芝加哥、温哥华"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "4. Quel est le rôle du français en Louisiane?",
+                  "q_zh": "4. 法语在路易斯安那州的作用是什么？",
+                  "o": [
+                    "Il est uniquement parlé dans les écoles",
+                    "Il est la langue officielle du gouvernement",
+                    "Il est une langue culturelle, parlée par une grande partie de la population",
+                    "Il est abandonné au profit de l'anglais"
+                  ],
+                  "o_zh": [
+                    "它只在学校里说",
+                    "它是政府的官方语言",
+                    "它是一种文化语言，被大部分人口使用",
+                    "它已被英语取代"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "5. Comment le Québec protège-t-il la langue française ?",
+                  "q_zh": "5. 魁北克如何保护法语？",
+                  "o": [
+                    "En imposant l'anglais dans les écoles",
+                    "En créant des lois comme la Loi 101 pour protéger le français",
+                    "En excluant l'anglais de l'administration",
+                    "En rendant l'anglais obligatoire dans toutes les entreprises"
+                  ],
+                  "o_zh": [
+                    "通过在学校强制使用英语",
+                    "通过制定像101法案这样的法律来保护法语",
+                    "通过将英语排除在行政之外",
+                    "通过在所有公司强制使用英语"
+                  ],
+                  "a": 1
+                }
+              ]
+            },
+            {
+              "title": "Vocabulaire",
+              "title_zh": "词汇",
+              "questions": [
+                {
+                  "q": "1. Vrai/Faux: La Loi 101 protège le français dans la vie publique au Québec.",
+                  "q_zh": "1. 正确/错误：101法案保护了魁北克公共生活中的法语。",
+                  "type": "tf",
+                  "a": true
+                },
+                {
+                  "q": "2. Complétez la phrase: Le jazz est un genre musical qui a des racines ______.",
+                  "q_zh": "2. 填空：爵士乐是一种有______根源的音乐类型。",
+                  "o": [
+                    "Françaises",
+                    "Africaines",
+                    "Européennes",
+                    "Américaines"
+                  ],
+                  "o_zh": [
+                    "法国",
+                    "非洲",
+                    "欧洲",
+                    "美国"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                },
+                {
+                  "q": "3. Reliez les expressions avec leurs significations:",
+                  "q_zh": "3. 将表达与其含义连接起来：",
+                  "type": "match",
+                  "items": [
+                    "A. Loi 101",
+                    "B. Louisiane",
+                    "C. Québec"
+                  ],
+                  "items_zh": [
+                    "A. 101法案",
+                    "B. 路易斯安那",
+                    "C. 魁北克"
+                  ],
+                  "matches": [
+                    "1) Langue officielle du Québec",
+                    "2) Un état américain où le français est parlé",
+                    "3) Une province canadienne avec une majorité francophone"
+                  ],
+                  "matches_zh": [
+                    "1) 魁北克的官方语言",
+                    "2) 一个讲法语的美国州",
+                    "3) 一个法语人口占多数的加拿大省份"
+                  ],
+                  "a": [
+                    0,
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "q": "4. Quel terme désigne un ensemble de lois pour protéger une langue ?",
+                  "q_zh": "4. 哪个术语指一套保护语言的法律？",
+                  "o": [
+                    "Charte",
+                    "Loi linguistique",
+                    "Accord culturel",
+                    "Droit international"
+                  ],
+                  "o_zh": [
+                    "宪章",
+                    "语言法",
+                    "文化协议",
+                    "国际法"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "5. Vrai/Faux: Le français est une langue minoritaire aux États-Unis.",
+                  "q_zh": "5. 正确/错误：法语在美国是一种少数民族语言。",
+                  "type": "tf",
+                  "a": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "europe",
+          "title": "11.9 L'EUROPE",
+          "title_zh": "11.9 欧洲",
+          "sections": [
+            {
+              "title": "Compréhension globale",
+              "title_zh": "整体理解",
+              "questions": [
+                {
+                  "q": "1. Quels pays d'Europe sont mentionnés comme étant francophones dans le texte ?",
+                  "q_zh": "1. 文中提到了哪些欧洲法语国家？",
+                  "o": [
+                    "Belgique, Luxembourg, Suisse",
+                    "Belgique, France, Allemagne",
+                    "Espagne, Luxembourg, Belgique",
+                    "Suisse, Italie, Luxembourg"
+                  ],
+                  "o_zh": [
+                    "比利时、卢森堡、瑞士",
+                    "比利时、法国、德国",
+                    "西班牙、卢森堡、比利时",
+                    "瑞士、意大利、卢森堡"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Quels sont les principaux endroits où l'on parle français en Suisse ?",
+                  "q_zh": "2. 在瑞士，主要在哪些地方讲法语？",
+                  "o": [
+                    "Canton de Genève, canton de Vaud, canton de Neuchâtel",
+                    "Canton de Zürich, canton de Genève, canton de Valais",
+                    "Canton de Fribourg, canton de Neuchâtel",
+                    "Canton de Vaud, canton de Thurgovie"
+                  ],
+                  "o_zh": [
+                    "日内瓦州、沃州、纳沙泰尔州",
+                    "苏黎世州、日内瓦州、瓦莱州",
+                    "弗里堡州、纳沙泰尔州",
+                    "沃州、图尔高州"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "3. Vrai/Faux: Le français est parlé dans la région du Val d'Aoste en Italie.",
+                  "q_zh": "3. 正确/错误：在意大利的瓦莱达奥斯塔大区讲法语。",
+                  "type": "tf",
+                  "a": true
+                },
+                {
+                  "q": "4. Quel est le terme pour désigner un pays où plusieurs langues sont parlées ?",
+                  "q_zh": "4. 用什么术语来指一个讲多种语言的国家？",
+                  "o": [
+                    "Monolingue",
+                    "Multilingue",
+                    "Homogène",
+                    "Unilingue"
+                  ],
+                  "o_zh": [
+                    "单语的",
+                    "多语的",
+                    "同质的",
+                    "单语的"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "5. Quelles villes sont citées comme ayant une grande influence francophone en Europe ?",
+                  "q_zh": "5. 哪些城市被认为是欧洲具有重大法语影响力的城市？",
+                  "o": [
+                    "Bruxelles, Genève, Lausanne",
+                    "Paris, Lyon, Marseille",
+                    "Genève, Paris, Rome",
+                    "Bruxelles, Milan, Luxembourg"
+                  ],
+                  "o_zh": [
+                    "布鲁塞尔、日内瓦、洛桑",
+                    "巴黎、里昂、马赛",
+                    "日内瓦、巴黎、罗马",
+                    "布鲁塞尔、米兰、卢森堡"
+                  ],
+                  "a": 0
+                }
+              ]
+            },
+            {
+              "title": "Compréhension détaillée",
+              "title_zh": "细节理解",
+              "questions": [
+                {
+                  "q": "1. Quel produit est principalement exporté de la Belgique et de la Suisse ?",
+                  "q_zh": "1. 比利时和瑞士主要出口什么产品？",
+                  "o": [
+                    "Chocolat et fromage",
+                    "Pétrole et gaz",
+                    "Nickel et or",
+                    "Automobiles et machines"
+                  ],
+                  "o_zh": [
+                    "巧克力和奶酪",
+                    "石油和天然气",
+                    "镍和黄金",
+                    "汽车和机械"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "2. Quel est le rôle de Bruxelles dans l'Union européenne ?",
+                  "q_zh": "2. 布鲁塞尔在欧盟中的作用是什么？",
+                  "o": [
+                    "Ville siège des Nations Unies",
+                    "Siège des institutions européennes",
+                    "Centre de production industrielle",
+                    "Ville touristique importante"
+                  ],
+                  "o_zh": [
+                    "联合国总部城市",
+                    "欧洲机构所在地",
+                    "工业生产中心",
+                    "重要的旅游城市"
+                  ],
+                  "a": 1
+                },
+                {
+                  "q": "3. Vrai/Faux: La Belgique est le seul pays où le français est parlé dans toutes ses régions.",
+                  "q_zh": "3. 正确/错误：比利时是唯一一个所有地区都讲法语的国家。",
+                  "type": "tf",
+                  "a": false
+                },
+                {
+                  "q": "4. Quel est le statut du français dans la Suisse ?",
+                  "q_zh": "4. 法语在瑞士的地位是什么？",
+                  "o": [
+                    "Langue officielle dans tous les cantons",
+                    "Langue officielle uniquement à Genève",
+                    "Langue régionale",
+                    "Langue étrangère obligatoire dans les écoles"
+                  ],
+                  "o_zh": [
+                    "所有州的官方语言",
+                    "仅在日内瓦是官方语言",
+                    "地区性语言",
+                    "学校强制学习的外语"
+                  ],
+                  "a": 2
+                },
+                {
+                  "q": "5. Qu'est-ce qui distingue le français de Belgique, Suisse et Luxembourg de celui de France ?",
+                  "q_zh": "5. 比利时、瑞士和卢森堡的法语与法国的法语有何不同？",
+                  "o": [
+                    "L'utilisation de certains mots et expressions spécifiques",
+                    "Le français est parlé plus vite",
+                    "La grammaire est différente",
+                    "Le français de ces pays n'a pas de vocabulaire moderne"
+                  ],
+                  "o_zh": [
+                    "使用一些特定的词汇和表达方式",
+                    "这些国家的法语说得更快",
+                    "语法不同",
+                    "这些国家的法语没有现代词汇"
+                  ],
+                  "a": 0
+                }
+              ]
+            },
+            {
+              "title": "Vocabulaire",
+              "title_zh": "词汇",
+              "questions": [
+                {
+                  "q": "1. Complétez la phrase: La Belgique est un pays ______ avec des communautés qui parlent différentes langues.",
+                  "q_zh": "1. 填空：比利时是一个______国家，其社区使用不同的语言。",
+                  "o": [
+                    "Multilingue",
+                    "Unilingue",
+                    "Monolingue",
+                    "Européen"
+                  ],
+                  "o_zh": [
+                    "多语的",
+                    "单语的",
+                    "单语的",
+                    "欧洲的"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                },
+                {
+                  "q": "2. Vrai/Faux: Le français de Belgique utilise des mots différents de ceux de la France.",
+                  "q_zh": "2. 正确/错误：比利时法语使用的词汇与法国法语不同。",
+                  "type": "tf",
+                  "a": true
+                },
+                {
+                  "q": "3. Reliez les expressions avec leur signification:",
+                  "q_zh": "3. 将表达与其含义连接起来：",
+                  "type": "match",
+                  "items": [
+                    "A. Val d'Aoste",
+                    "B. Bruxelles",
+                    "C. Suisse"
+                  ],
+                  "items_zh": [
+                    "A. 瓦莱达奥斯塔",
+                    "B. 布鲁塞尔",
+                    "C. 瑞士"
+                  ],
+                  "matches": [
+                    "1) Région italienne où l'on parle français",
+                    "2) Ville avec des institutions européennes",
+                    "3) Pays multilingue où le français est parlé"
+                  ],
+                  "matches_zh": [
+                    "1) 意大利一个讲法语的地区",
+                    "2) 拥有欧洲机构的城市",
+                    "3) 一个讲法语的多语国家"
+                  ],
+                  "a": [
+                    0,
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "q": "4. Quel mot désigne l'utilisation de plusieurs langues dans un pays ?",
+                  "q_zh": "4. 哪个词指一个国家使用多种语言？",
+                  "o": [
+                    "Multilinguisme",
+                    "Monolinguisme",
+                    "Monoculturalisme",
+                    "Bilinguisme"
+                  ],
+                  "o_zh": [
+                    "多语制",
+                    "单语制",
+                    "单文化主义",
+                    "双语制"
+                  ],
+                  "a": 0
+                },
+                {
+                  "q": "5. Complétez la phrase: Le Luxembourg a une population de ______ personnes.",
+                  "q_zh": "5. 填空：卢森堡的人口为______人。",
+                  "o": [
+                    "450,000",
+                    "1,2 million",
+                    "2 millions",
+                    "10 millions"
+                  ],
+                  "o_zh": [
+                    "45万",
+                    "120万",
+                    "200万",
+                    "1000万"
+                  ],
+                  "a": 0,
+                  "type": "fill"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "intro": {
+    "title": "零基础入门课程",
+    "desc": "专为零基础学习者打造的沉浸式启蒙路线。",
+    "timeline": [
+      {
+        "title": "第一课：字母与发音",
+        "desc": "掌握法语26个字母与核心发音规则。"
+      },
+      {
+        "title": "第二课：特殊发音规则",
+        "desc": "掌握连音、省音、词尾不发音与字母 H 的特殊用法。"
+      },
+      {
+        "title": "第三课：基础问候",
+        "desc": "学习如何得体地与法国人打招呼。"
+      },
+      {
+        "title": "第四课：数字 1-20",
+        "desc": "学会日常生活中的基本数字表达。"
+      },
+      {
+        "title": "第五课：核心动词",
+        "desc": "掌握 être (是) 和 avoir (有) 的基本用法。"
+      }
+    ],
+    "start": "开始学习",
+    "lesson1": {
+      "title": "第一课：字母与核心发音",
+      "desc": "点击下方音标了解发音规则并聆听纯正法语发音",
+      "tabs": {
+        "vowel": "元音 (Voyelles)",
+        "semiVowel": "半元音 (Semi-voyelles)",
+        "consonant": "辅音 (Consonnes)",
+        "nasal": "鼻化元音 (Voyelles nasales)"
+      },
+      "rules": "发音要领与拼写",
+      "spellAndExamples": "拼写与例词",
+      "playTTS": "朗读法语例词",
+      "back": "返回课程页",
+      "practice": {
+        "cta": "我已经掌握了，开始练习 ➔",
+        "title": "发音听力测验",
+        "desc": "聆听单词发音，选出它包含的核心音标",
+        "questionOf": "第 {x} / {y} 题",
+        "playAudio": "点击播放发音",
+        "correct": "太棒了！",
+        "incorrect": "哎呀，再试一次！",
+        "next": "下一题 ➔",
+        "finishTitle": "练习完成！",
+        "finishDesc": "你的得分：{score} / {total}",
+        "restart": "重新挑战",
+        "hide": "收起练习",
+        "menuTitle": "选择练习模式",
+        "set1": "套题 1：基础元音",
+        "set2": "套题 2：进阶元音与鼻化元音",
+        "set3": "套题 3：基础辅音",
+        "set4": "套题 4：辅音与半元音",
+        "set5": "套题 5：高难度综合挑战",
+        "randomMode": "🎲 随机挑战模式",
+        "backToMenu": "返回模式选择",
+        "wordWas": "当前例词："
+      }
+    },
+    "lesson2": {
+      "title": "第二课：特殊发音规则",
+      "desc": "法语之所以听起来像优美的歌曲，离不开这些特殊的语音衔接与发音习惯。",
+      "back": "返回课程页",
+      "playTTS": "朗读例句"
+    },
+    "soon": "敬请期待"
+  }
+}
